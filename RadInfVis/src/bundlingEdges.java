@@ -15,7 +15,7 @@ public class bundlingEdges extends PApplet {
 	public int height = 600;
 	public float centerX = width / 2 - 100;
 	public float centerY = height / 2;
-	public float radius = (height - 100) / 2;
+	public float radius = (height - 150) / 2;
 	public float circumference = 2 * PI * radius;
 
 	public float ammountOfPlaces = 5; // home, Uni, Social, Work, Freetime
@@ -31,6 +31,7 @@ public class bundlingEdges extends PApplet {
 	PImage arrow;
 	PFont headerFont;
 	PFont infoText;
+	PFont percenteges;
 
 	public float[] computeArcs(place plc) {
 		// this is the float Array which will be returned by
@@ -53,7 +54,7 @@ public class bundlingEdges extends PApplet {
 		return rtrn;
 	}
 
-	public float[] degreesToXnY(float deg) {
+	public float[] degreesToXnY(float deg, float radius) {
 		// this function gets as input only a degree-value and returns the
 		// concrete
 		// X and Y values in a float-Array
@@ -103,12 +104,18 @@ public class bundlingEdges extends PApplet {
 
 			text(prcntg, 130 + xPos, 42 + i * 30 + yPos);
 			text(places.get(i).name, 25 + xPos, 42 + i * 30 + yPos);
+			// percentages
+			percenteges = createFont("Dialog.plain", 10+15*lclprc/100);
+			textFont(percenteges);
+			
+			float[] percPos = degreesToXnY(places.get(i).middle,radius+35);
+			
+			text(prcntg,percPos[0]-20,percPos[1]);
 		}
 		// headers
 		headerFont = createFont("Dialog.plain", 22);
 		textFont(headerFont);
-		// text("Wegevisualisierung",xPos-20,50);
-
+		
 	}
 
 	public void drawElipse() {
@@ -121,50 +128,36 @@ public class bundlingEdges extends PApplet {
 	public void drawBeziers(int i) {
 		noFill();
 		float[] outgoings = places.get(i).outgoings;
+		float arcLengthFrom = places.get(i).lenght/2;
 
-		for (int j = 0; j < 5; j++) {
+		for (int j = 0; j < places.size(); j++) {
+			
+			float arcLengthTo = places.get(j).lenght/2;
 
 			stroke(places.get(i).backgroundcolor);
 			noFill();
 			strokeWeight(1);
 
-			float length = outgoings[j] * places.get(i).lenght / 2; // in
-			float lengthIncoming = places.get(j).incomings[i]
-					* (places.get(j).lenght / 2) / 100; // degrees
-			float rel = 0;
-			rel = lengthIncoming / length;
+			float lengthOfOneColorFrom = outgoings[j] * arcLengthFrom; // in
+			float lengthOfOneColorTo = places.get(j).incomings[i]*arcLengthTo;
+			float rel = lengthOfOneColorTo/lengthOfOneColorFrom;
 
-			// rel = places.get(j).incomings[i]/100 * places.get(j).lenght/2;
-			// println("rel: " + rel + " length: " + length );
-			// rel = rel/length;
-
-			// rel = rel/length;
-			// rel = places.get(j).incomings[i]/length;
-			// println("places.get(j).incomings[i]: " +
-			// places.get(j).incomings[i]);
-			// println("length: " + length);
-
-			for (int k = 0; k < length - 1; k++) {
+			for (int k = 0; k < lengthOfOneColorFrom-1; k++) {
+												
 				float[] start = degreesToXnY(places.get(i).start
-						+ places.get(i).currentLengtgOfOutgoingLinks);
+						+ places.get(i).currentLengtgOfOutgoingLinks,radius);
 
 				float[] end = degreesToXnY(places.get(j).end
-						- places.get(j).currentLengthOfIncomingLinks);
+						- places.get(j).currentLengthOfIncomingLinks, radius);
 
 				bezier(start[0], start[1], centerX, centerY, centerX, centerY,
 						end[0], end[1]);
 
 				places.get(i).currentLengtgOfOutgoingLinks++;
-
-				places.get(j).currentLengthOfIncomingLinks = places.get(j).currentLengthOfIncomingLinks
-						+ rel;
+				places.get(j).currentLengthOfIncomingLinks = 
+						places.get(j).currentLengthOfIncomingLinks + rel;
 			}
-			// if (places.get(j).currentLengthOfIncomingLinks >
-			// places.get(j).lenght / 2) {
-			// places.get(j).currentLengthOfIncomingLinks = 0;
-			// }
 		}
-		places.get(i).currentLengtgOfOutgoingLinks = 0;
 		drawBeziers = false;
 	}
 
@@ -340,8 +333,8 @@ public class bundlingEdges extends PApplet {
 			float arrowOut = places.get(i).start + 3
 					* (places.get(i).percentage * (360 - 36)) / 4;// in Degrees
 
-			float[] arrowPosIn = degreesToXnY(arrowIn);
-			float[] arrowPosOut = degreesToXnY(arrowOut);
+			float[] arrowPosIn = degreesToXnY(arrowIn,radius);
+			float[] arrowPosOut = degreesToXnY(arrowOut,radius);
 
 			pushMatrix();
 			translate(arrowPosIn[0], arrowPosIn[1]);
@@ -356,6 +349,8 @@ public class bundlingEdges extends PApplet {
 			translate(-arrowPosOut[0], -arrowPosOut[1]);
 			image(arrow, arrowPosOut[0], arrowPosOut[1]);
 			popMatrix();
+			
+			
 			noLoop();
 
 		}

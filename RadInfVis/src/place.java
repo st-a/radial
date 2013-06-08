@@ -18,7 +18,7 @@ public class place extends PApplet {
 	public float end;
 	public float lenght; // arcLength in degrees
 	public float middle;
-	public float currentLengthOfIncomingLinks = 0; //length in degrees
+	public float currentLengthOfIncomingLinks = 0.5f; //length in degrees
 	public float currentLengtgOfOutgoingLinks = 0;
 	public float[][] outgoingLinks = new float[4][5];
 	public float[] outgoings = new float[5];
@@ -88,9 +88,15 @@ public class place extends PApplet {
 								places.get(i).lenght;
 			sumOfIncommings +=this.incomings[i];
 		}
+		
 		float[] incomingsInPerc = new float[places.size()];
+		
 		for(int j=0;j<places.size();j++){
 			incomingsInPerc[j]= this.incomings[j]/sumOfIncommings;
 		}
+		for(int j=0;j<places.size();j++){
+			incomings[j] = incomingsInPerc[j];
+		}
+		
 	}
 }
