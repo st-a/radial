@@ -312,11 +312,14 @@ public class bundlingEdges extends PApplet {
 
 			float minValue = (places.get(i).lenght/2)/360f*circumference;
 
+			
+			//Draw and rotate Arrows
+			noStroke();
 			pushMatrix();
 			translate(arrowPosOut[0], arrowPosOut[1]);
 			rotate(radians(arrowOut - 180));
 			translate(-arrowPosOut[0], -arrowPosOut[1]);
-			stroke(50);
+			fill(50);
 			triangleArrow arrow1 = new triangleArrow(arrowPosOut, minValue);
 			triangle(arrow1.p0[0], arrow1.p0[1],
 					arrow1.p1[0], arrow1.p1[1],
@@ -327,17 +330,18 @@ public class bundlingEdges extends PApplet {
 			translate(arrowPosIn[0], arrowPosIn[1]);
 			rotate(radians(arrowIn + 0));
 			translate(-arrowPosIn[0], -arrowPosIn[1]);
-			stroke(100);
+			fill(150);
 			triangleArrow arrow0 = new triangleArrow(arrowPosIn, minValue);
 			triangle(arrow0.p0[0], arrow0.p0[1],
 					arrow0.p1[0], arrow0.p1[1],
 					arrow0.p2[0], arrow0.p2[1]);
 			popMatrix();
 			
-			noFill();
-
+			
 			// Arc Part One, Outgoing
-			stroke(100);
+			stroke(150);
+			noFill();
+			strokeWeight(10);
 			arc(centerX, centerY, 2 * radius, 2 * radius,
 					radians(places.get(i).start - 90),
 					radians(places.get(i).middle - 90));
