@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-import javax.swing.text.StyledEditorKit.FontSizeAction;
-
 import processing.core.PApplet;
 import processing.core.PFont;
 import processing.core.PImage;
@@ -80,6 +78,7 @@ public class bundlingEdges extends PApplet {
 
 			// Box at the bottom right
 			fill(places.get(i).backgroundcolor);
+			strokeWeight(1);
 			rect(85 + xPos, 25 + i * 30 + yPos, 40, 25);
 			image(places.get(i).icon, 105 + xPos, 37 + i * 30 + yPos);
 			fill(0);
@@ -97,19 +96,18 @@ public class bundlingEdges extends PApplet {
 			stroke(200);
 			strokeWeight(2);
 			noFill();
-			rect(xPos + 10, yPos + 10, 180, 175);
+			rect(xPos + 70, yPos + 10, 120, 175);
 
 			infoText = createFont("Dialog.plain", 12);
 			textFont(infoText);
 
-			text(prcntg, 130 + xPos, 42 + i * 30 + yPos);
-			text(places.get(i).name, 25 + xPos, 42 + i * 30 + yPos);
-			// percentages
+			text(places.get(i).name, 130 + xPos, 42 + i * 30 + yPos);
+
+			// percentages in the graph
 			percenteges = createFont("Dialog.plain", 10+15*lclprc/100);
 			textFont(percenteges);
 			
-			float[] percPos = degreesToXnY(places.get(i).middle,radius+35);
-			
+			float[] percPos = degreesToXnY(places.get(i).middle,radius+40);
 			text(prcntg,percPos[0]-20,percPos[1]);
 		}
 		// headers
@@ -285,41 +283,17 @@ public class bundlingEdges extends PApplet {
 		// drawArcs
 		for (int i = 0; i < ammountOfPlaces; i++) {
 
-			// bezier curves
-			// one curve per degree - so there is a maximum of 324/2 bezier
-			// curves
-
-			// This was a trial, maybe I'll use and complete it later
-			/*
-			 * float[][] outgoing = places.get(i).outgoingLinks;
-			 * 
-			 * float[] start = degreesToXnY(places.get(0).start
-			 * +places.get(0).currentLengtgOfOutgoingLinks); float[] end =
-			 * degreesToXnY(places.get(1).end-
-			 * +places.get(1).currentLengthOfIncomingLinks);
-			 * 
-			 * stroke(places.get(i).backgroundcolor); noFill(); strokeWeight(1);
-			 * bezier(start[0],start[1], centerX, centerY, centerX, centerY,
-			 * end[0], end[1]);
-			 */
 			if (drawBeziers) {
 				for (int l = 0; l < ammountOfPlaces; l++) {
 					drawBeziers(l);
 				}
 			}
 
-			strokeWeight(15);
-			// Arc Part One, Outgoing
-			noFill();
+			//Arc, in color
+			strokeWeight(10);
 			stroke(places.get(i).backgroundcolor);
-			arc(centerX, centerY, 2 * radius, 2 * radius,
+			arc(centerX, centerY, 2 * (radius+15), 2 * (radius+15),
 					radians(places.get(i).start - 90),
-					radians(places.get(i).middle - 90));
-
-			// Arc Part Two, Incoming
-			stroke(places.get(i).secondColor);
-			arc(centerX, centerY, 2 * radius, 2 * radius,
-					radians(places.get(i).middle - 90),
 					radians(places.get(i).end - 90));
 
 			// calculating iconpositions and drawing icons
@@ -333,23 +307,46 @@ public class bundlingEdges extends PApplet {
 			float arrowOut = places.get(i).start + 3
 					* (places.get(i).percentage * (360 - 36)) / 4;// in Degrees
 
-			float[] arrowPosIn = degreesToXnY(arrowIn,radius);
-			float[] arrowPosOut = degreesToXnY(arrowOut,radius);
+			float[] arrowPosIn = degreesToXnY(arrowIn,radius-3);
+			float[] arrowPosOut = degreesToXnY(arrowOut,radius+3);
 
-			pushMatrix();
-			translate(arrowPosIn[0], arrowPosIn[1]);
-			rotate(radians(arrowIn + 90));
-			translate(-arrowPosIn[0], -arrowPosIn[1]);
-			image(arrow, arrowPosIn[0], arrowPosIn[1]);
-			popMatrix();
+			float minValue = (places.get(i).lenght/2)/360f*circumference;
 
 			pushMatrix();
 			translate(arrowPosOut[0], arrowPosOut[1]);
-			rotate(radians(arrowOut - 90));
+			rotate(radians(arrowOut - 180));
 			translate(-arrowPosOut[0], -arrowPosOut[1]);
-			image(arrow, arrowPosOut[0], arrowPosOut[1]);
+			stroke(50);
+			triangleArrow arrow1 = new triangleArrow(arrowPosOut, minValue);
+			triangle(arrow1.p0[0], arrow1.p0[1],
+					arrow1.p1[0], arrow1.p1[1],
+					arrow1.p2[0], arrow1.p2[1]);
+			popMatrix();	
+			
+			pushMatrix();
+			translate(arrowPosIn[0], arrowPosIn[1]);
+			rotate(radians(arrowIn + 0));
+			translate(-arrowPosIn[0], -arrowPosIn[1]);
+			stroke(100);
+			triangleArrow arrow0 = new triangleArrow(arrowPosIn, minValue);
+			triangle(arrow0.p0[0], arrow0.p0[1],
+					arrow0.p1[0], arrow0.p1[1],
+					arrow0.p2[0], arrow0.p2[1]);
 			popMatrix();
 			
+			noFill();
+
+			// Arc Part One, Outgoing
+			stroke(100);
+			arc(centerX, centerY, 2 * radius, 2 * radius,
+					radians(places.get(i).start - 90),
+					radians(places.get(i).middle - 90));
+			
+			// Arc Part Two, Incoming
+			stroke(50);
+			arc(centerX, centerY, 2 * radius, 2 * radius,
+					radians(places.get(i).middle - 90),
+					radians(places.get(i).end - 90));
 			
 			noLoop();
 
