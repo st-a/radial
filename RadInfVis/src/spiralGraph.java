@@ -6,17 +6,17 @@ public class spiralGraph extends PApplet {
 
 	private static final long serialVersionUID = 1L;
 
-	public int width = 800;
-	public int height = 600;
+	public int width = 900;
+	public int height = 700;
 	public float centerX = width / 2 - 100;
 	public float centerY = height / 2;
 	public float radius = (height - 50); // this is obviously crap but i cant
-										 // refactor it
+											// refactor it
 	public float circumference = 2 * PI * radius;
 
 	public boolean spiralDrawn = false;
-	public float days = 7 - 1; // the '-1' is added to make sure, ther's
-							   // enough white space in the middle
+	public float days = 7 + 1; // the '+1' is added to make sure, ther's
+								// enough white space in the middle
 	public float thiknessOfOneDay = radius / (days + 1);
 
 	public int background = color(255, 255, 255);
@@ -41,8 +41,12 @@ public class spiralGraph extends PApplet {
 	public float[] degreesToXnY(float deg, float day) {
 		// this function gets as input only a degree-value and a day and returns
 		// the concrete X and Y values in a float-Array
-
 		float localRadius = radius / 2 - day * thiknessOfOneDay;
+		if (day == 0) {
+			// this is the case for drawing the clock
+			localRadius = 25f;
+		}
+
 		float[] rtrn = new float[2];
 
 		println("deg: " + deg);
@@ -54,11 +58,11 @@ public class spiralGraph extends PApplet {
 
 		return rtrn;
 	}
-	
+
 	public void drawContentArround() {
 
-		float xPos = 580;
-		float yPos = 400;
+		float xPos = 690;
+		float yPos = 500;
 
 		noStroke();
 
@@ -180,48 +184,60 @@ public class spiralGraph extends PApplet {
 		text(prcntg, 130 + xPos, 42 + 4 * 30 + yPos);
 		text("social", 25 + xPos, 42 + 4 * 30 + yPos);
 
-		// headers
-		// PFont headerFont = createFont("Dialog.plain", 22);
-		// textFont(headerFont);
-		// text("Wegevisualisierung", xPos - 20, 50);
-		
+		drawClock();
+	}
+
+	public void drawClock() {
+		// drawing the 24 grey-scaled lines
 		fill(100);
 		strokeWeight(1);
 		stroke(100);
-		line(centerX-radius/2,centerY,centerX+radius/2+10,centerY);
-		line(centerX,centerY-radius/2-10,centerX,centerY+radius/2+10);
-		
+		line(centerX - radius / 2, centerY, centerX + radius / 2 + 10, centerY);
+		line(centerX, centerY - radius / 2 - 10, centerX, centerY + radius / 2
+				+ 10);
+
 		pushMatrix();
 		stroke(200);
 		translate(centerX, centerY);
 		rotate(radians(30));
 		translate(-centerX, -centerY);
-		line(centerX-radius/2,centerY,centerX+radius/2+10,centerY);
-		line(centerX,centerY-radius/2-10,centerX,centerY+radius/2+10);
+		line(centerX - radius / 2, centerY, centerX + radius / 2 + 10, centerY);
+		line(centerX, centerY - radius / 2 - 10, centerX, centerY + radius / 2
+				+ 10);
 		popMatrix();
-		
+
+		for (int i = 0; i < 6; i++) {
+			pushMatrix();
+			stroke(255);
+			strokeWeight(1.5f);
+			translate(centerX, centerY);
+			rotate(radians(i * 30 + 15));
+			translate(-centerX, -centerY);
+			line(centerX - radius / 2, centerY, centerX + radius / 2 + 10,
+					centerY);
+			popMatrix();
+		}
+
 		pushMatrix();
 		stroke(200);
 		translate(centerX, centerY);
 		rotate(radians(60));
 		translate(-centerX, -centerY);
-		line(centerX-radius/2,centerY,centerX+radius/2+10,centerY);
-		line(centerX,centerY-radius/2-10,centerX,centerY+radius/2+10);
+		line(centerX - radius / 2, centerY, centerX + radius / 2 + 10, centerY);
+		line(centerX, centerY - radius / 2 - 10, centerX, centerY + radius / 2
+				+ 10);
 		popMatrix();
-		
+
 		fill(255);
 		noStroke();
-		ellipse(centerX,centerY,110,110);
-		drawClock();
-	}
-	
-	public void drawClock(){
+		ellipse(centerX, centerY, 100, 100);
+
 		rectMode(CENTER);
-		PFont infoText = createFont("Dialog.plain", 16);
+		PFont infoText = createFont("Dialog.plain", 13);
 		textFont(infoText);
 		for (int i = 0; i < 12; i++) {
-			float[] pos = degreesToXnY(i * 360 / 12, 3.2f);
-			fill(100);
+			float[] pos = degreesToXnY(i * 360 / 12, 0);
+			fill(50);
 			pushMatrix();
 			translate(pos[0], pos[1]);
 			rotate(radians((float) i / 12 * 360));
@@ -232,14 +248,17 @@ public class spiralGraph extends PApplet {
 
 		}
 
-		text("0", centerX-5, centerY - 35);
-		text("12", centerX-10, centerY + 45);
-		text("18", centerX - 53, centerY+4);
-		text("6", centerX  + 35, centerY+4);
+		text("0", centerX - 4, centerY - 32);
+		text("12", centerX - 8, centerY + 42);
+		text("18", centerX - 48, centerY + 4);
+		text("6", centerX + 30, centerY + 6);
 	}
 
 	public void drawSpiral() {
 
+		strokeWeight(1);
+		stroke(100);
+		noFill();
 		float[] pointOne = new float[2];
 		float[] pointTwo = new float[2];
 		float[] pointThree = new float[2];
@@ -292,6 +311,8 @@ public class spiralGraph extends PApplet {
 				// drawing the spiral using arcs
 
 				localRadius = (radius - i * thiknessOfOneDay);
+				strokeWeight(1);
+				fill(240);
 				// arc1
 
 				arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
@@ -313,33 +334,10 @@ public class spiralGraph extends PApplet {
 
 				// this is for blending the center
 				noStroke();
-				fill(background);
-				localRadius = (radius - (i - 1) * thiknessOfOneDay)
-						- thiknessOfOneDay / 2;
-				// arc1
-				arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
-						localRadius, radians(-90), radians(0));
-				// arc2
-				arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
-						localRadius - thiknessOfOneDay / 2, radians(0),
-						radians(90));
-				// arc3
-				arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
-						localRadius - thiknessOfOneDay / 2, radians(90),
-						radians(180));
-				// arc4
-				arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
-						localRadius - thiknessOfOneDay, radians(180),
-						radians(270));
+				noFill();
 			}
-
 			spiralDrawn = true;
-
 		}
-		// draw an ellipse in the center
-		fill(background);
-		noStroke();
-		ellipse(centerX, centerY, thiknessOfOneDay / 2, thiknessOfOneDay / 2);
 	}
 
 	public void addTimeSlot(int color, float day, int time, float duration) {
@@ -350,9 +348,12 @@ public class spiralGraph extends PApplet {
 		// the day 1-7
 		// time in minutes
 
-		noStroke();
-		fill(color);
-		float localRadius = (radius - (day - 1) * thiknessOfOneDay);
+		stroke(color);
+		strokeWeight(thiknessOfOneDay / 4);
+		noFill();
+
+		float localRadius = (radius - (day - 1) * thiknessOfOneDay)
+				- thiknessOfOneDay / 4;
 		float start = convertTimeToDegrees(time);
 		duration = convertTimeToDegrees(duration);
 		float end = start + duration;
@@ -364,15 +365,10 @@ public class spiralGraph extends PApplet {
 			float rest = end - (90);
 
 			// arc in color
-			fill(color);
+			noFill();
+			stroke(color);
 			arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
 					localRadius, radians(-90 + start), radians(1));
-
-			// blend this arc, so its half blended
-			fill(background);
-			arc(centerX, centerY, localRadius - thiknessOfOneDay / 4
-					- thiknessOfOneDay / 2, localRadius - thiknessOfOneDay / 2,
-					radians(-90 + start - 1), radians(2));
 
 			flagDrawIfInScope = false;
 
@@ -387,16 +383,10 @@ public class spiralGraph extends PApplet {
 			float rest = end - (180);
 
 			// arc in color
-			fill(color);
+			noFill();
+			stroke(color);
 			arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
 					localRadius - thiknessOfOneDay / 2, radians(-90 + start),
-					radians(-90 + 180));
-
-			// blend this arc, so its half blended
-			fill(background);
-			arc(centerX, centerY, localRadius - thiknessOfOneDay / 4
-					- thiknessOfOneDay / 2, localRadius - thiknessOfOneDay / 2
-					- thiknessOfOneDay / 2, radians(-90 + start - 1),
 					radians(-90 + 180));
 
 			flagDrawIfInScope = false;
@@ -412,17 +402,11 @@ public class spiralGraph extends PApplet {
 			float rest = end - (270);
 
 			// arc in color
-			fill(color);
+			noFill();
+			stroke(color);
 			arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
 					localRadius - thiknessOfOneDay / 2,
 					radians(-90 + start - 1), radians(-90 + 270 + 1));
-
-			// blend this arc, so its half blended
-			fill(background);
-			arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4
-					- thiknessOfOneDay / 2, localRadius - thiknessOfOneDay / 2
-					- thiknessOfOneDay / 2, radians(-90 + start - 2),
-					radians(-90 + 270 + 2));
 
 			flagDrawIfInScope = false;
 
@@ -437,17 +421,11 @@ public class spiralGraph extends PApplet {
 			float rest = end - (360);
 
 			// arc in color
-			fill(color);
+			noFill();
+			stroke(color);
 			arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
 					localRadius - thiknessOfOneDay / 2 - thiknessOfOneDay / 2,
 					radians(-90 + start - 1), radians(-90 + 360 + 1));
-
-			// blend this arc, so its half blended
-			fill(background);
-			arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4
-					- thiknessOfOneDay / 2, localRadius - thiknessOfOneDay / 2
-					- thiknessOfOneDay, radians(-90 + start - 2),
-					radians(-90 + 360 + 2));
 
 			flagDrawIfInScope = false;
 
@@ -460,74 +438,44 @@ public class spiralGraph extends PApplet {
 
 		if (flagDrawIfInScope) {
 			if (start < 90 && start >= 0) {
-				fill(color);
+				noFill();
+				stroke(color);
 				arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
 						localRadius, radians(-90 + start), radians(-90 + start
 								+ duration));
-
-				fill(background);
-				arc(centerX, centerY, localRadius - thiknessOfOneDay / 4
-						- thiknessOfOneDay / 2, localRadius - thiknessOfOneDay
-						/ 2, radians(-90 + start - 1), radians(-90 + start
-						+ duration + 1));
 			}
 
 			if (start >= 90 && start < 180) {
 
-				fill(color);
+				noFill();
+				stroke(color);
 				arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
 						localRadius - thiknessOfOneDay / 2, radians(-90 + start
 								- 1), radians(-90 + start + duration));
 
-				fill(background);
-				arc(centerX, centerY, localRadius - thiknessOfOneDay / 4
-						- thiknessOfOneDay / 2, localRadius - thiknessOfOneDay
-						/ 2 - thiknessOfOneDay / 2, radians(-90 + start - 2),
-						radians(-90 + start + duration + 1));
-
 			}
 			if (start < 270 && start >= 180) {
-				fill(color);
+				noFill();
+				stroke(color);
 				arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
 						localRadius - thiknessOfOneDay / 2, radians(-90 + start
 								- 1), radians(-90 + start + duration));
-
-				fill(background);
-				arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4
-						- thiknessOfOneDay / 2, localRadius - thiknessOfOneDay
-						/ 2 - thiknessOfOneDay / 2, radians(-90 + start - 2),
-						radians(-90 + start + duration + 1));
 			}
 
 			if (start < 360 && start >= 270) {
-				fill(color);
+				noFill();
+				stroke(color);
 				arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
 						localRadius - thiknessOfOneDay,
 						radians(-90 + start - 1), radians(-90 + start
 								+ duration));
 
-				fill(background);
-				arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4
-						- thiknessOfOneDay / 2, localRadius - thiknessOfOneDay
-						/ 2 - thiknessOfOneDay, radians(-90 + start - 2),
-						radians(-90 + start + duration + 2));
-
 			}
 
 		}
-		spiralDrawn = false;
 	}
 
-	public void setup() {
-		size(width, height);
-		background(background);
-
-		imageMode(CENTER);
-		strokeCap(SQUARE);
-
-		// its important to add the Timeslots in the chronological order
-		// day after day
-
+	public void addData() {
 		// this is a sample data set
 
 		// day 1 Tuesday
@@ -567,14 +515,22 @@ public class spiralGraph extends PApplet {
 		addTimeSlot(workColor, 7, 850, 180);
 		addTimeSlot(freeTimeColor, 7, 1030, 50);
 		addTimeSlot(homeColor, 7, 1110, 180);
-		addTimeSlot(socialColor, 7, 1310, 180);
+		addTimeSlot(socialColor, 7, 1310, 130);
 
 		// home = 72.5%
 		// work = 10.4%
 		// social = 6%
 		// freeTime = 8,7%
 		// uni = 2.4%
+		spiralDrawn = true;
 
+	}
+
+	public void setup() {
+		size(width, height);
+		background(background);
+		imageMode(CENTER);
+		strokeCap(SQUARE);
 	}
 
 	public void draw() {
@@ -584,6 +540,7 @@ public class spiralGraph extends PApplet {
 		if (!spiralDrawn) {
 			drawSpiral();
 			drawContentArround();
+			addData();
 		}
 	}
 }
