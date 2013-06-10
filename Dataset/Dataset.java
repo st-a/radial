@@ -43,19 +43,23 @@ public class Dataset {
 						for(int k = 0; k < day.getElementsByTagName("activity").getLength() ;k++){
 							Element a = (Element) e.getElementsByTagName("activity").item(k);	
 							String begin = 		a.getElementsByTagName("begin").item(0).getTextContent();
-							//String bTime = 		a.getElementsByTagName("bTime").item(1).getTextContent();
 							String end = 		a.getElementsByTagName("end").item(0).getTextContent();
-							//String eTime = 		a.getElementsByTagName("eTime").item(0).getTextContent();
 							String category = 	a.getElementsByTagName("category").item(0).getTextContent();
 							String transport = 	a.getElementsByTagName("transport").item(0).getTextContent();
 							String duration = 	a.getElementsByTagName("duration").item(0).getTextContent();
 							String distance = 	a.getElementsByTagName("distance").item(0).getTextContent();
+							
+							Element bTime = (Element) a.getElementsByTagName("beginTime").item(0);
+							String bTimeH = bTime.getAttribute("hour");
+							String bTimeM = bTime.getAttribute("minutes");
+							
+							Element eTime = (Element) a.getElementsByTagName("endTime").item(0);
+							String eTimeH = eTime.getAttribute("hour");
+							String eTimeM = eTime.getAttribute("minutes");
 
 
-							this.activities[x] = new Activity(humans[i], sDay, category, begin, end, transport, duration, distance);
+							this.activities[x] = new Activity(humans[i], sDay, category, begin, end, transport, duration, distance, bTimeH, bTimeM, eTimeH, eTimeM);
 							x++;
-							System.out.println(sDay);
-
 						}
 				}
 			}
@@ -71,8 +75,10 @@ e.printStackTrace();
 	
 	public Human getPerson(String name){
 		Human h = null;
-		for(int i=0; i < humans.length; i++){
-			if (humans[i].getName() == name) h=humans[i];
+		for (Human hu : this.humans){
+			if (hu != null){
+				if(hu.getName().equals(name)) return hu;
+			}	
 		}
 		return h;
 	}
@@ -82,15 +88,23 @@ e.printStackTrace();
 	}
 	
 	public Activity[] getPersonActivities(String name){
-		Activity[] act = new Activity[100];
 		int i = 0;
 		for (Activity a :this.activities){
-			if(a.getHuman().getName() == name){
-				act[i] = a;
-				++i;		
-			}	
+			if(a.getHuman().getName().equals(name))
+				++i;
 		}
-		return act;
+		
+		Activity[] aArray = new Activity[i];
+		int j= 0;
+		
+		for (Activity a :this.activities){
+			if(a.getHuman().getName().equals(name)){
+				aArray[j] = a;
+				++j;
+			}
+		}
+		
+		return aArray;
 	}
 	
 	public Activity[] getActivities(){

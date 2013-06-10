@@ -7,8 +7,9 @@ public class main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Dataset d = new Dataset("/Users/tomoplast/Documents/workspace/Data/src/data.xml");
-		System.out.println(d.getActivities()[3].getDay());
+		Dataset d = new Dataset("/Users/tomoplast/Desktop/data.xml");
+		System.out.println(d.getPerson("Sophia").getName());
+
 
 	}
 
