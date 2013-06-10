@@ -1,4 +1,4 @@
-#Human Klasse
+#Human Klasse (Hilfsklasse)
 
 Ein *Human-Objekt* entspricht einer Person.
 Beim Initialisieren des Datasets wird für jede in der XML vorkommenden Person ein *Human-Objekt* erstellt.
@@ -25,9 +25,9 @@ primär Abfragefunktionen
 + getGender() : *String*
 + getAge() : *String*
 
-#Activity Klasse
+#Activity Klasse (Hilfsklasse)
 
-Ein *Activity-Objekt* repräsentiert eine konkrete Bewegung von A nach B und ist ein Datastorage-Objekt. 
+Ein *Activity-Objekt* repräsentiert eine konkrete Bewegung von A nach B. 
 
 ###Konstruktor
 Nur initialisieren aller Variablen. 
@@ -70,8 +70,8 @@ Nur initialisieren aller Variablen.
 
 
 #Dataset Klasse
-Ist das Objekt, welches die XML parsed und alle Daten speichert. **Alle Anfragen sollen über diese Objekt laufen.**
-Muss am Anfang der ANwendung einmal initialisiert werden.
+Ist das Objekt, welches die XML parsed und alle Daten speichert. **Alle Anfragen sollen über dieses Objekt laufen.**
+Muss am Anfang der Anwendung einmal initialisiert werden.
 
 ###Konstruktor
 Benötigt wird ein String der den Pfad zur XML beinhaltet.
