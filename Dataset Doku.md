@@ -33,6 +33,10 @@ Ein *Activity-Objekt* repräsentiert eine konkrete Bewegung von A nach B.
 Nur initialisieren aller Variablen. 
 
 ###Attribute
+
+**Leere Attribute haben den Wert _0_.**
+
+
 *String*
 + day - Tag der Aktivität
 + catagory - Kategorie
@@ -84,6 +88,7 @@ Bei der Initialisierung wird die XML "geparsed", alle Hilfsklassen generiert und
 *Array*
 + humans [4] - alle Beteiligten Personen
 + activities [300] - alle aufgezeichneten Bewegungen
+
 
 ###Funktionen
 + getPersons () : *Human [ ]*
