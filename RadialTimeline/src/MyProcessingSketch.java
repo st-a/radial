@@ -13,6 +13,7 @@ public class MyProcessingSketch extends PApplet {
 	boolean draw = true, s = false;
 	Diagramm diagramm;
 	Interaktion intera;
+	Dataset d;
 
 	// used to create font
 	PFont myFont;
@@ -24,7 +25,7 @@ public class MyProcessingSketch extends PApplet {
 	 
 
 
-
+	  d = new Dataset("/Users/Shared/radial-vis/Dataset/data.xml");
 	  
 	  //noLoop();
 	  println(PFont.list());
@@ -51,7 +52,7 @@ public class MyProcessingSketch extends PApplet {
 					lines[i][j] = 0 + (int)(Math.random()*5);
 				}
 			}
-			diagramm = new Diagramm(this, width/2, height/2, distance, lines, true, (float) 1);
+			diagramm = new Diagramm(this, width/2, height/2, distance, lines,this.d, (float) 1);
 			draw = false;
 			intera = new Interaktion(this, diagramm);
 		}

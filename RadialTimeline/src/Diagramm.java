@@ -14,35 +14,35 @@ public class Diagramm {
 	int [][] colors = {{54, 146, 179},{158, 219, 41},{255, 243, 68},{253, 77, 72}};
 	float scale;
 	int[] d; 
-	boolean type;
+	Dataset dataset;
 	
 	
-	  Diagramm(PApplet parent, float x, float y, int[] distance, int[][] l, boolean t, float s) {
+	  Diagramm(PApplet parent, float x, float y, int[] distance, int[][] l,Dataset data, float s) {
 		  	  
 		    p = parent;
 		    posX = x;
 		    posY = y;
 		    scale = s;
 		    radius = radius/scale;
+		    dataset = data;
 		    d = distance;
-		    type = t;
 		    lines = l;
 		    timelines = new Timeline[lines.length];
 			dStatistic = new Distance(p, d, this);
-		    this.draw(posX, posY, d, lines, type, scale);
+		    this.draw(posX, posY, d, lines,dataset.getPersons(), scale);
 	  }
 	
 	 public void scale(float s){
 		 
-		 this.draw(posX, posY, d, lines, type, s);
+		 this.draw(posX, posY, d, lines,dataset.getPersons(), s);
 	 }
 	 
 	 public void transform(float x, float y){
-		 this.draw(x, y, d, lines, type, scale);
+		 this.draw(x, y, d, lines,dataset.getPersons(), scale);
 	 } 
 	  
 	  
-	public void draw(float x, float y, int[] d, int[][] lines, boolean type,float s){	
+	public void draw(float x, float y, int[] d, int[][] lines,Human[] humans,float s){	
 		radius = 300/scale;
 	    posX = x;
 	    posY = y;
@@ -115,15 +115,13 @@ public class Diagramm {
 			  
 			
 			  //Timelines
-			 for(int i=0; i < lines.length; i++){
+			  
+			 for(int i=0; i < humans.length; i++){
 				  int[] h = new int[12];
 				  for(int j=0; j < lines[i].length; j++){
 					h[j] = lines[i][j];
 				  }
-				  if(type)
-					  timelines[i] = new Timeline(p, h, colors[i][0], colors[i][1], colors[i][2], this);
-				  else
-					  timelines[i] = new Timeline(p, h, 150, 150, 150, this);
+				timelines[i] = new Timeline(p, h, colors[i][0], colors[i][1], colors[i][2], this);
 					  
 				timelines[i].drawLine();
   
