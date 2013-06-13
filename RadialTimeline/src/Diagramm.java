@@ -29,20 +29,11 @@ public class Diagramm {
 		    lines = l;
 		    timelines = new Timeline[lines.length];
 			dStatistic = new Distance(p, d, this);
-		    this.draw(posX, posY, d, lines,dataset.getPersons(), scale);
+		    this.draw(posX, posY, lines,dataset.getPersons(), scale);
 	  }
 	
-	 public void scale(float s){
-		 
-		 this.draw(posX, posY, d, lines,dataset.getPersons(), s);
-	 }
-	 
-	 public void transform(float x, float y){
-		 this.draw(x, y, d, lines,dataset.getPersons(), scale);
-	 } 
 	  
-	  
-	public void draw(float x, float y, int[] d, int[][] lines,Human[] humans,float s){	
+	public void draw(float x, float y, int[][] lines,Human[] humans,float s){	
 		radius = 300/scale;
 	    posX = x;
 	    posY = y;
@@ -181,6 +172,33 @@ public class Diagramm {
 	  
 	  public float getScale(){
 		  return this.scale;
+	  }
+	  
+	  
+	  public void scale(float s){
+			 
+		  this.draw(posX, posY, lines,dataset.getPersons(), s);
+	  }
+		 
+	  public void transform(float x, float y){
+		  this.draw(x, y, lines,dataset.getPersons(), scale);
+	  }
+	  
+	  public void drawMatrix(Human[] h){
+		  p.background(42);
+		  
+		  for(int i=0; i < h.length; i++){
+			  f = p.createFont("Futura-Medium", 50/(h.length/2));
+			  p.textFont(f);
+			  p.textAlign(p.LEFT, p.CENTER);
+			  p.fill(255);
+			  p.text(h[i].getName(),60+(130*i), 30);
+			  
+			  this.draw(90+(130*i), 130,lines,dataset.getPersons(), 5.1f);
+			 /* for(int j=0; j < ; j++){
+
+			  }*/
+		  }
 	  }
 	  
 	  

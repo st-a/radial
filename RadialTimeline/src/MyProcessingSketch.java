@@ -19,7 +19,7 @@ public class MyProcessingSketch extends PApplet {
 	PFont myFont;
 
 	public void setup(){
-	  size(700, 700);
+	  size(700, 900);
 	  background (42);
 
 	 
@@ -53,6 +53,7 @@ public class MyProcessingSketch extends PApplet {
 				}
 			}
 			diagramm = new Diagramm(this, width/2, height/2, distance, lines,this.d, (float) 1);
+			diagramm.drawMatrix(this.d.getPersons());
 			draw = false;
 			intera = new Interaktion(this, diagramm);
 		}
