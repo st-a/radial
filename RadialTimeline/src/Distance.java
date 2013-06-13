@@ -23,7 +23,7 @@ public class Distance {
 		  int angle = 30;
 		  float lastAngle = 0;
 		  p.noStroke();
-		  p.fill(230);
+		  p.fill(70);
 		  p.ellipseMode(p.CENTER);
 
 		  for (int i=0; i<12; i++){

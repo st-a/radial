@@ -11,7 +11,7 @@ public class Diagramm {
 	Distance dStatistic;
 	Timeline[] timelines;
 	int[][] lines;
-	int [][] colors = {{236, 0, 140},{180, 210, 53},{40, 170, 225},{255, 198, 11}};
+	int [][] colors = {{54, 146, 179},{158, 219, 41},{255, 243, 68},{253, 77, 72}};
 	float scale;
 	int[] d; 
 	boolean type;
@@ -57,7 +57,7 @@ public class Diagramm {
 
 			  //aeuseren Ringe
 			  p.ellipseMode(p.CENTER);
-			  p.stroke(245);	
+			  p.stroke(50);	
 			  p.ellipse(posX, posY,520/scale,520/scale);
 			  p.ellipse(posX, posY,460/scale,460/scale);
 			  p.ellipse(posX, posY,400/scale,400/scale);
@@ -68,9 +68,9 @@ public class Diagramm {
 
 			  //Skalenstriche
 			  for (int i=0; i < 40; i++){
-				  p.stroke(245);	  
+				  p.stroke(50);	  
 				  if(i>23){
-					  p.stroke(200);
+					  p.stroke(65);
 					  frequency = 30;
 				  }
 				  if(i>35){
@@ -82,8 +82,8 @@ public class Diagramm {
 			  	}
 			  
 			  //innere Kreis
-			  p.stroke(255);
-			  p.fill(255);
+			  p.stroke(42);
+			  p.fill(42);
 			  p.ellipse(posX, posY, 160/scale, 160/scale);	
 			  angle = 90;
 			  p.noFill();
@@ -91,14 +91,15 @@ public class Diagramm {
 			  
 			  //Uhr innen
 			  for (int i=0; i < 40; i++){
-			  p.stroke(100);
+			  p.stroke(255);
+			  p.strokeWeight(1/scale); 
 			  p.line(posX, posY, this.cosPx(posX, angle, 20/scale), this.sinPy(posY, angle, 20/scale));
 			  angle -= 30;
 			  }
 			  
 			  //Uhr innerer Kreis
 			  p.noStroke();
-			  p.fill(255);
+			  p.fill(42);
 			  p.ellipse(posX, posY, 25/scale, 25/scale);	
 			  	  
 			  
@@ -106,7 +107,7 @@ public class Diagramm {
 			  f = p.createFont("Futura-Medium", 16/scale);
 			  p.textFont(f);
 			  p.textAlign(p.CENTER, p.CENTER);
-			  p.fill(0);
+			  p.fill(255);
 			  p.text("0", posX, posY-(40/scale));
 			  p.text("6", posX+(40/scale), posY);
 			  p.text("12", posX, posY+(40/scale));
@@ -135,17 +136,17 @@ public class Diagramm {
 			  frequency = 30;
 			  
 			  for(int i=0; i<(5*12); i++){
-				  p.fill(100);
+				  p.fill(230);
 				  p.noStroke();
 				  if(i%12==0)
 					  radius = radius-30/scale;
-				  p.ellipse(this.cosPx(posX, angle, radius), this.sinPy(posY, angle, radius),5/scale,5/scale);
+				  p.ellipse(this.cosPx(posX, angle, radius), this.sinPy(posY, angle, radius),3/scale,3/scale);
 				  angle -= frequency;
 			  }
 			  
 			  
 			  p.noStroke();
-			  int pos = 110;
+			/*  int pos = 110;
 			  for(int i=0; i< 7; i++){
 				  
 				  if(!((i+1)%2==0)){
@@ -162,7 +163,7 @@ public class Diagramm {
 					pos += 30;
 				  
 				  
-			  }
+			  }*/
 
 	}
 		    

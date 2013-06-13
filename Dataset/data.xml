@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data>
-<person name="Albert">
+<person name="Albert">	
+	<tag name="Montag">
+		<activity>
+		</activity>
+	</tag>
+	
+	<tag name="Dienstag">
+		<activity>
+		</activity>
+	</tag>
+	
+	<tag name="Mittwoch">
+		<activity>
+		</activity>
+	</tag>
+	<tag name="Donnerstag">
+		<activity>
+		</activity>
+	</tag>
+	
+	<tag name="Freitag">
+		<activity>
+		</activity>
+	</tag>
+	
+	<tag name="Samstag">
+		<activity>
+		</activity>
+	</tag>
+	
 	<tag name="Sonntag">
 		<activity>
 			<begin>Home</begin>
@@ -16,10 +45,29 @@
 </person>
 
 <person name="Sophia">
+	<tag name="Montag">
+		<activity>
+		</activity>
+	</tag>
+	
+	<tag name="Dienstag">
+		<activity>
+		</activity>
+	</tag>
+	
+	<tag name="Mittwoch">
+		<activity>
+		</activity>
+	</tag>
+	<tag name="Donnerstag">
+		<activity>
+		</activity>
+	</tag>
+	
 	<tag name="Freitag">
 		<activity>
 			<begin>Home</begin>
-			<beginTime hour="9" minutes="30">09.30</beginTime>
+			<beginTime hour="9" minutes="30"></beginTime>
 			<end>Markt am Großen Garten</end>
 			<endTime hour="9" minutes="38"></endTime>
 			<category>Freizeit</category>
@@ -98,12 +146,95 @@
 			<begin>Altmarkt-Galerie</begin>
 			<beginTime hour="18" minutes="14"></beginTime>
 			<end>Home</end>
-			<endTime hour="18" minutes="30">18.30</endTime>
+			<endTime hour="18" minutes="30"></endTime>
 			<category>Freizeit</category>
 			<transport>Bahn</transport>
 			<duration>16</duration>
 			<distance>3200</distance>
-		</activity>						
+		</activity>
+	</tag>
+	
+	<tag name="Samstag">
+		<activity>
+		</activity>
+	</tag>
+	
+	<tag name="Sonntag">
+		<activity>
+		</activity>				
 	</tag>		
 </person>
+
+<person name="Tom">	
+	<tag name="Montag">
+		<activity>
+		</activity>
+	</tag>
+	
+	<tag name="Dienstag">
+		<activity>
+		</activity>
+	</tag>
+	
+	<tag name="Mittwoch">
+		<activity>
+		</activity>
+	</tag>
+	<tag name="Donnerstag">
+		<activity>
+		</activity>
+	</tag>
+	
+	<tag name="Freitag">
+		<activity>
+		</activity>
+	</tag>
+	
+	<tag name="Samstag">
+		<activity>
+		</activity>
+	</tag>
+	
+	<tag name="Sonntag">
+		<activity>
+		</activity>
+	</tag>
+</person>
+
+<person name="Hannes">	
+	<tag name="Montag">
+		<activity>
+		</activity>
+	</tag>
+	
+	<tag name="Dienstag">
+		<activity>
+		</activity>
+	</tag>
+	
+	<tag name="Mittwoch">
+		<activity>
+		</activity>
+	</tag>
+	<tag name="Donnerstag">
+		<activity>
+		</activity>
+	</tag>
+	
+	<tag name="Freitag">
+		<activity>
+		</activity>
+	</tag>
+	
+	<tag name="Samstag">
+		<activity>
+		</activity>
+	</tag>
+	
+	<tag name="Sonntag">
+		<activity>
+		</activity>
+	</tag>
+</person>
+
 </data>

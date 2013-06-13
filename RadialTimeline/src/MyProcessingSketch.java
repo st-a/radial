@@ -19,7 +19,7 @@ public class MyProcessingSketch extends PApplet {
 
 	public void setup(){
 	  size(700, 700);
-	  background (255);
+	  background (42);
 
 	 
 
@@ -48,7 +48,7 @@ public class MyProcessingSketch extends PApplet {
 		if(draw){
 			for (int i=0; i<4;i++){
 				for (int j=0; j< 12; j++){
-					lines[i][j] = 0 + (int)(Math.random()*4);
+					lines[i][j] = 0 + (int)(Math.random()*5);
 				}
 			}
 			diagramm = new Diagramm(this, width/2, height/2, distance, lines, true, (float) 1);

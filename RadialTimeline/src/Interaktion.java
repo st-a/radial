@@ -34,7 +34,7 @@ public class Interaktion {
 		if(this.oldScale < this.frequency){
 			
 			if((300/dia.getScale())>(300/this.frequency)){
-				p.background(255);
+				p.background(42);
 				dia.scale(dia.getScale()+(this.frequency/20));
 			}
 			else{ first = true; scale = false;}
@@ -44,7 +44,7 @@ public class Interaktion {
 		if(this.oldScale > this.frequency){
 			
 			if((300/dia.getScale())<(300/this.frequency)){
-				p.background(255);
+				p.background(42);
 				dia.scale(dia.getScale()-(this.frequency/10));
 			}
 			else{ first = true; scale = false;}
