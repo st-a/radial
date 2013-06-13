@@ -14,7 +14,6 @@ public class triangleArrow extends PApplet{
 		float smaller = 10f;
 		
 		if (min<=20){
-			println("min: " + min);
 			smaller = smaller-min/10f;
 		}
 		this.center = cntr;

@@ -14,7 +14,6 @@ public class spiralGraph extends PApplet {
 											// refactor it
 	public float circumference = 2 * PI * radius;
 
-	public boolean spiralDrawn = false;
 	public float days = 7 + 1; // the '+1' is added to make sure, ther's
 								// enough white space in the middle
 	public float thiknessOfOneDay = radius / (days + 1);
@@ -77,7 +76,7 @@ public class spiralGraph extends PApplet {
 		// home
 		fill(homeColor);
 		rect(85 + xPos, 25 + 0 * 30 + yPos, 40, 25);
-		PImage homeIcon = loadImage("Icons/iconHome.png");
+		PImage homeIcon = loadImage("../src/Icons/iconHome.png");
 		image(homeIcon, 105 + xPos, 37 + 0 * 30 + yPos);
 		fill(0);
 		Float lclprc = 72.5f;
@@ -102,7 +101,7 @@ public class spiralGraph extends PApplet {
 		fill(workColor);
 		noStroke();
 		rect(85 + xPos, 25 + 2 * 30 + yPos, 40, 25);
-		PImage workIcon = loadImage("Icons/iconWork.png");
+		PImage workIcon = loadImage("../src/Icons/iconWork.png");
 		image(workIcon, 105 + xPos, 37 + 2 * 30 + yPos);
 		fill(0);
 		lclprc = 10.4f;
@@ -124,7 +123,7 @@ public class spiralGraph extends PApplet {
 		fill(freeTimeColor);
 		noStroke();
 		rect(85 + xPos, 25 + 1 * 30 + yPos, 40, 25);
-		PImage freeTimeIcon = loadImage("Icons/iconBeer.png");
+		PImage freeTimeIcon = loadImage("../src/Icons/iconBeer.png");
 		image(freeTimeIcon, 105 + xPos, 37 + 1 * 30 + yPos);
 		fill(0);
 		lclprc = 8.7f;
@@ -146,7 +145,7 @@ public class spiralGraph extends PApplet {
 		fill(uniColor);
 		noStroke();
 		rect(85 + xPos, 25 + 3 * 30 + yPos, 40, 25);
-		PImage uniIcon = loadImage("Icons/iconUni.png");
+		PImage uniIcon = loadImage("../src/Icons/iconUni.png");
 		image(uniIcon, 105 + xPos, 37 + 3 * 30 + yPos);
 		fill(0);
 		lclprc = 2.4f;
@@ -166,7 +165,7 @@ public class spiralGraph extends PApplet {
 		// social
 		fill(socialColor);
 		rect(85 + xPos, 25 + 4 * 30 + yPos, 40, 25);
-		PImage socialIcon = loadImage("Icons/iconSocial.png");
+		PImage socialIcon = loadImage("../src/Icons/iconSocial.png");
 		image(socialIcon, 105 + xPos, 37 + 4 * 30 + yPos);
 		fill(0);
 		lclprc = 6f;
@@ -183,8 +182,6 @@ public class spiralGraph extends PApplet {
 
 		text(prcntg, 130 + xPos, 42 + 4 * 30 + yPos);
 		text("social", 25 + xPos, 42 + 4 * 30 + yPos);
-
-		drawClock();
 	}
 
 	public void drawClock() {
@@ -336,7 +333,6 @@ public class spiralGraph extends PApplet {
 				noStroke();
 				noFill();
 			}
-			spiralDrawn = true;
 		}
 	}
 
@@ -522,7 +518,6 @@ public class spiralGraph extends PApplet {
 		// social = 6%
 		// freeTime = 8,7%
 		// uni = 2.4%
-		spiralDrawn = true;
 
 	}
 
@@ -534,13 +529,12 @@ public class spiralGraph extends PApplet {
 	}
 
 	public void draw() {
-		stroke(100);
-		strokeWeight(1);
-		noFill();
-		if (!spiralDrawn) {
-			drawSpiral();
-			drawContentArround();
-			addData();
-		}
+		background(background);
+		drawSpiral();
+		drawContentArround();
+		drawClock();
+		addData();
+		noLoop();
+
 	}
 }

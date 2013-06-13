@@ -16,6 +16,7 @@ public class bundlingEdges extends PApplet {
 	public float radius = (height - 150) / 2;
 	public float circumference = 2 * PI * radius;
 
+	public int background = color(42, 42, 42);
 	public float alpha = 60f;
 	public float densityOfLines = 10f;
 
@@ -55,6 +56,20 @@ public class bundlingEdges extends PApplet {
 		return rtrn;
 	}
 
+	public String formatPercentage(float prc) {
+		String rtrn = " ";
+		if (prc < 100) {
+			rtrn = nfs(prc, 2, 1) + " %";
+		}
+		if (prc == 100) {
+			rtrn = nfs(prc, 3, 1) + " %";
+		}
+		if (prc < 10) {
+			rtrn = nfs(prc, 1, 1) + " %";
+		}
+		return rtrn;
+	}
+
 	public float[] degreesToXnY(float deg, float radius) {
 		// this function gets as input only a degree-value and returns the
 		// concrete
@@ -86,16 +101,7 @@ public class bundlingEdges extends PApplet {
 			// image(places.get(i).icon, 105 + xPos, 37 + i * 30 + yPos);
 			fill(250);
 			Float lclprc = places.get(i).percentage * 100;
-			String prcntg = "0";
-			if (lclprc < 100) {
-				prcntg = nfs(lclprc, 2, 1) + " %";
-			}
-			if (lclprc == 100) {
-				prcntg = nfs(lclprc, 3, 1) + " %";
-			}
-			if (lclprc < 10) {
-				prcntg = nfs(lclprc, 1, 1) + " %";
-			}
+			String prcntg = formatPercentage(lclprc);
 			noFill();
 
 			infoText = createFont("Dialog.plain", 12);
@@ -166,6 +172,7 @@ public class bundlingEdges extends PApplet {
 		// drawArcs
 		for (int i = 0; i < ammountOfPlaces; i++) {
 
+			// ########Call the drawBeziers-fnct. for every place#
 			if (drawBeziers) {
 				for (int l = 0; l < ammountOfPlaces; l++) {
 					drawBeziers(l);
@@ -332,21 +339,32 @@ public class bundlingEdges extends PApplet {
 			places.get(i).computeIncomings(places);
 		}
 	}
+	
+	public void resetEverything(){
+		// Resetting everything that was changed
+		for (int k = 0; k < ammountOfPlaces; k++) {
+			places.get(k).currentLengtgOfOutgoingLinks = 0f;
+			places.get(k).currentLengthOfIncomingLinks = 0.5f;
+		}
+	}
 
 	public void setup() {
 		size(width, height);
-		background(42, 42, 42);
+		background(background);
 		imageMode(CENTER);
 		strokeCap(SQUARE);
 
-		arrow = loadImage("Icons/arrow-01.png");
+		arrow = loadImage("../src/Icons/arrow-01.png");
 
 		handleDate();
 	}
 
 	public void draw() {
+		background(background);
+		resetEverything();
+		drawBeziers = true;
+
 		drawArcsnArrows();
 		drawContentArround();
-		noLoop();
 	}
 }
