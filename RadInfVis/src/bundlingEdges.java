@@ -15,9 +15,12 @@ public class bundlingEdges extends PApplet {
 	public float centerY = height / 2;
 	public float radius = (height - 150) / 2;
 	public float circumference = 2 * PI * radius;
+	
+	public float alpha = 60f;
+	public float densityOfLines = 10f;
 
 	public float ammountOfPlaces = 5; // home, Uni, Social, Work, Freetime
-	public ArrayList<place> places = new ArrayList<>();
+	public ArrayList<place> places = new ArrayList();
 
 	// independent from the ammount of arcs the free space between
 	// the arcs will allways beu 10% of the circumference
@@ -80,8 +83,8 @@ public class bundlingEdges extends PApplet {
 			fill(places.get(i).backgroundcolor);
 			strokeWeight(1);
 			rect(85 + xPos, 25 + i * 30 + yPos, 40, 25);
-			image(places.get(i).icon, 105 + xPos, 37 + i * 30 + yPos);
-			fill(0);
+			//image(places.get(i).icon, 105 + xPos, 37 + i * 30 + yPos);
+			fill(250);
 			Float lclprc = places.get(i).percentage * 100;
 			String prcntg = "0";
 			if (lclprc < 100) {
@@ -93,10 +96,7 @@ public class bundlingEdges extends PApplet {
 			if (lclprc < 10) {
 				prcntg = nfs(lclprc, 1, 1) + " %";
 			}
-			stroke(200);
-			strokeWeight(2);
 			noFill();
-			rect(xPos + 70, yPos + 10, 120, 175);
 
 			infoText = createFont("Dialog.plain", 12);
 			textFont(infoText);
@@ -104,7 +104,7 @@ public class bundlingEdges extends PApplet {
 			text(places.get(i).name, 130 + xPos, 42 + i * 30 + yPos);
 
 			// percentages in the graph
-			percenteges = createFont("Dialog.plain", 10+15*lclprc/100);
+			percenteges = createFont("Dialog.plain", 12+15*lclprc/100);
 			textFont(percenteges);
 			
 			float[] percPos = degreesToXnY(places.get(i).middle,radius+40);
@@ -132,7 +132,7 @@ public class bundlingEdges extends PApplet {
 			
 			float arcLengthTo = places.get(j).lenght/2;
 
-			stroke(places.get(i).backgroundcolor);
+			stroke(places.get(i).backgroundcolor,alpha);
 			noFill();
 			strokeWeight(1);
 
@@ -140,7 +140,7 @@ public class bundlingEdges extends PApplet {
 			float lengthOfOneColorTo = places.get(j).incomings[i]*arcLengthTo;
 			float rel = lengthOfOneColorTo/lengthOfOneColorFrom;
 
-			for (int k = 0; k < lengthOfOneColorFrom-1; k++) {
+			for (int k = 0; k < densityOfLines*lengthOfOneColorFrom-1; k++) {
 												
 				float[] start = degreesToXnY(places.get(i).start
 						+ places.get(i).currentLengtgOfOutgoingLinks,radius);
@@ -151,9 +151,10 @@ public class bundlingEdges extends PApplet {
 				bezier(start[0], start[1], centerX, centerY, centerX, centerY,
 						end[0], end[1]);
 
-				places.get(i).currentLengtgOfOutgoingLinks++;
+				places.get(i).currentLengtgOfOutgoingLinks = 
+						places.get(i).currentLengtgOfOutgoingLinks + 1/densityOfLines;
 				places.get(j).currentLengthOfIncomingLinks = 
-						places.get(j).currentLengthOfIncomingLinks + rel;
+						places.get(j).currentLengthOfIncomingLinks + rel/densityOfLines;
 			}
 		}
 		drawBeziers = false;
@@ -176,7 +177,8 @@ public class bundlingEdges extends PApplet {
 
 	public void setup() {
 		size(width, height);
-		background(255);
+		background(42,42,42);
+		
 		arrow = loadImage("Icons/arrow-01.png");
 
 		imageMode(CENTER);
@@ -212,38 +214,33 @@ public class bundlingEdges extends PApplet {
 		float[] percenteges = calculatePercenteges(placesAndPercentages);
 
 		place home = new place(0, "home", percenteges[0], "Icons/iconHome.png");
-		home.setColor(color(236, 0, 140));
-		home.setSecondColor(color(255, 40, 180));
+		home.setColor(color(255, 123, 106));
 		home.setIndex(0);
 		home.setOutgoings(outOfHome);
 		places.add(home);
 
 		place uni = new place(1, "uni", percenteges[1], "Icons/iconUni.png");
-		uni.setColor(color(180, 210, 53));
-		uni.setSecondColor(color(220, 250, 93));
+		uni.setColor(color(255, 242, 190));
 		uni.setIndex(1);
 		uni.setOutgoings(outOfUni);
 		places.add(uni);
 
 		place social = new place(2, "social", percenteges[2],
 				"Icons/iconSocial.png");
-		social.setColor(color(40, 170, 225));
-		social.setSecondColor(color(60, 210, 1255));
+		social.setColor(color(170, 235, 140));
 		social.setIndex(2);
 		social.setOutgoings(outOfSocial);
 		places.add(social);
 
 		place work = new place(3, "work", percenteges[3], "Icons/iconWork.png");
-		work.setColor(color(255, 198, 11));
-		work.setSecondColor(color(255, 238, 51));
+		work.setColor(color(53, 189, 144));
 		work.setIndex(3);
 		work.setOutgoings(outOfWork);
 		places.add(work);
 
 		place freeTime = new place(4, "freeTime", percenteges[4],
 				"Icons/iconBeer.png");
-		freeTime.setColor(color(59, 25, 133));
-		freeTime.setSecondColor(color(99, 65, 173));
+		freeTime.setColor(color(0, 150, 163));
 		freeTime.setIndex(4);
 		freeTime.setOutgoings(outOfFreeTime);
 		places.add(freeTime);
@@ -276,10 +273,9 @@ public class bundlingEdges extends PApplet {
 
 	public void draw() {
 
-		// background(255);
+		//background(42);
 		// ellipse...no more
 		// drawElipse();
-
 		// drawArcs
 		for (int i = 0; i < ammountOfPlaces; i++) {
 
@@ -319,7 +315,7 @@ public class bundlingEdges extends PApplet {
 			translate(arrowPosOut[0], arrowPosOut[1]);
 			rotate(radians(arrowOut - 180));
 			translate(-arrowPosOut[0], -arrowPosOut[1]);
-			fill(50);
+			fill(100);
 			triangleArrow arrow1 = new triangleArrow(arrowPosOut, minValue);
 			triangle(arrow1.p0[0], arrow1.p0[1],
 					arrow1.p1[0], arrow1.p1[1],
@@ -330,7 +326,7 @@ public class bundlingEdges extends PApplet {
 			translate(arrowPosIn[0], arrowPosIn[1]);
 			rotate(radians(arrowIn + 0));
 			translate(-arrowPosIn[0], -arrowPosIn[1]);
-			fill(150);
+			fill(180);
 			triangleArrow arrow0 = new triangleArrow(arrowPosIn, minValue);
 			triangle(arrow0.p0[0], arrow0.p0[1],
 					arrow0.p1[0], arrow0.p1[1],
@@ -339,7 +335,7 @@ public class bundlingEdges extends PApplet {
 			
 			
 			// Arc Part One, Outgoing
-			stroke(150);
+			stroke(200);
 			noFill();
 			strokeWeight(10);
 			arc(centerX, centerY, 2 * radius, 2 * radius,
@@ -347,7 +343,7 @@ public class bundlingEdges extends PApplet {
 					radians(places.get(i).middle - 90));
 			
 			// Arc Part Two, Incoming
-			stroke(50);
+			stroke(100);
 			arc(centerX, centerY, 2 * radius, 2 * radius,
 					radians(places.get(i).middle - 90),
 					radians(places.get(i).end - 90));

@@ -4,9 +4,9 @@
 	<tag name="Sonntag">
 		<activity>
 			<begin>Home</begin>
-			<bTime>18.34</bTime>
+			<beginTime hour="18" minutes="34"></beginTime>
 			<end>Schauburg</end>
-			<eTime>18.52</eTime>
+			<endTime hour="18" minutes="52"></endTime>
 			<category>Freizeit</category>
 			<transport>Fahrrad</transport>
 			<duration>18</duration>
@@ -19,9 +19,9 @@
 	<tag name="Freitag">
 		<activity>
 			<begin>Home</begin>
-			<beginTime>09.30</beginTime>
+			<beginTime hour="9" minutes="30">09.30</beginTime>
 			<end>Markt am Großen Garten</end>
-			<endTime>09.38</endTime>
+			<endTime hour="9" minutes="38"></endTime>
 			<category>Freizeit</category>
 			<transport>Fahrrad</transport>
 			<duration>8</duration>
@@ -30,9 +30,9 @@
 
 		<activity>
 			<begin>Markt am Großen Garten</begin>
-			<beginTime>10.07</beginTime>
+			<beginTime hour="10" minutes="7"></beginTime>
 			<end>Home</end>
-			<endTime>10.15</endTime>
+			<endTime hour="10" minutes="15"></endTime>
 			<category>Freizeit</category>
 			<transport>Fahrrad</transport>
 			<duration>8</duration>
@@ -41,9 +41,9 @@
 
 		<activity>
 			<begin>Home</begin>
-			<beginTime>10.30</beginTime>
+			<beginTime hour="10" minutes="30"></beginTime>
 			<end>TU Informatik</end>
-			<endTime>10.53</endTime>
+			<endTime hour="10" minutes="53"></endTime>
 			<category>Uni</category>
 			<transport>Fahrrad</transport>
 			<duration>23</duration>
@@ -52,9 +52,9 @@
 
 		<activity>
 			<begin>TU Informatik</begin>
-			<beginTime>12.05</beginTime>
+			<beginTime hour="12" minutes="5"></beginTime>
 			<end>Alte Mensa</end>
-			<endTime>12.12</endTime>
+			<endTime hour="12" minutes="12"></endTime>
 			<category>Uni</category>
 			<transport>zu Fuß</transport>
 			<duration>7</duration>
@@ -63,9 +63,9 @@
 
 		<activity>
 			<begin>Alte Mensa</begin>
-			<beginTime>12.35</beginTime>
+			<beginTime hour="12" minutes="35"></beginTime>
 			<end>TU Informatik</end>
-			<endTime>12.42</endTime>
+			<endTime hour="12" minutes="42"></endTime>
 			<category>Uni</category>
 			<transport>zu Fuß</transport>
 			<duration>7</duration>
@@ -74,9 +74,9 @@
 
 		<activity>
 			<begin>TU Informatik</begin>
-			<beginTime>12.42</beginTime>
+			<beginTime hour="12" minutes="42"></beginTime>
 			<end>Home</end>
-			<endTime>13.07</endTime>
+			<endTime hour="13" minutes="7"></endTime>
 			<category>Home</category>
 			<transport>Fahrrad</transport>
 			<duration>25</duration>
@@ -85,9 +85,9 @@
 
 		<activity>
 			<begin>Home</begin>
-			<beginTime>16.05</beginTime>
+			<beginTime hour="16" minutes="5"></beginTime>
 			<end>Altmarkt-Galerie</end>
-			<endTime>16.17</endTime>
+			<endTime hour="16" minutes="17"></endTime>
 			<category>Freizeit</category>
 			<transport>Bahn</transport>
 			<duration>12</duration>
@@ -96,9 +96,9 @@
 
 		<activity>
 			<begin>Altmarkt-Galerie</begin>
-			<beginTime>18.14</beginTime>
+			<beginTime hour="18" minutes="14"></beginTime>
 			<end>Home</end>
-			<endTime>18.30</endTime>
+			<endTime hour="18" minutes="30">18.30</endTime>
 			<category>Freizeit</category>
 			<transport>Bahn</transport>
 			<duration>16</duration>
