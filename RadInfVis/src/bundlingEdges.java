@@ -15,12 +15,12 @@ public class bundlingEdges extends PApplet {
 	public float centerY = height / 2;
 	public float radius = (height - 150) / 2;
 	public float circumference = 2 * PI * radius;
-	
+
 	public float alpha = 60f;
 	public float densityOfLines = 10f;
 
 	public float ammountOfPlaces = 5; // home, Uni, Social, Work, Freetime
-	public ArrayList<place> places = new ArrayList();
+	public ArrayList<place> places = new ArrayList<place>();
 
 	// independent from the ammount of arcs the free space between
 	// the arcs will allways beu 10% of the circumference
@@ -83,7 +83,7 @@ public class bundlingEdges extends PApplet {
 			fill(places.get(i).backgroundcolor);
 			strokeWeight(1);
 			rect(85 + xPos, 25 + i * 30 + yPos, 40, 25);
-			//image(places.get(i).icon, 105 + xPos, 37 + i * 30 + yPos);
+			// image(places.get(i).icon, 105 + xPos, 37 + i * 30 + yPos);
 			fill(250);
 			Float lclprc = places.get(i).percentage * 100;
 			String prcntg = "0";
@@ -104,16 +104,16 @@ public class bundlingEdges extends PApplet {
 			text(places.get(i).name, 130 + xPos, 42 + i * 30 + yPos);
 
 			// percentages in the graph
-			percenteges = createFont("Dialog.plain", 12+15*lclprc/100);
+			percenteges = createFont("Dialog.plain", 12 + 15 * lclprc / 100);
 			textFont(percenteges);
-			
-			float[] percPos = degreesToXnY(places.get(i).middle,radius+40);
-			text(prcntg,percPos[0]-20,percPos[1]);
+
+			float[] percPos = degreesToXnY(places.get(i).middle, radius + 40);
+			text(prcntg, percPos[0] - 20, percPos[1]);
 		}
 		// headers
 		headerFont = createFont("Dialog.plain", 22);
 		textFont(headerFont);
-		
+
 	}
 
 	public void drawElipse() {
@@ -126,24 +126,26 @@ public class bundlingEdges extends PApplet {
 	public void drawBeziers(int i) {
 		noFill();
 		float[] outgoings = places.get(i).outgoings;
-		float arcLengthFrom = places.get(i).lenght/2;
+		float arcLengthFrom = places.get(i).lenght / 2;
 
 		for (int j = 0; j < places.size(); j++) {
-			
-			float arcLengthTo = places.get(j).lenght/2;
 
-			stroke(places.get(i).backgroundcolor,alpha);
+			float arcLengthTo = places.get(j).lenght / 2;
+
+			stroke(places.get(i).backgroundcolor, alpha);
 			noFill();
 			strokeWeight(1);
 
 			float lengthOfOneColorFrom = outgoings[j] * arcLengthFrom; // in
-			float lengthOfOneColorTo = places.get(j).incomings[i]*arcLengthTo;
-			float rel = lengthOfOneColorTo/lengthOfOneColorFrom;
+			float lengthOfOneColorTo = places.get(j).incomings[i] * arcLengthTo;
+			float rel = lengthOfOneColorTo / lengthOfOneColorFrom;
 
-			for (int k = 0; k < densityOfLines*lengthOfOneColorFrom-1; k++) {
-												
-				float[] start = degreesToXnY(places.get(i).start
-						+ places.get(i).currentLengtgOfOutgoingLinks,radius);
+			for (int k = 0; k < densityOfLines * (lengthOfOneColorFrom - 0.3f); k++) {
+
+				float[] start = degreesToXnY(
+						places.get(i).start
+								+ places.get(i).currentLengtgOfOutgoingLinks,
+						radius);
 
 				float[] end = degreesToXnY(places.get(j).end
 						- places.get(j).currentLengthOfIncomingLinks, radius);
@@ -151,13 +153,84 @@ public class bundlingEdges extends PApplet {
 				bezier(start[0], start[1], centerX, centerY, centerX, centerY,
 						end[0], end[1]);
 
-				places.get(i).currentLengtgOfOutgoingLinks = 
-						places.get(i).currentLengtgOfOutgoingLinks + 1/densityOfLines;
-				places.get(j).currentLengthOfIncomingLinks = 
-						places.get(j).currentLengthOfIncomingLinks + rel/densityOfLines;
+				places.get(i).currentLengtgOfOutgoingLinks = places.get(i).currentLengtgOfOutgoingLinks
+						+ 1 / densityOfLines;
+				places.get(j).currentLengthOfIncomingLinks = places.get(j).currentLengthOfIncomingLinks
+						+ rel / densityOfLines;
 			}
 		}
 		drawBeziers = false;
+	}
+
+	public void drawArcsnArrows() {
+		// drawArcs
+		for (int i = 0; i < ammountOfPlaces; i++) {
+
+			if (drawBeziers) {
+				for (int l = 0; l < ammountOfPlaces; l++) {
+					drawBeziers(l);
+				}
+			}
+
+			// Arc, in color
+			strokeWeight(10);
+			stroke(places.get(i).backgroundcolor);
+			arc(centerX, centerY, 2 * (radius + 15), 2 * (radius + 15),
+					radians(places.get(i).start - 90),
+					radians(places.get(i).end - 90));
+
+			// calculating iconpositions and drawing icons
+			// no more Icons...icons disabled
+			// float[] iconPos = degreesToXnY(places.get(i).middle);
+			// image(places.get(i).icon, iconPos[0], iconPos[1]);
+
+			// calculating arrowpositions and drawing/rotating
+			float arrowIn = places.get(i).start
+					+ (places.get(i).percentage * (360 - 36)) / 4; // in Degrees
+			float arrowOut = places.get(i).start + 3
+					* (places.get(i).percentage * (360 - 36)) / 4;// in Degrees
+
+			float[] arrowPosIn = degreesToXnY(arrowIn, radius - 3);
+			float[] arrowPosOut = degreesToXnY(arrowOut, radius + 3);
+
+			float minValue = (places.get(i).lenght / 2) / 360f * circumference;
+
+			// Draw and rotate Arrows
+			noStroke();
+			pushMatrix();
+			translate(arrowPosOut[0], arrowPosOut[1]);
+			rotate(radians(arrowOut - 180));
+			translate(-arrowPosOut[0], -arrowPosOut[1]);
+			fill(100);
+			triangleArrow arrow1 = new triangleArrow(arrowPosOut, minValue);
+			triangle(arrow1.p0[0], arrow1.p0[1], arrow1.p1[0], arrow1.p1[1],
+					arrow1.p2[0], arrow1.p2[1]);
+			popMatrix();
+
+			pushMatrix();
+			translate(arrowPosIn[0], arrowPosIn[1]);
+			rotate(radians(arrowIn + 0));
+			translate(-arrowPosIn[0], -arrowPosIn[1]);
+			fill(200);
+			triangleArrow arrow0 = new triangleArrow(arrowPosIn, minValue);
+			triangle(arrow0.p0[0], arrow0.p0[1], arrow0.p1[0], arrow0.p1[1],
+					arrow0.p2[0], arrow0.p2[1]);
+			popMatrix();
+
+			// Arc Part One, Outgoing
+			stroke(200);
+			noFill();
+			strokeWeight(10);
+			arc(centerX, centerY, 2 * radius, 2 * radius,
+					radians(places.get(i).start - 90),
+					radians(places.get(i).middle - 90));
+
+			// Arc Part Two, Incoming
+			stroke(100);
+			arc(centerX, centerY, 2 * radius, 2 * radius,
+					radians(places.get(i).middle - 90),
+					radians(places.get(i).end - 90));
+		}
 	}
 
 	public float[] calculatePercenteges(float[][] perc) {
@@ -175,19 +248,11 @@ public class bundlingEdges extends PApplet {
 		return rtrn;
 	}
 
-	public void setup() {
-		size(width, height);
-		background(42,42,42);
-		
-		arrow = loadImage("Icons/arrow-01.png");
-
-		imageMode(CENTER);
-		strokeCap(SQUARE);
-
+	public void handleDate() {
 		// home, Uni, Social, Work, Freetime
 		// add all Places to the Places-ArrayList
 		// and handle all the Data
-		// TODO ADD DATA HERE, only these fove arraysv
+		// TODO ADD DATA HERE, only these four arrays
 
 		// test data set
 		// float[] outOfHome = { 0, 0.25f, 0.25f, 0.25f, 0.25f };
@@ -266,90 +331,22 @@ public class bundlingEdges extends PApplet {
 		for (int i = 0; i < places.size(); i++) {
 			places.get(i).computeIncomings(places);
 		}
+	}
 
-		drawContentArround();
+	public void setup() {
+		size(width, height);
+		background(42, 42, 42);
+		imageMode(CENTER);
+		strokeCap(SQUARE);
 
+		arrow = loadImage("Icons/arrow-01.png");
+
+		handleDate();
 	}
 
 	public void draw() {
-
-		//background(42);
-		// ellipse...no more
-		// drawElipse();
-		// drawArcs
-		for (int i = 0; i < ammountOfPlaces; i++) {
-
-			if (drawBeziers) {
-				for (int l = 0; l < ammountOfPlaces; l++) {
-					drawBeziers(l);
-				}
-			}
-
-			//Arc, in color
-			strokeWeight(10);
-			stroke(places.get(i).backgroundcolor);
-			arc(centerX, centerY, 2 * (radius+15), 2 * (radius+15),
-					radians(places.get(i).start - 90),
-					radians(places.get(i).end - 90));
-
-			// calculating iconpositions and drawing icons
-			// no more Icons...icons disabled
-			// float[] iconPos = degreesToXnY(places.get(i).middle);
-			// image(places.get(i).icon, iconPos[0], iconPos[1]);
-
-			// calculating arrowpositions and drawing/rotating
-			float arrowIn = places.get(i).start
-					+ (places.get(i).percentage * (360 - 36)) / 4; // in Degrees
-			float arrowOut = places.get(i).start + 3
-					* (places.get(i).percentage * (360 - 36)) / 4;// in Degrees
-
-			float[] arrowPosIn = degreesToXnY(arrowIn,radius-3);
-			float[] arrowPosOut = degreesToXnY(arrowOut,radius+3);
-
-			float minValue = (places.get(i).lenght/2)/360f*circumference;
-
-			
-			//Draw and rotate Arrows
-			noStroke();
-			pushMatrix();
-			translate(arrowPosOut[0], arrowPosOut[1]);
-			rotate(radians(arrowOut - 180));
-			translate(-arrowPosOut[0], -arrowPosOut[1]);
-			fill(100);
-			triangleArrow arrow1 = new triangleArrow(arrowPosOut, minValue);
-			triangle(arrow1.p0[0], arrow1.p0[1],
-					arrow1.p1[0], arrow1.p1[1],
-					arrow1.p2[0], arrow1.p2[1]);
-			popMatrix();	
-			
-			pushMatrix();
-			translate(arrowPosIn[0], arrowPosIn[1]);
-			rotate(radians(arrowIn + 0));
-			translate(-arrowPosIn[0], -arrowPosIn[1]);
-			fill(180);
-			triangleArrow arrow0 = new triangleArrow(arrowPosIn, minValue);
-			triangle(arrow0.p0[0], arrow0.p0[1],
-					arrow0.p1[0], arrow0.p1[1],
-					arrow0.p2[0], arrow0.p2[1]);
-			popMatrix();
-			
-			
-			// Arc Part One, Outgoing
-			stroke(200);
-			noFill();
-			strokeWeight(10);
-			arc(centerX, centerY, 2 * radius, 2 * radius,
-					radians(places.get(i).start - 90),
-					radians(places.get(i).middle - 90));
-			
-			// Arc Part Two, Incoming
-			stroke(100);
-			arc(centerX, centerY, 2 * radius, 2 * radius,
-					radians(places.get(i).middle - 90),
-					radians(places.get(i).end - 90));
-			
-			noLoop();
-
-		}
+		drawArcsnArrows();
+		drawContentArround();
+		noLoop();
 	}
 }

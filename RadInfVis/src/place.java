@@ -19,7 +19,7 @@ public class place extends PApplet {
 	public float lenght; // arcLength in degrees
 	public float middle;
 	public float currentLengthOfIncomingLinks = 0.5f; //length in degrees
-	public float currentLengtgOfOutgoingLinks = 0;
+	public float currentLengtgOfOutgoingLinks = 0f;
 	public float[][] outgoingLinks = new float[4][5];
 	public float[] outgoings = new float[5];
 	public float[] incomings = new float[5];
