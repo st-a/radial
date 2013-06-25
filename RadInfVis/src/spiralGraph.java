@@ -364,7 +364,7 @@ public class spiralGraph extends PApplet {
 			noFill();
 			stroke(color);
 			arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
-					localRadius, radians(-90 + start), radians(1));
+					localRadius, radians(-90 + start), radians(0.3f));
 
 			flagDrawIfInScope = false;
 
@@ -383,7 +383,7 @@ public class spiralGraph extends PApplet {
 			stroke(color);
 			arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
 					localRadius - thiknessOfOneDay / 2, radians(-90 + start),
-					radians(-90 + 180));
+					radians(-90 + 180+0.3f));
 
 			flagDrawIfInScope = false;
 
@@ -402,7 +402,7 @@ public class spiralGraph extends PApplet {
 			stroke(color);
 			arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
 					localRadius - thiknessOfOneDay / 2,
-					radians(-90 + start - 1), radians(-90 + 270 + 1));
+					radians(-90 + start - 1), radians(-90 + 270 + 0.3f));
 
 			flagDrawIfInScope = false;
 
@@ -421,7 +421,7 @@ public class spiralGraph extends PApplet {
 			stroke(color);
 			arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
 					localRadius - thiknessOfOneDay / 2 - thiknessOfOneDay / 2,
-					radians(-90 + start - 1), radians(-90 + 360 + 1));
+					radians(-90 + start - 1), radians(-90 + 360 + 0.3f));
 
 			flagDrawIfInScope = false;
 
@@ -437,7 +437,7 @@ public class spiralGraph extends PApplet {
 				noFill();
 				stroke(color);
 				arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
-						localRadius, radians(-90 + start), radians(-90 + start
+						localRadius, radians(-90 + start-0.4f), radians(-90 + start
 								+ duration));
 			}
 
@@ -447,15 +447,15 @@ public class spiralGraph extends PApplet {
 				stroke(color);
 				arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
 						localRadius - thiknessOfOneDay / 2, radians(-90 + start
-								- 1), radians(-90 + start + duration));
+								-0.4f), radians(-90 + start + duration));
 
 			}
 			if (start < 270 && start >= 180) {
 				noFill();
 				stroke(color);
 				arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
-						localRadius - thiknessOfOneDay / 2, radians(-90 + start
-								- 1), radians(-90 + start + duration));
+						localRadius - thiknessOfOneDay / 2, radians(-90 + start-0.4f
+								), radians(-90 + start + duration));
 			}
 
 			if (start < 360 && start >= 270) {
@@ -463,7 +463,7 @@ public class spiralGraph extends PApplet {
 				stroke(color);
 				arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
 						localRadius - thiknessOfOneDay,
-						radians(-90 + start - 1), radians(-90 + start
+						radians(-90 + start -0.4f), radians(-90 + start
 								+ duration));
 
 			}
@@ -495,7 +495,7 @@ public class spiralGraph extends PApplet {
 		addTimeSlot(homeColor, 3, 1320, 855);
 		// day4 friday
 		addTimeSlot(socialColor, 4, 745, 30);
-		addTimeSlot(homeColor, 4, 775, 365);
+		addTimeSlot(homeColor, 4, 785, 355);
 		addTimeSlot(freeTimeColor, 4, 1160, 140);
 		addTimeSlot(freeTimeColor, 4, 1320, 180);
 		// day5 = saturday

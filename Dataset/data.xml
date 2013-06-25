@@ -551,37 +551,348 @@
 </person>
 
 <person name="Hannes">	
+	
 	<tag name="Montag">
-		<activity>
+	    <activity>
+			<begin>Home</begin>
+			<bTime hour="6" minutes="40"></bTime>
+			<end>Kaufland</end>
+			<eTime hour ="7" minutes="0"></eTime>
+			<category>Work</category>
+			<transport>Straßenbahn</transport>
+			<duration>20</duration>
+			<distance></distance>
 		</activity>
+
+	    <activity>
+			<begin>Work</begin>
+			<bTime hour="11" minutes="30"></bTime>
+			<end>Home</end>
+			<eTime hour ="12" minutes="0"></eTime>
+			<category>Home</category>
+			<transport>Straßenbahn</transport>
+			<duration>30</duration>
+			<distance></distance>
+		</activity>
+		
+	    <activity>
+			<begin>Home</begin>
+			<bTime hour="12" minutes="30"></bTime>
+			<end>Social</end>
+			<eTime hour ="12" minutes="40"></eTime>
+			<category>Social</category>
+			<transport>zu Fuß</transport>
+			<duration>10</duration>
+			<distance></distance>
+		</activity>
+		
+	    <activity>
+			<begin>Social</begin>
+			<bTime hour="13" minutes="40"></bTime>
+			<end>Home</end>
+			<eTime hour ="13" minutes="50"></eTime>
+			<category>Home</category>
+			<transport>zu Fuß</transport>
+			<duration>10</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Home</begin>
+			<bTime hour="19" minutes="0"></bTime>
+			<end>Home</end>
+			<eTime hour ="19" minutes="10"></eTime>
+			<category>Social</category>
+			<transport>zu Fuß</transport>
+			<duration>10</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Social</begin>
+			<bTime hour="19" minutes="40"></bTime>
+			<end>Bar</end>
+			<eTime hour ="19" minutes="50"></eTime>
+			<category>Freizeit</category>
+			<transport>zu Fuß</transport>
+			<duration>10</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Bar</begin>
+			<bTime hour="23" minutes="50"></bTime>
+			<end>Freunde</end>
+			<eTime hour ="0" minutes="20"></eTime>
+			<category>Freizeit</category>
+			<transport>Straßenbahn</transport>
+			<duration>30</duration>
+			<distance></distance>
+		</activity>	    
 	</tag>
 	
 	<tag name="Dienstag">
 		<activity>
+			<begin>Freunde</begin>
+			<bTime hour="1" minutes="20"></bTime>
+			<end>Home</end>
+			<eTime hour ="1" minutes="50"></eTime>
+			<category>Home</category>
+			<transport>Straßenbahn</transport>
+			<duration>30</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Home</begin>
+			<bTime hour="15" minutes="00"></bTime>
+			<end>Freunde</end>
+			<eTime hour ="15" minutes="30"></eTime>
+			<category>Work</category>
+			<transport>Straßenbahn</transport>
+			<duration>30</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Work</begin>
+			<bTime hour="20" minutes="00"></bTime>
+			<end>Social</end>
+			<eTime hour ="20" minutes="3"></eTime>
+			<category>Social</category>
+			<transport>zu Fuß</transport>
+			<duration>3</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Social</begin>
+			<bTime hour="20" minutes="13"></bTime>
+			<end>Home</end>
+			<eTime hour ="20" minutes="45"></eTime>
+			<category>Home</category>
+			<transport>Straßenbahn</transport>
+			<duration>31</duration>
+			<distance></distance>
 		</activity>
 	</tag>
 	
 	<tag name="Mittwoch">
 		<activity>
+			<begin>Home</begin>
+			<bTime hour="10" minutes="30"></bTime>
+			<end>Uni</end>
+			<eTime hour ="11" minutes="00"></eTime>
+			<category>Uni</category>
+			<transport>Zug</transport>
+			<duration>30</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Uni</begin>
+			<bTime hour="14" minutes="0"></bTime>
+			<end>Home</end>
+			<eTime hour ="14" minutes="30"></eTime>
+			<category>Home</category>
+			<transport>Zug</transport>
+			<duration>30</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Home</begin>
+			<bTime hour="16" minutes="30"></bTime>
+			<end>Work</end>
+			<eTime hour ="17" minutes="00"></eTime>
+			<category>Work</category>
+			<transport>Straßenbahn</transport>
+			<duration>30</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Work</begin>
+			<bTime hour="21" minutes="30"></bTime>
+			<end>Home</end>
+			<eTime hour ="22" minutes="00"></eTime>
+			<category>Home</category>
+			<transport>Straßenbahn</transport>
+			<duration>30</duration>
+			<distance></distance>
 		</activity>
 	</tag>
+	
 	<tag name="Donnerstag">
 		<activity>
+			<begin>Home</begin>
+			<bTime hour="12" minutes="15"></bTime>
+			<end>Social</end>
+			<eTime hour ="12" minutes="25"></eTime>
+			<category>Social</category>
+			<transport>zu Fuß</transport>
+			<duration>10</duration>
+			<distance></distance>
 		</activity>
+		
+		<activity>
+			<begin>Social</begin>
+			<bTime hour="12" minutes="45"></bTime>
+			<end>Home</end>
+			<eTime hour ="13" minutes="0"></eTime>
+			<category>Home</category>
+			<transport>zu Fuß</transport>
+			<duration>10</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Home</begin>
+			<bTime hour="19" minutes="0"></bTime>
+			<end>Freunde</end>
+			<eTime hour ="19" minutes="20"></eTime>
+			<category>Freizeit</category>
+			<transport>zu Fuß</transport>
+			<duration>20</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Freunde</begin>
+			<bTime hour="21" minutes="40"></bTime>
+			<end>Bar</end>
+			<eTime hour ="21" minutes="50"></eTime>
+			<category>Freizeit</category>
+			<transport>zu Fuß</transport>
+			<duration>10</duration>
+			<distance></distance>
+		</activity>		
 	</tag>
 	
 	<tag name="Freitag">
 		<activity>
+			<begin>Bar</begin>
+			<bTime hour="1" minutes="0"></bTime>
+			<end>Home</end>
+			<eTime hour ="1" minutes="10"></eTime>
+			<category>Home</category>
+			<transport>zu Fuß</transport>
+			<duration>10</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Home</begin>
+			<bTime hour="11" minutes="0"></bTime>
+			<end>Home</end>
+			<eTime hour ="11" minutes="30"></eTime>
+			<category>Home</category>
+			<transport>Straßenbahn</transport>
+			<duration>30</duration>
+			<distance></distance>
 		</activity>
 	</tag>
 	
 	<tag name="Samstag">
 		<activity>
+			<begin>Home</begin>
+			<bTime hour="12" minutes="0"></bTime>
+			<end>Home</end>
+			<eTime hour ="18" minutes="0"></eTime>
+			<category>Home</category>
+			<transport>Auto</transport>
+			<duration>360</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Home</begin>
+			<bTime hour="20" minutes="50"></bTime>
+			<end>Strand</end>
+			<eTime hour ="21" minutes="20"></eTime>
+			<category>Social</category>
+			<transport>zu Fuß</transport>
+			<duration>30</duration>
+			<distance></distance>
 		</activity>
 	</tag>
 	
 	<tag name="Sonntag">
 		<activity>
+			<begin>Social</begin>
+			<bTime hour="0" minutes="0"></bTime>
+			<end>Home</end>
+			<eTime hour ="0" minutes="30"></eTime>
+			<category>Home</category>
+			<transport>zu Fuß</transport>
+			<duration>30</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Home</begin>
+			<bTime hour="9" minutes="30"></bTime>
+			<end>Ausstellung</end>
+			<eTime hour ="10" minutes="0"></eTime>
+			<category>Work</category>
+			<transport>zu Fuß</transport>
+			<duration>30</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Ausstellung</begin>
+			<bTime hour="12" minutes="0"></bTime>
+			<end>Home</end>
+			<eTime hour ="12" minutes="10"></eTime>
+			<category>Home</category>
+			<transport>Fahrrad</transport>
+			<duration>10</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Home</begin>
+			<bTime hour="13" minutes="50"></bTime>
+			<end>Ausstellung</end>
+			<eTime hour ="14" minutes="0"></eTime>
+			<category>Work</category>
+			<transport>Fahrrad</transport>
+			<duration>10</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Ausstellung</begin>
+			<bTime hour="17" minutes="0"></bTime>
+			<end>Strand</end>
+			<eTime hour ="17" minutes="10"></eTime>
+			<category>Freizeit</category>
+			<transport>zu Fuß</transport>
+			<duration>10</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Strand</begin>
+			<bTime hour="18" minutes="0"></bTime>
+			<end>Home</end>
+			<eTime hour ="18" minutes="30"></eTime>
+			<category>Home</category>
+			<transport>zu Fuß</transport>
+			<duration>30</duration>
+			<distance></distance>
+		</activity>
+		
+		<activity>
+			<begin>Home</begin>
+			<bTime hour="21" minutes="20"></bTime>
+			<end>Strand</end>
+			<eTime hour ="21" minutes="50"></eTime>
+			<category>Social</category>
+			<transport>zu Fuß</transport>
+			<duration>30</duration>
+			<distance></distance>
 		</activity>
 	</tag>
 </person>
