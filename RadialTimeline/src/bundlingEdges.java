@@ -284,34 +284,33 @@ public class bundlingEdges extends PApplet {
 		placesAndPercentages[4] = outOfFreeTime;
 
 		float[] percenteges = calculatePercenteges(placesAndPercentages);
-
-		place home = new place(0, "home", percenteges[0], "Icons/iconHome.png");
+		place home = new place(0, "home", percenteges[0], "../src/Icons/iconHome.png");
 		home.setColor(color(255, 123, 106));
 		home.setIndex(0);
 		home.setOutgoings(outOfHome);
 		places.add(home);
 
-		place uni = new place(1, "uni", percenteges[1], "Icons/iconUni.png");
+		place uni = new place(1, "uni", percenteges[1], "../src/Icons/iconUni.png");
 		uni.setColor(color(255, 242, 190));
 		uni.setIndex(1);
 		uni.setOutgoings(outOfUni);
 		places.add(uni);
 
 		place social = new place(2, "social", percenteges[2],
-				"Icons/iconSocial.png");
+				"../src/Icons/iconSocial.png");
 		social.setColor(color(170, 235, 140));
 		social.setIndex(2);
 		social.setOutgoings(outOfSocial);
 		places.add(social);
 
-		place work = new place(3, "work", percenteges[3], "Icons/iconWork.png");
+		place work = new place(3, "work", percenteges[3], "../src/Icons/iconWork.png");
 		work.setColor(color(53, 189, 144));
 		work.setIndex(3);
 		work.setOutgoings(outOfWork);
 		places.add(work);
 
 		place freeTime = new place(4, "freeTime", percenteges[4],
-				"Icons/iconBeer.png");
+				"../src/Icons/iconBeer.png");
 		freeTime.setColor(color(0, 150, 163));
 		freeTime.setIndex(4);
 		freeTime.setOutgoings(outOfFreeTime);

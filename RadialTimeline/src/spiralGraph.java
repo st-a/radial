@@ -473,7 +473,9 @@ public class spiralGraph extends PApplet {
 
 	public void addData() {
 		// this is a sample data set
-
+		Dataset myDataset = new Dataset(
+				"../src/Data/data.XML");
+		
 		// day 1 Tuesday
 		addTimeSlot(homeColor, 1, 0, 400);
 		addTimeSlot(workColor, 1, 420, 270);
