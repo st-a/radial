@@ -42,6 +42,7 @@ public class Dataset {
 						for(int k = 0; k < day.getElementsByTagName("activity").getLength() ;k++){
 							Element a = (Element) e.getElementsByTagName("activity").item(k);
 							
+							
 							String begin= "0";
 							String end= "0";
 							String category= "0";
