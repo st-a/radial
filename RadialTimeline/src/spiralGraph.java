@@ -473,9 +473,35 @@ public class spiralGraph extends PApplet {
 
 	public void addData() {
 		// this is a sample data set	
-		Dataset myDataset = new Dataset(
+		Dataset dtst = new Dataset(
 				"../src/Data/data.XML");
 		
+		//Activity[] activityTom = dtst.getPersonActivities("Tom");
+		
+		Human a = dtst.getPerson("Tom");
+		
+		Activity[] allActivities = dtst.getActivities();
+		
+		for(int i=0;i<allActivities.length;i++){
+			if(allActivities[i]!=null){
+				Activity act = allActivities[i];
+				
+				if(act.getHuman().getName().equals("Hannes")){
+					if(act.getDay().equals("Montag")){
+						println(i + " " + act.getDay());
+						println("Begin: "  + act.getBeginTime()[0] + ":" +
+								act.getBeginTime()[1]);
+						println("Duration: " + act.duration);
+						
+						int start = act.bTime[0]*60 + act.bTime[1];
+						addTimeSlot(homeColor, 1, start, (float)act.duration);
+					}
+				}
+			}
+		}
+		
+		
+		/*
 		// day 1 Tuesday
 		addTimeSlot(homeColor, 1, 0, 400);
 		addTimeSlot(workColor, 1, 420, 270);
@@ -514,7 +540,8 @@ public class spiralGraph extends PApplet {
 		addTimeSlot(freeTimeColor, 7, 1030, 50);
 		addTimeSlot(homeColor, 7, 1110, 180);
 		addTimeSlot(socialColor, 7, 1310, 130);
-
+		*/
+		
 		// home = 72.5%
 		// work = 10.4%
 		// social = 6%

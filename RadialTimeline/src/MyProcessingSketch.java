@@ -25,7 +25,7 @@ public class MyProcessingSketch extends PApplet {
 	 
 
 
-	  d = new Dataset("../src/Data/data.XML");
+	  d = new Dataset("/Users/Shared/radial-vis/Dataset/data.xml");
 	  
 	  //noLoop();
 	  println(PFont.list());
