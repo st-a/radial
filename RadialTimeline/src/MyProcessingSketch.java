@@ -27,8 +27,13 @@ public class MyProcessingSketch extends PApplet {
 
 	  d = new Dataset("/Users/Shared/radial-vis/Dataset/data.xml");
 	  
+		Activity[] a = d.getPersonActivities("Albert");
+		
+		for(int i = 0; i< a.length; ++i){
+			//System.out.println(a[i].getHuman().getName());
+		}
+	  
 	  //noLoop();
-	  println(PFont.list());
 	  f = createFont("Futura-Medium", 16);
 	  textFont(f);
 	  textAlign(CENTER, CENTER);
@@ -56,6 +61,7 @@ public class MyProcessingSketch extends PApplet {
 			diagramm.drawMatrix(this.d.getPersons());
 			draw = false;
 			intera = new Interaktion(this, diagramm);
+			
 		}
 		
 		if(intera.getScale()){
