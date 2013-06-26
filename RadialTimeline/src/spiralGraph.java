@@ -472,7 +472,7 @@ public class spiralGraph extends PApplet {
 	}
 
 	public void addData() {
-		// this is a sample data set
+		// this is a sample data set	
 		Dataset myDataset = new Dataset(
 				"../src/Data/data.XML");
 		
