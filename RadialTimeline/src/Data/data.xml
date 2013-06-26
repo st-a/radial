@@ -39,7 +39,7 @@
 			<category>Freizeit</category>
 			<transport>Fahrrad</transport>
 			<duration>18</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 	</tag>
 </person>
@@ -555,344 +555,344 @@
 	<tag name="Montag">
 	    <activity>
 			<begin>Home</begin>
-			<bTime hour="6" minutes="40"></bTime>
+			<beginTime hour="6" minutes="40"></beginTime>
 			<end>Kaufland</end>
-			<eTime hour ="7" minutes="0"></eTime>
+			<endTime hour ="7" minutes="0"></endTime>
 			<category>Work</category>
 			<transport>Straßenbahn</transport>
 			<duration>20</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 
 	    <activity>
 			<begin>Work</begin>
-			<bTime hour="11" minutes="30"></bTime>
+			<beginTime hour="11" minutes="30"></beginTime>
 			<end>Home</end>
-			<eTime hour ="12" minutes="0"></eTime>
+			<endTime hour ="12" minutes="0"></endTime>
 			<category>Home</category>
 			<transport>Straßenbahn</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 	    <activity>
 			<begin>Home</begin>
-			<bTime hour="12" minutes="30"></bTime>
+			<beginTime hour="12" minutes="30"></beginTime>
 			<end>Social</end>
-			<eTime hour ="12" minutes="40"></eTime>
+			<endTime hour ="12" minutes="40"></endTime>
 			<category>Social</category>
 			<transport>zu Fuß</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 	    <activity>
 			<begin>Social</begin>
-			<bTime hour="13" minutes="40"></bTime>
+			<beginTime hour="13" minutes="40"></beginTime>
 			<end>Home</end>
-			<eTime hour ="13" minutes="50"></eTime>
+			<endTime hour ="13" minutes="50"></endTime>
 			<category>Home</category>
 			<transport>zu Fuß</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Home</begin>
-			<bTime hour="19" minutes="0"></bTime>
+			<beginTime hour="19" minutes="0"></beginTime>
 			<end>Home</end>
-			<eTime hour ="19" minutes="10"></eTime>
+			<endTime hour ="19" minutes="10"></endTime>
 			<category>Social</category>
 			<transport>zu Fuß</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Social</begin>
-			<bTime hour="19" minutes="40"></bTime>
+			<beginTime hour="19" minutes="40"></beginTime>
 			<end>Bar</end>
-			<eTime hour ="19" minutes="50"></eTime>
+			<endTime hour ="19" minutes="50"></endTime>
 			<category>Freizeit</category>
 			<transport>zu Fuß</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Bar</begin>
-			<bTime hour="23" minutes="50"></bTime>
+			<beginTime hour="23" minutes="50"></beginTime>
 			<end>Freunde</end>
-			<eTime hour ="0" minutes="20"></eTime>
+			<endTime hour ="0" minutes="20"></endTime>
 			<category>Freizeit</category>
 			<transport>Straßenbahn</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>	    
 	</tag>
 	
 	<tag name="Dienstag">
 		<activity>
 			<begin>Freunde</begin>
-			<bTime hour="1" minutes="20"></bTime>
+			<beginTime hour="1" minutes="20"></beginTime>
 			<end>Home</end>
-			<eTime hour ="1" minutes="50"></eTime>
+			<endTime hour ="1" minutes="50"></endTime>
 			<category>Home</category>
 			<transport>Straßenbahn</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Home</begin>
-			<bTime hour="15" minutes="00"></bTime>
+			<beginTime hour="15" minutes="00"></beginTime>
 			<end>Freunde</end>
-			<eTime hour ="15" minutes="30"></eTime>
+			<endTime hour ="15" minutes="30"></endTime>
 			<category>Work</category>
 			<transport>Straßenbahn</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Work</begin>
-			<bTime hour="20" minutes="00"></bTime>
+			<beginTime hour="20" minutes="00"></beginTime>
 			<end>Social</end>
-			<eTime hour ="20" minutes="3"></eTime>
+			<endTime hour ="20" minutes="3"></endTime>
 			<category>Social</category>
 			<transport>zu Fuß</transport>
 			<duration>3</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Social</begin>
-			<bTime hour="20" minutes="13"></bTime>
+			<beginTime hour="20" minutes="13"></beginTime>
 			<end>Home</end>
-			<eTime hour ="20" minutes="45"></eTime>
+			<endTime hour ="20" minutes="45"></endTime>
 			<category>Home</category>
 			<transport>Straßenbahn</transport>
 			<duration>31</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 	</tag>
 	
 	<tag name="Mittwoch">
 		<activity>
 			<begin>Home</begin>
-			<bTime hour="10" minutes="30"></bTime>
+			<beginTime hour="10" minutes="30"></beginTime>
 			<end>Uni</end>
-			<eTime hour ="11" minutes="00"></eTime>
+			<endTime hour ="11" minutes="00"></endTime>
 			<category>Uni</category>
 			<transport>Zug</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Uni</begin>
-			<bTime hour="14" minutes="0"></bTime>
+			<beginTime hour="14" minutes="0"></beginTime>
 			<end>Home</end>
-			<eTime hour ="14" minutes="30"></eTime>
+			<endTime hour ="14" minutes="30"></endTime>
 			<category>Home</category>
 			<transport>Zug</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Home</begin>
-			<bTime hour="16" minutes="30"></bTime>
+			<beginTime hour="16" minutes="30"></beginTime>
 			<end>Work</end>
-			<eTime hour ="17" minutes="00"></eTime>
+			<endTime hour ="17" minutes="00"></endTime>
 			<category>Work</category>
 			<transport>Straßenbahn</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Work</begin>
-			<bTime hour="21" minutes="30"></bTime>
+			<beginTime hour="21" minutes="30"></beginTime>
 			<end>Home</end>
-			<eTime hour ="22" minutes="00"></eTime>
+			<endTime hour ="22" minutes="00"></endTime>
 			<category>Home</category>
 			<transport>Straßenbahn</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 	</tag>
 	
 	<tag name="Donnerstag">
 		<activity>
 			<begin>Home</begin>
-			<bTime hour="12" minutes="15"></bTime>
+			<beginTime hour="12" minutes="15"></beginTime>
 			<end>Social</end>
-			<eTime hour ="12" minutes="25"></eTime>
+			<endTime hour ="12" minutes="25"></endTime>
 			<category>Social</category>
 			<transport>zu Fuß</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Social</begin>
-			<bTime hour="12" minutes="45"></bTime>
+			<beginTime hour="12" minutes="45"></beginTime>
 			<end>Home</end>
-			<eTime hour ="13" minutes="0"></eTime>
+			<endTime hour ="13" minutes="0"></endTime>
 			<category>Home</category>
 			<transport>zu Fuß</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Home</begin>
-			<bTime hour="19" minutes="0"></bTime>
+			<beginTime hour="19" minutes="0"></beginTime>
 			<end>Freunde</end>
-			<eTime hour ="19" minutes="20"></eTime>
+			<endTime hour ="19" minutes="20"></endTime>
 			<category>Freizeit</category>
 			<transport>zu Fuß</transport>
 			<duration>20</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Freunde</begin>
-			<bTime hour="21" minutes="40"></bTime>
+			<beginTime hour="21" minutes="40"></beginTime>
 			<end>Bar</end>
-			<eTime hour ="21" minutes="50"></eTime>
+			<endTime hour ="21" minutes="50"></endTime>
 			<category>Freizeit</category>
 			<transport>zu Fuß</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>		
 	</tag>
 	
 	<tag name="Freitag">
 		<activity>
 			<begin>Bar</begin>
-			<bTime hour="1" minutes="0"></bTime>
+			<beginTime hour="1" minutes="0"></beginTime>
 			<end>Home</end>
-			<eTime hour ="1" minutes="10"></eTime>
+			<endTime hour ="1" minutes="10"></endTime>
 			<category>Home</category>
 			<transport>zu Fuß</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Home</begin>
-			<bTime hour="11" minutes="0"></bTime>
+			<beginTime hour="11" minutes="0"></beginTime>
 			<end>Home</end>
-			<eTime hour ="11" minutes="30"></eTime>
+			<endTime hour ="11" minutes="30"></endTime>
 			<category>Home</category>
 			<transport>Straßenbahn</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 	</tag>
 	
 	<tag name="Samstag">
 		<activity>
 			<begin>Home</begin>
-			<bTime hour="12" minutes="0"></bTime>
+			<beginTime hour="12" minutes="0"></beginTime>
 			<end>Home</end>
-			<eTime hour ="18" minutes="0"></eTime>
+			<endTime hour ="18" minutes="0"></endTime>
 			<category>Home</category>
 			<transport>Auto</transport>
 			<duration>360</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Home</begin>
-			<bTime hour="20" minutes="50"></bTime>
+			<beginTime hour="20" minutes="50"></beginTime>
 			<end>Strand</end>
-			<eTime hour ="21" minutes="20"></eTime>
+			<endTime hour ="21" minutes="20"></endTime>
 			<category>Social</category>
 			<transport>zu Fuß</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 	</tag>
 	
 	<tag name="Sonntag">
 		<activity>
 			<begin>Social</begin>
-			<bTime hour="0" minutes="0"></bTime>
+			<beginTime hour="0" minutes="0"></beginTime>
 			<end>Home</end>
-			<eTime hour ="0" minutes="30"></eTime>
+			<endTime hour ="0" minutes="30"></endTime>
 			<category>Home</category>
 			<transport>zu Fuß</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Home</begin>
-			<bTime hour="9" minutes="30"></bTime>
+			<beginTime hour="9" minutes="30"></beginTime>
 			<end>Ausstellung</end>
-			<eTime hour ="10" minutes="0"></eTime>
+			<endTime hour ="10" minutes="0"></endTime>
 			<category>Work</category>
 			<transport>zu Fuß</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Ausstellung</begin>
-			<bTime hour="12" minutes="0"></bTime>
+			<beginTime hour="12" minutes="0"></beginTime>
 			<end>Home</end>
-			<eTime hour ="12" minutes="10"></eTime>
+			<endTime hour ="12" minutes="10"></endTime>
 			<category>Home</category>
 			<transport>Fahrrad</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Home</begin>
-			<bTime hour="13" minutes="50"></bTime>
+			<beginTime hour="13" minutes="50"></beginTime>
 			<end>Ausstellung</end>
-			<eTime hour ="14" minutes="0"></eTime>
+			<endTime hour ="14" minutes="0"></endTime>
 			<category>Work</category>
 			<transport>Fahrrad</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Ausstellung</begin>
-			<bTime hour="17" minutes="0"></bTime>
+			<beginTime hour="17" minutes="0"></beginTime>
 			<end>Strand</end>
-			<eTime hour ="17" minutes="10"></eTime>
+			<endTime hour ="17" minutes="10"></endTime>
 			<category>Freizeit</category>
 			<transport>zu Fuß</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Strand</begin>
-			<bTime hour="18" minutes="0"></bTime>
+			<beginTime hour="18" minutes="0"></beginTime>
 			<end>Home</end>
-			<eTime hour ="18" minutes="30"></eTime>
+			<endTime hour ="18" minutes="30"></endTime>
 			<category>Home</category>
 			<transport>zu Fuß</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
 			<begin>Home</begin>
-			<bTime hour="21" minutes="20"></bTime>
+			<beginTime hour="21" minutes="20"></beginTime>
 			<end>Strand</end>
-			<eTime hour ="21" minutes="50"></eTime>
+			<endTime hour ="21" minutes="50"></endTime>
 			<category>Social</category>
 			<transport>zu Fuß</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 	</tag>
 </person>

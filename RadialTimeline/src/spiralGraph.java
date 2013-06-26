@@ -19,11 +19,17 @@ public class spiralGraph extends PApplet {
 	public float thiknessOfOneDay = radius / (days + 1);
 
 	public int background = color(255, 255, 255);
+
 	public int homeColor = color(236, 0, 140);
 	public int uniColor = color(180, 210, 53);
 	public int socialColor = color(40, 170, 225);
 	public int workColor = color(255, 198, 11);
 	public int freeTimeColor = color(59, 25, 133);
+
+	public int byFeet = homeColor;
+	public int byCar = uniColor;
+	public int byTram = socialColor;
+	public int byBike = workColor;
 
 	public float convertTimeToDegrees(float minutes) {
 
@@ -47,10 +53,6 @@ public class spiralGraph extends PApplet {
 		}
 
 		float[] rtrn = new float[2];
-
-		println("deg: " + deg);
-		println("radius: " + radius);
-		println("center: " + centerX + ", " + centerY);
 
 		rtrn[0] = centerX + cos(radians(-90 + deg)) * (localRadius);
 		rtrn[1] = centerY + sin(radians(-90 + deg)) * (localRadius);
@@ -383,7 +385,7 @@ public class spiralGraph extends PApplet {
 			stroke(color);
 			arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
 					localRadius - thiknessOfOneDay / 2, radians(-90 + start),
-					radians(-90 + 180+0.3f));
+					radians(-90 + 180 + 0.3f));
 
 			flagDrawIfInScope = false;
 
@@ -437,8 +439,8 @@ public class spiralGraph extends PApplet {
 				noFill();
 				stroke(color);
 				arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
-						localRadius, radians(-90 + start-0.4f), radians(-90 + start
-								+ duration));
+						localRadius, radians(-90 + start - 0.4f), radians(-90
+								+ start + duration));
 			}
 
 			if (start >= 90 && start < 180) {
@@ -447,24 +449,23 @@ public class spiralGraph extends PApplet {
 				stroke(color);
 				arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
 						localRadius - thiknessOfOneDay / 2, radians(-90 + start
-								-0.4f), radians(-90 + start + duration));
+								- 0.4f), radians(-90 + start + duration));
 
 			}
 			if (start < 270 && start >= 180) {
 				noFill();
 				stroke(color);
 				arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
-						localRadius - thiknessOfOneDay / 2, radians(-90 + start-0.4f
-								), radians(-90 + start + duration));
+						localRadius - thiknessOfOneDay / 2, radians(-90 + start
+								- 0.4f), radians(-90 + start + duration));
 			}
 
 			if (start < 360 && start >= 270) {
 				noFill();
 				stroke(color);
 				arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
-						localRadius - thiknessOfOneDay,
-						radians(-90 + start -0.4f), radians(-90 + start
-								+ duration));
+						localRadius - thiknessOfOneDay, radians(-90 + start
+								- 0.4f), radians(-90 + start + duration));
 
 			}
 
@@ -472,76 +473,85 @@ public class spiralGraph extends PApplet {
 	}
 
 	public void addData() {
-		// this is a sample data set	
-		Dataset dtst = new Dataset(
-				"../src/Data/data.XML");
-		
-		//Activity[] activityTom = dtst.getPersonActivities("Tom");
-		
-		Human a = dtst.getPerson("Tom");
-		
+		// this is a sample data set
+		Dataset dtst = new Dataset("../src/Data/data.XML");
+
 		Activity[] allActivities = dtst.getActivities();
+		Activity act;
+		int start;
+		float dur;
+		int timeSlotColor;
+		float day;
 		
-		for(int i=0;i<allActivities.length;i++){
-			if(allActivities[i]!=null){
-				Activity act = allActivities[i];
-				
-				if(act.getHuman().getName().equals("Hannes")){
-					if(act.getDay().equals("Montag")){
-						println(i + " " + act.getDay());
-						println("Begin: "  + act.getBeginTime()[0] + ":" +
-								act.getBeginTime()[1]);
-						println("Duration: " + act.duration);
-						
-						int start = act.bTime[0]*60 + act.bTime[1];
-						addTimeSlot(homeColor, 1, start, (float)act.duration);
+		for (int i = 0; i < allActivities.length; i++) {
+			if (allActivities[i] != null) {
+				act = allActivities[i];				
+				if (act.getHuman().getName().equals("Tom")) {
+					
+					start = act.bTime[0] * 60 + act.bTime[1];
+					dur = (float) act.duration;
+					timeSlotColor = 0;
+					day = 0f;
+
+					if (act.day.equals("Montag")) {
+						day = 1f;
 					}
+					if (act.day.equals("Dienstag")) {
+						day = 2f;
+					}
+					if (act.day.equals("Mittwoch")) {
+						day = 3f;
+					}
+					if (act.day.equals("Donnerstag")) {
+						day = 4f;
+					}
+					if (act.day.equals("Freitag")) {
+						day = 5f;
+					}
+					if (act.day.equals("Samstag")) {
+						day = 6f;
+					}
+					if (act.day.equals("Sonntag")) {
+						day = 7f;
+					}
+
+					/*
+					if (act.transport.equals("Straßenbahn")
+							|| act.transport.equals("Zug")
+							|| act.transport.equals("Bus")) {
+						timeSlotColor = byTram;
+					}
+					*/
+					
+					addTimeSlot(timeSlotColor, day, start, dur);
 				}
 			}
 		}
-		
-		
+
 		/*
-		// day 1 Tuesday
-		addTimeSlot(homeColor, 1, 0, 400);
-		addTimeSlot(workColor, 1, 420, 270);
-		addTimeSlot(homeColor, 1, 720, 30);
-		addTimeSlot(socialColor, 1, 760, 60);
-		addTimeSlot(homeColor, 1, 830, 310);
-		addTimeSlot(socialColor, 1, 1150, 30);
-		addTimeSlot(freeTimeColor, 1, 1190, 240);
-		// day 2 Wednesday
-		addTimeSlot(freeTimeColor, 2, 20, 60);
-		addTimeSlot(homeColor, 2, 110, 790);
-		addTimeSlot(workColor, 2, 930, 270);
-		addTimeSlot(socialColor, 2, 1205, 10);
-		addTimeSlot(homeColor, 2, 1245, 825);
-		// day 3 thursday
-		addTimeSlot(uniColor, 3, 660, 180);
-		addTimeSlot(homeColor, 3, 870, 120);
-		addTimeSlot(workColor, 3, 1020, 270);
-		addTimeSlot(homeColor, 3, 1320, 855);
-		// day4 friday
-		addTimeSlot(socialColor, 4, 745, 30);
-		addTimeSlot(homeColor, 4, 785, 355);
-		addTimeSlot(freeTimeColor, 4, 1160, 140);
-		addTimeSlot(freeTimeColor, 4, 1320, 180);
-		// day5 = saturday
-		addTimeSlot(homeColor, 5, 70, 540);
-		addTimeSlot(homeColor, 5, 640, 1520);
-		// day 6 = sunday
-		addTimeSlot(homeColor, 6, 1080, 180);
-		addTimeSlot(socialColor, 6, 1290, 150);
-		// day 7 = monday
-		addTimeSlot(homeColor, 7, 30, 540);
-		addTimeSlot(workColor, 7, 600, 120);
-		addTimeSlot(homeColor, 7, 730, 110);
-		addTimeSlot(workColor, 7, 850, 180);
-		addTimeSlot(freeTimeColor, 7, 1030, 50);
-		addTimeSlot(homeColor, 7, 1110, 180);
-		addTimeSlot(socialColor, 7, 1310, 130);
-		*/
-		
+		 * // day 1 Tuesday addTimeSlot(homeColor, 1, 0, 400);
+		 * addTimeSlot(workColor, 1, 420, 270); addTimeSlot(homeColor, 1, 720,
+		 * 30); addTimeSlot(socialColor, 1, 760, 60); addTimeSlot(homeColor, 1,
+		 * 830, 310); addTimeSlot(socialColor, 1, 1150, 30);
+		 * addTimeSlot(freeTimeColor, 1, 1190, 240); // day 2 Wednesday
+		 * addTimeSlot(freeTimeColor, 2, 20, 60); addTimeSlot(homeColor, 2, 110,
+		 * 790); addTimeSlot(workColor, 2, 930, 270); addTimeSlot(socialColor,
+		 * 2, 1205, 10); addTimeSlot(homeColor, 2, 1245, 825); // day 3 thursday
+		 * addTimeSlot(uniColor, 3, 660, 180); addTimeSlot(homeColor, 3, 870,
+		 * 120); addTimeSlot(workColor, 3, 1020, 270); addTimeSlot(homeColor, 3,
+		 * 1320, 855); // day4 friday addTimeSlot(socialColor, 4, 745, 30);
+		 * addTimeSlot(homeColor, 4, 785, 355); addTimeSlot(freeTimeColor, 4,
+		 * 1160, 140); addTimeSlot(freeTimeColor, 4, 1320, 180); // day5 =
+		 * saturday addTimeSlot(homeColor, 5, 70, 540); addTimeSlot(homeColor,
+		 * 5, 640, 1520); // day 6 = sunday addTimeSlot(homeColor, 6, 1080,
+		 * 180); addTimeSlot(socialColor, 6, 1290, 150); // day 7 = monday
+		 * addTimeSlot(homeColor, 7, 30, 540); addTimeSlot(workColor, 7, 600,
+		 * 120); addTimeSlot(homeColor, 7, 730, 110); addTimeSlot(workColor, 7,
+		 * 850, 180); addTimeSlot(freeTimeColor, 7, 1030, 50);
+		 * addTimeSlot(homeColor, 7, 1110, 180); addTimeSlot(socialColor, 7,
+		 * 1310, 130);
+		 */
+
 		// home = 72.5%
 		// work = 10.4%
 		// social = 6%

@@ -17,9 +17,7 @@ public class Activity {
 		this.end = e;
 		this.transport = t;
 		
-		if(h.name.equals("Tom")){
-			System.out.println("end: " + end);
-		}
+		
 		
 		bTime = new int[2];
 		bTime[0] = Integer.parseInt(bTh);
@@ -30,12 +28,16 @@ public class Activity {
 		eTime[1] = Integer.parseInt(eTm);
 		
 		if(dist == "") this.duration = 0;
-		else this.duration = Integer.parseInt(du);
+		
+		else this.duration = Integer.parseInt(du);		
 		
 		if(dist == "") this.distance = 0;
 		else this.distance = Integer.parseInt(dist);
 		
-		
+		if(h.name.equals("Tom")){
+			System.out.println("dur: " + duration);
+			System.out.println("start: " + bTime[0] + ":" + bTime[1]);
+		}
 	}
 
 	
