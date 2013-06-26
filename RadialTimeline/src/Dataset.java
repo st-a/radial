@@ -34,7 +34,6 @@ public class Dataset {
 				Element e = (Element) node;
 				humans[i] = new Human(e.getAttribute("name"));
 
-				System.out.println(humans[i].getName());
 				for(int j = 0; j < e.getElementsByTagName("tag").getLength(); j++){
 					Element day = (Element) e.getElementsByTagName("tag").item(j);
 					String sDay = day.getAttribute("name");
@@ -55,7 +54,7 @@ public class Dataset {
 							String eTimeM = "0";
 
 							if(a.getElementsByTagName("begin").item(0) != null)
-								begin = a.getElementsByTagName("end").item(0).getTextContent();
+								begin = a.getElementsByTagName("begin").item(0).getTextContent();
 							
 							if(a.getElementsByTagName("end").item(0) != null)
 								end = 		a.getElementsByTagName("end").item(0).getTextContent();
@@ -120,8 +119,13 @@ e.printStackTrace();
 	public Activity[] getPersonActivities(String name){
 		int i = 0;
 		for (Activity a :this.activities){
-			if(a.getHuman().getName().equals(name))
+			if(a != null){
+			if(a.getHuman().getName().equals(name)){
+				System.out.println(a.getHuman().getName() + " schleife 1");
 				++i;
+				System.out.println(i);
+				}
+			}
 		}
 		
 		Activity[] aArray = new Activity[i];
@@ -129,6 +133,7 @@ e.printStackTrace();
 		
 		for (Activity a :this.activities){
 			if(a.getHuman().getName().equals(name)){
+				System.out.println(a.getHuman().getName() + " schleife 2");
 				aArray[j] = a;
 				++j;
 			}
