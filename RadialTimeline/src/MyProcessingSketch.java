@@ -26,13 +26,15 @@ public class MyProcessingSketch extends PApplet {
 
 
 	  d = new Dataset("/Users/Shared/radial-vis/Dataset/data.xml");
-	  
-	  Activity[] a = d.getActivityByDayAndPerson("Montag", "Tom");
+	/*  
+	  Activity[] a = d.getActivityByDayAndPerson("Dienstag", "Tom");
 	  
 	  for(int i=0; i< a.length; i++){
 		  println(a[i].getDay());
+		  println("Start: " + a[i].start);
+		  println("Ende: " + a[i].end);
 		  
-	  }
+	  }*/
 	  
 	  
 	  //noLoop();
