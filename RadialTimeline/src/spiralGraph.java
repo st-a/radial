@@ -30,6 +30,10 @@ public class spiralGraph extends PApplet {
 	public int byCar = uniColor;
 	public int byTram = socialColor;
 	public int byBike = workColor;
+	
+	public String[] meansOfTransportStrings = new String[4];
+	public float[] percentagesOfTransports = new float[4];
+	public int[] colors = new int[4];
 
 	public float convertTimeToDegrees(float minutes) {
 
@@ -59,131 +63,77 @@ public class spiralGraph extends PApplet {
 
 		return rtrn;
 	}
+	
+	public String formatFloats(float lclprc){
+		String prcntg = "0";
+		if (lclprc < 100) {
+			prcntg = nfs(lclprc, 2, 1) + " %";
+		}
+		if (lclprc == 100) {
+			prcntg = nfs(lclprc, 3, 1) + " %";
+		}
+		if (lclprc < 10) {
+			prcntg = nfs(lclprc, 1, 1) + " %";
+		}
+
+		return prcntg;
+	}
 
 	public void drawContentArround() {
 
 		float xPos = 690;
-		float yPos = 500;
+		float yPos = 540;
 
+		rectMode(CORNER);
+
+		// by Feet
+		fill(byFeet);
 		noStroke();
-
-		// home = 72.5%
-		// work = 10.4%
-		// social = 6%
-		// freeTime = 8,7%
-		// uni = 2.4%
-
-		// Box at the bottom right
-
-		// home
-		fill(homeColor);
 		rect(85 + xPos, 25 + 0 * 30 + yPos, 40, 25);
-		PImage homeIcon = loadImage("../src/Icons/iconHome.png");
-		image(homeIcon, 105 + xPos, 37 + 0 * 30 + yPos);
 		fill(0);
-		Float lclprc = 72.5f;
-		String prcntg = "0";
-		if (lclprc < 100) {
-			prcntg = nfs(lclprc, 2, 1) + " %";
-		} else {
-			prcntg = nfs(lclprc, 3, 1) + " %";
-		}
-		stroke(200);
-		strokeWeight(2);
-		noFill();
-		rect(xPos + 10, yPos + 10, 180, 175);
+		
+		float lclprc = percentagesOfTransports[0];
+		String prcntg = formatFloats(lclprc);
 
 		PFont infoText = createFont("Dialog.plain", 12);
 		textFont(infoText);
 
 		text(prcntg, 130 + xPos, 42 + 0 * 30 + yPos);
-		text("home", 25 + xPos, 42 + 0 * 30 + yPos);
+		text("zu Fuß", 25 + xPos, 42 + 0 * 30 + yPos);
 
-		// work
-		fill(workColor);
+		//by Bus
+		fill(byTram);
 		noStroke();
 		rect(85 + xPos, 25 + 2 * 30 + yPos, 40, 25);
-		PImage workIcon = loadImage("../src/Icons/iconWork.png");
-		image(workIcon, 105 + xPos, 37 + 2 * 30 + yPos);
+
 		fill(0);
 		lclprc = 10.4f;
-		prcntg = "0";
-		if (lclprc < 100) {
-			prcntg = nfs(lclprc, 2, 1) + " %";
-		}
-		if (lclprc == 100) {
-			prcntg = nfs(lclprc, 3, 1) + " %";
-		}
-		if (lclprc < 10) {
-			prcntg = nfs(lclprc, 1, 1) + " %";
-		}
-
+		prcntg = formatFloats(lclprc);
 		text(prcntg, 130 + xPos, 42 + 2 * 30 + yPos);
-		text("work", 25 + xPos, 42 + 2 * 30 + yPos);
+		text("OPNV", 25 + xPos, 42 + 2 * 30 + yPos);
 
-		// freeTime
-		fill(freeTimeColor);
+		// byCar
+		fill(byCar);
 		noStroke();
 		rect(85 + xPos, 25 + 1 * 30 + yPos, 40, 25);
-		PImage freeTimeIcon = loadImage("../src/Icons/iconBeer.png");
-		image(freeTimeIcon, 105 + xPos, 37 + 1 * 30 + yPos);
 		fill(0);
 		lclprc = 8.7f;
-		prcntg = "0";
-		if (lclprc < 100) {
-			prcntg = nfs(lclprc, 2, 1) + " %";
-		}
-		if (lclprc == 100) {
-			prcntg = nfs(lclprc, 3, 1) + " %";
-		}
-		if (lclprc < 10) {
-			prcntg = nfs(lclprc, 1, 1) + " %";
-		}
+		prcntg = formatFloats(lclprc);
 
 		text(prcntg, 130 + xPos, 42 + 1 * 30 + yPos);
-		text("free time", 25 + xPos, 42 + 1 * 30 + yPos);
+		text("Auto", 25 + xPos, 42 + 1 * 30 + yPos);
 
-		// Uni
-		fill(uniColor);
+		// by Bike
+		fill(byBike);
 		noStroke();
 		rect(85 + xPos, 25 + 3 * 30 + yPos, 40, 25);
-		PImage uniIcon = loadImage("../src/Icons/iconUni.png");
-		image(uniIcon, 105 + xPos, 37 + 3 * 30 + yPos);
 		fill(0);
 		lclprc = 2.4f;
-		prcntg = "0";
-		if (lclprc < 100) {
-			prcntg = nfs(lclprc, 2, 1) + " %";
-		}
-		if (lclprc == 100) {
-			prcntg = nfs(lclprc, 3, 1) + " %";
-		}
-		if (lclprc < 10) {
-			prcntg = nfs(lclprc, 1, 1) + " %";
-		}
+		prcntg = formatFloats(lclprc);
 
 		text(prcntg, 130 + xPos, 42 + 3 * 30 + yPos);
-		text("uni", 25 + xPos, 42 + 3 * 30 + yPos);
-		// social
-		fill(socialColor);
-		rect(85 + xPos, 25 + 4 * 30 + yPos, 40, 25);
-		PImage socialIcon = loadImage("../src/Icons/iconSocial.png");
-		image(socialIcon, 105 + xPos, 37 + 4 * 30 + yPos);
-		fill(0);
-		lclprc = 6f;
-		prcntg = "0";
-		if (lclprc < 100) {
-			prcntg = nfs(lclprc, 2, 1) + " %";
-		}
-		if (lclprc == 100) {
-			prcntg = nfs(lclprc, 3, 1) + " %";
-		}
-		if (lclprc < 10) {
-			prcntg = nfs(lclprc, 1, 1) + " %";
-		}
-
-		text(prcntg, 130 + xPos, 42 + 4 * 30 + yPos);
-		text("social", 25 + xPos, 42 + 4 * 30 + yPos);
+		text("Fahrrad", 25 + xPos, 42 + 3 * 30 + yPos);
+		
 	}
 
 	public void drawClock() {
@@ -473,6 +423,23 @@ public class spiralGraph extends PApplet {
 	}
 
 	public void addData() {
+		
+		meansOfTransportStrings[0] = "zu Fuß";
+		percentagesOfTransports[0] = 0;
+		colors[0] = byFeet;
+		
+		meansOfTransportStrings[1] = "Fahrrad";
+		percentagesOfTransports[1] = 0;
+		colors[1] = byBike;
+		
+		meansOfTransportStrings[2] = "Straßenbahn";
+		percentagesOfTransports[2] = 0;
+		colors[2] = byTram;
+		
+		meansOfTransportStrings[3] = "Auto";
+		percentagesOfTransports[3] = 0;
+		colors[3] = byCar;
+		
 		// this is a sample data set
 		Dataset dtst = new Dataset("../src/Data/data.XML");
 
@@ -486,7 +453,7 @@ public class spiralGraph extends PApplet {
 		for (int i = 0; i < allActivities.length; i++) {
 			if (allActivities[i] != null) {
 				act = allActivities[i];				
-				if (act.getHuman().getName().equals("Tom")) {
+				if (act.getHuman().getName().equals("Hannes")) {
 					
 					start = act.bTime[0] * 60 + act.bTime[1];
 					dur = (float) act.duration;
@@ -515,17 +482,41 @@ public class spiralGraph extends PApplet {
 						day = 7f;
 					}
 
-					/*
+					
 					if (act.transport.equals("Straßenbahn")
 							|| act.transport.equals("Zug")
 							|| act.transport.equals("Bus")) {
 						timeSlotColor = byTram;
+						percentagesOfTransports[2] +=act.duration;
+
 					}
-					*/
+					if(act.transport.equals("Auto")){
+						timeSlotColor = byCar;
+						percentagesOfTransports[3] +=act.duration;
+					}
+					if(act.transport.equals("Fahrrad")){
+						timeSlotColor = byBike;
+						percentagesOfTransports[1] += act.duration;
+					}
+					if(act.transport.equals("zu Fuß")){
+						timeSlotColor = byFeet;
+						percentagesOfTransports[0] +=act.duration;
+					}
+					
 					
 					addTimeSlot(timeSlotColor, day, start, dur);
+					
 				}
 			}
+			
+			//compute the percentages of all means of transport
+			float sumOfAllDurations = 0;
+			for(int j=0;j<4;j++){
+				sumOfAllDurations = sumOfAllDurations + percentagesOfTransports[j];
+			}
+			for(int j=0;j<4;j++){
+				percentagesOfTransports[j] = 100*percentagesOfTransports[j]/sumOfAllDurations;
+			}			
 		}
 
 		/*
@@ -570,10 +561,10 @@ public class spiralGraph extends PApplet {
 	public void draw() {
 		background(background);
 		drawSpiral();
-		drawContentArround();
 		drawClock();
 		addData();
-		noLoop();
+		drawContentArround();
+		//noLoop();
 
 	}
 }
