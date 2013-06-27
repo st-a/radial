@@ -106,3 +106,11 @@ Bei der Initialisierung wird die XML "geparsed", alle Hilfsklassen generiert und
 + getPersonActivities (*String* name) : *Activity [ ]*
 
 > Es werden alle Bewegungen einer konkreten Person zurückgegeben. Benötigt wird nur der Name der Person. Keine Abfrage nach Dopplungen enthalten. Keine Null-Pointer enthalten.
+
++ getAvtivitiyByDay (*String* day) : *Activity [ ]*
+
+> Es werden alle Bewegungen die an einen Tag statt gefunden haben zurückgegeben. Benötigt wird nur der Name des Tages. Keine Abfrage nach Dopplungen enthalten. Keine Null-Pointer enthalten.
+
++ getAvtivitiyByDayAndPerson (*String* day, *String* name) : *Activity [ ]*
+
+> Es werden alle Bewegungen die von einer konkreten Person an einen Tag statt gefunden haben zurückgegeben. Benötigt wird nur der Name des Tages und der Person. Keine Abfrage nach Dopplungen enthalten. Keine Null-Pointer enthalten.
