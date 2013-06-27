@@ -209,6 +209,30 @@ e.printStackTrace();
 	}
 	
 	
+	public Activity lastActivityLastDay(String day,String name){
+		if(day == "Dienstag") day = "Montag";
+		if(day == "Mittwoch") day = "Diesntag";
+		if(day == "Donnerstag") day = "Mittwoch";
+		if(day == "Freitag") day = "Donnerstag";
+		if(day == "Samstag") day = "Freitag";
+		if(day == "Sonntag") day = "Samstag";
+		
+		Activity[] aArray = this.getActivityByDayAndPerson(day, name);
+		return aArray[aArray.length-1];		
+	}
+	
+	public Activity firstActivityNextDay(String day,String name){
+		if(day == "Samstag") day = "Sonntag";
+		if(day == "Freitag") day = "Samstag";
+		if(day == "Donnerstag") day = "Freitag";
+		if(day == "Mittwoch") day = "Donnerstag";
+		if(day == "Dienstag") day = "Mittwoch";
+		if(day == "Montag") day = "Dienstag";
+		
+		Activity[] aArray = this.getActivityByDayAndPerson(day, name);
+		return aArray[aArray.length-1];		
+	}
+	
 	
 	
 
