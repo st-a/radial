@@ -16,11 +16,7 @@ public class Activity {
 		this.start = s;
 		this.end = e;
 		this.transport = t;
-		
-		if(h.name.equals("Tom")){
-			System.out.println("end: " + end);
-		}
-		
+				
 		bTime = new int[2];
 		bTime[0] = Integer.parseInt(bTh);
 		bTime[1] = Integer.parseInt(bTm);

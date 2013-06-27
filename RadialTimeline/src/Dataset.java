@@ -144,6 +144,58 @@ e.printStackTrace();
 	public Activity[] getActivities(){
 		return this.activities;
 	}
+	
+	public Activity[] getActivityByDay(String day){
+		int i = 0;
+		for (Activity a :this.activities){
+			if(a != null){
+			if(a.getDay().equals(day)){
+				++i;
+				}
+			}
+		}
+		
+		Activity[] aArray = new Activity[i];
+		int j= 0;
+		
+		for (Activity a :this.activities){
+			if(a != null){
+				if(a.getDay().equals(day)){
+					aArray[j] = a;
+					++j;
+				}
+			}
+		}	
+		
+		return aArray;
+	}
+	
+	public Activity[] getActivityByDayAndPerson(String day, String name){
+		int i = 0;
+		for (Activity a :this.activities){
+			if(a != null){
+			if(a.getDay().equals(day) && a.getHuman().getName().equals(name)){
+				++i;
+				}
+			}
+		}
+		
+		Activity[] aArray = new Activity[i];
+		int j= 0;
+		
+		for (Activity a :this.activities){
+			if(a != null){
+				if(a.getDay().equals(day) && a.getHuman().getName().equals(name)){
+					aArray[j] = a;
+					++j;
+				}
+			}
+		}	
+		
+		return aArray;
+	}
+	
+	
 
 	}
 
