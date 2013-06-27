@@ -1,5 +1,6 @@
 import processing.core.PApplet;
 import processing.core.PFont;
+import processing.core.PImage;
 
 
 public class Diagramm {
@@ -8,6 +9,7 @@ public class Diagramm {
 	float posX, posY;
 	float radius = 300;
 	PFont f;
+	PImage img;
 	Distance dStatistic;
 	Timeline[] timelines;
 	int[][] lines;
@@ -30,6 +32,7 @@ public class Diagramm {
 		    timelines = new Timeline[lines.length];
 			dStatistic = new Distance(p, d, this);
 		    this.draw(posX, posY, lines,dataset.getPersons(), scale);
+		    img = p.loadImage("../src/images/frontlayer.png");
 	  }
 	
 	  
@@ -185,19 +188,22 @@ public class Diagramm {
 	  }
 	  
 	  public void drawMatrix(Human[] h){
-		  p.background(42);
 		  
+		  
+		  p.background(42);
+		  p.image(img, 0, 0);
+		  //fue alle personen
 		  for(int i=0; i < h.length; i++){
-			  f = p.createFont("Futura-Medium", 50/(h.length/2));
+			  f = p.createFont("OpenSans-", 50/(h.length/2));
 			  p.textFont(f);
 			  p.textAlign(p.LEFT, p.CENTER);
 			  p.fill(255);
 			  p.text(h[i].getName(),60+(130*i), 30);
 			  
-			  this.draw(90+(130*i), 130,lines,dataset.getPersons(), 5.1f);
-			 /* for(int j=0; j < ; j++){
-
-			  }*/
+			  for(int j = 0; j < 7 ; j++){	  
+				  
+			  this.draw(90+(130*i), 100+(90*j),lines,dataset.getPersons(), 8f);
+			  }
 		  }
 	  }
 	  

@@ -19,7 +19,7 @@ public class MyProcessingSketch extends PApplet {
 	PFont myFont;
 
 	public void setup(){
-	  size(700, 900);
+	  size(1000, 700);
 	  background (42);
 
 	 
@@ -35,6 +35,9 @@ public class MyProcessingSketch extends PApplet {
 		  println("Ende: " + a[i].end);
 		  
 	  }*/
+	  
+	  String[] fontList = PFont.list();
+	  println(fontList);
 	  
 	  
 	  //noLoop();
@@ -64,20 +67,13 @@ public class MyProcessingSketch extends PApplet {
 			diagramm = new Diagramm(this, width/2, height/2, distance, lines,this.d, (float) 1);
 			diagramm.drawMatrix(this.d.getPersons());
 			draw = false;
-			intera = new Interaktion(this, diagramm);
 			
 		}
 		
-		if(intera.getScale()){
-			intera.scale();
-		}
 		  
 	}
 	
-	void slider(float scale) {
-		intera.setFrequency(scale);
-		intera.setScale(true);
-	}
+
 		
 		
   public static void main(String args[]) {
