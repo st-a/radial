@@ -121,9 +121,7 @@ e.printStackTrace();
 		for (Activity a :this.activities){
 			if(a != null){
 			if(a.getHuman().getName().equals(name)){
-				System.out.println(a.getHuman().getName() + " schleife 1");
 				++i;
-				System.out.println(i);
 				}
 			}
 		}
@@ -132,10 +130,11 @@ e.printStackTrace();
 		int j= 0;
 		
 		for (Activity a :this.activities){
-			if(a.getHuman().getName().equals(name)){
-				System.out.println(a.getHuman().getName() + " schleife 2");
-				aArray[j] = a;
-				++j;
+			if(a != null){
+				if(a.getHuman().getName().equals(name)){
+					aArray[j] = a;
+					++j;
+				}
 			}
 		}
 		

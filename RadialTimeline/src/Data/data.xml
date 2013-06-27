@@ -39,7 +39,7 @@
 			<category>Freizeit</category>
 			<transport>Fahrrad</transport>
 			<duration>18</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 	</tag>
 </person>
@@ -561,7 +561,7 @@
 			<category>Work</category>
 			<transport>Straßenbahn</transport>
 			<duration>20</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 
 	    <activity>
@@ -572,7 +572,7 @@
 			<category>Home</category>
 			<transport>Straßenbahn</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 	    <activity>
@@ -583,7 +583,7 @@
 			<category>Social</category>
 			<transport>zu Fuß</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 	    <activity>
@@ -594,7 +594,7 @@
 			<category>Home</category>
 			<transport>zu Fuß</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -605,7 +605,7 @@
 			<category>Social</category>
 			<transport>zu Fuß</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -616,7 +616,7 @@
 			<category>Freizeit</category>
 			<transport>zu Fuß</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -627,7 +627,7 @@
 			<category>Freizeit</category>
 			<transport>Straßenbahn</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>	    
 	</tag>
 	
@@ -640,7 +640,7 @@
 			<category>Home</category>
 			<transport>Straßenbahn</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -651,7 +651,7 @@
 			<category>Work</category>
 			<transport>Straßenbahn</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -662,7 +662,7 @@
 			<category>Social</category>
 			<transport>zu Fuß</transport>
 			<duration>3</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -673,7 +673,7 @@
 			<category>Home</category>
 			<transport>Straßenbahn</transport>
 			<duration>31</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 	</tag>
 	
@@ -686,7 +686,7 @@
 			<category>Uni</category>
 			<transport>Zug</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -697,7 +697,7 @@
 			<category>Home</category>
 			<transport>Zug</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -708,7 +708,7 @@
 			<category>Work</category>
 			<transport>Straßenbahn</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -719,7 +719,7 @@
 			<category>Home</category>
 			<transport>Straßenbahn</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 	</tag>
 	
@@ -732,7 +732,7 @@
 			<category>Social</category>
 			<transport>zu Fuß</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -743,7 +743,7 @@
 			<category>Home</category>
 			<transport>zu Fuß</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -754,7 +754,7 @@
 			<category>Freizeit</category>
 			<transport>zu Fuß</transport>
 			<duration>20</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -765,7 +765,7 @@
 			<category>Freizeit</category>
 			<transport>zu Fuß</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>		
 	</tag>
 	
@@ -778,7 +778,7 @@
 			<category>Home</category>
 			<transport>zu Fuß</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -789,7 +789,7 @@
 			<category>Home</category>
 			<transport>Straßenbahn</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 	</tag>
 	
@@ -802,7 +802,7 @@
 			<category>Home</category>
 			<transport>Auto</transport>
 			<duration>360</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -813,7 +813,7 @@
 			<category>Social</category>
 			<transport>zu Fuß</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 	</tag>
 	
@@ -826,7 +826,7 @@
 			<category>Home</category>
 			<transport>zu Fuß</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -837,7 +837,7 @@
 			<category>Work</category>
 			<transport>zu Fuß</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -848,7 +848,7 @@
 			<category>Home</category>
 			<transport>Fahrrad</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -859,7 +859,7 @@
 			<category>Work</category>
 			<transport>Fahrrad</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -870,7 +870,7 @@
 			<category>Freizeit</category>
 			<transport>zu Fuß</transport>
 			<duration>10</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -881,7 +881,7 @@
 			<category>Home</category>
 			<transport>zu Fuß</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 		
 		<activity>
@@ -892,7 +892,7 @@
 			<category>Social</category>
 			<transport>zu Fuß</transport>
 			<duration>30</duration>
-			<distance></distance>
+			<distance>0</distance>
 		</activity>
 	</tag>
 </person>

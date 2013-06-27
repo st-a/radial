@@ -27,11 +27,12 @@ public class MyProcessingSketch extends PApplet {
 
 	  d = new Dataset("/Users/Shared/radial-vis/Dataset/data.xml");
 	  
-		Activity[] a = d.getPersonActivities("Albert");
-		
-		for(int i = 0; i< a.length; ++i){
-			//System.out.println(a[i].getHuman().getName());
-		}
+	  Activity[] a = d.getPersonActivities("");
+	  
+	  for(int i=0; i< a.length; i++){
+		  println(a[i].getDay());
+	  }
+	  
 	  
 	  //noLoop();
 	  f = createFont("Futura-Medium", 16);
