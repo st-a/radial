@@ -202,6 +202,7 @@ e.printStackTrace();
 		return aArray[aArray.length-1];		
 	}
 	
+	
 	public Activity firstActivity(String day,String name){
 		Activity[] aArray = this.getActivityByDayAndPerson(day, name);
 		return aArray[0];		
