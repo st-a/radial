@@ -33,16 +33,10 @@ public class Dataset {
 				Node node = nList.item(i);
 				Element e = (Element) node;
 				humans[i] = new Human(e.getAttribute("name"));
-				System.out.println("-------------------------------");
-				System.out.println("Person:" + humans[i].getName());
 				
 				for(int j = 0; j < e.getElementsByTagName("tag").getLength(); j++){
 					Element day = (Element) e.getElementsByTagName("tag").item(j);
 					String sDay = day.getAttribute("name");
-					
-					
-					System.out.println("Tag:" + sDay);
-					System.out.println("+++++++++++++++++++");
 
 						for(int k = 0; k < day.getElementsByTagName("activity").getLength() ;k++){
 							Element a = (Element) day.getElementsByTagName("activity").item(k);
@@ -63,22 +57,18 @@ public class Dataset {
 
 							if(a.getElementsByTagName("begin").item(0) != null)
 								begin = a.getElementsByTagName("begin").item(0).getTextContent();
-							System.out.println("begin:" + begin);
 							
 							if(a.getElementsByTagName("end").item(0) != null)
 								end = 		a.getElementsByTagName("end").item(0).getTextContent();
-							System.out.println("end:" + end);
 
 							if(a.getElementsByTagName("category").item(0) != null)
 								category = 	a.getElementsByTagName("category").item(0).getTextContent();
-							System.out.println("cat:" + category);
 							
 							if(a.getElementsByTagName("transport").item(0) != null)
 								transport = a.getElementsByTagName("transport").item(0).getTextContent();
 							
 							if(a.getElementsByTagName("duration").item(0) != null)
 								duration = 	a.getElementsByTagName("duration").item(0).getTextContent();
-							System.out.println("duration:" + duration);
 							
 							if(a.getElementsByTagName("distance").item(0) != null)	
 								distance = 	a.getElementsByTagName("distance").item(0).getTextContent();
