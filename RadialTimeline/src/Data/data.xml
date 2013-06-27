@@ -258,17 +258,6 @@
 		</activity>
 		
 		<activity>
-			<begin>Club Hängemathe</begin>
-			<beginTime hour="0" minutes="23"></beginTime>
-			<end>Home</end>
-			<endTime hour="0" minutes="54"></endTime>
-			<category>Home</category>
-			<transport>zu Fuß</transport>
-			<duration>30</duration>
-			<distance>1800</distance>
-		</activity>
-		
-		<activity>
 			<begin>Home</begin>
 			<beginTime hour="14" minutes="24"></beginTime>
 			<end>Informatik Fakultät</end>

@@ -59,14 +59,10 @@ public class MyProcessingSketch extends PApplet {
 		
 
 		if(draw){
-			for (int i=0; i<4;i++){
-				for (int j=0; j< 12; j++){
-					lines[i][j] = 0 + (int)(Math.random()*5);
-				}
-			}
-			diagramm = new Diagramm(this, width/2, height/2, distance, lines,this.d, (float) 1);
+			diagramm = new Diagramm(this, width/2, height/2, distance,this.d, (float) 1);
 			diagramm.drawMatrix(this.d.getPersons());
 			draw = false;
+			diagramm.setLine(d.getPerson("Tom"), "Dienstag");
 			
 		}
 		
