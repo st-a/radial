@@ -1,5 +1,6 @@
 import processing.core.PApplet;
 import processing.core.PFont;
+import processing.core.PImage;
 
 
 public class Diagramm {
@@ -8,16 +9,16 @@ public class Diagramm {
 	float posX, posY;
 	float radius = 300;
 	PFont f;
+	PImage img;
 	Distance dStatistic;
 	Timeline[] timelines;
-	int[][] lines;
 	int [][] colors = {{54, 146, 179},{158, 219, 41},{255, 243, 68},{253, 77, 72}};
 	float scale;
 	int[] d; 
 	Dataset dataset;
 	
 	
-	  Diagramm(PApplet parent, float x, float y, int[] distance, int[][] l,Dataset data, float s) {
+	  Diagramm(PApplet parent, float x, float y, int[] distance,Dataset data, float s) {
 		  	  
 		    p = parent;
 		    posX = x;
@@ -26,14 +27,13 @@ public class Diagramm {
 		    radius = radius/scale;
 		    dataset = data;
 		    d = distance;
-		    lines = l;
-		    timelines = new Timeline[lines.length];
 			dStatistic = new Distance(p, d, this);
-		    this.draw(posX, posY, lines,dataset.getPersons(), scale);
+		    this.draw(posX, posY,dataset.getPersons(), scale);
+		    img = p.loadImage("../src/images/frontlayer.png");
 	  }
 	
 	  
-	public void draw(float x, float y, int[][] lines,Human[] humans,float s){	
+	public void draw(float x, float y,Human[] humans,float s){	
 		radius = 300/scale;
 	    posX = x;
 	    posY = y;
@@ -107,7 +107,7 @@ public class Diagramm {
 			
 			  //Timelines
 			  
-			 for(int i=0; i < humans.length; i++){
+		/*	 for(int i=0; i < humans.length; i++){
 				  int[] h = new int[12];
 				  for(int j=0; j < lines[i].length; j++){
 					h[j] = lines[i][j];
@@ -116,7 +116,7 @@ public class Diagramm {
 					  
 				timelines[i].drawLine();
   
-			  }
+			  }*/
 			  
 			 
 			 //Skalenpunkte
@@ -177,30 +177,77 @@ public class Diagramm {
 	  
 	  public void scale(float s){
 			 
-		  this.draw(posX, posY, lines,dataset.getPersons(), s);
+		  this.draw(posX, posY,dataset.getPersons(), s);
 	  }
 		 
 	  public void transform(float x, float y){
-		  this.draw(x, y, lines,dataset.getPersons(), scale);
+		  this.draw(x, y,dataset.getPersons(), scale);
 	  }
 	  
 	  public void drawMatrix(Human[] h){
-		  p.background(42);
 		  
+		  
+		  p.background(42);
+		  p.image(img, 0, 0);
+		  //fue alle personen
 		  for(int i=0; i < h.length; i++){
-			  f = p.createFont("Futura-Medium", 50/(h.length/2));
+			  f = p.createFont("OpenSans-", 50/(h.length/2));
 			  p.textFont(f);
 			  p.textAlign(p.LEFT, p.CENTER);
 			  p.fill(255);
 			  p.text(h[i].getName(),60+(130*i), 30);
 			  
-			  this.draw(90+(130*i), 130,lines,dataset.getPersons(), 5.1f);
-			 /* for(int j=0; j < ; j++){
-
-			  }*/
+			  for(int j = 0; j < 7 ; j++){	  
+				  
+			  this.draw(90+(130*i), 100+(90*j),dataset.getPersons(), 8f);
+			  }
 		  }
 	  }
-	  
+	
+	  public void setLine(Human h, String day){
+		  int line[] = new int[12];  
+		  Activity[] a = dataset.getActivityByDayAndPerson(day, h.getName());
+		  
+		  if(day == "Montag") line[0] = 0;
+		  
+		  else{
+		  Activity lastDay = dataset.lastActivityLastDay(day, h.getName());
+		  	if(lastDay.catagory == "Home") line[0] = 0;
+		  	if(lastDay.catagory == "Uni") line[0] = 1;
+		  	if(lastDay.catagory == "Social") line[0] = 2;
+		  	if(lastDay.catagory == "Work") line[0] = 3;
+		  	if(lastDay.catagory == "Freizeit") line[0] = 4;	
+		  	
+			  System.out.println("Tag: " + lastDay.getDay());
+			  System.out.println("Kategory: " + lastDay.catagory);
+			  System.out.println("Startzeit: " + lastDay.getEndTime()[0]);
+			  System.out.println("++++++++++++++++++++++");
+		  }
+		  
+		  for(int i = 1; i < 12; i++){
+			  for(int j = 0; j < a.length; j++){
+				  System.out.println("Endtime: " + a[j].getEndTime()[0]);
+				  //if(a[j].getEndTime()[0] < (i*2)){
+					  
+					  //System.out.println("State: " + i*2);
+					  System.out.println("Category: " + a[j].catagory);
+					  System.out.println("++++++++++++++++++++++");
+					  if(a[j].catagory == "Home") line[i] = 0;
+					  if(a[j].catagory == "Uni") line[i] = 1;
+					  if(a[j].catagory == "Social") line[i] = 2;
+					  if(a[j].catagory == "Work") line[i] = 3;
+					  if(a[j].catagory == "Freizeit") line[i] = 4;	
+				  
+			  }
+			  System.out.println("===============================================");
+		  }
+		  System.out.println("------------Arrayinhalt-------------");
+		  for(int i = 0; i < line.length; i++){
+		  
+		  System.out.println("Linecount: " + line[i]);
+		  }
+		  
+	  }
 	  
 
 }

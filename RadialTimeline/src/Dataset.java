@@ -33,13 +33,13 @@ public class Dataset {
 				Node node = nList.item(i);
 				Element e = (Element) node;
 				humans[i] = new Human(e.getAttribute("name"));
-
+				
 				for(int j = 0; j < e.getElementsByTagName("tag").getLength(); j++){
 					Element day = (Element) e.getElementsByTagName("tag").item(j);
 					String sDay = day.getAttribute("name");
 
 						for(int k = 0; k < day.getElementsByTagName("activity").getLength() ;k++){
-							Element a = (Element) e.getElementsByTagName("activity").item(k);
+							Element a = (Element) day.getElementsByTagName("activity").item(k);
 							
 							
 							String begin= "0";
@@ -52,6 +52,8 @@ public class Dataset {
 							String bTimeM= "0";
 							String eTimeH= "0";
 							String eTimeM = "0";
+							
+							
 
 							if(a.getElementsByTagName("begin").item(0) != null)
 								begin = a.getElementsByTagName("begin").item(0).getTextContent();
@@ -121,9 +123,7 @@ e.printStackTrace();
 		for (Activity a :this.activities){
 			if(a != null){
 			if(a.getHuman().getName().equals(name)){
-				System.out.println(a.getHuman().getName() + " schleife 1");
 				++i;
-				System.out.println(i);
 				}
 			}
 		}
@@ -132,10 +132,11 @@ e.printStackTrace();
 		int j= 0;
 		
 		for (Activity a :this.activities){
-			if(a.getHuman().getName().equals(name)){
-				System.out.println(a.getHuman().getName() + " schleife 2");
-				aArray[j] = a;
-				++j;
+			if(a != null){
+				if(a.getHuman().getName().equals(name)){
+					aArray[j] = a;
+					++j;
+				}
 			}
 		}
 		
@@ -145,6 +146,95 @@ e.printStackTrace();
 	public Activity[] getActivities(){
 		return this.activities;
 	}
+	
+	public Activity[] getActivityByDay(String day){
+		int i = 0;
+		for (Activity a :this.activities){
+			if(a != null){
+			if(a.getDay().equals(day)){
+				++i;
+				}
+			}
+		}
+		
+		Activity[] aArray = new Activity[i];
+		int j= 0;
+		
+		for (Activity a :this.activities){
+			if(a != null){
+				if(a.getDay().equals(day)){
+					aArray[j] = a;
+					++j;
+				}
+			}
+		}	
+		
+		return aArray;
+	}
+	
+	public Activity[] getActivityByDayAndPerson(String day, String name){
+		int i = 0;
+		for (Activity a :this.activities){
+			if(a != null){
+			if(a.getDay().equals(day) && a.getHuman().getName().equals(name)){
+				++i;
+				}
+			}
+		}
+		
+		Activity[] aArray = new Activity[i];
+		int j= 0;
+		
+		for (Activity a :this.activities){
+			if(a != null){
+				if(a.getDay().equals(day) && a.getHuman().getName().equals(name)){
+					aArray[j] = a;
+					++j;
+				}
+			}
+		}	
+		
+		return aArray;
+	}
+	
+	public Activity lastActivity(String day,String name){
+		Activity[] aArray = this.getActivityByDayAndPerson(day, name);
+		return aArray[aArray.length-1];		
+	}
+	
+	
+	public Activity firstActivity(String day,String name){
+		Activity[] aArray = this.getActivityByDayAndPerson(day, name);
+		return aArray[0];		
+	}
+	
+	
+	public Activity lastActivityLastDay(String day,String name){
+		if(day == "Dienstag") day = "Montag";
+		if(day == "Mittwoch") day = "Diesntag";
+		if(day == "Donnerstag") day = "Mittwoch";
+		if(day == "Freitag") day = "Donnerstag";
+		if(day == "Samstag") day = "Freitag";
+		if(day == "Sonntag") day = "Samstag";
+		
+		Activity[] aArray = this.getActivityByDayAndPerson(day, name);
+		return aArray[aArray.length-1];		
+	}
+	
+	public Activity firstActivityNextDay(String day,String name){
+		if(day == "Samstag") day = "Sonntag";
+		if(day == "Freitag") day = "Samstag";
+		if(day == "Donnerstag") day = "Freitag";
+		if(day == "Mittwoch") day = "Donnerstag";
+		if(day == "Dienstag") day = "Mittwoch";
+		if(day == "Montag") day = "Dienstag";
+		
+		Activity[] aArray = this.getActivityByDayAndPerson(day, name);
+		return aArray[aArray.length-1];		
+	}
+	
+	
+	
 
 	}
 

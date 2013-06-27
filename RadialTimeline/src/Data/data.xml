@@ -258,17 +258,6 @@
 		</activity>
 		
 		<activity>
-			<begin>Club Hängemathe</begin>
-			<beginTime hour="0" minutes="23"></beginTime>
-			<end>Home</end>
-			<endTime hour="0" minutes="54"></endTime>
-			<category>Home</category>
-			<transport>zu Fuß</transport>
-			<duration>30</duration>
-			<distance>1800</distance>
-		</activity>
-		
-		<activity>
 			<begin>Home</begin>
 			<beginTime hour="14" minutes="24"></beginTime>
 			<end>Informatik Fakultät</end>
@@ -541,11 +530,87 @@
 	
 	<tag name="Samstag">
 		<activity>
+			<begin>Little Creatures</begin>
+			<beginTime hour="1" minutes="6"></beginTime>
+			<end>Heavy Duty</end>
+			<endTime hour="1" minutes="9"></endTime>
+			<category>Social</category>
+			<transport>zu Fuß</transport>
+			<duration>3</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Heavy Duty</begin>
+			<beginTime hour="2" minutes="3"></beginTime>
+			<end>Albertplatz</end>
+			<endTime hour="2" minutes="16"></endTime>
+			<category>Social</category>
+			<transport>zu Fuß</transport>
+			<duration>13</duration>
+			<distance>600</distance>
+		</activity>
+		<activity>
+			<begin>Albertplatz</begin>
+			<beginTime hour="2" minutes="16"></beginTime>
+			<end>Home</end>
+			<endTime hour="2" minutes="37"></endTime>
+			<category>Home</category>
+			<transport>Straßenbahn</transport>
+			<duration>22</duration>
+			<distance>4600</distance>
+		</activity>
+		<activity>
+			<begin>Home</begin>
+			<beginTime hour="17" minutes="39"></beginTime>
+			<end>Bautzen</end>
+			<endTime hour="18" minutes="33"></endTime>
+			<category>Freizeit</category>
+			<transport>Auto</transport>
+			<duration>54</duration>
+			<distance>76100</distance>
+		</activity>
+		<activity>
+			<begin>Bautzen</begin>
+			<beginTime hour="19" minutes="21"></beginTime>
+			<end>Ebersbach</end>
+			<endTime hour="20" minutes="4"></endTime>
+			<category>Freizeit</category>
+			<transport>Auto</transport>
+			<duration>42</duration>
+			<distance>40200</distance>
+		</activity>
+		<activity>
+			<begin>Ebersbach</begin>
+			<beginTime hour="21" minutes="25"></beginTime>
+			<end>Zittau</end>
+			<endTime hour="21" minutes="32"></endTime>
+			<category>Freizeit</category>
+			<transport>Auto</transport>
+			<duration>7</duration>
+			<distance>6700</distance>
 		</activity>
 	</tag>
 	
 	<tag name="Sonntag">
 		<activity>
+			<begin>Zittau</begin>
+			<beginTime hour="19" minutes="3"></beginTime>
+			<end>Dresden</end>
+			<endTime hour="20" minutes="50"></endTime>
+			<category>Freizeit</category>
+			<transport>Zug</transport>
+			<duration>104</duration>
+			<distance>89900</distance>
+		</activity>
+		<activity>
+			<begin>Bahnhof</begin>
+			<beginTime hour="21" minutes="5"></beginTime>
+			<end>Home</end>
+			<endTime hour="21" minutes="12"></endTime>
+			<category>Home</category>
+			<transport>Straßenbahn</transport>
+			<duration>7</duration>
+			<distance>1900</distance>
 		</activity>
 	</tag>
 </person>

@@ -19,19 +19,26 @@ public class MyProcessingSketch extends PApplet {
 	PFont myFont;
 
 	public void setup(){
-	  size(700, 900);
+	  size(1000, 700);
 	  background (42);
 
 	 
 
 
 	  d = new Dataset("/Users/Shared/radial-vis/Dataset/data.xml");
+	/*  
+	  Activity[] a = d.getActivityByDayAndPerson("Dienstag", "Tom");
 	  
-		Activity[] a = d.getPersonActivities("Albert");
-		
-		for(int i = 0; i< a.length; ++i){
-			//System.out.println(a[i].getHuman().getName());
-		}
+	  for(int i=0; i< a.length; i++){
+		  println(a[i].getDay());
+		  println("Start: " + a[i].start);
+		  println("Ende: " + a[i].end);
+		  
+	  }*/
+	  
+	  String[] fontList = PFont.list();
+	  println(fontList);
+	  
 	  
 	  //noLoop();
 	  f = createFont("Futura-Medium", 16);
@@ -52,28 +59,17 @@ public class MyProcessingSketch extends PApplet {
 		
 
 		if(draw){
-			for (int i=0; i<4;i++){
-				for (int j=0; j< 12; j++){
-					lines[i][j] = 0 + (int)(Math.random()*5);
-				}
-			}
-			diagramm = new Diagramm(this, width/2, height/2, distance, lines,this.d, (float) 1);
+			diagramm = new Diagramm(this, width/2, height/2, distance,this.d, (float) 1);
 			diagramm.drawMatrix(this.d.getPersons());
 			draw = false;
-			intera = new Interaktion(this, diagramm);
+			diagramm.setLine(d.getPerson("Tom"), "Dienstag");
 			
 		}
 		
-		if(intera.getScale()){
-			intera.scale();
-		}
 		  
 	}
 	
-	void slider(float scale) {
-		intera.setFrequency(scale);
-		intera.setScale(true);
-	}
+
 		
 		
   public static void main(String args[]) {
