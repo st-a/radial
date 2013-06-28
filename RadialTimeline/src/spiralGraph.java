@@ -101,13 +101,13 @@ public class spiralGraph extends PApplet {
 		text(prcntg, 130 + xPos, 42 + 0 * 30 + yPos);
 		text("zu Fuﬂ", 25 + xPos, 42 + 0 * 30 + yPos);
 
-		//by Bus
+		//by Tram
 		fill(byTram);
 		noStroke();
 		rect(85 + xPos, 25 + 2 * 30 + yPos, 40, 25);
 
 		fill(0);
-		lclprc = 10.4f;
+		lclprc = percentagesOfTransports[2];
 		prcntg = formatFloats(lclprc);
 		text(prcntg, 130 + xPos, 42 + 2 * 30 + yPos);
 		text("OPNV", 25 + xPos, 42 + 2 * 30 + yPos);
@@ -117,7 +117,7 @@ public class spiralGraph extends PApplet {
 		noStroke();
 		rect(85 + xPos, 25 + 1 * 30 + yPos, 40, 25);
 		fill(0);
-		lclprc = 8.7f;
+		lclprc = percentagesOfTransports[3];
 		prcntg = formatFloats(lclprc);
 
 		text(prcntg, 130 + xPos, 42 + 1 * 30 + yPos);
@@ -128,7 +128,7 @@ public class spiralGraph extends PApplet {
 		noStroke();
 		rect(85 + xPos, 25 + 3 * 30 + yPos, 40, 25);
 		fill(0);
-		lclprc = 2.4f;
+		lclprc = percentagesOfTransports[1];
 		prcntg = formatFloats(lclprc);
 
 		text(prcntg, 130 + xPos, 42 + 3 * 30 + yPos);
@@ -507,16 +507,7 @@ public class spiralGraph extends PApplet {
 					addTimeSlot(timeSlotColor, day, start, dur);
 					
 				}
-			}
-			
-			//compute the percentages of all means of transport
-			float sumOfAllDurations = 0;
-			for(int j=0;j<4;j++){
-				sumOfAllDurations = sumOfAllDurations + percentagesOfTransports[j];
-			}
-			for(int j=0;j<4;j++){
-				percentagesOfTransports[j] = 100*percentagesOfTransports[j]/sumOfAllDurations;
-			}			
+			}		
 		}
 
 		/*
@@ -543,12 +534,14 @@ public class spiralGraph extends PApplet {
 		 * 1310, 130);
 		 */
 
-		// home = 72.5%
-		// work = 10.4%
-		// social = 6%
-		// freeTime = 8,7%
-		// uni = 2.4%
-
+		//compute the percentages of all means of transport
+		float sumOfAllDurations = 0;
+		for(int j=0;j<4;j++){
+			sumOfAllDurations = sumOfAllDurations + percentagesOfTransports[j];
+		}
+		for(int j=0;j<4;j++){
+			percentagesOfTransports[j] = 100*percentagesOfTransports[j]/sumOfAllDurations;
+		}	
 	}
 
 	public void setup() {

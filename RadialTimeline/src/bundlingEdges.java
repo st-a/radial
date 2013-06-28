@@ -22,6 +22,7 @@ public class bundlingEdges extends PApplet {
 
 	public float ammountOfPlaces = 5; // home, Uni, Social, Work, Freetime
 	public ArrayList<place> places = new ArrayList<place>();
+	public String[] namesOfPlaces = new String[5];
 
 	// independent from the ammount of arcs the free space between
 	// the arcs will allways beu 10% of the circumference
@@ -113,7 +114,7 @@ public class bundlingEdges extends PApplet {
 			percenteges = createFont("Dialog.plain", 12 + 15 * lclprc / 100);
 			textFont(percenteges);
 
-			float[] percPos = degreesToXnY(places.get(i).middle, radius + 40);
+			float[] percPos = degreesToXnY(places.get(i).middle, radius + 50);
 			text(prcntg, percPos[0] - 20, percPos[1]);
 		}
 		// headers
@@ -256,25 +257,39 @@ public class bundlingEdges extends PApplet {
 	}
 
 	public void handleDate() {
+		
+		namesOfPlaces[0] = "Home";
+		namesOfPlaces[1] = "Uni";
+		namesOfPlaces[2] = "Social";
+		namesOfPlaces[3] = "Work";
+		namesOfPlaces[4] = "Freizeit";
+
 		// home, Uni, Social, Work, Freetime
 		// add all Places to the Places-ArrayList
 		// and handle all the Data
 		// TODO ADD DATA HERE, only these four arrays
 
 		// test data set
-		// float[] outOfHome = { 0, 0.25f, 0.25f, 0.25f, 0.25f };
-		// float[] outOfUni = { 0.25f, 0, 0.25f, 0.25f, 0.25f };
-		// float[] outOfSocial = { 0.25f, 0.25f, 0, 0.25f, 0.25f };
-		// float[] outOfWork = { 0.25f, 0.25f, 0.25f, 0, 0.25f };
-		// float[] outOfFreeTime = { 0.25f, 0.25f, 0.25f, 0.25f, 0 };;
+		float[] outOfHome = { 0f, 0f, 0f, 0f, 0f };
+		float[] outOfUni = { 0f, 0f, 0f, 0f, 0f };
+		float[] outOfSocial = { 0f, 0f, 0f, 0f, 0f };
+		float[] outOfWork = { 0f, 0f, 0f, 0f, 0f };
+		float[] outOfFreeTime = { 0f, 0f, 0f, 0f, 0f };
 
+		Dataset dtst = new Dataset("../src/Data/data.XML");
+
+		Activity[] allActivities = dtst.getPersonActivities("Tom");
+		
+		
 		// my data set
+		/*
 		float[] outOfHome = { 1 / 7f, 1 / 7f, 2 / 7f, 5 / 14f, 1 / 14f };
 		float[] outOfUni = { 1f, 0f, 0f, 0f, 0f };
 		float[] outOfSocial = { 5 / 6f, 0f, 0f, 0f, 1 / 6f };
 		float[] outOfWork = { 3 / 5f, 0f, 1 / 5f, 0f, 1 / 5f };
 		float[] outOfFreeTime = { 3 / 5f, 0f, 0f, 0f, 2 / 5f };
-
+		*/
+		
 		float[][] placesAndPercentages = new float[5][5];
 
 		placesAndPercentages[0] = outOfHome;
@@ -282,8 +297,39 @@ public class bundlingEdges extends PApplet {
 		placesAndPercentages[2] = outOfSocial;
 		placesAndPercentages[3] = outOfWork;
 		placesAndPercentages[4] = outOfFreeTime;
+		
+		for(int i=1;i<allActivities.length;i++){
+			Activity act1 = allActivities[i];
+			Activity act0 = allActivities[i-1];
+
+			int index0 = 1;
+			int index1 = 1;
+			
+			for(int j=0;j<5;j++){
+				if(act0.catagory.equals(namesOfPlaces[j])){
+					index1 = j;
+				}
+				if(act1.catagory.equals(namesOfPlaces[j])){
+					index0 = j;
+				}
+			}
+			println("from: " + index0 + " to: " + index1);
+			placesAndPercentages[index1][index0] += 1f;
+		}
+		
+		
+		for(int i=0;i<5;i++){
+			float sumOfOne = 0;
+			for(int j=0;j<5;j++){
+				sumOfOne += placesAndPercentages[i][j];
+			}
+			for(int j=0;j<5;j++){
+				placesAndPercentages[i][j] = placesAndPercentages[i][j]/sumOfOne;
+			}
+		}
 
 		float[] percenteges = calculatePercenteges(placesAndPercentages);
+		
 		place home = new place(0, "home", percenteges[0], "../src/Icons/iconHome.png");
 		home.setColor(color(255, 123, 106));
 		home.setIndex(0);
@@ -333,7 +379,7 @@ public class bundlingEdges extends PApplet {
 		}
 		// nearly at least set the incomings to get relative values of the other
 		// places
-		// it has to be hear because they have to be initialized
+		// it has to be here because they have to be initialized
 		for (int i = 0; i < places.size(); i++) {
 			places.get(i).computeIncomings(places);
 		}
