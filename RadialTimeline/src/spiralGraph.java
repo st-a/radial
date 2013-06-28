@@ -12,12 +12,15 @@ public class spiralGraph extends PApplet {
 	public float centerY = height / 2;
 	public float radius = (height - 50); // this is obviously crap but i cant
 											// refactor it
+	
 	public float circumference = 2 * PI * radius;
 
 	public float days = 7 + 1; // the '+1' is added to make sure, ther's
 								// enough white space in the middle
+	helperForSpiralGraph helper = 
+			new helperForSpiralGraph(radius, centerX, centerY, days);
+	
 	public float thiknessOfOneDay = radius / (days + 1);
-
 	public int background = color(255, 255, 255);
 
 	public int homeColor = color(236, 0, 140);
@@ -34,50 +37,7 @@ public class spiralGraph extends PApplet {
 	public String[] meansOfTransportStrings = new String[4];
 	public float[] percentagesOfTransports = new float[4];
 	public int[] colors = new int[4];
-
-	public float convertTimeToDegrees(float minutes) {
-
-		float wholeDay = 24 * 60;
-		return minutes / wholeDay * 360;
-	}
-
-	public float convertDegreesToTime(float degrees) {
-		// this function converts a degree value as float into a time value in
-		// minutes
-		return degrees / 360 * 24 * 60;
-	}
-
-	public float[] degreesToXnY(float deg, float day) {
-		// this function gets as input only a degree-value and a day and returns
-		// the concrete X and Y values in a float-Array
-		float localRadius = radius / 2 - day * thiknessOfOneDay;
-		if (day == 0) {
-			// this is the case for drawing the clock
-			localRadius = 25f;
-		}
-
-		float[] rtrn = new float[2];
-
-		rtrn[0] = centerX + cos(radians(-90 + deg)) * (localRadius);
-		rtrn[1] = centerY + sin(radians(-90 + deg)) * (localRadius);
-
-		return rtrn;
-	}
 	
-	public String formatFloats(float lclprc){
-		String prcntg = "0";
-		if (lclprc < 100) {
-			prcntg = nfs(lclprc, 2, 1) + " %";
-		}
-		if (lclprc == 100) {
-			prcntg = nfs(lclprc, 3, 1) + " %";
-		}
-		if (lclprc < 10) {
-			prcntg = nfs(lclprc, 1, 1) + " %";
-		}
-
-		return prcntg;
-	}
 
 	public void drawContentArround() {
 
@@ -93,7 +53,7 @@ public class spiralGraph extends PApplet {
 		fill(0);
 		
 		float lclprc = percentagesOfTransports[0];
-		String prcntg = formatFloats(lclprc);
+		String prcntg = helper.formatFloats(lclprc);
 
 		PFont infoText = createFont("Dialog.plain", 12);
 		textFont(infoText);
@@ -108,7 +68,7 @@ public class spiralGraph extends PApplet {
 
 		fill(0);
 		lclprc = percentagesOfTransports[2];
-		prcntg = formatFloats(lclprc);
+		prcntg = helper.formatFloats(lclprc);
 		text(prcntg, 130 + xPos, 42 + 2 * 30 + yPos);
 		text("OPNV", 25 + xPos, 42 + 2 * 30 + yPos);
 
@@ -118,7 +78,7 @@ public class spiralGraph extends PApplet {
 		rect(85 + xPos, 25 + 1 * 30 + yPos, 40, 25);
 		fill(0);
 		lclprc = percentagesOfTransports[3];
-		prcntg = formatFloats(lclprc);
+		prcntg = helper.formatFloats(lclprc);
 
 		text(prcntg, 130 + xPos, 42 + 1 * 30 + yPos);
 		text("Auto", 25 + xPos, 42 + 1 * 30 + yPos);
@@ -129,7 +89,7 @@ public class spiralGraph extends PApplet {
 		rect(85 + xPos, 25 + 3 * 30 + yPos, 40, 25);
 		fill(0);
 		lclprc = percentagesOfTransports[1];
-		prcntg = formatFloats(lclprc);
+		prcntg = helper.formatFloats(lclprc);
 
 		text(prcntg, 130 + xPos, 42 + 3 * 30 + yPos);
 		text("Fahrrad", 25 + xPos, 42 + 3 * 30 + yPos);
@@ -185,7 +145,7 @@ public class spiralGraph extends PApplet {
 		PFont infoText = createFont("Dialog.plain", 13);
 		textFont(infoText);
 		for (int i = 0; i < 12; i++) {
-			float[] pos = degreesToXnY(i * 360 / 12, 0);
+			float[] pos = helper.degreesToXnY(i * 360 / 12, 0);
 			fill(50);
 			pushMatrix();
 			translate(pos[0], pos[1]);
@@ -302,8 +262,8 @@ public class spiralGraph extends PApplet {
 
 		float localRadius = (radius - (day - 1) * thiknessOfOneDay)
 				- thiknessOfOneDay / 4;
-		float start = convertTimeToDegrees(time);
-		duration = convertTimeToDegrees(duration);
+		float start = helper.convertTimeToDegrees(time);
+		duration = helper.convertTimeToDegrees(duration);
 		float end = start + duration;
 		boolean flagDrawIfInScope = true;
 		boolean drawnOnce = false;
@@ -320,7 +280,7 @@ public class spiralGraph extends PApplet {
 
 			flagDrawIfInScope = false;
 
-			rest = convertDegreesToTime(rest);
+			rest = helper.convertDegreesToTime(rest);
 			addTimeSlot(color, day, 361, rest);
 			drawnOnce = true;
 
@@ -339,7 +299,7 @@ public class spiralGraph extends PApplet {
 
 			flagDrawIfInScope = false;
 
-			rest = convertDegreesToTime(rest);
+			rest = helper.convertDegreesToTime(rest);
 			addTimeSlot(color, day, 721, rest);
 			drawnOnce = true;
 
@@ -358,7 +318,7 @@ public class spiralGraph extends PApplet {
 
 			flagDrawIfInScope = false;
 
-			rest = convertDegreesToTime(rest);
+			rest = helper.convertDegreesToTime(rest);
 			addTimeSlot(color, day, 1081, rest);
 
 			drawnOnce = true;
@@ -377,7 +337,7 @@ public class spiralGraph extends PApplet {
 
 			flagDrawIfInScope = false;
 
-			rest = convertDegreesToTime(rest);
+			rest = helper.convertDegreesToTime(rest);
 			addTimeSlot(color, day + 1, 0, rest);
 
 			drawnOnce = true;
@@ -453,7 +413,7 @@ public class spiralGraph extends PApplet {
 		for (int i = 0; i < allActivities.length; i++) {
 			if (allActivities[i] != null) {
 				act = allActivities[i];				
-				if (act.getHuman().getName().equals("Hannes")) {
+				if (act.getHuman().getName().equals("Tom")) {
 					
 					start = act.bTime[0] * 60 + act.bTime[1];
 					dur = (float) act.duration;
@@ -510,29 +470,7 @@ public class spiralGraph extends PApplet {
 			}		
 		}
 
-		/*
-		 * // day 1 Tuesday addTimeSlot(homeColor, 1, 0, 400);
-		 * addTimeSlot(workColor, 1, 420, 270); addTimeSlot(homeColor, 1, 720,
-		 * 30); addTimeSlot(socialColor, 1, 760, 60); addTimeSlot(homeColor, 1,
-		 * 830, 310); addTimeSlot(socialColor, 1, 1150, 30);
-		 * addTimeSlot(freeTimeColor, 1, 1190, 240); // day 2 Wednesday
-		 * addTimeSlot(freeTimeColor, 2, 20, 60); addTimeSlot(homeColor, 2, 110,
-		 * 790); addTimeSlot(workColor, 2, 930, 270); addTimeSlot(socialColor,
-		 * 2, 1205, 10); addTimeSlot(homeColor, 2, 1245, 825); // day 3 thursday
-		 * addTimeSlot(uniColor, 3, 660, 180); addTimeSlot(homeColor, 3, 870,
-		 * 120); addTimeSlot(workColor, 3, 1020, 270); addTimeSlot(homeColor, 3,
-		 * 1320, 855); // day4 friday addTimeSlot(socialColor, 4, 745, 30);
-		 * addTimeSlot(homeColor, 4, 785, 355); addTimeSlot(freeTimeColor, 4,
-		 * 1160, 140); addTimeSlot(freeTimeColor, 4, 1320, 180); // day5 =
-		 * saturday addTimeSlot(homeColor, 5, 70, 540); addTimeSlot(homeColor,
-		 * 5, 640, 1520); // day 6 = sunday addTimeSlot(homeColor, 6, 1080,
-		 * 180); addTimeSlot(socialColor, 6, 1290, 150); // day 7 = monday
-		 * addTimeSlot(homeColor, 7, 30, 540); addTimeSlot(workColor, 7, 600,
-		 * 120); addTimeSlot(homeColor, 7, 730, 110); addTimeSlot(workColor, 7,
-		 * 850, 180); addTimeSlot(freeTimeColor, 7, 1030, 50);
-		 * addTimeSlot(homeColor, 7, 1110, 180); addTimeSlot(socialColor, 7,
-		 * 1310, 130);
-		 */
+
 
 		//compute the percentages of all means of transport
 		float sumOfAllDurations = 0;

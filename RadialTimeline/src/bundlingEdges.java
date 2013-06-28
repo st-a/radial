@@ -15,12 +15,17 @@ public class bundlingEdges extends PApplet {
 	public float centerY = height / 2;
 	public float radius = (height - 150) / 2;
 	public float circumference = 2 * PI * radius;
+	String person;
 
 	public int background = color(42, 42, 42);
 	public float alpha = 60f;
 	public float densityOfLines = 10f;
 
 	public float ammountOfPlaces = 5; // home, Uni, Social, Work, Freetime
+	
+	helperForBundlingEdges helper =
+			new helperForBundlingEdges(centerX, centerY, radius, ammountOfPlaces);
+	
 	public ArrayList<place> places = new ArrayList<place>();
 	public String[] namesOfPlaces = new String[5];
 
@@ -35,57 +40,6 @@ public class bundlingEdges extends PApplet {
 	PFont headerFont;
 	PFont infoText;
 	PFont percenteges;
-
-	public float[] computeArcs(place plc) {
-		// this is the float Array which will be returned by
-		// this function
-		// it will look like this:
-		// rtrn[0] = X-Value of the beginning of the Arc
-		// rtrn[1] = Y-Value of the beginning of the Arc
-		// rtrn[2] = X-Value of the end of the Arc
-		// rtrn[3] = Y-Value of the end of the Arc
-		float[] rtrn = new float[4];
-
-		float start = plc.start;
-		float end = plc.end;
-
-		rtrn[0] = centerX + cos(radians(start - 90)) * (radius);
-		rtrn[1] = centerY + sin(radians(start - 90)) * (radius);
-		rtrn[0] = centerX + cos(radians(end - 90)) * (radius);
-		rtrn[1] = centerY + sin(radians(end - 90)) * (radius);
-
-		return rtrn;
-	}
-
-	public String formatPercentage(float prc) {
-		String rtrn = " ";
-		if (prc < 100) {
-			rtrn = nfs(prc, 2, 1) + " %";
-		}
-		if (prc == 100) {
-			rtrn = nfs(prc, 3, 1) + " %";
-		}
-		if (prc < 10) {
-			rtrn = nfs(prc, 1, 1) + " %";
-		}
-		return rtrn;
-	}
-
-	public float[] degreesToXnY(float deg, float radius) {
-		// this function gets as input only a degree-value and returns the
-		// concrete
-		// X and Y values in a float-Array
-		float[] rtrn = new float[2];
-
-		rtrn[0] = centerX + cos(radians(deg - 90)) * (radius);
-		rtrn[1] = centerY + sin(radians(deg - 90)) * (radius);
-
-		return rtrn;
-	}
-
-	public ArrayList<place> getPlaces() {
-		return places;
-	}
 
 	public void drawContentArround() {
 
@@ -102,7 +56,7 @@ public class bundlingEdges extends PApplet {
 			// image(places.get(i).icon, 105 + xPos, 37 + i * 30 + yPos);
 			fill(250);
 			Float lclprc = places.get(i).percentage * 100;
-			String prcntg = formatPercentage(lclprc);
+			String prcntg = helper.formatPercentage(lclprc);
 			noFill();
 
 			infoText = createFont("Dialog.plain", 12);
@@ -114,7 +68,7 @@ public class bundlingEdges extends PApplet {
 			percenteges = createFont("Dialog.plain", 12 + 15 * lclprc / 100);
 			textFont(percenteges);
 
-			float[] percPos = degreesToXnY(places.get(i).middle, radius + 50);
+			float[] percPos = helper.degreesToXnY(places.get(i).middle, radius + 50);
 			text(prcntg, percPos[0] - 20, percPos[1]);
 		}
 		// headers
@@ -149,12 +103,12 @@ public class bundlingEdges extends PApplet {
 
 			for (int k = 0; k < densityOfLines * (lengthOfOneColorFrom - 0.3f); k++) {
 
-				float[] start = degreesToXnY(
+				float[] start = helper.degreesToXnY(
 						places.get(i).start
 								+ places.get(i).currentLengtgOfOutgoingLinks,
 						radius);
 
-				float[] end = degreesToXnY(places.get(j).end
+				float[] end = helper.degreesToXnY(places.get(j).end
 						- places.get(j).currentLengthOfIncomingLinks, radius);
 
 				bezier(start[0], start[1], centerX, centerY, centerX, centerY,
@@ -198,8 +152,8 @@ public class bundlingEdges extends PApplet {
 			float arrowOut = places.get(i).start + 3
 					* (places.get(i).percentage * (360 - 36)) / 4;// in Degrees
 
-			float[] arrowPosIn = degreesToXnY(arrowIn, radius - 3);
-			float[] arrowPosOut = degreesToXnY(arrowOut, radius + 3);
+			float[] arrowPosIn = helper.degreesToXnY(arrowIn, radius - 3);
+			float[] arrowPosOut = helper.degreesToXnY(arrowOut, radius + 3);
 
 			float minValue = (places.get(i).lenght / 2) / 360f * circumference;
 
@@ -239,21 +193,6 @@ public class bundlingEdges extends PApplet {
 					radians(places.get(i).middle - 90),
 					radians(places.get(i).end - 90));
 		}
-	}
-
-	public float[] calculatePercenteges(float[][] perc) {
-		float[] rtrn = new float[(int) ammountOfPlaces];
-
-		for (int i = 0; i < ammountOfPlaces; i++) {
-			for (int j = 0; j < ammountOfPlaces; j++) {
-				rtrn[j] += perc[i][j];
-			}
-		}
-		for (int k = 0; k < ammountOfPlaces; k++) {
-			rtrn[k] = rtrn[k] / ammountOfPlaces;
-		}
-
-		return rtrn;
 	}
 
 	public void handleDate() {
@@ -328,7 +267,7 @@ public class bundlingEdges extends PApplet {
 			}
 		}
 
-		float[] percenteges = calculatePercenteges(placesAndPercentages);
+		float[] percenteges = helper.calculatePercenteges(placesAndPercentages);
 		
 		place home = new place(0, "home", percenteges[0], "../src/Icons/iconHome.png");
 		home.setColor(color(255, 123, 106));
