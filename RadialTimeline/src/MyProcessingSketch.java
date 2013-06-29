@@ -25,7 +25,7 @@ public class MyProcessingSketch extends PApplet {
 	 
 
 
-	  d = new Dataset("/Users/Shared/radial-vis/Dataset/data.xml");
+	  d = new Dataset("../src/Data/data.xml");
 	/*  
 	  Activity[] a = d.getActivityByDayAndPerson("Dienstag", "Tom");
 	  
@@ -36,8 +36,6 @@ public class MyProcessingSketch extends PApplet {
 		  
 	  }*/
 	  
-	  String[] fontList = PFont.list();
-	  println(fontList);
 	  
 	  
 	  //noLoop();
@@ -60,9 +58,8 @@ public class MyProcessingSketch extends PApplet {
 
 		if(draw){
 			diagramm = new Diagramm(this, width/2, height/2, distance,this.d, (float) 1);
-			diagramm.drawMatrix(this.d.getPersons());
+			diagramm.draw(width/2, height/2, d.getPerson("Tom"), "Sonntag", 1f);
 			draw = false;
-			diagramm.setLine(d.getPerson("Tom"), "Dienstag");
 			
 		}
 		

@@ -8,7 +8,7 @@ public class Timeline {
 	int[] points;
 	int r, g, b;
 	Diagramm dia;
-	int alpha = 160;
+	int alpha = 255;
 	
 	  Timeline(PApplet p, int[] point, int red, int green, int blue, Diagramm diagramm) {
 		    parent = p;
@@ -17,11 +17,12 @@ public class Timeline {
 		    g = green;
 		    b = blue;
 		    dia = diagramm;
+		    //System.out.println(point[0]);
 		  }
 	  
 	  public void drawLine(){
 		  parent.stroke(r,g,b,alpha);
-		  parent.strokeWeight(5/(dia.scale));
+		  parent.strokeWeight(10/(dia.scale));
 		  int angle = -90;
 		  float radius = dia.radius;
 		  float x1, y1;  
@@ -37,8 +38,8 @@ public class Timeline {
 	      float startX = x1;
 	      float startY = y1;
 	      
-		  for (int i=1; i<12; i++){
-			  angle += 30;
+		  for (int i=1; i<25; i++){
+			  angle += 15;
 		
 				if(points[i] == 0)  radius = 110/dia.scale;
 				if(points[i] == 1)  radius = 140/dia.scale;
@@ -52,7 +53,7 @@ public class Timeline {
 			  x1 = x2;
 			  y1 = y2;		
 			  }	
-		  parent.line(x1,y1,startX, startY);
+
 		  parent.stroke(0);
 		  parent.strokeWeight(1);
 			}	  

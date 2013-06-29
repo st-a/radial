@@ -14,7 +14,8 @@ public class Diagramm {
 	Timeline[] timelines;
 	int [][] colors = {{54, 146, 179},{158, 219, 41},{255, 243, 68},{253, 77, 72}};
 	float scale;
-	int[] d; 
+	int[] d;
+	String currentDay = "Montag";
 	Dataset dataset;
 	
 	
@@ -28,12 +29,15 @@ public class Diagramm {
 		    dataset = data;
 		    d = distance;
 			dStatistic = new Distance(p, d, this);
-		    this.draw(posX, posY,dataset.getPersons(), scale);
+		   // this.draw(posX, posY,dataset.getPersons(),currentDay, scale);
 		    img = p.loadImage("../src/images/frontlayer.png");
 	  }
 	
 	  
-	public void draw(float x, float y,Human[] humans,float s){	
+	public void draw(float x, float y,Human[] humans,String day,float s){	
+		
+		System.out.println("------------------------------------draw");
+		
 		radius = 300/scale;
 	    posX = x;
 	    posY = y;
@@ -106,17 +110,11 @@ public class Diagramm {
 			  
 			
 			  //Timelines
-			  
-		/*	 for(int i=0; i < humans.length; i++){
-				  int[] h = new int[12];
-				  for(int j=0; j < lines[i].length; j++){
-					h[j] = lines[i][j];
-				  }
-				timelines[i] = new Timeline(p, h, colors[i][0], colors[i][1], colors[i][2], this);
-					  
+			  timelines = new Timeline[humans.length];
+			 for(int i=0; i < humans.length; i++){	
+				this.timelines[i] = new Timeline(p,this.setLine(humans[i], day), colors[i][0], colors[i][1], colors[i][2], this);  
 				timelines[i].drawLine();
-  
-			  }*/
+			  }
 			  
 			 
 			 //Skalenpunkte
@@ -134,7 +132,7 @@ public class Diagramm {
 			  }
 			  
 			  
-			  p.noStroke();
+			//  p.noStroke();
 			/*  int pos = 110;
 			  for(int i=0; i< 7; i++){
 				  
@@ -177,15 +175,21 @@ public class Diagramm {
 	  
 	  public void scale(float s){
 			 
-		  this.draw(posX, posY,dataset.getPersons(), s);
+		  this.draw(posX, posY,dataset.getPersons(),currentDay, s);
+	  }
+	  
+	  public void draw(float x, float y,Human human,String day,float s){
+		  Human[] h = new Human[1];
+		  h[0] = human;
+		  this.draw(x, y, h, day, s);
 	  }
 		 
 	  public void transform(float x, float y){
-		  this.draw(x, y,dataset.getPersons(), scale);
+		  this.draw(x, y,dataset.getPersons(),currentDay, scale);
 	  }
 	  
 	  public void drawMatrix(Human[] h){
-		  
+		  Human[] human = new Human[1];
 		  
 		  p.background(42);
 		  p.image(img, 0, 0);
@@ -196,57 +200,48 @@ public class Diagramm {
 			  p.textAlign(p.LEFT, p.CENTER);
 			  p.fill(255);
 			  p.text(h[i].getName(),60+(130*i), 30);
+			  human[0] = h[i];
 			  
-			  for(int j = 0; j < 7 ; j++){	  
+			  for(int j = 0; j < 1 ; j++){	  
 				  
-			  this.draw(90+(130*i), 100+(90*j),dataset.getPersons(), 8f);
+			  this.draw(90+(130*i), 100+(90*j),human,"Dienstag", 3f);
 			  }
 		  }
 	  }
 	
-	  public void setLine(Human h, String day){
-		  int line[] = new int[12];  
+	  public int[] setLine(Human h, String day){
+		  int line[] = new int[25];  
 		  Activity[] a = dataset.getActivityByDayAndPerson(day, h.getName());
-		  
-		  if(day == "Montag") line[0] = 0;
+		  Activity lastDay = dataset.lastActivityLastDay(day, h.getName());
+		  if(day.equals("Montag"))line[0] = 0;
 		  
 		  else{
-		  Activity lastDay = dataset.lastActivityLastDay(day, h.getName());
-		  	if(lastDay.catagory == "Home") line[0] = 0;
-		  	if(lastDay.catagory == "Uni") line[0] = 1;
-		  	if(lastDay.catagory == "Social") line[0] = 2;
-		  	if(lastDay.catagory == "Work") line[0] = 3;
-		  	if(lastDay.catagory == "Freizeit") line[0] = 4;	
-		  	
-			  System.out.println("Tag: " + lastDay.getDay());
-			  System.out.println("Kategory: " + lastDay.catagory);
-			  System.out.println("Startzeit: " + lastDay.getEndTime()[0]);
-			  System.out.println("++++++++++++++++++++++");
+			  for(int i = 0; i < 25; i++){
+				  if(lastDay.catagory.equals("Home")) line[i] = 0;
+				  if(lastDay.catagory.equals("Uni")) line[i] = 1;
+				  if(lastDay.catagory.equals("Social")) line[i] = 2;
+				  if(lastDay.catagory.equals("Work")) line[i]= 3;
+				  if(lastDay.catagory.equals("Freizeit")) line[i] = 4;	
+			  }
 		  }
 		  
-		  for(int i = 1; i < 12; i++){
+		  for(int i = 1; i < 25; i++){
 			  for(int j = 0; j < a.length; j++){
-				  System.out.println("Endtime: " + a[j].getEndTime()[0]);
-				  //if(a[j].getEndTime()[0] < (i*2)){
-					  
-					  //System.out.println("State: " + i*2);
-					  System.out.println("Category: " + a[j].catagory);
-					  System.out.println("++++++++++++++++++++++");
-					  if(a[j].catagory == "Home") line[i] = 0;
-					  if(a[j].catagory == "Uni") line[i] = 1;
-					  if(a[j].catagory == "Social") line[i] = 2;
-					  if(a[j].catagory == "Work") line[i] = 3;
-					  if(a[j].catagory == "Freizeit") line[i] = 4;	
+
+				  if(a[j].getEndTime()[0] < i){
+					  //System.out.println("bing")
+					  	if(a[j].catagory.equals("Home")){ line[i] = 0;}
+					  	if(a[j].catagory.equals("Uni")){ line[i] = 1;}
+					  	if(a[j].catagory.equals("Social")){ line[i] = 2;}
+					  	if(a[j].catagory.equals("Work")){ line[i] = 3;}
+					  	if(a[j].catagory.equals("Freizeit")){ line[i] = 4;}
+					  	System.out.println(line[i]);
+				  }
 				  
 			  }
-			  System.out.println("===============================================");
+			  System.out.println(i +" Uhr :"+line[i]);
 		  }
-		  System.out.println("------------Arrayinhalt-------------");
-		  for(int i = 0; i < line.length; i++){
-		  
-		  System.out.println("Linecount: " + line[i]);
-		  }
-		  
+		  return line;
 	  }
 	  
 

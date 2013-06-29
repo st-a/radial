@@ -85,9 +85,6 @@ public class Dataset {
 								eTimeM = eTime.getAttribute("minutes");
 							}
 
-							
-							
-
 
 							this.activities[x] = new Activity(humans[i], sDay, category, begin, end, transport, duration, distance, bTimeH, bTimeM, eTimeH, eTimeM);
 							x++;
@@ -193,7 +190,6 @@ e.printStackTrace();
 				}
 			}
 		}	
-		
 		return aArray;
 	}
 	
@@ -211,7 +207,7 @@ e.printStackTrace();
 	
 	public Activity lastActivityLastDay(String day,String name){
 		if(day == "Dienstag") day = "Montag";
-		if(day == "Mittwoch") day = "Diesntag";
+		if(day == "Mittwoch") day = "Dienstag";
 		if(day == "Donnerstag") day = "Mittwoch";
 		if(day == "Freitag") day = "Donnerstag";
 		if(day == "Samstag") day = "Freitag";

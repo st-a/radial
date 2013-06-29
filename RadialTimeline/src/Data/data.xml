@@ -602,6 +602,7 @@
 			<duration>104</duration>
 			<distance>89900</distance>
 		</activity>
+		
 		<activity>
 			<begin>Bahnhof</begin>
 			<beginTime hour="21" minutes="5"></beginTime>
