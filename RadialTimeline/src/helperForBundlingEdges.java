@@ -34,14 +34,14 @@ public class helperForBundlingEdges extends PApplet{
 		return rtrn;
 	}
 
-	public float[] degreesToXnY(float deg, float radius) {
+	public float[] degreesToXnY(bundlingEdges be,float deg, float radius) {
 		// this function gets as input only a degree-value and returns the
 		// concrete
 		// X and Y values in a float-Array
 		float[] rtrn = new float[2];
 
-		rtrn[0] = centerX + cos(radians(deg - 90)) * (radius);
-		rtrn[1] = centerY + sin(radians(deg - 90)) * (radius);
+		rtrn[0] = be.centerX + cos(radians(deg - 90)) * (radius);
+		rtrn[1] = be.centerY + sin(radians(deg - 90)) * (radius);
 
 		return rtrn;
 	}

@@ -8,7 +8,6 @@ public class MyProcessingSketch extends PApplet {
 
 	
 	float px, py;
-	float angle = 90;
 	PFont f;
 	boolean draw = true, s = false;
 	Diagramm diagramm;
@@ -26,15 +25,7 @@ public class MyProcessingSketch extends PApplet {
 
 
 	  d = new Dataset("../src/Data/data.xml");
-	/*  
-	  Activity[] a = d.getActivityByDayAndPerson("Dienstag", "Tom");
-	  
-	  for(int i=0; i< a.length; i++){
-		  println(a[i].getDay());
-		  println("Start: " + a[i].start);
-		  println("Ende: " + a[i].end);
-		  
-	  }*/
+
 	  
 	  
 	  

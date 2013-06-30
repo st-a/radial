@@ -34,10 +34,6 @@
 	 		if(dist == "") this.distance = 0;
 	 		else this.distance = Integer.parseInt(dist);
 	 		
-	 		if(h.name.equals("Tom")){
-	 			System.out.println("dur: " + duration);
-	 			System.out.println("start: " + bTime[0] + ":" + bTime[1]);
-	 		}
 	 	}
 	 
 	 	
