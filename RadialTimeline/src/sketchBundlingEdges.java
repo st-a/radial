@@ -6,7 +6,7 @@ import processing.core.PApplet;
 public class sketchBundlingEdges extends PApplet{
 
 	private static final long serialVersionUID = 1L;
-	public int width = 900;
+	public int width = 950;
 	public int height = 600;
 	public int background = color(42, 42, 42);
 	
@@ -14,37 +14,45 @@ public class sketchBundlingEdges extends PApplet{
 			new bundlingEdges("Tom",width / 2 - 100,height / 2,(height - 150) / 2);
 	bundlingEdges beHannes = 
 			new bundlingEdges("Hannes",width / 2 - 100,height / 2,(height - 150) / 2);
+	bundlingEdges beTom1 = 
+			new bundlingEdges("Tom",width / 2 - 100,height / 2,(height - 150) / 2);
+	bundlingEdges beHannes1 = 
+			new bundlingEdges("Hannes",width / 2 - 100,height / 2,(height - 150) / 2);
 	
 	ArrayList<bundlingEdges> allDiagrams = new ArrayList<>();
 	
 	public void drawContentArround(bundlingEdges be) {
 
-		float xPos = 580;
-		float yPos = 400;
+		float xPos = 10;
+		float yPos = height+5;
+		
+		stroke(color(20,20,20));
+		strokeWeight(1);
+		line(10, height, width-10, height);
 
 		for (int i = 0; i < be.places.size(); i++) {
+			
 			noStroke();
 
 			// Box at the bottom right
 			fill(be.places.get(i).backgroundcolor);
-			strokeWeight(1);
-			rect(85 + xPos, 25 + i * 30 + yPos, 40, 25);
-			// image(places.get(i).icon, 105 + xPos, 37 + i * 30 + yPos);
+			
+			rect(xPos+110*i, yPos, 35, 15);
 			fill(250);
+			
 			Float lclprc = be.places.get(i).percentage * 100;
 			String prcntg = be.helper.formatPercentage(lclprc);
 			noFill();
 
 			be.infoText = createFont("Dialog.plain", 12);
 			textFont(be.infoText);
-
-			text(be.places.get(i).name, 130 + xPos, 42 + i * 30 + yPos);
+			text(be.places.get(i).name, xPos+47+110*i, yPos+12);
 
 			// percentages in the graph
-			be.percenteges = createFont("Dialog.plain", 12 + 15 * lclprc / 100);
+			be.percenteges = createFont("Dialog.plain", 12*be.scale + 15 * lclprc / 100);
 			textFont(be.percenteges);
 
-			float[] percPos = be.helper.degreesToXnY(be,be.places.get(i).middle, be.radius + 50);
+			float[] percPos = be.helper.degreesToXnY(be,be.places.get(i).middle, be.radius + be.scale*70f);
 			text(prcntg, percPos[0] - 20, percPos[1]);
 		}
 		// headers
@@ -109,7 +117,7 @@ public class sketchBundlingEdges extends PApplet{
 			}
 
 			// Arc, in color
-			strokeWeight(10);
+			strokeWeight(be.scale*10f);
 			stroke(be.places.get(i).backgroundcolor);
 			arc(be.centerX, be.centerY, 2 * (be.radius + 15), 2 * (be.radius + 15),
 					radians(be.places.get(i).start - 90),
@@ -156,7 +164,7 @@ public class sketchBundlingEdges extends PApplet{
 			// Arc Part One, Outgoing
 			stroke(200);
 			noFill();
-			strokeWeight(10);
+			strokeWeight(be.scale*10f);
 			arc(be.centerX, be.centerY, 2 * be.radius, 2 * be.radius,
 					radians(be.places.get(i).start - 90),
 					radians(be.places.get(i).middle - 90));
@@ -180,6 +188,7 @@ public class sketchBundlingEdges extends PApplet{
 		while(allDiagrams.size()>n){
 			n= (int) Math.pow(i, 2);
 			if(allDiagrams.size()<=n){
+				rtrn[0]=i;
 				//i = size of one side
 			}
 			else{
@@ -187,24 +196,28 @@ public class sketchBundlingEdges extends PApplet{
 			}
 		}
 		
+		/*
 		for(int j=0;j<allDiagrams.size();j++){
-			rtrn[3*j] = width/i;
-			rtrn[(3*j)+1] = height/i;
-			rtrn[(3*j)+2] = (height-150)/n;			
+			rtrn[3*j+1] = width/i;
+			rtrn[(3*j)+2] = height/i;
+			rtrn[(3*j)+3] = (height-150)/n;			
 		}
-		
+		*/
 		
 		return rtrn;
 	}
 	
 	public void setup() {
-		size(width, height);
+		size(width, height+30);
 		background(background);
 		imageMode(CENTER);
 		strokeCap(SQUARE);
 
 		allDiagrams.add(beTom);
 		allDiagrams.add(beHannes);
+		allDiagrams.add(beTom1);
+		allDiagrams.add(beHannes1);
+		
 		for(bundlingEdges be: allDiagrams){
 			be.handleDate();
 		}
@@ -214,12 +227,23 @@ public class sketchBundlingEdges extends PApplet{
 		background(background);
 		
 		//draw all diagrams
-		beHannes.centerX = (height/4);
-		beHannes.centerY = (height / 4);
-		beHannes.radius = (height - 200) / 2 * 1/allDiagrams.size();
-		beTom.centerX = (height / 4);
-		beTom.centerY = 3*height/4;
-		beTom.radius = (height - 200) / 2 * 1/allDiagrams.size();
+		
+		float[] positions = computeDiagrammPositions();
+		beHannes.centerX = (height/4+10);
+		beHannes.centerY = (height/4);
+		beHannes.setRadius((height - 200) / 2 * 1/positions[0]);
+		
+		beHannes1.centerX = 3*(height/4)+30;
+		beHannes1.centerY = (height/4);
+		beHannes1.setRadius((height - 200) / 2 * 1/positions[0]);
+		
+		beTom.centerX = 1*height / 4+10;
+		beTom.centerY = 3	*height/4;
+		beTom.setRadius((height - 200) / 2 * 1/positions[0]);
+		
+		beTom1.centerX = 3*height / 4+30;
+		beTom1.centerY = 3*height/4;
+		beTom1.setRadius((height - 200) / 2 * 1/positions[0]);
 		
 		for(bundlingEdges b:allDiagrams){
 			

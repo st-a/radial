@@ -12,6 +12,7 @@ public class bundlingEdges extends PApplet{
 	public float centerX;
 	public float centerY;
 	public float radius;
+	public float scale;
 	String person;
 	
 	public float circumference;
@@ -61,6 +62,13 @@ public class bundlingEdges extends PApplet{
 		freeSpaceInDegrees = (0.1f * 360) / ammountOfPlaces;
 
 		drawBeziers = true;
+	}
+	
+	//setter + getter
+	public void setRadius(float rad){
+		this.radius = rad;
+		scale = rad/200;
+		println("scale: " + scale);
 	}
 
 	public void handleDate() {
