@@ -19,7 +19,7 @@ public class sketchBundlingEdges extends PApplet{
 	bundlingEdges beHannes1 = 
 			new bundlingEdges("Hannes",width / 2 - 100,height / 2,(height - 150) / 2);
 	
-	ArrayList<bundlingEdges> allDiagrams = new ArrayList<>();
+	ArrayList<bundlingEdges> allDiagrams = new ArrayList<bundlingEdges>();
 	
 	public void drawContentArround(bundlingEdges be) {
 
