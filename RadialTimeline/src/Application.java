@@ -27,8 +27,8 @@ public class Application extends PApplet {
 		if(redraw){
 			this.drawInterface();
 			textFont(this.Headlines);
-			text("Headline", 40, 2*20);
-			line(40,3*20, 40,6*20);
+			text("Bundling Edges", 40, 2*20);
+			line(260,1*20, 260,4*20);
 			textFont(this.normalText);
 			boolean moreThanOne = false;
 			String sChain = "";
@@ -42,7 +42,7 @@ public class Application extends PApplet {
 				moreThanOne = true;
 				}
 			}
-			text("Tag: " + sChain,60, 4*20); 
+			text("Tag: " + sChain,280, 2*20); 
 			
 			moreThanOne = false;
 			sChain = "";
@@ -56,7 +56,7 @@ public class Application extends PApplet {
 				moreThanOne = true;
 				}
 			}
-			text("Person: " + sChain,60, 5*20); 
+			text("Person: " + sChain,280, 3*20); 
 		}
 	}
 	

@@ -49,7 +49,7 @@ public class MyProcessingSketch extends PApplet {
 
 		if(draw){
 			diagramm = new Diagramm(this, width/2, height/2, distance,this.d, (float) 1);
-			diagramm.draw(width/2, height/2, d.getPerson("Tom"), "Sonntag", 1f);
+			diagramm.draw(width/2, height/2, d.getPerson("Tom"), "Montag", 1f);
 			draw = false;
 			
 		}
