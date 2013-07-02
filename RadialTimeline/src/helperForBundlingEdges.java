@@ -19,6 +19,14 @@ public class helperForBundlingEdges extends PApplet{
 		this.radius = radius;
 		this.ammountOfPlaces = ammountOfPlaces;
 	}
+	
+	public void setCntrX(float cntrX){
+		this.centerX = cntrX;
+	}
+	
+	public void setCntrY(float cntrY){
+		this.centerY = cntrY;
+	}
 
 	public String formatPercentage(float prc) {
 		String rtrn = " ";
@@ -34,14 +42,14 @@ public class helperForBundlingEdges extends PApplet{
 		return rtrn;
 	}
 
-	public float[] degreesToXnY(bundlingEdges be,float deg, float radius) {
+	public float[] degreesToXnY(float deg, float radius) {
 		// this function gets as input only a degree-value and returns the
 		// concrete
 		// X and Y values in a float-Array
 		float[] rtrn = new float[2];
 
-		rtrn[0] = be.centerX + cos(radians(deg - 90)) * (radius);
-		rtrn[1] = be.centerY + sin(radians(deg - 90)) * (radius);
+		rtrn[0] = centerX + cos(radians(deg - 90)) * (radius);
+		rtrn[1] = centerY + sin(radians(deg - 90)) * (radius);
 
 		return rtrn;
 	}
