@@ -41,7 +41,7 @@ public class helperForSpiralGraph extends PApplet{
 		float localRadius = radius / 2 - day * thiknessOfOneDay;
 		if (day == 0) {
 			// this is the case for drawing the clock
-			localRadius = 25f;
+			localRadius = 10f;
 		}
 
 		float[] rtrn = new float[2];

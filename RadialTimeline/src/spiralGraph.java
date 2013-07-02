@@ -20,18 +20,12 @@ public class spiralGraph extends PApplet {
 			new helperForSpiralGraph(radius, centerX, centerY, days);
 	
 	public float thiknessOfOneDay = radius / (days + 1);
-	public int background = color(255, 255, 255);
+	public int background = color(42);
 
-	public int homeColor = color(236, 0, 140);
-	public int uniColor = color(180, 210, 53);
-	public int socialColor = color(40, 170, 225);
-	public int workColor = color(255, 198, 11);
-	public int freeTimeColor = color(59, 25, 133);
-
-	public int byFeet = homeColor;
-	public int byCar = uniColor;
-	public int byTram = socialColor;
-	public int byBike = workColor;
+	public int byFeet = color(194, 69, 78);
+	public int byCar = color(123, 173, 141);
+	public int byTram = color(255, 199, 70);
+	public int byBike = color(247, 141, 71);
 	
 	public String[] meansOfTransportStrings = new String[4];
 	public float[] percentagesOfTransports = new float[4];
@@ -65,7 +59,7 @@ public class spiralGraph extends PApplet {
 		noStroke();
 		rect(85 + xPos, 25 + 2 * 30 + yPos, 40, 25);
 
-		fill(0);
+		fill(255);
 		lclprc = percentagesOfTransports[2];
 		prcntg = helper.formatFloats(lclprc);
 		text(prcntg, 130 + xPos, 42 + 2 * 30 + yPos);
@@ -97,7 +91,6 @@ public class spiralGraph extends PApplet {
 
 	public void drawClock() {
 		// drawing the 24 grey-scaled lines
-		fill(100);
 		strokeWeight(1);
 		stroke(100);
 		line(centerX - radius / 2, centerY, centerX + radius / 2 + 10, centerY);
@@ -105,7 +98,7 @@ public class spiralGraph extends PApplet {
 				+ 10);
 
 		pushMatrix();
-		stroke(200);
+		stroke(65);
 		translate(centerX, centerY);
 		rotate(radians(30));
 		translate(-centerX, -centerY);
@@ -116,7 +109,7 @@ public class spiralGraph extends PApplet {
 
 		for (int i = 0; i < 6; i++) {
 			pushMatrix();
-			stroke(255);
+			stroke(50);
 			strokeWeight(1.5f);
 			translate(centerX, centerY);
 			rotate(radians(i * 30 + 15));
@@ -127,7 +120,7 @@ public class spiralGraph extends PApplet {
 		}
 
 		pushMatrix();
-		stroke(200);
+		stroke(65);
 		translate(centerX, centerY);
 		rotate(radians(60));
 		translate(-centerX, -centerY);
@@ -136,7 +129,7 @@ public class spiralGraph extends PApplet {
 				+ 10);
 		popMatrix();
 
-		fill(255);
+		fill(42);
 		noStroke();
 		ellipse(centerX, centerY, 100, 100);
 
@@ -145,17 +138,16 @@ public class spiralGraph extends PApplet {
 		textFont(infoText);
 		for (int i = 0; i < 12; i++) {
 			float[] pos = helper.degreesToXnY(i * 360 / 12, 0);
-			fill(50);
+			fill(255);
 			pushMatrix();
 			translate(pos[0], pos[1]);
 			rotate(radians((float) i / 12 * 360));
 			translate(-pos[0], -pos[1]);
-			rect(pos[0], pos[1], 1.5f, 7);
+			rect(pos[0], pos[1], 1, 5);
 			popMatrix();
-			// ellipse(pos[0],pos[1],20,20);
 
 		}
-
+		fill(255);
 		text("0", centerX - 4, centerY - 32);
 		text("12", centerX - 8, centerY + 42);
 		text("18", centerX - 48, centerY + 4);
@@ -164,9 +156,6 @@ public class spiralGraph extends PApplet {
 
 	public void drawSpiral() {
 
-		strokeWeight(1);
-		stroke(100);
-		noFill();
 		float[] pointOne = new float[2];
 		float[] pointTwo = new float[2];
 		float[] pointThree = new float[2];
@@ -186,41 +175,12 @@ public class spiralGraph extends PApplet {
 		for (int i = 0; i < days + 1; i++) {
 			if (i < days - 1) {
 
-				/*
-				 * localRadius = (radius-i*thiknessOfOneDay)/2; //draw spiral as
-				 * 4 segments as bezier curves bezier(pointOne[0],
-				 * pointOne[1]+i*thiknessOfOneDay, pointOne[0]+localRadius,
-				 * pointOne[1]+i*thiknessOfOneDay,
-				 * pointTwo[0]-i*thiknessOfOneDay,pointTwo[1]-localRadius,
-				 * pointTwo[0]-i*thiknessOfOneDay,pointTwo[1]);
-				 * 
-				 * //localRadius -=thiknessOfOneDay/4;
-				 * 
-				 * bezier(pointTwo[0]-i*thiknessOfOneDay,pointTwo[1],
-				 * pointTwo[0]-i*thiknessOfOneDay,pointTwo[1]+ localRadius,
-				 * pointThree[0]+localRadius, pointThree[1]-i*thiknessOfOneDay,
-				 * pointThree[0], pointThree[1]-i*thiknessOfOneDay);
-				 * 
-				 * //localRadius -=thiknessOfOneDay/4;
-				 * 
-				 * bezier(pointThree[0],pointThree[1]-i*thiknessOfOneDay,
-				 * pointThree[0] - localRadius,pointThree[1]-i*thiknessOfOneDay,
-				 * pointFour[0]+i*thiknessOfOneDay, pointFour[1]+localRadius,
-				 * pointFour[0]+i*thiknessOfOneDay, pointFour[1]);
-				 * 
-				 * localRadius -=thiknessOfOneDay/2;
-				 * 
-				 * bezier(pointFour[0]+i*thiknessOfOneDay,pointFour[1],
-				 * pointFour[0] + i*thiknessOfOneDay,pointFour[1]-localRadius,
-				 * pointOne[0]-localRadius, pointOne[1]+(i+1)*thiknessOfOneDay,
-				 * pointOne[0], pointOne[1]+(i+1)*thiknessOfOneDay);
-				 */
-
 				// drawing the spiral using arcs
 
 				localRadius = (radius - i * thiknessOfOneDay);
-				strokeWeight(1);
-				fill(240);
+				strokeWeight(2);
+				stroke(100);
+				noFill();
 				// arc1
 
 				arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
@@ -383,7 +343,7 @@ public class spiralGraph extends PApplet {
 
 	public void addData() {
 		
-		meansOfTransportStrings[0] = "zu Fuß";
+		meansOfTransportStrings[0] = "zu Fu§";
 		percentagesOfTransports[0] = 0;
 		colors[0] = byFeet;
 		
@@ -391,7 +351,7 @@ public class spiralGraph extends PApplet {
 		percentagesOfTransports[1] = 0;
 		colors[1] = byBike;
 		
-		meansOfTransportStrings[2] = "Straßenbahn";
+		meansOfTransportStrings[2] = "Stra§enbahn";
 		percentagesOfTransports[2] = 0;
 		colors[2] = byTram;
 		
@@ -442,7 +402,7 @@ public class spiralGraph extends PApplet {
 					}
 
 					
-					if (act.transport.equals("Straßenbahn")
+					if (act.transport.equals("Stra§enbahn")
 							|| act.transport.equals("Zug")
 							|| act.transport.equals("Bus")) {
 						timeSlotColor = byTram;
@@ -457,7 +417,7 @@ public class spiralGraph extends PApplet {
 						timeSlotColor = byBike;
 						percentagesOfTransports[1] += act.duration;
 					}
-					if(act.transport.equals("zu Fuß")){
+					if(act.transport.equals("zu Fu§")){
 						timeSlotColor = byFeet;
 						percentagesOfTransports[0] +=act.duration;
 					}
@@ -490,11 +450,12 @@ public class spiralGraph extends PApplet {
 
 	public void draw() {
 		background(background);
+		
+		
+		addData();
 		drawSpiral();
 		drawClock();
-		addData();
 		drawContentArround();
-		//noLoop();
 
 	}
 }
