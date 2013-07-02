@@ -43,19 +43,19 @@ public class helperForSpiralGraph extends PApplet{
 		return degrees / 360 * 24 * 60;
 	}
 
-	public float[] degreesToXnY(float deg, float day) {
+	public float[] degreesToXnY(float deg, float day,float scale,float[] XY) {
 		// this function gets as input only a degree-value and a day and returns
 		// the concrete X and Y values in a float-Array
 		float localRadius = radius / 2 - day * thiknessOfOneDay;
 		if (day == 0) {
 			// this is the case for drawing the clock
-			localRadius = 10f;
+			localRadius = scale*10f;
 		}
 
 		float[] rtrn = new float[2];
 
-		rtrn[0] = centerX + cos(radians(-90 + deg)) * (localRadius);
-		rtrn[1] = centerY + sin(radians(-90 + deg)) * (localRadius);
+		rtrn[0] = XY[0] + cos(radians(-90 + deg)) * (localRadius);
+		rtrn[1] = XY[1] + sin(radians(-90 + deg)) * (localRadius);
 
 		return rtrn;
 	}

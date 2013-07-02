@@ -23,11 +23,12 @@ public class spiralGraph extends PApplet {
 
 	public float thiknessOfOneDay = radius / (days + 1);
 	public int background = color(42);
+	public int alpha=70;
 
-	public int byFeet = color(194, 69, 78);
-	public int byCar = color(123, 173, 141);
-	public int byTram = color(255, 199, 70);
-	public int byBike = color(247, 141, 71);
+	public int byFeet = color(194, 69, 78,alpha);
+	public int byCar = color(123, 173, 141,alpha);
+	public int byTram = color(255, 199, 70,alpha);
+	public int byBike = color(247, 141, 71,alpha);
 
 	public String[] meansOfTransportStrings = new String[4];
 	public float[] percentagesOfTransports = new float[4];
@@ -64,6 +65,25 @@ public class spiralGraph extends PApplet {
 	
 	public void setCenterY(float cntrY){
 		this.centerY = cntrY;
+	}
+	
+	public void setRadius(float radius){
+		this.radius = radius;
+		this.width = radius+50;
+		this.height = radius+50;
+		this.scale = height/600;
+		thiknessOfOneDay = radius / (days + 1);
+	}
+	
+	public void setAlpha(int a){
+		this.alpha = a;
+	}
+	
+	public void setColors(){
+		byFeet = color(194, 69, 78,alpha);
+		byCar = color(123, 173, 141,alpha);
+		byTram = color(255, 199, 70,alpha);
+		byBike = color(247, 141, 71,alpha);
 	}
 
 	//relevant functions
@@ -163,29 +183,30 @@ public class spiralGraph extends PApplet {
 				+ 10);
 		pa.popMatrix();
 
-		pa.fill(42);
+		pa.fill(background);
 		pa.noStroke();
-		pa.ellipse(centerX, centerY, 100, 100);
+		pa.ellipse(centerX, centerY, scale*100f, scale*100f);
 
 		pa.rectMode(CENTER);
 		PFont infoText = createFont("Dialog.plain", 13);
 		pa.textFont(infoText);
 
 		for (int i = 0; i < 12; i++) {
-			float[] pos = helper.degreesToXnY(i * 360 / 12, 0);
+			float[] xy = {centerX,centerY};
+			float[] pos = helper.degreesToXnY(i * 360 / 12, 0,scale,xy);
 			pa.fill(255);
 			pa.pushMatrix();
 			pa.translate(pos[0], pos[1]);
 			pa.rotate(radians((float) i / 12 * 360));
 			pa.translate(-pos[0], -pos[1]);
-			pa.rect(pos[0], pos[1], 1, 5);
+			pa.rect(pos[0], pos[1], scale*1f, scale*5f);
 			pa.popMatrix();
 		}
 		pa.fill(255);
-		pa.text("0", centerX - 4, centerY - 32);
-		pa.text("12", centerX - 8, centerY + 42);
-		pa.text("18", centerX - 48, centerY + 4);
-		pa.text("6", centerX + 30, centerY + 6);
+		pa.text("0", centerX - 4, centerY - scale*32f);
+		pa.text("12", centerX - 8, centerY + scale*42f);
+		pa.text("18", centerX - scale*48f, centerY + 4);
+		pa.text("6", centerX + scale*30f, centerY + 6);
 	}
 
 	public void drawSpiral() {
