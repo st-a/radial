@@ -372,7 +372,7 @@ public class spiralGraph extends PApplet {
 		for (int i = 0; i < allActivities.length; i++) {
 			if (allActivities[i] != null) {
 				act = allActivities[i];				
-				if (act.getHuman().getName().equals("Tom")) {
+				if (act.getHuman().getName().equals("Hannes")) {
 					
 					start = act.bTime[0] * 60 + act.bTime[1];
 					dur = (float) act.duration;
