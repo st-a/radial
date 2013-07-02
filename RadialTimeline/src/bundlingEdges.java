@@ -261,7 +261,7 @@ public class bundlingEdges extends PApplet {
 		Dataset dtst = new Dataset("../src/Data/data.XML");
 
 		Activity[] allActivities = null;
-		if (person == "all") {
+		if (person.equals("all")) {
 			allActivities = dtst.getActivities();
 		} else {
 			allActivities = dtst.getPersonActivities(person);

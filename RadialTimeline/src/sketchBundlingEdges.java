@@ -7,15 +7,15 @@ public class sketchBundlingEdges extends PApplet {
 	private static final long serialVersionUID = 1L;
 	
 	PApplet pa = this;
-	public int width = 950;
+	public int width = 650;
 	public int height = 600;
 	public int background = color(42, 42, 42);
 
-	bundlingEdges beTom = new bundlingEdges("Tom", width / 2 - 100, height / 2,
+	bundlingEdges beTom = new bundlingEdges("Tom", height / 2 - 100, height / 2,
 			(height - 150) / 2,pa);
-	bundlingEdges beHannes = new bundlingEdges("Hannes", width / 2 - 100,
+	bundlingEdges beHannes = new bundlingEdges("Hannes", height/ 2 - 100,
 			height / 2, (height - 150) / 2,pa);
-	bundlingEdges beAll = new bundlingEdges("all", width / 2 - 100,
+	bundlingEdges beAll = new bundlingEdges("all", height / 2 - 100,
 			height / 2, (height - 150) / 2,pa);
 
 
@@ -68,8 +68,8 @@ public class sketchBundlingEdges extends PApplet {
 		imageMode(CENTER);
 		strokeCap(SQUARE);
 
-		//allDiagrams.add(beTom);
-		//allDiagrams.add(beHannes);
+		allDiagrams.add(beTom);
+		allDiagrams.add(beHannes);
 		allDiagrams.add(beAll);
 
 		for (bundlingEdges be : allDiagrams) {

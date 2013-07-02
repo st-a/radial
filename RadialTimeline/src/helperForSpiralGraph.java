@@ -3,9 +3,6 @@ import processing.core.PApplet;
 
 public class helperForSpiralGraph extends PApplet{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	float radius;
@@ -13,14 +10,25 @@ public class helperForSpiralGraph extends PApplet{
 	float centerY;
 	float days;
 	float thiknessOfOneDay;
+	float scale;
 	
-	
-	helperForSpiralGraph(float rad, float cntrX, float cntrY,float days){
+	//constructor
+	helperForSpiralGraph(float scale,float rad, float cntrX, float cntrY,float days){
 		this.radius=rad;
 		this.centerX = cntrX;
 		this.centerY = cntrY;
 		this.days = days;
 		this.thiknessOfOneDay = radius / (days + 1);
+		this.scale = scale;
+	}
+	
+	//setter getter
+	public void setRadius(float r){
+		this.radius = r;
+	}
+	
+	public void setScale(float scale){
+		this.scale = scale;
 	}
 
 	public float convertTimeToDegrees(float minutes) {

@@ -4,21 +4,23 @@ import processing.core.PFont;
 public class spiralGraph extends PApplet {
 
 	private static final long serialVersionUID = 1L;
+	public PApplet pa;
 
-	public int width = 900;
-	public int height = 700;
-	public float centerX = width / 2 - 100;
+	public float width = 600;
+	public float height = 600;
+	public float centerX = height / 2;
 	public float centerY = height / 2;
 	public float radius = (height - 50); // this is obviously crap but i cant
-											// refactor it
-	
+	public float scale; // refactor it
+
 	public float circumference = 2 * PI * radius;
 
 	public float days = 7 + 1; // the '+1' is added to make sure, ther's
 								// enough white space in the middle
-	helperForSpiralGraph helper = 
-			new helperForSpiralGraph(radius, centerX, centerY, days);
-	
+	public String person;
+
+	public helperForSpiralGraph helper = null;
+
 	public float thiknessOfOneDay = radius / (days + 1);
 	public int background = color(42);
 
@@ -26,12 +28,45 @@ public class spiralGraph extends PApplet {
 	public int byCar = color(123, 173, 141);
 	public int byTram = color(255, 199, 70);
 	public int byBike = color(247, 141, 71);
-	
+
 	public String[] meansOfTransportStrings = new String[4];
 	public float[] percentagesOfTransports = new float[4];
 	public int[] colors = new int[4];
-	
 
+	
+	//constructor
+	spiralGraph(PApplet pa, float width, float height, String person) {
+		this.pa = pa;
+		this.width = width;
+		this.height = height;
+		this.person = person;
+		this.scale = height/ 600;
+		
+		helper = new helperForSpiralGraph(scale, radius, centerX,
+					centerY, days);
+	}
+	
+	//getter setter
+	public void setWidth(float w){
+		this.width = w;
+	}
+	
+	public void setHeight(float h){
+		this.height = h;
+		helper.setRadius(h-50);
+		scale = h/600;
+		helper.setScale(scale);
+	}
+	
+	public void setCenterX(float cntrX){
+		this.centerX = cntrX;
+	}
+	
+	public void setCenterY(float cntrY){
+		this.centerY = cntrY;
+	}
+
+	//relevant functions
 	public void drawContentArround() {
 
 		float xPos = 690;
@@ -43,18 +78,17 @@ public class spiralGraph extends PApplet {
 		fill(byFeet);
 		noStroke();
 		rect(85 + xPos, 25 + 0 * 30 + yPos, 40, 25);
-		fill(0);
-		
+
 		float lclprc = percentagesOfTransports[0];
 		String prcntg = helper.formatFloats(lclprc);
 
 		PFont infoText = createFont("Dialog.plain", 12);
 		textFont(infoText);
 
-		text(prcntg, 130 + xPos, 42 + 0 * 30 + yPos);
-		text("zu Fuﬂ", 25 + xPos, 42 + 0 * 30 + yPos);
+		// text(prcntg, 130 + xPos, 42 + 0 * 30 + yPos);
+		// text("zu Fuﬂ", 25 + xPos, 42 + 0 * 30 + yPos);
 
-		//by Tram
+		// by Tram
 		fill(byTram);
 		noStroke();
 		rect(85 + xPos, 25 + 2 * 30 + yPos, 40, 25);
@@ -86,72 +120,72 @@ public class spiralGraph extends PApplet {
 
 		text(prcntg, 130 + xPos, 42 + 3 * 30 + yPos);
 		text("Fahrrad", 25 + xPos, 42 + 3 * 30 + yPos);
-		
+
 	}
 
 	public void drawClock() {
 		// drawing the 24 grey-scaled lines
-		strokeWeight(1);
-		stroke(100);
-		line(centerX - radius / 2, centerY, centerX + radius / 2 + 10, centerY);
-		line(centerX, centerY - radius / 2 - 10, centerX, centerY + radius / 2
+		pa.strokeWeight(1);
+		pa.stroke(100);
+		pa.line(centerX - radius / 2, centerY, centerX + radius / 2 + 10, centerY);
+		pa.line(centerX, centerY - radius / 2 - 10, centerX, centerY + radius / 2
 				+ 10);
 
-		pushMatrix();
-		stroke(65);
-		translate(centerX, centerY);
-		rotate(radians(30));
-		translate(-centerX, -centerY);
-		line(centerX - radius / 2, centerY, centerX + radius / 2 + 10, centerY);
-		line(centerX, centerY - radius / 2 - 10, centerX, centerY + radius / 2
+		pa.pushMatrix();
+		pa.stroke(65);
+		pa.translate(centerX, centerY);
+		pa.rotate(radians(30));
+		pa.translate(-centerX, -centerY);
+		pa.line(centerX - radius / 2, centerY, centerX + radius / 2 + 10, centerY);
+		pa.line(centerX, centerY - radius / 2 - 10, centerX, centerY + radius / 2
 				+ 10);
-		popMatrix();
+		pa.popMatrix();
 
 		for (int i = 0; i < 6; i++) {
-			pushMatrix();
-			stroke(50);
-			strokeWeight(1.5f);
-			translate(centerX, centerY);
-			rotate(radians(i * 30 + 15));
-			translate(-centerX, -centerY);
-			line(centerX - radius / 2, centerY, centerX + radius / 2 + 10,
+			pa.pushMatrix();
+			pa.stroke(50);
+			pa.strokeWeight(1.5f);
+			pa.translate(centerX, centerY);
+			pa.rotate(radians(i * 30 + 15));
+			pa.translate(-centerX, -centerY);
+			pa.line(centerX - radius / 2, centerY, centerX + radius / 2 + 10,
 					centerY);
-			popMatrix();
+			pa.popMatrix();
 		}
 
-		pushMatrix();
-		stroke(65);
-		translate(centerX, centerY);
-		rotate(radians(60));
-		translate(-centerX, -centerY);
-		line(centerX - radius / 2, centerY, centerX + radius / 2 + 10, centerY);
-		line(centerX, centerY - radius / 2 - 10, centerX, centerY + radius / 2
+		pa.pushMatrix();
+		pa.stroke(65);
+		pa.translate(centerX, centerY);
+		pa.rotate(radians(60));
+		pa.translate(-centerX, -centerY);
+		pa.line(centerX - radius / 2, centerY, centerX + radius / 2 + 10, centerY);
+		pa.line(centerX, centerY - radius / 2 - 10, centerX, centerY + radius / 2
 				+ 10);
-		popMatrix();
+		pa.popMatrix();
 
-		fill(42);
-		noStroke();
-		ellipse(centerX, centerY, 100, 100);
+		pa.fill(42);
+		pa.noStroke();
+		pa.ellipse(centerX, centerY, 100, 100);
 
-		rectMode(CENTER);
+		pa.rectMode(CENTER);
 		PFont infoText = createFont("Dialog.plain", 13);
-		textFont(infoText);
+		pa.textFont(infoText);
+
 		for (int i = 0; i < 12; i++) {
 			float[] pos = helper.degreesToXnY(i * 360 / 12, 0);
-			fill(255);
-			pushMatrix();
-			translate(pos[0], pos[1]);
-			rotate(radians((float) i / 12 * 360));
-			translate(-pos[0], -pos[1]);
-			rect(pos[0], pos[1], 1, 5);
-			popMatrix();
-
+			pa.fill(255);
+			pa.pushMatrix();
+			pa.translate(pos[0], pos[1]);
+			pa.rotate(radians((float) i / 12 * 360));
+			pa.translate(-pos[0], -pos[1]);
+			pa.rect(pos[0], pos[1], 1, 5);
+			pa.popMatrix();
 		}
-		fill(255);
-		text("0", centerX - 4, centerY - 32);
-		text("12", centerX - 8, centerY + 42);
-		text("18", centerX - 48, centerY + 4);
-		text("6", centerX + 30, centerY + 6);
+		pa.fill(255);
+		pa.text("0", centerX - 4, centerY - 32);
+		pa.text("12", centerX - 8, centerY + 42);
+		pa.text("18", centerX - 48, centerY + 4);
+		pa.text("6", centerX + 30, centerY + 6);
 	}
 
 	public void drawSpiral() {
@@ -178,31 +212,31 @@ public class spiralGraph extends PApplet {
 				// drawing the spiral using arcs
 
 				localRadius = (radius - i * thiknessOfOneDay);
-				strokeWeight(2);
-				stroke(100);
-				noFill();
+				pa.strokeWeight(2);
+				pa.stroke(100);
+				pa.noFill();
 				// arc1
 
-				arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
+				pa.arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
 						localRadius, radians(-90), radians(0));
 				// arc2
-				arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
+				pa.arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
 						localRadius - thiknessOfOneDay / 2, radians(0),
 						radians(90));
 				// arc3
-				arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
+				pa.arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
 						localRadius - thiknessOfOneDay / 2, radians(90),
 						radians(180));
 				// arc4
-				arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
+				pa.arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
 						localRadius - thiknessOfOneDay, radians(180),
 						radians(270));
 
 			} else {
 
 				// this is for blending the center
-				noStroke();
-				noFill();
+				pa.noStroke();
+				pa.noFill();
 			}
 		}
 	}
@@ -215,9 +249,9 @@ public class spiralGraph extends PApplet {
 		// the day 1-7
 		// time in minutes
 
-		stroke(color);
-		strokeWeight(thiknessOfOneDay / 4);
-		noFill();
+		pa.stroke(color);
+		pa.strokeWeight(thiknessOfOneDay / 4);
+		pa.noFill();
 
 		float localRadius = (radius - (day - 1) * thiknessOfOneDay)
 				- thiknessOfOneDay / 4;
@@ -232,9 +266,9 @@ public class spiralGraph extends PApplet {
 			float rest = end - (90);
 
 			// arc in color
-			noFill();
-			stroke(color);
-			arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
+			pa.noFill();
+			pa.stroke(color);
+			pa.arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
 					localRadius, radians(-90 + start), radians(0.3f));
 
 			flagDrawIfInScope = false;
@@ -250,9 +284,9 @@ public class spiralGraph extends PApplet {
 			float rest = end - (180);
 
 			// arc in color
-			noFill();
-			stroke(color);
-			arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
+			pa.noFill();
+			pa.stroke(color);
+			pa.arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
 					localRadius - thiknessOfOneDay / 2, radians(-90 + start),
 					radians(-90 + 180 + 0.3f));
 
@@ -269,9 +303,9 @@ public class spiralGraph extends PApplet {
 			float rest = end - (270);
 
 			// arc in color
-			noFill();
-			stroke(color);
-			arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
+			pa.noFill();
+			pa.stroke(color);
+			pa.arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
 					localRadius - thiknessOfOneDay / 2,
 					radians(-90 + start - 1), radians(-90 + 270 + 0.3f));
 
@@ -288,9 +322,9 @@ public class spiralGraph extends PApplet {
 			float rest = end - (360);
 
 			// arc in color
-			noFill();
-			stroke(color);
-			arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
+			pa.noFill();
+			pa.stroke(color);
+			pa.arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
 					localRadius - thiknessOfOneDay / 2 - thiknessOfOneDay / 2,
 					radians(-90 + start - 1), radians(-90 + 360 + 0.3f));
 
@@ -305,34 +339,33 @@ public class spiralGraph extends PApplet {
 
 		if (flagDrawIfInScope) {
 			if (start < 90 && start >= 0) {
-				noFill();
-				stroke(color);
-				arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
-						localRadius, radians(-90 + start - 0.4f), radians(-90
+				pa.noFill();
+				pa.stroke(color);
+				pa.arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
+						localRadius, radians(-90 + start), radians(-90
 								+ start + duration));
 			}
 
 			if (start >= 90 && start < 180) {
-
-				noFill();
-				stroke(color);
-				arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
+				pa.noFill();
+				pa.stroke(color);
+				pa.arc(centerX, centerY, localRadius - thiknessOfOneDay / 4,
 						localRadius - thiknessOfOneDay / 2, radians(-90 + start
 								- 0.4f), radians(-90 + start + duration));
 
 			}
 			if (start < 270 && start >= 180) {
-				noFill();
-				stroke(color);
-				arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
+				pa.noFill();
+				pa.stroke(color);
+				pa.arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
 						localRadius - thiknessOfOneDay / 2, radians(-90 + start
 								- 0.4f), radians(-90 + start + duration));
 			}
 
 			if (start < 360 && start >= 270) {
-				noFill();
-				stroke(color);
-				arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
+				pa.noFill();
+				pa.stroke(color);
+				pa.arc(centerX, centerY, localRadius - 3 * thiknessOfOneDay / 4,
 						localRadius - thiknessOfOneDay, radians(-90 + start
 								- 0.4f), radians(-90 + start + duration));
 
@@ -342,120 +375,99 @@ public class spiralGraph extends PApplet {
 	}
 
 	public void addData() {
-		
-		meansOfTransportStrings[0] = "zu Fuß";
+
+		meansOfTransportStrings[0] = "by Feet";
 		percentagesOfTransports[0] = 0;
 		colors[0] = byFeet;
-		
+
 		meansOfTransportStrings[1] = "Fahrrad";
 		percentagesOfTransports[1] = 0;
 		colors[1] = byBike;
-		
-		meansOfTransportStrings[2] = "Straßenbahn";
+
+		meansOfTransportStrings[2] = "Tram";
 		percentagesOfTransports[2] = 0;
 		colors[2] = byTram;
-		
+
 		meansOfTransportStrings[3] = "Auto";
 		percentagesOfTransports[3] = 0;
 		colors[3] = byCar;
-		
-		// this is a sample data set
+
 		Dataset dtst = new Dataset("../src/Data/data.XML");
 
-		Activity[] allActivities = dtst.getActivities();
+		Activity[] allActivities = null;
+		if(person.equals("all")){
+			allActivities = dtst.getActivities();
+		}else{
+			allActivities = dtst.getPersonActivities(person);
+		}
 		Activity act;
 		int start;
 		float dur;
 		int timeSlotColor;
 		float day;
-		
+
 		for (int i = 0; i < allActivities.length; i++) {
 			if (allActivities[i] != null) {
-				act = allActivities[i];				
-				if (act.getHuman().getName().equals("Hannes")) {
-					
-					start = act.bTime[0] * 60 + act.bTime[1];
-					dur = (float) act.duration;
-					timeSlotColor = 0;
-					day = 0f;
+				act = allActivities[i];
+				start = act.bTime[0] * 60 + act.bTime[1];
+				dur = (float) act.duration;
+				timeSlotColor = 0;
+				day = 0f;
 
-					if (act.day.equals("Montag")) {
-						day = 1f;
-					}
-					if (act.day.equals("Dienstag")) {
-						day = 2f;
-					}
-					if (act.day.equals("Mittwoch")) {
-						day = 3f;
-					}
-					if (act.day.equals("Donnerstag")) {
-						day = 4f;
-					}
-					if (act.day.equals("Freitag")) {
-						day = 5f;
-					}
-					if (act.day.equals("Samstag")) {
-						day = 6f;
-					}
-					if (act.day.equals("Sonntag")) {
-						day = 7f;
-					}
-
-					
-					if (act.transport.equals("Straßenbahn")
-							|| act.transport.equals("Zug")
-							|| act.transport.equals("Bus")) {
-						timeSlotColor = byTram;
-						percentagesOfTransports[2] +=act.duration;
-
-					}
-					if(act.transport.equals("Auto")){
-						timeSlotColor = byCar;
-						percentagesOfTransports[3] +=act.duration;
-					}
-					if(act.transport.equals("Fahrrad")){
-						timeSlotColor = byBike;
-						percentagesOfTransports[1] += act.duration;
-					}
-					if(act.transport.equals("zu Fuß")){
-						timeSlotColor = byFeet;
-						percentagesOfTransports[0] +=act.duration;
-					}
-					
-					
-					addTimeSlot(timeSlotColor, day, start, dur);
-					
+				if (act.day.equals("Montag")) {
+					day = 1f;
 				}
-			}		
+				if (act.day.equals("Dienstag")) {
+					day = 2f;
+				}
+				if (act.day.equals("Mittwoch")) {
+					day = 3f;
+				}
+				if (act.day.equals("Donnerstag")) {
+					day = 4f;
+				}
+				if (act.day.equals("Freitag")) {
+					day = 5f;
+				}
+				if (act.day.equals("Samstag")) {
+					day = 6f;
+				}
+				if (act.day.equals("Sonntag")) {
+					day = 7f;
+				}
+
+				if (act.transport.equals("Tram") || act.transport.equals("Zug")
+						|| act.transport.equals("Bus")) {
+					timeSlotColor = byTram;
+					percentagesOfTransports[2] += act.duration;
+
+				}
+				if (act.transport.equals("Auto")) {
+					timeSlotColor = byCar;
+					percentagesOfTransports[3] += act.duration;
+				}
+				if (act.transport.equals("Fahrrad")) {
+					timeSlotColor = byBike;
+					percentagesOfTransports[1] += act.duration;
+				}
+				if (act.transport.equals("by feet")) {
+					timeSlotColor = byFeet;
+					percentagesOfTransports[0] += act.duration;
+				}
+
+				addTimeSlot(timeSlotColor, day, start, dur);
+
+			}
 		}
 
-
-
-		//compute the percentages of all means of transport
+		// compute the percentages of all means of transport
 		float sumOfAllDurations = 0;
-		for(int j=0;j<4;j++){
+		for (int j = 0; j < 4; j++) {
 			sumOfAllDurations = sumOfAllDurations + percentagesOfTransports[j];
 		}
-		for(int j=0;j<4;j++){
-			percentagesOfTransports[j] = 100*percentagesOfTransports[j]/sumOfAllDurations;
-		}	
-	}
-
-	public void setup() {
-		size(width, height);
-		background(background);
-		imageMode(CENTER);
-		strokeCap(SQUARE);
-	}
-
-	public void draw() {
-		background(background);
-		
-		
-		addData();
-		drawSpiral();
-		drawClock();
-		drawContentArround();
-
+		for (int j = 0; j < 4; j++) {
+			percentagesOfTransports[j] = 100 * percentagesOfTransports[j]
+					/ sumOfAllDurations;
+		}
 	}
 }

@@ -104,7 +104,7 @@
 			<end>Alte Mensa</end>
 			<endTime hour="12" minutes="12"></endTime>
 			<category>Uni</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>7</duration>
 			<distance>500</distance>
 		</activity>		
@@ -115,7 +115,7 @@
 			<end>TU Informatik</end>
 			<endTime hour="12" minutes="42"></endTime>
 			<category>Uni</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>7</duration>
 			<distance>500</distance>
 		</activity>
@@ -173,7 +173,7 @@
 			<end>Informatik Fakultät</end>
 			<endTime hour="12" minutes="57"></endTime>
 			<category>Uni</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>8</duration>
 			<distance>600</distance>
 		</activity>
@@ -184,7 +184,7 @@
 			<end>Home</end>
 			<endTime hour="17" minutes="19"></endTime>
 			<category>Home</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>8</duration>
 			<distance>600</distance>
 		</activity>
@@ -195,7 +195,7 @@
 			<end>Informatik Fakultät</end>
 			<endTime hour="18" minutes="6"></endTime>
 			<category>Uni</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>8</duration>
 			<distance>600</distance>
 		</activity>
@@ -206,7 +206,7 @@
 			<end>Home</end>
 			<endTime hour="20" minutes="28"></endTime>
 			<category>Home</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>7</duration>
 			<distance>600</distance>
 		</activity>
@@ -228,7 +228,7 @@
 			<end>Zellscher Weg</end>
 			<endTime hour="21" minutes="9"></endTime>
 			<category>Social</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>9</duration>
 			<distance>900</distance>
 		</activity>
@@ -239,7 +239,7 @@
 			<end>Club Hängemathe</end>
 			<endTime hour="22" minutes="32"></endTime>
 			<category>Social</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>8</duration>
 			<distance>400</distance>
 		</activity>	
@@ -252,7 +252,7 @@
 			<end>Home</end>
 			<endTime hour="0" minutes="54"></endTime>
 			<category>Home</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>30</duration>
 			<distance>1800</distance>
 		</activity>
@@ -263,7 +263,7 @@
 			<end>Informatik Fakultät</end>
 			<endTime hour="14" minutes="35"></endTime>
 			<category>Uni</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>11</duration>
 			<distance>600</distance>
 		</activity>
@@ -274,7 +274,7 @@
 			<end>Home</end>
 			<endTime hour="18" minutes="6"></endTime>
 			<category>Home</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>10</duration>
 			<distance>600</distance>
 		</activity>
@@ -287,7 +287,7 @@
 			<end>Haltestelle Nöthnitzer Str.</end>
 			<endTime hour="8" minutes="49"></endTime>
 			<category>Uni</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>3</duration>
 			<distance>100</distance>
 		</activity>
@@ -309,7 +309,7 @@
 			<end>August-Bebel Str.</end>
 			<endTime hour="9" minutes="11"></endTime>
 			<category>Uni</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>9</duration>
 			<distance>600</distance>
 		</activity>
@@ -320,7 +320,7 @@
 			<end>Nürnberger Platz</end>
 			<endTime hour="11" minutes="26"></endTime>
 			<category>Freizeit</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>31</duration>
 			<distance>2300</distance>
 		</activity>
@@ -331,7 +331,7 @@
 			<end>Home</end>
 			<endTime hour="11" minutes="30"></endTime>
 			<category>Home</category>
-			<transport>Straßenbahn</transport>
+			<transport>Tram</transport>
 			<duration>4</duration>
 			<distance>900</distance>
 		</activity>
@@ -342,7 +342,7 @@
 			<end>Informatik Fakultät</end>
 			<endTime hour="14" minutes="41"></endTime>
 			<category>Uni</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>24</duration>
 			<distance>1700</distance>
 		</activity>
@@ -353,7 +353,7 @@
 			<end>Willersbau</end>
 			<endTime hour="16" minutes="27"></endTime>
 			<category>Work</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>11</duration>
 			<distance>700</distance>
 		</activity>
@@ -364,7 +364,7 @@
 			<end>HSZ</end>
 			<endTime hour="18" minutes="19"></endTime>
 			<category>Work</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>4</duration>
 			<distance>300</distance>
 		</activity>
@@ -375,7 +375,7 @@
 			<end>Home</end>
 			<endTime hour="18" minutes="42"></endTime>
 			<category>Home</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>23</duration>
 			<distance>1200</distance>
 		</activity>
@@ -386,7 +386,7 @@
 			<end>USZ</end>
 			<endTime hour="21" minutes="35"></endTime>
 			<category>Social</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>9</duration>
 			<distance>700</distance>
 		</activity>
@@ -397,7 +397,7 @@
 			<end>Home</end>
 			<endTime hour="23" minutes="19"></endTime>
 			<category>Home</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>9</duration>
 			<distance>700</distance>
 		</activity>
@@ -432,7 +432,7 @@
 			<end>Wasa Platz</end>
 			<endTime hour="14" minutes="1"></endTime>
 			<category>Uni</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>19</duration>
 			<distance>1300</distance>
 		</activity>
@@ -452,7 +452,7 @@
 			<end>Louisenstraße</end>
 			<endTime hour="15" minutes="58"></endTime>
 			<category>Freizeit</category>
-			<transport>Straßenbahn</transport>
+			<transport>Tram</transport>
 			<duration>20</duration>
 			<distance>5300</distance>
 		</activity>
@@ -472,7 +472,7 @@
 			<end>Altmarkt Gallerie</end>
 			<endTime hour="16" minutes="35"></endTime>
 			<category>Freizeit</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>10</duration>
 			<distance>600</distance>
 		</activity>
@@ -482,7 +482,7 @@
 			<end>Prager Str.</end>
 			<endTime hour="17" minutes="4"></endTime>
 			<category>Freizeit</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>12</duration>
 			<distance>800</distance>
 		</activity>
@@ -492,7 +492,7 @@
 			<end>Ringstraße</end>
 			<endTime hour="17" minutes="44"></endTime>
 			<category>Freizeit</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>19</duration>
 			<distance>1300</distance>
 		</activity>
@@ -512,7 +512,7 @@
 			<end>Alpbertplatz</end>
 			<endTime hour="21" minutes="51"></endTime>
 			<category>Freizeit</category>
-			<transport>Straßenbahn</transport>
+			<transport>Tram</transport>
 			<duration>20</duration>
 			<distance>5300</distance>
 		</activity>
@@ -522,7 +522,7 @@
 			<end>Little Creatures</end>
 			<endTime hour="22" minutes="6"></endTime>
 			<category>Social</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>10</duration>
 			<distance>600</distance>
 		</activity>
@@ -535,7 +535,7 @@
 			<end>Heavy Duty</end>
 			<endTime hour="1" minutes="9"></endTime>
 			<category>Social</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>3</duration>
 			<distance>100</distance>
 		</activity>
@@ -545,7 +545,7 @@
 			<end>Albertplatz</end>
 			<endTime hour="2" minutes="16"></endTime>
 			<category>Social</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>13</duration>
 			<distance>600</distance>
 		</activity>
@@ -555,7 +555,7 @@
 			<end>Home</end>
 			<endTime hour="2" minutes="37"></endTime>
 			<category>Home</category>
-			<transport>Straßenbahn</transport>
+			<transport>Tram</transport>
 			<duration>22</duration>
 			<distance>4600</distance>
 		</activity>
@@ -609,7 +609,7 @@
 			<end>Home</end>
 			<endTime hour="21" minutes="12"></endTime>
 			<category>Home</category>
-			<transport>Straßenbahn</transport>
+			<transport>Tram</transport>
 			<duration>7</duration>
 			<distance>1900</distance>
 		</activity>
@@ -625,7 +625,7 @@
 			<end>Kaufland</end>
 			<endTime hour ="7" minutes="0"></endTime>
 			<category>Work</category>
-			<transport>Straßenbahn</transport>
+			<transport>Tram</transport>
 			<duration>20</duration>
 			<distance>0</distance>
 		</activity>
@@ -636,7 +636,7 @@
 			<end>Home</end>
 			<endTime hour ="12" minutes="0"></endTime>
 			<category>Home</category>
-			<transport>Straßenbahn</transport>
+			<transport>Tram</transport>
 			<duration>30</duration>
 			<distance>0</distance>
 		</activity>
@@ -647,7 +647,7 @@
 			<end>Social</end>
 			<endTime hour ="12" minutes="40"></endTime>
 			<category>Social</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>10</duration>
 			<distance>0</distance>
 		</activity>
@@ -658,7 +658,7 @@
 			<end>Home</end>
 			<endTime hour ="13" minutes="50"></endTime>
 			<category>Home</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>10</duration>
 			<distance>0</distance>
 		</activity>
@@ -669,7 +669,7 @@
 			<end>Home</end>
 			<endTime hour ="19" minutes="10"></endTime>
 			<category>Social</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>10</duration>
 			<distance>0</distance>
 		</activity>
@@ -680,7 +680,7 @@
 			<end>Bar</end>
 			<endTime hour ="19" minutes="50"></endTime>
 			<category>Freizeit</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>10</duration>
 			<distance>0</distance>
 		</activity>
@@ -691,7 +691,7 @@
 			<end>Freunde</end>
 			<endTime hour ="0" minutes="20"></endTime>
 			<category>Freizeit</category>
-			<transport>Straßenbahn</transport>
+			<transport>Tram</transport>
 			<duration>30</duration>
 			<distance>0</distance>
 		</activity>	    
@@ -704,7 +704,7 @@
 			<end>Home</end>
 			<endTime hour ="1" minutes="50"></endTime>
 			<category>Home</category>
-			<transport>Straßenbahn</transport>
+			<transport>Tram</transport>
 			<duration>30</duration>
 			<distance>0</distance>
 		</activity>
@@ -715,7 +715,7 @@
 			<end>Freunde</end>
 			<endTime hour ="15" minutes="30"></endTime>
 			<category>Work</category>
-			<transport>Straßenbahn</transport>
+			<transport>Tram</transport>
 			<duration>30</duration>
 			<distance>0</distance>
 		</activity>
@@ -726,7 +726,7 @@
 			<end>Social</end>
 			<endTime hour ="20" minutes="3"></endTime>
 			<category>Social</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>3</duration>
 			<distance>0</distance>
 		</activity>
@@ -737,7 +737,7 @@
 			<end>Home</end>
 			<endTime hour ="20" minutes="45"></endTime>
 			<category>Home</category>
-			<transport>Straßenbahn</transport>
+			<transport>Tram</transport>
 			<duration>31</duration>
 			<distance>0</distance>
 		</activity>
@@ -772,7 +772,7 @@
 			<end>Work</end>
 			<endTime hour ="17" minutes="00"></endTime>
 			<category>Work</category>
-			<transport>Straßenbahn</transport>
+			<transport>Tram</transport>
 			<duration>30</duration>
 			<distance>0</distance>
 		</activity>
@@ -783,7 +783,7 @@
 			<end>Home</end>
 			<endTime hour ="22" minutes="00"></endTime>
 			<category>Home</category>
-			<transport>Straßenbahn</transport>
+			<transport>Tram</transport>
 			<duration>30</duration>
 			<distance>0</distance>
 		</activity>
@@ -796,7 +796,7 @@
 			<end>Social</end>
 			<endTime hour ="12" minutes="25"></endTime>
 			<category>Social</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>10</duration>
 			<distance>0</distance>
 		</activity>
@@ -807,7 +807,7 @@
 			<end>Home</end>
 			<endTime hour ="13" minutes="0"></endTime>
 			<category>Home</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>10</duration>
 			<distance>0</distance>
 		</activity>
@@ -818,7 +818,7 @@
 			<end>Freunde</end>
 			<endTime hour ="19" minutes="20"></endTime>
 			<category>Freizeit</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>20</duration>
 			<distance>0</distance>
 		</activity>
@@ -829,7 +829,7 @@
 			<end>Bar</end>
 			<endTime hour ="21" minutes="50"></endTime>
 			<category>Freizeit</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>10</duration>
 			<distance>0</distance>
 		</activity>		
@@ -842,7 +842,7 @@
 			<end>Home</end>
 			<endTime hour ="1" minutes="10"></endTime>
 			<category>Home</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>10</duration>
 			<distance>0</distance>
 		</activity>
@@ -853,7 +853,7 @@
 			<end>Home</end>
 			<endTime hour ="11" minutes="30"></endTime>
 			<category>Home</category>
-			<transport>Straßenbahn</transport>
+			<transport>Tram</transport>
 			<duration>30</duration>
 			<distance>0</distance>
 		</activity>
@@ -877,7 +877,7 @@
 			<end>Strand</end>
 			<endTime hour ="21" minutes="20"></endTime>
 			<category>Social</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>30</duration>
 			<distance>0</distance>
 		</activity>
@@ -890,7 +890,7 @@
 			<end>Home</end>
 			<endTime hour ="0" minutes="30"></endTime>
 			<category>Home</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>30</duration>
 			<distance>0</distance>
 		</activity>
@@ -901,7 +901,7 @@
 			<end>Ausstellung</end>
 			<endTime hour ="10" minutes="0"></endTime>
 			<category>Work</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>30</duration>
 			<distance>0</distance>
 		</activity>
@@ -934,7 +934,7 @@
 			<end>Strand</end>
 			<endTime hour ="17" minutes="10"></endTime>
 			<category>Freizeit</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>10</duration>
 			<distance>0</distance>
 		</activity>
@@ -945,7 +945,7 @@
 			<end>Home</end>
 			<endTime hour ="18" minutes="30"></endTime>
 			<category>Home</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>30</duration>
 			<distance>0</distance>
 		</activity>
@@ -956,7 +956,7 @@
 			<end>Strand</end>
 			<endTime hour ="21" minutes="50"></endTime>
 			<category>Social</category>
-			<transport>zu Fuß</transport>
+			<transport>by feet</transport>
 			<duration>30</duration>
 			<distance>0</distance>
 		</activity>
