@@ -11,7 +11,6 @@ public class MyProcessingSketch extends PApplet {
 	PFont f;
 	boolean draw = true, s = false;
 	Diagramm diagramm;
-	Interaktion intera;
 	Dataset d;
 
 	// used to create font
