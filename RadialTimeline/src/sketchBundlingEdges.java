@@ -75,10 +75,11 @@ public class sketchBundlingEdges extends PApplet{
 	}
 
 	public void setup() {
-		size(width, height);
-		background(background);
-		imageMode(PApplet.CENTER);
-		strokeCap(PApplet.SQUARE);
+
+		//size(width, height);
+		//background(background);
+		pa.imageMode(PApplet.CENTER);
+		pa.strokeCap(PApplet.SQUARE);
 
 		allDiagrams.add(beTom);
 		allDiagrams.add(beHannes);
