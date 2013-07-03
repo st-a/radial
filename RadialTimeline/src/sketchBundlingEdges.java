@@ -4,11 +4,12 @@ import processing.core.PApplet;
 
 public class sketchBundlingEdges extends PApplet{
 	
-	PApplet pa;
+	PApplet pa = this;
 	public int width = 650;
 	public int height = 650;
 	public int px;
 	public int py;
+	public String[] persons = new String[5];
 	
 /*	sketchBundlingEdges(PApplet pa,int width,int height,int px,int py,String[] persons,boolean allInOne){
 		this.pa = pa;
@@ -76,10 +77,10 @@ public class sketchBundlingEdges extends PApplet{
 
 	public void setup() {
 
-		//size(width, height);
-		//background(background);
-		pa.imageMode(PApplet.CENTER);
-		pa.strokeCap(PApplet.SQUARE);
+		size(width, height);
+		background(background);
+		imageMode(PApplet.CENTER);
+		strokeCap(PApplet.SQUARE);
 
 		allDiagrams.add(beTom);
 		allDiagrams.add(beHannes);
@@ -91,6 +92,7 @@ public class sketchBundlingEdges extends PApplet{
 	}
 
 	public void draw() {
+		background(background);
 
 		//bundling edges
 		float[] positions = computeDiagrammPositions();
