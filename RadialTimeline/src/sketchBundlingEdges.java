@@ -2,14 +2,26 @@ import java.util.ArrayList;
 
 import processing.core.PApplet;
 
-public class sketchBundlingEdges extends PApplet {
+public class sketchBundlingEdges{
+	
+	PApplet pa;
+	public int width ;
+	public int height;
+	public int px;
+	public int py;
+	
+	public sketchBundlingEdges(PApplet pa,int width,int height,int px,int py,String[] persons,boolean allInOne){
+		this.pa = pa;
+		width = 650;
+		height = 600;
+		this.px = px;
+		this.py = py;
+	}
 
 	private static final long serialVersionUID = 1L;
 	
-	PApplet pa = this;
-	public int width = 650;
-	public int height = 600;
-	public int background = color(42, 42, 42);
+	
+	//public int background = color(42, 42, 42);
 
 	bundlingEdges beTom = new bundlingEdges("Tom", height / 2 - 100, height / 2,
 			(height - 150) / 2,pa);
@@ -63,10 +75,10 @@ public class sketchBundlingEdges extends PApplet {
 	}
 
 	public void setup() {
-		size(width, height);
-		background(background);
-		imageMode(CENTER);
-		strokeCap(SQUARE);
+		//size(width, height);
+		//background(background);
+		pa.imageMode(pa.CENTER);
+		pa.strokeCap(pa.SQUARE);
 
 		allDiagrams.add(beTom);
 		allDiagrams.add(beHannes);
@@ -78,7 +90,6 @@ public class sketchBundlingEdges extends PApplet {
 	}
 
 	public void draw() {
-		background(background);
 
 		//bundling edges
 		float[] positions = computeDiagrammPositions();
