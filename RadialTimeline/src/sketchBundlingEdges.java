@@ -77,8 +77,8 @@ public class sketchBundlingEdges{
 	public void setup() {
 		//size(width, height);
 		//background(background);
-		pa.imageMode(pa.CENTER);
-		pa.strokeCap(pa.SQUARE);
+		pa.imageMode(PApplet.CENTER);
+		pa.strokeCap(PApplet.SQUARE);
 
 		allDiagrams.add(beTom);
 		allDiagrams.add(beHannes);
