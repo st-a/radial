@@ -10,7 +10,6 @@ public class Diagramm {
 	float posX, posY;
 	float radius = 300;
 	PFont f;
-	PImage img;
 	Distance dStatistic;
 	Timeline[] timelines;
 	int [][] colors = {{54, 146, 179},{158, 219, 41},{255, 243, 68},{253, 77, 72}};
@@ -30,8 +29,6 @@ public class Diagramm {
 		    dataset = data;
 		    d = distance;
 			dStatistic = new Distance(p, d, this);
-		   // this.draw(posX, posY,dataset.getPersons(),currentDay, scale);
-		    img = p.loadImage("../src/images/frontlayer.png");
 	  }
 	
 	  
@@ -131,27 +128,6 @@ public class Diagramm {
 				  p.ellipse(this.cosPx(posX, angle, radius), this.sinPy(posY, angle, radius),3/scale,3/scale);
 				  angle -= frequency;
 			  }
-			  
-			  
-			//  p.noStroke();
-			/*  int pos = 110;
-			  for(int i=0; i< 7; i++){
-				  
-				  if(!((i+1)%2==0)){
-					  p.fill(255);
-					  p.ellipse(posX, posY+pos/scale,25/scale,25/scale);
-					  p.fill(0);
-					  p.textSize(12/scale);
-					  p.text((this.dStatistic.getHighest()/7)*(i+1), posX, posY+(pos/scale)-1);
-				  }
-				  if(i<5){
-					  p.fill(0);  
-					  p.ellipse(posX, posY-(pos/scale),25/scale,25/scale);
-				  } 
-					pos += 30;
-				  
-				  
-			  }*/
 
 	}
 		    
@@ -193,7 +169,6 @@ public class Diagramm {
 		  Human[] human = new Human[1];
 		  
 		  p.background(42);
-		  p.image(img, 0, 0);
 		  //fue alle personen
 		  for(int i=0; i < h.length; i++){
 			  f = p.createFont("OpenSans-", 50/(h.length/2));

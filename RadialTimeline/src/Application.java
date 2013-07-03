@@ -9,6 +9,8 @@ public class Application extends PApplet {
 	PFont Headlines = createFont("../src/typo/OpenSans-Regular.ttf", 28);
 	ControlP5 cp5;
 	RadioButton dayBtn;
+	RadioButton styleBtn;
+	RadioButton vizBtn;
 	CheckBox personCheckb;
 	int myColorBackground = color(0,0,0);
 	boolean redraw = true;
@@ -61,8 +63,52 @@ public class Application extends PApplet {
 	}
 	
 	public void drawControl(){
+		vizBtn = cp5.addRadioButton("vizRadioButton")
+		        .setPosition(780,3*20)
+		        .setSize(20,20)
+		        .setSpacingRow(20)
+		        .setColorForeground(color(100))
+		        .setColorActive(color(255))
+		        .setItemsPerRow(2)
+		        .setColorBackground(color(50))
+		        .setSpacingColumn(60)
+		        .addItem("Bundling",1)
+		        .addItem("Spiral",2)
+				.addItem("Spinne",3);
+
 		    
-		  personCheckb = cp5.addCheckBox("checkBox")
+		 for(Toggle t:vizBtn.getItems()) {
+		      t.captionLabel().setColorBackground(color(20));
+		      t.setColorCaptionLabel(color(255));
+		      t.captionLabel().style().moveMargin(0,0,0,0);
+		      t.captionLabel().style().movePadding(0,0,0,0);
+		      t.captionLabel().style().backgroundWidth = 0;
+		      t.captionLabel().style().backgroundHeight = 0;
+		 }	
+	
+		styleBtn = cp5.addRadioButton("styleRadioButton")
+        .setPosition(780,28*20)
+        .setSize(20,20)
+        .setSpacingRow(20)
+        .setColorForeground(color(100))
+        .setColorActive(color(255))
+        .setItemsPerRow(2)
+        .setColorBackground(color(50))
+        .setSpacingColumn(60)
+        .addItem("nicht Matrix",1)
+        .addItem("Matrix",2);
+
+    
+ for(Toggle t:styleBtn.getItems()) {
+      t.captionLabel().setColorBackground(color(20));
+      t.setColorCaptionLabel(color(255));
+      t.captionLabel().style().moveMargin(0,0,0,0);
+      t.captionLabel().style().movePadding(0,0,0,0);
+      t.captionLabel().style().backgroundWidth = 0;
+      t.captionLabel().style().backgroundHeight = 0;
+ }
+		
+		  personCheckb = cp5.addCheckBox("personCheckBox")
 	              .setPosition(780, 10*20)
 	              .setColorLabel(color(255))
 	              .setSpacingRow(20)
@@ -77,7 +123,7 @@ public class Application extends PApplet {
 	              .addItem("Sophia", 100)
 	              .addItem("Tom", 150);
 		  
-		  dayBtn = cp5.addRadioButton("radioButton")
+		  dayBtn = cp5.addRadioButton("dayRadioButton")
 		         .setPosition(780,17*20)
 		         .setSize(20,20)
 		         .setSpacingRow(20)
@@ -127,15 +173,26 @@ public class Application extends PApplet {
 		    this.redraw = false;
 	}
 	
-	public void radioButton(int a) {
+	public void dayRadioButton(int a) {
+		println("dayRadioButton");
 		if(a >= 0){
+		  this.redraw = true;
+		  this.styleBtn.setVisible(false);
+		}
+		else this.styleBtn.setVisible(true);
+	}
+	
+	public void sytelRadioButton(int a) {
+		if(a >= 0){
+			println("geht noch");
 		  this.redraw = true;
 		}
 	}
 	
-	public void checkBox(float[] a) {
-		  println(a);
+	public void personCheckBox(float[] a) {
 		  this.redraw = true;
 		}
+	
+
 	
 }
