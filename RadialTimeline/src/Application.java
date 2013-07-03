@@ -22,8 +22,7 @@ public class Application extends PApplet {
 	  
 	  //Vizualisierungen
 	  Diagramm webViz;
-	  sketchBundlingEdges bE;
-	  
+
 	  //Dataset
 	  d = new Dataset("../src/data/data.xml");
 	  
@@ -67,6 +66,8 @@ public class Application extends PApplet {
 				}
 			}
 			text("Person: " + sChain,280, 3*20); 
+			int[] distance = {40,45,20,10,58,10,32,25,25,25,25,25};
+			this.webVis = new Diagramm(this, 40,40, distance, d, 1);
 		}
 		
 	}
