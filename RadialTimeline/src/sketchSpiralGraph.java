@@ -5,6 +5,7 @@ import processing.core.PApplet;
 public class sketchSpiralGraph extends PApplet {
 
 	private static final long serialVersionUID = 1L;
+	
 	PApplet pa = this;
 	public int width = 600;
 	public int height = 600;
@@ -13,18 +14,16 @@ public class sketchSpiralGraph extends PApplet {
 	public spiralGraph spiralTom = new spiralGraph(pa, width, height, "Tom");
 	public spiralGraph spiralHannes = new spiralGraph(pa, width, height,
 			"Hannes");
-	public spiralGraph spiralTom1 = new spiralGraph(pa, width, height, "Tom");
-	public spiralGraph spiralHannes1 = new spiralGraph(pa, width, height,
-			"Hannes");
 
-	boolean viewAsMatrix = false;
-	boolean viewMovements = true;
+	boolean viewAsMatrix = true;
+	boolean viewMovements = false;
 	int alpha = 100;
 
 	public ArrayList<spiralGraph> allGraphs = new ArrayList<spiralGraph>();
 
 	public float[] computePositions() {
 		float[] rtrn = new float[4 * 3];
+		
 		if (!viewAsMatrix) {
 			for (int i = 0; i < 4; i++) {
 				rtrn[0 + 3 * i] = height / 2;
@@ -61,7 +60,7 @@ public class sketchSpiralGraph extends PApplet {
 		imageMode(CENTER);
 		strokeCap(SQUARE);
 
-		viewAsMatrix = false;
+		viewAsMatrix = true;
 		viewMovements = false;
 		
 		allGraphs.add(spiralHannes);
@@ -85,11 +84,10 @@ public class sketchSpiralGraph extends PApplet {
 				s.setAlpha(alpha);
 				s.setColors();
 			}else{
-				alpha=255;
+				alpha=128;
 				s.setAlpha(alpha);
 				s.setColors();
 			}
-				
 			
 			s.setMovements(viewMovements);
 

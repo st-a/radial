@@ -20,7 +20,7 @@ public class spiralGraph extends PApplet {
 	public String person;
 
 	public helperForSpiralGraph helper = null;
-	public boolean viewMovements = true;
+	public boolean viewMovements = false;
 
 	public float thiknessOfOneDay = radius / (days + 1);
 	public int background = color(42);
@@ -285,6 +285,7 @@ public class spiralGraph extends PApplet {
 		// the specified 5 colors)
 		// the duration in minutes
 		// the day 1-7
+
 		// time in minutes
 
 		pa.stroke(color);
@@ -432,23 +433,23 @@ public class spiralGraph extends PApplet {
 		meansOfTransportStrings[3] = "Auto";
 		percentagesOfTransports[3] = 0;
 		colorsTransport[3] = byCar;
-		
+
 		places[0] = "home";
 		percentagesPlaces[0] = 0;
 		colorsPlaces[0] = home;
-		
+
 		places[1] = "uni";
 		percentagesPlaces[1] = 0;
 		colorsPlaces[1] = uni;
-		
+
 		places[2] = "work";
 		percentagesPlaces[2] = 0;
 		colorsPlaces[2] = work;
-		
+
 		places[3] = "social";
 		percentagesPlaces[3] = 0;
 		colorsPlaces[3] = social;
-		
+
 		places[4] = "free Time";
 		percentagesPlaces[4] = 0;
 		colorsPlaces[4] = freeTime;
@@ -467,7 +468,9 @@ public class spiralGraph extends PApplet {
 
 		int start;
 		int endtime;
-		float dur;
+		float dur = 0;
+		float durAdvanced = 0;
+		boolean overLength = false;
 		int timeSlotColor;
 		float day;
 
@@ -529,9 +532,12 @@ public class spiralGraph extends PApplet {
 
 				}
 			}
-		}
-		else {
+		} else {
 			// draws places not movements
+			addTimeSlot(home, 1, 0, allActivities[0].bTime[0] * 60
+					+ allActivities[0].bTime[1]);
+			boolean dontdraw = false;
+
 			for (int i = 1; i < allActivities.length; i++) {
 				if (allActivities[i] != null) {
 
@@ -541,38 +547,58 @@ public class spiralGraph extends PApplet {
 					start = act0.eTime[0] * 60 + act0.eTime[1];
 					endtime = act1.bTime[0] * 60 + act1.bTime[1];
 
-					if(endtime>start){
+					if (endtime == start) {
+						//DIRTY HACK. FAK U TOM
+						//Y U NO WORK ON THURSDAY?
+						addTimeSlot(home, 4, 0, 1440);
+						dontdraw = true;
+					}
+
+					if (endtime > start) {
 						dur = (float) (endtime - start);
-					}else{
-						dur = 0;
+						overLength = false;
+						durAdvanced = 0;
+					} else {
+						dur = 1440 - start;
+						overLength = true;
+						durAdvanced = endtime;
+					}
+					if (endtime > start
+							&& !(act0.day.equals(act1.day))
+							&& ((act0.bTime[0] * 60 + act0.bTime[1] + act0.duration) < 1440)) {
+						dur += 1440;
 					}
 
 					timeSlotColor = 0;
 					day = 0f;
 
-					if (act1.day.equals("Montag")) {
+					if (act0.day.equals("Montag")) {
 						day = 1f;
 					}
-					if (act1.day.equals("Dienstag")) {
+					if (act0.day.equals("Dienstag")) {
 						day = 2f;
 					}
-					if (act1.day.equals("Mittwoch")) {
+					if (act0.day.equals("Mittwoch")) {
 						day = 3f;
 					}
-					if (act1.day.equals("Donnerstag")) {
+					if (act0.day.equals("Donnerstag")) {
 						day = 4f;
 					}
-					if (act1.day.equals("Freitag")) {
+					if (act0.day.equals("Freitag")) {
 						day = 5f;
 					}
-					if (act1.day.equals("Samstag")) {
+					if (act0.day.equals("Samstag")) {
 						day = 6f;
 					}
-					if (act1.day.equals("Sonntag")) {
+					if (act0.day.equals("Sonntag")) {
 						day = 7f;
 					}
 
-					if (act0.catagory.equals("Home")){
+					if ((act0.bTime[0] * 60 + act0.bTime[1] + act0.duration > 1440)) {
+						day++;
+					}
+
+					if (act0.catagory.equals("Home")) {
 						timeSlotColor = home;
 						percentagesPlaces[0] += dur;
 					}
@@ -586,17 +612,25 @@ public class spiralGraph extends PApplet {
 					}
 					if (act0.catagory.equals("Work")) {
 						timeSlotColor = work;
-						percentagesPlaces[2] +=dur;
+						percentagesPlaces[2] += dur;
 					}
 					if (act0.catagory.equals("Freizeit")) {
 						timeSlotColor = freeTime;
-						percentagesPlaces[4] +=dur;
+						percentagesPlaces[4] += dur;
 					}
 
-					addTimeSlot(timeSlotColor, day, start, dur);
+					if (!dontdraw) {
+						addTimeSlot(timeSlotColor, day, start, dur);
+
+						if (overLength) {
+							addTimeSlot(timeSlotColor, day + 1, 0, durAdvanced);
+							durAdvanced = 0;
+							overLength = false;
+						}
+					}
+					dontdraw = false;
 				}
 			}
-
 		}
 
 		// compute the percentages of all means of transport
@@ -610,4 +644,3 @@ public class spiralGraph extends PApplet {
 		}
 	}
 }
-
