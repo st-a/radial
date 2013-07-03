@@ -15,13 +15,14 @@ public class Application extends PApplet {
 	int myColorBackground = color(0,0,0);
 	boolean redraw = true;
 	Dataset d;
+	//Vizualisierungen
+	Diagramm webViz;
 
 	public void setup(){
 	  size(1000, 700);
 	  background (42);
 	  
-	  //Vizualisierungen
-	  Diagramm webViz;
+	  
 
 	  //Dataset
 	  d = new Dataset("../src/data/data.xml");
@@ -34,7 +35,9 @@ public class Application extends PApplet {
 
 	public void draw(){
 		if(redraw){
+			textAlign(LEFT, BASELINE);
 			this.drawInterface();
+			
 			textFont(this.Headlines);
 			text("Bundling Edges", 40, 2*20);
 			line(260,1*20, 260,4*20);
@@ -67,7 +70,8 @@ public class Application extends PApplet {
 			}
 			text("Person: " + sChain,280, 3*20); 
 			int[] distance = {40,45,20,10,58,10,32,25,25,25,25,25};
-			this.webVis = new Diagramm(this, 40,40, distance, d, 1);
+			this.webViz = new Diagramm(this, 40,40, distance, d, 1);
+			webViz.draw(350, 400, d.getPerson("Tom"), ("Mittwoch"), 1.2f);
 		}
 		
 	}
