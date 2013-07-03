@@ -18,6 +18,7 @@ public class sketchSpiralGraph extends PApplet {
 			"Hannes");
 
 	boolean viewAsMatrix = false;
+	boolean viewMovements = true;
 	int alpha = 100;
 
 	public ArrayList<spiralGraph> allGraphs = new ArrayList<spiralGraph>();
@@ -61,10 +62,12 @@ public class sketchSpiralGraph extends PApplet {
 		strokeCap(SQUARE);
 
 		viewAsMatrix = false;
+		viewMovements = false;
+		
 		allGraphs.add(spiralHannes);
-		allGraphs.add(spiralTom);
-		allGraphs.add(spiralHannes1);
-		allGraphs.add(spiralTom1);
+		//allGraphs.add(spiralTom);
+		//allGraphs.add(spiralHannes1);
+		//allGraphs.add(spiralTom1);
 
 	}
 
@@ -78,9 +81,17 @@ public class sketchSpiralGraph extends PApplet {
 			spiralGraph s = allGraphs.get(i);
 			
 			if (!viewAsMatrix) {
+				alpha=255;
+				s.setAlpha(alpha);
+				s.setColors();
+			}else{
+				alpha=255;
 				s.setAlpha(alpha);
 				s.setColors();
 			}
+				
+			
+			s.setMovements(viewMovements);
 
 			s.setCenterX(positions[0 + 3 * i]);
 			s.setCenterY(positions[1 + 3 * i]);
