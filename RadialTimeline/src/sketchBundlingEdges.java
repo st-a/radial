@@ -2,115 +2,112 @@ import java.util.ArrayList;
 
 import processing.core.PApplet;
 
-public class sketchBundlingEdges extends PApplet{
-	
-	PApplet pa = this;
+public class sketchBundlingEdges{
+
+	PApplet pa;
 	public int width = 650;
 	public int height = 650;
-	public int px;
-	public int py;
+	public int px = 0;
+	public int py = 0;
+	public boolean allInOne = false;
+	public int ammountOfPersons = 0;
 	public String[] persons = new String[5];
+	ArrayList<bundlingEdges> allDiagrams = new ArrayList<bundlingEdges>();
+
+	// constructor
 	
-/*	sketchBundlingEdges(PApplet pa,int width,int height,int px,int py,String[] persons,boolean allInOne){
+	sketchBundlingEdges(PApplet pa, int width, int height, int px, int py,
+			String[] persons, boolean allInOne) {
 		this.pa = pa;
-		width = 650;
-		height = 600;
+		this.width = 650;
+		this.height = 600;
 		this.px = px;
 		this.py = py;
-	}*/
-
-	private static final long serialVersionUID = 1L;
+		this.persons = persons;
+		this.allInOne = allInOne;
+		setup();
+		draw();
+	}
 	
 	
-	public int background = color(42, 42, 42);
-
-	bundlingEdges beTom = new bundlingEdges("Tom", height / 2 - 100, height / 2,
-			(height - 150) / 2,pa);
-	bundlingEdges beHannes = new bundlingEdges("Hannes", height/ 2 - 100,
-			height / 2, (height - 150) / 2,pa);
-	bundlingEdges beAll = new bundlingEdges("all", height / 2 - 100,
-			height / 2, (height - 150) / 2,pa);
-
-
-	ArrayList<bundlingEdges> allDiagrams = new ArrayList<bundlingEdges>();
+	// crap global variables
 
 	public float[] computeDiagrammPositions() {
 		float[] rtrn = new float[4 * 3 + 1];
-		int i = 1;// this is the size of the raster -> ixi
-		int n = 0;
 
-		// returns the values centerX, centerY and radius of every diagram in
-		// allDiagrams. If a new one was added, the diagrams will be rearranged
-
-		while (allDiagrams.size() > n) {
-			n = (int) Math.pow(i, 2);
-			if (allDiagrams.size() <= n) {
-				rtrn[0] = i;
-				// i = size of one side
-			} else {
-				i++;
-			}
-		}
-
-		if (allDiagrams.size() == 1) {
+		if (ammountOfPersons == 1||allInOne) {
 			rtrn[1] = height / 2;
 			rtrn[2] = height / 2;
 			rtrn[3] = (height - 200) / 2;
 		} else {
-			for(int j=0;j<2;j++){
+			for (int j = 0; j < 2; j++) {
 				rtrn[1] = height / 4 + 10;
 				rtrn[2] = height / 4;
-				rtrn[3*(j+1)] = (height - 200) / 2 * 1 /i;
-				rtrn[4] = 3*height / 4 + 30;
+				rtrn[3 * (j + 1)] = (height - 200) / 4;
+				rtrn[4] = 3 * height / 4;
 				rtrn[5] = height / 4;
 			}
-			for(int j=0;j<2;j++){
+			for (int j = 0; j < 2; j++) {
 				rtrn[7] = height / 4 + 10;
-				rtrn[8] = 3* height / 4;
-				rtrn[9+j*3] = (height - 200) / 2 * 1 /i;
-				rtrn[10] = 3*height / 4 + 30;
-				rtrn[11] = 3*height / 4;
+				rtrn[8] = 3 * height / 4;
+				rtrn[9 + j * 3] = (height - 200) / 4;
+				rtrn[10] = 3 * height / 4;
+				rtrn[11] = 3 * height / 4;
 			}
 		}
 		return rtrn;
 	}
 
 	public void setup() {
+		// ///////////////////////
+		pa.imageMode(PApplet.CENTER);
+		pa.strokeCap(PApplet.SQUARE);
 
-		size(width, height);
-		background(background);
-		imageMode(PApplet.CENTER);
-		strokeCap(PApplet.SQUARE);
+		ammountOfPersons = 0;
+		for (int i = 0; i < persons.length; i++) {
+			if (persons[i] != null) {
+				ammountOfPersons = ammountOfPersons + 1;
+			}
+		}
 
-		allDiagrams.add(beTom);
-		allDiagrams.add(beHannes);
-		allDiagrams.add(beAll);
+		float[] positions = computeDiagrammPositions();
 
-		for (bundlingEdges be : allDiagrams) {
-			be.handleDate();
+		for (int i = 0; i < ammountOfPersons; i++) {
+			if (persons[i] != null) {
+				allDiagrams.add(new bundlingEdges(persons[i],
+						positions[1 + 3 * i], positions[2 + 3 * i],
+						positions[3 + 3 * i], pa));
+				allDiagrams.get(i).handleDate();
+			}
+
+		}
+		if(allInOne){
+			for(int i=0;i<persons.length;i++){
+				persons[i]=null;
+			}
+			persons[0]="all";
 		}
 	}
 
 	public void draw() {
-		background(background);
-
-		//bundling edges
+		// bundling edges
 		float[] positions = computeDiagrammPositions();
 
 		// draw all diagrams
-		for(int i=0;i<allDiagrams.size();i++){
-			
+		for (int i = 0; i < allDiagrams.size(); i++) {
+
 			bundlingEdges b = allDiagrams.get(i);
-			
-			b.setCntrX(positions[1+3*i]);
-			b.setCntrY(positions[2+3*i]);
-			b.setRadius(positions[3+3*i]);
-			
+
+			b.setCntrX(positions[1 + 3 * i]+px);
+			b.setCntrY(positions[2 + 3 * i]+py);
+			b.setRadius(positions[3 + 3 * i]);
+
 			b.resetEverything();
 			b.drawBeziers = true;
 
 			b.drawArcsnArrows();
-			b.drawContentArround();
+			//TODO
+			//b.drawContentArround();
 		}
 	}
 }
