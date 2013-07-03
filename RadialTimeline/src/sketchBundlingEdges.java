@@ -10,7 +10,7 @@ public class sketchBundlingEdges{
 	public int px;
 	public int py;
 	
-	sketchBundlingEdges(PApplet pa,int width,int height,int px,int py,String[] persons,boolean allInOne){
+	public sketchBundlingEdges(PApplet pa,int width,int height,int px,int py,String[] persons,boolean allInOne){
 		this.pa = pa;
 		width = 650;
 		height = 600;
