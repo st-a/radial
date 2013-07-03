@@ -19,7 +19,15 @@ public class Application extends PApplet {
 	public void setup(){
 	  size(1000, 700);
 	  background (42);
+	  
+	  //Vizualisierungen
+	  Diagramm webViz;
+	  sketchBundlingEdges bE;
+	  
+	  //Dataset
 	  d = new Dataset("../src/data/data.xml");
+	  
+	  //control
 	  cp5 = new ControlP5(this);  
 	  
 	  this.drawControl();
@@ -60,6 +68,7 @@ public class Application extends PApplet {
 			}
 			text("Person: " + sChain,280, 3*20); 
 		}
+		
 	}
 	
 	public void drawControl(){
@@ -173,13 +182,20 @@ public class Application extends PApplet {
 		    this.redraw = false;
 	}
 	
+	public void vizRadioButton(int a) {
+		println("dayRadioButton");
+		if(a >= 0){
+			if(a == 1){
+			}
+		  this.redraw = true;
+		}
+	}
+	
 	public void dayRadioButton(int a) {
 		println("dayRadioButton");
 		if(a >= 0){
 		  this.redraw = true;
-		  this.styleBtn.setVisible(false);
 		}
-		else this.styleBtn.setVisible(true);
 	}
 	
 	public void sytelRadioButton(int a) {
