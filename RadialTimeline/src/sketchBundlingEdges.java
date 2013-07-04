@@ -35,10 +35,12 @@ public class sketchBundlingEdges{
 	public float[] computeDiagrammPositions() {
 		float[] rtrn = new float[4 * 3 + 1];
 
+		System.out.println("ammount" + ammountOfPersons);
 		if (ammountOfPersons == 1||allInOne) {
 			rtrn[1] = height / 2;
 			rtrn[2] = height / 2;
 			rtrn[3] = (height - 200) / 2;
+			
 		} else {
 			for (int j = 0; j < 2; j++) {
 				rtrn[1] = height / 4 + 10;
@@ -63,6 +65,13 @@ public class sketchBundlingEdges{
 		pa.imageMode(PApplet.CENTER);
 		pa.strokeCap(PApplet.SQUARE);
 
+		if(allInOne){
+			for(int i=0;i<persons.length;i++){
+				persons[i]=null;
+			}
+			persons[0]="all";
+		}
+		
 		ammountOfPersons = 0;
 		for (int i = 0; i < persons.length; i++) {
 			if (persons[i] != null) {
@@ -80,12 +89,6 @@ public class sketchBundlingEdges{
 				allDiagrams.get(i).handleDate();
 			}
 
-		}
-		if(allInOne){
-			for(int i=0;i<persons.length;i++){
-				persons[i]=null;
-			}
-			persons[0]="all";
 		}
 	}
 
