@@ -7,18 +7,20 @@ public class sketch extends PApplet {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public String[] persons = new String[2];
+	public String[] persons = new String[4];
 	
 	public void setup(){
 		background(42);
 		size(1000,700);
 		persons[0] = "Tom";
 		persons[1] = "Hannes";
+		persons[2] = "Tom";
+		persons[3] = "Hannes"; 
 		
 		
 		sketchBundlingEdges sBE= 
 				new sketchBundlingEdges(
-						this, 600, 600, 10, 10, persons,true,true);
+						this, 600, 600, 10, 10, persons,false);
 		
 		/*
 		sketchSpiralGraph spiral = 
