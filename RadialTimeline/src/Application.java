@@ -3,6 +3,9 @@ import controlP5.*;
 
 public class Application extends PApplet {
 
+	int animationAlpha = 255;
+	String[] sHuman = {"Albert","Hannes","Sophia","Tom"};
+	
 	PFont interfaceHealines = createFont("../src/typo/OpenSans-Regular.ttf", 18);
 	PFont legendenText = createFont("../src/typo/OpenSans-Light.ttf", 12);
 	PFont normalText = createFont("../src/typo/OpenSans-Light.ttf", 18);
@@ -34,6 +37,11 @@ public class Application extends PApplet {
 	}
 
 	public void draw(){
+		
+		
+		
+		
+		//
 		if(redraw){
 			textAlign(LEFT, BASELINE);
 			this.drawInterface();
@@ -70,10 +78,16 @@ public class Application extends PApplet {
 			}
 			text("Person: " + sChain,280, 3*20); 
 			int[] distance = {40,45,20,10,58,10,32,25,25,25,25,25};
-			this.webViz = new Diagramm(this, 40,40, distance, d, 1);
+			this.webViz = new Diagramm(this, 40,40, distance, d, 1, this.legendenText);
 			webViz.draw(350, 400, d.getPerson("Tom"), ("Mittwoch"), 1.2f);
 		}
+		/*
+		if(this.animationAlpha < 20) this.animationAlpha = 0;
 		
+			fill(42, this.animationAlpha);
+			rect(0, 4*20, 700, 700);
+			this.animationAlpha = this.animationAlpha - 20;
+		*/
 	}
 	
 	public void drawControl(){
@@ -194,6 +208,7 @@ public class Application extends PApplet {
 			}
 		  this.redraw = true;
 		}
+		this.animationAlpha = 255;
 	}
 	
 	public void dayRadioButton(int a) {
@@ -211,7 +226,10 @@ public class Application extends PApplet {
 	}
 	
 	public void personCheckBox(float[] a) {
+		this.personCheckb.activateAll();
+		println(this.personCheckb.getItem(1).getState());
 		  this.redraw = true;
+		this.personCheckb.;
 		}
 	
 
