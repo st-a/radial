@@ -246,6 +246,7 @@ public class spiralGraph extends PApplet {
 		pa.text("12", centerX - 8, centerY + scale * 42f);
 		pa.text("18", centerX - scale * 48f, centerY + 4);
 		pa.text("6", centerX + scale * 30f, centerY + 6);
+		pa.rectMode(PApplet.CORNER);
 	}
 
 	public void drawSpiral() {

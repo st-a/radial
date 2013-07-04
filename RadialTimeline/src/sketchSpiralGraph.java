@@ -80,7 +80,6 @@ public class sketchSpiralGraph{
 		//persons[0] = "Tom";
 		//persons[1] = "Hannes";
 		/////////////////////////
-		pa.imageMode(PApplet.CENTER);
 		pa.strokeCap(PApplet.SQUARE);
 		
 		ammountOfPersons = 0;
