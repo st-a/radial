@@ -19,7 +19,7 @@ public class Diagramm {
 	Dataset dataset;
 	
 	
-	  Diagramm(PApplet parent, float x, float y, int[] distance,Dataset data, float s) {
+	  Diagramm(PApplet parent, float x, float y, int[] distance,Dataset data, float s, PFont font) {
 		  	  
 		    p = parent;
 		    posX = x;
@@ -29,12 +29,11 @@ public class Diagramm {
 		    dataset = data;
 		    d = distance;
 			dStatistic = new Distance(p, d, this);
+			f = font;
 	  }
 	
 	  
 	public void draw(float x, float y,Human[] humans,String day,float s){	
-		
-		System.out.println("------------------------------------draw");
 		
 		radius = 300/scale;
 	    posX = x;
@@ -97,8 +96,7 @@ public class Diagramm {
 			  	  
 			  
 			  //Beschriftung
-			  f = p.createFont("Futura-Medium", 16/scale);
-			  p.textFont(f);
+			  p.textFont(f, 18/s);
 			  p.textAlign(p.CENTER, p.CENTER);
 			  p.fill(255);
 			  p.text("0", posX, posY-(40/scale));
@@ -205,17 +203,13 @@ public class Diagramm {
 			  for(int j = 0; j < a.length; j++){
 
 				  if(a[j].getEndTime()[0] < i){
-					  //System.out.println("bing")
 					  	if(a[j].catagory.equals("Home")){ line[i] = 0;}
 					  	if(a[j].catagory.equals("Uni")){ line[i] = 1;}
 					  	if(a[j].catagory.equals("Social")){ line[i] = 2;}
 					  	if(a[j].catagory.equals("Work")){ line[i] = 3;}
 					  	if(a[j].catagory.equals("Freizeit")){ line[i] = 4;}
-					  	System.out.println(line[i]);
-				  }
-				  
+				  }	  
 			  }
-			  System.out.println(i +" Uhr :"+line[i]);
 		  }
 		  return line;
 	  }
