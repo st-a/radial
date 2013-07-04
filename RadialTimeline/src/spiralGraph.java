@@ -5,6 +5,7 @@ public class spiralGraph extends PApplet {
 
 	private static final long serialVersionUID = 1L;
 	public PApplet pa;
+	public PFont legend;
 
 	public float width = 600;
 	public float height = 600;
@@ -58,6 +59,8 @@ public class spiralGraph extends PApplet {
 		this.scale = height / 600;
 
 		helper = new helperForSpiralGraph(scale, radius, centerX, centerY, days);
+		legend = createFont("../src/typo/OpenSans-Light.ttf", 12);
+
 	}
 
 	// getter setter
@@ -138,8 +141,7 @@ public class spiralGraph extends PApplet {
 		float lclprc = percentagesOfTransports[0];
 		String prcntg = helper.formatFloats(lclprc);
 
-		PFont infoText = createFont("Dialog.plain", 12);
-		textFont(infoText);
+		textFont(legend);
 
 		// text(prcntg, 130 + xPos, 42 + 0 * 30 + yPos);
 		// text("zu Fuﬂ", 25 + xPos, 42 + 0 * 30 + yPos);
@@ -227,8 +229,8 @@ public class spiralGraph extends PApplet {
 		pa.ellipse(centerX, centerY, scale * 100f, scale * 100f);
 
 		pa.rectMode(CENTER);
-		PFont infoText = createFont("Dialog.plain", 13);
-		pa.textFont(infoText);
+		pa.textFont(legend);
+		
 
 		for (int i = 0; i < 12; i++) {
 			float[] xy = { centerX, centerY };
@@ -241,11 +243,13 @@ public class spiralGraph extends PApplet {
 			pa.rect(pos[0], pos[1], scale * 1f, scale * 5f);
 			pa.popMatrix();
 		}
+		pa.textAlign(PApplet.CENTER,PApplet.CENTER);
+		pa.textSize(12f*scale);
 		pa.fill(255);
-		pa.text("0", centerX - 4, centerY - scale * 32f);
-		pa.text("12", centerX - 8, centerY + scale * 42f);
-		pa.text("18", centerX - scale * 48f, centerY + 4);
-		pa.text("6", centerX + scale * 30f, centerY + 6);
+		pa.text("0", centerX, centerY - scale * 35f);
+		pa.text("12", centerX, centerY + scale * 35f);
+		pa.text("18", centerX - scale * 35f, centerY);
+		pa.text("6", centerX + scale * 35f, centerY);
 		pa.rectMode(PApplet.CORNER);
 	}
 
@@ -673,3 +677,6 @@ public class spiralGraph extends PApplet {
 		}
 	}
 }
+
+
+

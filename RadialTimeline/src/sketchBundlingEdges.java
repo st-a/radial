@@ -108,8 +108,8 @@ public class sketchBundlingEdges{
 			b.drawBeziers = true;
 
 			b.drawArcsnArrows();
-			//TODO
-			//b.drawContentArround();
+			
+			b.drawContentArround();
 		}
 	}
 }

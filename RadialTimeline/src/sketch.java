@@ -16,14 +16,14 @@ public class sketch extends PApplet {
 		persons[0] = "Tom";
 		persons[1] = "Hannes";
 		
-		/*
+		
 		sketchBundlingEdges sBE= 
 				new sketchBundlingEdges(
 						this, 600, 600, 10, 10, persons,false);
-		*/
+		/*
 		sketchSpiralGraph spiral = 
 				new sketchSpiralGraph(this, 10, 10, 650, 650, true, false, persons);
-		
+		*/
 	}
 	
 	public void draw(){

@@ -10,6 +10,7 @@ public class bundlingEdges extends PApplet {
 	// global variables
 
 	PApplet pa;
+	public PFont legend;
 
 	public float centerX;
 	public float centerY;
@@ -67,6 +68,9 @@ public class bundlingEdges extends PApplet {
 		freeSpaceInDegrees = (0.1f * 360) / ammountOfPlaces;
 
 		drawBeziers = true;
+		
+		legend = createFont("../src/typo/OpenSans-Light.ttf", 12);
+
 	}
 
 	// setter + getter
@@ -101,10 +105,11 @@ public class bundlingEdges extends PApplet {
 			String prcntg = helper.formatPercentage(lclprc);
 
 			// percentages in the graph
-			percenteges = createFont("Dialog.plain", 12 * scale + 15 * lclprc
-					/ 100);
-			pa.textFont(percenteges);
+			//percenteges = createFont("Dialog.plain", 12 * scale + 15 * lclprc
+			//		/ 100);
+			pa.textFont(legend);
 
+			pa.textSize(12 * scale + 15 * lclprc/ 100);
 			float[] percPos = helper.degreesToXnY(places.get(i).middle, radius
 					+ scale * 70f - 30f * 1 / lclprc);
 			pa.text(prcntg, percPos[0] - 20, percPos[1]);
