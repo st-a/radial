@@ -17,10 +17,10 @@ public class Timeline {
 		    g = green;
 		    b = blue;
 		    dia = diagramm;
-		    //System.out.println(point[0]);
 		  }
 	  
 	  public void drawLine(){
+		  parent.strokeCap(PApplet.ROUND);
 		  parent.stroke(r,g,b,alpha);
 		  parent.strokeWeight(10/(dia.scale));
 		  int angle = -90;

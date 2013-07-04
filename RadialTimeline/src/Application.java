@@ -4,7 +4,7 @@ import controlP5.*;
 public class Application extends PApplet {
 
 	int animationAlpha = 255;
-	String[] sHuman = {"Hannes"};
+	String[] sHuman = {"Tom"};
 	
 	PFont interfaceHealines = createFont("../src/typo/OpenSans-Regular.ttf", 18);
 	PFont legendenText = createFont("../src/typo/OpenSans-Light.ttf", 12);
@@ -21,6 +21,7 @@ public class Application extends PApplet {
 	//Vizualisierungen
 	Diagramm webViz;
 	sketchBundlingEdges bundling;
+	sketchSpiralGraph spiral;
 
 	public void setup(){
 	  size(1000, 700);
@@ -79,9 +80,9 @@ public class Application extends PApplet {
 				bundling = new sketchBundlingEdges(this, 650, 650, 50, 100, sHuman, false);
 			}
 			
-			/*if(this.vizBtn.getItem(2).getState()){
-				bundling = new sketchBundlingEdges(this, 650, 650, 50, 100, sHuman, false);
-			}*/
+			if(this.vizBtn.getItem(1).getState()){
+				spiral = new sketchSpiralGraph(this, 100, 150, 600, 600, true, true, sHuman);
+			}
 			
 			if(this.vizBtn.getItem(2).getState()){
 				int[] distance = {40,45,20,10,58,10,32,25,25,25,25,25};
