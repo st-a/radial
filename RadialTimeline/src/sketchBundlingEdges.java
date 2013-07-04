@@ -35,7 +35,6 @@ public class sketchBundlingEdges{
 	public float[] computeDiagrammPositions() {
 		float[] rtrn = new float[4 * 3 + 1];
 
-		System.out.println("ammount" + ammountOfPersons);
 		if (ammountOfPersons == 1||allInOne) {
 			rtrn[1] = height / 2;
 			rtrn[2] = height / 2;
