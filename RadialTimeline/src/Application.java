@@ -38,11 +38,7 @@ public class Application extends PApplet {
 	}
 
 	public void draw(){
-		
-		
-		
-		
-		//
+
 		if(redraw){
 			textAlign(LEFT, BASELINE);
 			this.drawInterface();
@@ -78,20 +74,22 @@ public class Application extends PApplet {
 				}
 			}
 			text("Person: " + sChain,280, 3*20); 
-			/*int[] distance = {40,45,20,10,58,10,32,25,25,25,25,25};
-			this.webViz = new Diagramm(this, 40,40, distance, d, 1, this.legendenText);
-			webViz.draw(350, 380, d.getPerson("Tom"), ("Mittwoch"), 1.2f);
-			*/
 			
-			bundling = new sketchBundlingEdges(this, 650, 650, 50, 100, sHuman, false);
+			if(this.vizBtn.getItem(0).getState()){
+				bundling = new sketchBundlingEdges(this, 650, 650, 50, 100, sHuman, false);
+			}
+			
+			/*if(this.vizBtn.getItem(2).getState()){
+				bundling = new sketchBundlingEdges(this, 650, 650, 50, 100, sHuman, false);
+			}*/
+			
+			if(this.vizBtn.getItem(2).getState()){
+				int[] distance = {40,45,20,10,58,10,32,25,25,25,25,25};
+				this.webViz = new Diagramm(this, 40,40, distance, d, 1, this.legendenText);
+				webViz.draw(350, 380, d.getPerson("Tom"), ("Mittwoch"), 1.2f);
+			}
+			
 		}
-		/*
-		if(this.animationAlpha < 20) this.animationAlpha = 0;
-		
-			fill(42, this.animationAlpha);
-			rect(0, 4*20, 700, 700);
-			this.animationAlpha = this.animationAlpha - 20;
-		*/
 	}
 	
 	public void drawControl(){
