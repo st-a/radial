@@ -4,7 +4,7 @@ import controlP5.*;
 public class Application extends PApplet {
 
 	int animationAlpha = 255;
-	String[] sHuman = {"Albert","Hannes","Sophia","Tom"};
+	String[] sHuman = {"Hannes"};
 	
 	PFont interfaceHealines = createFont("../src/typo/OpenSans-Regular.ttf", 18);
 	PFont legendenText = createFont("../src/typo/OpenSans-Light.ttf", 12);
@@ -20,6 +20,7 @@ public class Application extends PApplet {
 	Dataset d;
 	//Vizualisierungen
 	Diagramm webViz;
+	sketchBundlingEdges bundling;
 
 	public void setup(){
 	  size(1000, 700);
@@ -77,9 +78,12 @@ public class Application extends PApplet {
 				}
 			}
 			text("Person: " + sChain,280, 3*20); 
-			int[] distance = {40,45,20,10,58,10,32,25,25,25,25,25};
+			/*int[] distance = {40,45,20,10,58,10,32,25,25,25,25,25};
 			this.webViz = new Diagramm(this, 40,40, distance, d, 1, this.legendenText);
-			webViz.draw(350, 400, d.getPerson("Tom"), ("Mittwoch"), 1.2f);
+			webViz.draw(350, 380, d.getPerson("Tom"), ("Mittwoch"), 1.2f);
+			*/
+			
+			bundling = new sketchBundlingEdges(this, 650, 650, 50, 100, sHuman, false);
 		}
 		/*
 		if(this.animationAlpha < 20) this.animationAlpha = 0;
@@ -229,7 +233,6 @@ public class Application extends PApplet {
 		this.personCheckb.activateAll();
 		println(this.personCheckb.getItem(1).getState());
 		  this.redraw = true;
-		this.personCheckb.;
 		}
 	
 
