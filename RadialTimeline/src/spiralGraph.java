@@ -20,7 +20,7 @@ public class spiralGraph extends PApplet {
 	public String person;
 
 	public helperForSpiralGraph helper = null;
-	public boolean viewMovements = false;
+	public boolean viewMovements;
 
 	public float thiknessOfOneDay = radius / (days + 1);
 	public int background = color(42);
@@ -31,11 +31,11 @@ public class spiralGraph extends PApplet {
 	public int byTram = color(255, 199, 70, alpha);
 	public int byBike = color(247, 141, 71, alpha);
 
-	public int home = color(255, 123, 106);
-	public int uni = color(255, 242, 190);
-	public int social = color(170, 235, 140);
-	public int work = color(53, 189, 144);
-	public int freeTime = color(0, 150, 163);
+	public int home = color(255, 123, 106, alpha);
+	public int uni = color(255, 242, 190, alpha);
+	public int social = color(170, 235, 140, alpha);
+	public int work = color(53, 189, 144, alpha);
+	public int freeTime = color(0, 150, 163, alpha);
 
 	public String[] meansOfTransportStrings = new String[4];
 	public String[] places = new String[5];
@@ -46,10 +46,14 @@ public class spiralGraph extends PApplet {
 	public int[] colorsPlaces = new int[5];
 
 	// constructor
-	spiralGraph(PApplet pa, float width, float height, String person) {
+	spiralGraph(PApplet pa, float centerX, float centerY, float radius,
+			String person) {
 		this.pa = pa;
-		this.width = width;
-		this.height = height;
+		this.centerX = centerX;
+		this.centerY = centerY;
+		this.radius = radius;
+		this.width = radius + 50;
+		this.height = radius + 50;
 		this.person = person;
 		this.scale = height / 600;
 
@@ -88,11 +92,30 @@ public class spiralGraph extends PApplet {
 		this.alpha = a;
 	}
 
-	public void setColors() {
-		byFeet = color(194, 69, 78, alpha);
-		byCar = color(123, 173, 141, alpha);
-		byTram = color(255, 199, 70, alpha);
-		byBike = color(247, 141, 71, alpha);
+	public void setColors(boolean viewAsMatrix, int[] colors) {
+		if (viewAsMatrix) {
+			byFeet = color(194, 69, 78, alpha);
+			byCar = color(123, 173, 141, alpha);
+			byTram = color(255, 199, 70, alpha);
+			byBike = color(247, 141, 71, alpha);
+
+			home = color(255, 123, 106, alpha);
+			uni = color(255, 242, 190, alpha);
+			social = color(170, 235, 140, alpha);
+			work = color(53, 189, 144, alpha);
+			freeTime = color(0, 150, 163, alpha);
+		} else {
+			byFeet = color(colors[0], colors[1], colors[2], alpha);
+			byCar = color(colors[0], colors[1], colors[2], alpha);
+			byTram = color(colors[0], colors[1], colors[2], alpha);
+			byBike = color(colors[0], colors[1], colors[2], alpha);
+
+			home = color(colors[0], colors[1], colors[2], alpha);
+			uni = color(colors[0], colors[1], colors[2], alpha);
+			social = color(colors[0], colors[1], colors[2], alpha);
+			work = color(colors[0], colors[1], colors[2], alpha);
+			freeTime = color(colors[0], colors[1], colors[2], alpha);
+		}
 	}
 
 	public void setMovements(boolean viewMovements) {
@@ -537,6 +560,7 @@ public class spiralGraph extends PApplet {
 			addTimeSlot(home, 1, 0, allActivities[0].bTime[0] * 60
 					+ allActivities[0].bTime[1]);
 			boolean dontdraw = false;
+			boolean dirtyhackdrawnonce = false;
 
 			for (int i = 1; i < allActivities.length; i++) {
 				if (allActivities[i] != null) {
@@ -548,9 +572,13 @@ public class spiralGraph extends PApplet {
 					endtime = act1.bTime[0] * 60 + act1.bTime[1];
 
 					if (endtime == start) {
-						//DIRTY HACK. FAK U TOM
-						//Y U NO WORK ON THURSDAY?
-						addTimeSlot(home, 4, 0, 1440);
+						// DIRTY HACK. FAK U TOM
+						// Y U NO WORK ON THURSDAY?
+						// TODO FUK U
+						if (!dirtyhackdrawnonce) {
+							addTimeSlot(home, 4, 0, 1440);
+							dirtyhackdrawnonce = true;
+						}
 						dontdraw = true;
 					}
 
