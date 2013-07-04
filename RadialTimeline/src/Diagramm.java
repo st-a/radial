@@ -169,7 +169,6 @@ public class Diagramm {
 		  p.background(42);
 		  //fue alle personen
 		  for(int i=0; i < h.length; i++){
-			  f = p.createFont("OpenSans-", 50/(h.length/2));
 			  p.textFont(f);
 			  p.textAlign(p.LEFT, p.CENTER);
 			  p.fill(255);
@@ -212,7 +211,5 @@ public class Diagramm {
 			  }
 		  }
 		  return line;
-	  }
-	  
-
+	  }	  
 }

@@ -4,7 +4,7 @@ import controlP5.*;
 public class Application extends PApplet {
 
 	int animationAlpha = 255;
-	String[] sHuman = {"Tom"};
+	String[] sHuman = {"Tom", "Hannes"};
 	
 	PFont interfaceHealines = createFont("../src/typo/OpenSans-Regular.ttf", 18);
 	PFont legendenText = createFont("../src/typo/OpenSans-Light.ttf", 12);
@@ -76,9 +76,11 @@ public class Application extends PApplet {
 			}
 			text("Person: " + sChain,280, 3*20); 
 			
+			println(this.vizBtn.getItem(0).getState());
 			if(this.vizBtn.getItem(0).getState()){
-				bundling = new sketchBundlingEdges(this, 650, 650, 50, 100, sHuman, false);
-			}
+				println(this.styleBtn.getItem(1).getState());
+				bundling = new sketchBundlingEdges(this, 650, 650, 50, 100, sHuman, this.styleBtn.getItem(0).getState());
+			}		
 			
 			if(this.vizBtn.getItem(1).getState()){
 				spiral = new sketchSpiralGraph(this, 100, 150, 600, 600, true, true, sHuman);
@@ -181,6 +183,8 @@ public class Application extends PApplet {
 		  }
 		    this.dayBtn.activate(0); 
 		    this.personCheckb.activate(0);
+		    this.vizBtn.activate(0);
+		    this.styleBtn.activate(0);
 	}
 	
 	public void drawInterface(){
@@ -205,17 +209,13 @@ public class Application extends PApplet {
 	}
 	
 	public void vizRadioButton(int a) {
-		println("dayRadioButton");
 		if(a >= 0){
-			if(a == 1){
-			}
 		  this.redraw = true;
 		}
 		this.animationAlpha = 255;
 	}
 	
 	public void dayRadioButton(int a) {
-		println("dayRadioButton");
 		if(a >= 0){
 		  this.redraw = true;
 		}
@@ -223,14 +223,12 @@ public class Application extends PApplet {
 	
 	public void sytelRadioButton(int a) {
 		if(a >= 0){
-			println("geht noch");
 		  this.redraw = true;
 		}
 	}
 	
 	public void personCheckBox(float[] a) {
 		this.personCheckb.activateAll();
-		println(this.personCheckb.getItem(1).getState());
 		  this.redraw = true;
 		}
 	
