@@ -9,6 +9,7 @@ public class sketchBundlingEdges{
 	public int height = 650;
 	public int px = 0;
 	public int py = 0;
+	public boolean matrix;
 	public boolean allInOne = false;
 	public int ammountOfPersons = 0;
 	public String[] persons = new String[5];
@@ -17,13 +18,14 @@ public class sketchBundlingEdges{
 	// constructor
 	
 	sketchBundlingEdges(PApplet pa, int width, int height, int px, int py,
-			String[] persons, boolean allInOne) {
+			String[] persons, boolean allInOne, boolean matrix) {
 		this.pa = pa;
 		this.width = 650;
 		this.height = 600;
 		this.px = px;
 		this.py = py;
 		this.persons = persons;
+		this.matrix = matrix;
 		this.allInOne = allInOne;
 		setup();
 		draw();
@@ -35,7 +37,7 @@ public class sketchBundlingEdges{
 	public float[] computeDiagrammPositions() {
 		float[] rtrn = new float[4 * 3 + 1];
 
-		if (ammountOfPersons == 1||allInOne) {
+		if (!matrix) {
 			rtrn[1] = height / 2;
 			rtrn[2] = height / 2;
 			rtrn[3] = (height - 200) / 2;
@@ -64,14 +66,17 @@ public class sketchBundlingEdges{
 		pa.imageMode(PApplet.CENTER);
 		pa.strokeCap(PApplet.SQUARE);
 
-		if(allInOne){
+		ammountOfPersons = 0;
+		if(!matrix&&allInOne&&ammountOfPersons==4){
 			for(int i=0;i<persons.length;i++){
 				persons[i]=null;
+				
 			}
 			persons[0]="all";
+			ammountOfPersons=1;
+
 		}
 		
-		ammountOfPersons = 0;
 		for (int i = 0; i < persons.length; i++) {
 			if (persons[i] != null) {
 				ammountOfPersons = ammountOfPersons + 1;

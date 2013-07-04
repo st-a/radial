@@ -79,7 +79,8 @@ public class Application extends PApplet {
 			println(this.vizBtn.getItem(0).getState());
 			if(this.vizBtn.getItem(0).getState()){
 				println(this.styleBtn.getItem(1).getState());
-				bundling = new sketchBundlingEdges(this, 650, 650, 50, 100, sHuman, this.styleBtn.getItem(0).getState());
+				//TODO ADD BOOLEAN AM ENDE DES CONSTRUCTORS => 1. Boolean:ob alle in einem gezeichnet werden sollen, 2. BOOLEAN, ob matrix
+				//bundling = new sketchBundlingEdges(this, 650, 650, 50, 100, sHuman, this.styleBtn.getItem(0).getState());
 			}		
 			
 			if(this.vizBtn.getItem(1).getState()){

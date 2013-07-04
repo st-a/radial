@@ -1,6 +1,5 @@
 import processing.core.PApplet;
 
-
 public class sketch extends PApplet {
 
 	/**
@@ -19,16 +18,11 @@ public class sketch extends PApplet {
 		
 		sketchBundlingEdges sBE= 
 				new sketchBundlingEdges(
-						this, 600, 600, 10, 10, persons,false);
+						this, 600, 600, 10, 10, persons,true,true);
+		
 		/*
 		sketchSpiralGraph spiral = 
 				new sketchSpiralGraph(this, 10, 10, 650, 650, true, false, persons);
 		*/
 	}
-	
-	public void draw(){
-		
-		
-	}
-
 }
