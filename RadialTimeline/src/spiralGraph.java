@@ -11,8 +11,8 @@ public class spiralGraph extends PApplet {
 	public float height = 600;
 	public float centerX = height / 2;
 	public float centerY = height / 2;
-	public float radius = (height - 50); // this is obviously crap but i cant
-	public float scale; // refactor it
+	public float radius = (height - 50); // this is obviously crap but i cant refactor it
+	public float scale; 
 
 	public float circumference = 2 * PI * radius;
 
@@ -95,19 +95,8 @@ public class spiralGraph extends PApplet {
 		this.alpha = a;
 	}
 
-	public void setColors(boolean viewAsMatrix, int[] colors) {
-		if (viewAsMatrix) {
-			byFeet = color(194, 69, 78, alpha);
-			byCar = color(123, 173, 141, alpha);
-			byTram = color(255, 199, 70, alpha);
-			byBike = color(247, 141, 71, alpha);
-
-			home = color(255, 123, 106, alpha);
-			uni = color(255, 242, 190, alpha);
-			social = color(170, 235, 140, alpha);
-			work = color(53, 189, 144, alpha);
-			freeTime = color(0, 150, 163, alpha);
-		} else {
+	public void setColors(boolean viewAsMatrix, int[] colors,boolean moreThanOne) {
+		if (!viewAsMatrix&&moreThanOne) {
 			byFeet = color(colors[0], colors[1], colors[2], alpha);
 			byCar = color(colors[0], colors[1], colors[2], alpha);
 			byTram = color(colors[0], colors[1], colors[2], alpha);
@@ -118,6 +107,17 @@ public class spiralGraph extends PApplet {
 			social = color(colors[0], colors[1], colors[2], alpha);
 			work = color(colors[0], colors[1], colors[2], alpha);
 			freeTime = color(colors[0], colors[1], colors[2], alpha);
+		} else {
+			byFeet = color(194, 69, 78, alpha);
+			byCar = color(123, 173, 141, alpha);
+			byTram = color(255, 199, 70, alpha);
+			byBike = color(247, 141, 71, alpha);
+
+			home = color(255, 123, 106, alpha);
+			uni = color(255, 242, 190, alpha);
+			social = color(170, 235, 140, alpha);
+			work = color(53, 189, 144, alpha);
+			freeTime = color(0, 150, 163, alpha);
 		}
 	}
 
