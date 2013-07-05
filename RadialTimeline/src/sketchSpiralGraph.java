@@ -52,9 +52,9 @@ public class sketchSpiralGraph{
 		} else {
 
 			if (allGraphs.size() == 1) {
-				rtrn[0] = height / 2 + px;
-				rtrn[1] = height / 2 + py;
-				rtrn[2] = 2 * height / 2 - 50;
+				rtrn[0] = height / 4 + px;
+				rtrn[1] = height / 4 + py;
+				rtrn[2] = 2 * height / 4 - 25;
 			} else {
 				for (int i = 0; i < 2; i++) {
 					rtrn[1 + i * 3] = height / 4 + py;
@@ -113,14 +113,19 @@ public class sketchSpiralGraph{
 		
 			spiralGraph s = allGraphs.get(i);
 			
-			if (viewAsMatrix) {
-				alpha=255;
-				s.setAlpha(alpha);
-				s.setColors(viewAsMatrix,colorsPersons[i]);
-			}else{
+			if (!viewAsMatrix && ammountOfPersons>1) {
 				alpha=128;
 				s.setAlpha(alpha);
-				s.setColors(viewAsMatrix,colorsPersons[i]);
+				s.setColors(viewAsMatrix,colorsPersons[i],true);
+			}else{
+				alpha=255;
+				s.setAlpha(alpha);
+				s.setColors(viewAsMatrix,colorsPersons[i],false);
+			}
+			if(viewAsMatrix){
+				alpha=255;
+				s.setAlpha(alpha);
+				s.setColors(viewAsMatrix,colorsPersons[i],false);
 			}
 			
 			s.setMovements(viewMovements);
