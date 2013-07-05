@@ -4,7 +4,7 @@ import controlP5.*;
 public class Application extends PApplet {
 
 	int animationAlpha = 255;
-	String[] sHuman = { "Hannes" };
+	String[] sHuman = { "Hannes", "Tom", "Albert" };
 	String sDay = "Montag";
 	Human[] aHuman;
 	String[] aDay;
@@ -208,11 +208,12 @@ public class Application extends PApplet {
 	}
 
 	public void personCheckBox(float[] a) {
-		int personCount = 0;
-
+		int personCount = 0;	
+		this.sHuman = new String[4];
 		for (int i = 0; i < 4; i++) {
 			if (this.personCheckb.getItem(i).getState()) {
 				personCount++;
+				this.sHuman[i] = this.personCheckb.getItem(i).getName();
 			}
 		}
 
