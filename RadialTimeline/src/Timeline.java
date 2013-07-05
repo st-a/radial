@@ -8,7 +8,6 @@ public class Timeline {
 	int[] points;
 	int r, g, b;
 	Diagramm dia;
-	int alpha = 255;
 	
 	  Timeline(PApplet p, int[] point, int red, int green, int blue, Diagramm diagramm) {
 		    parent = p;
@@ -19,7 +18,7 @@ public class Timeline {
 		    dia = diagramm;
 		  }
 	  
-	  public void drawLine(){
+	  public void drawLine(int alpha){
 		  parent.strokeCap(PApplet.ROUND);
 		  parent.stroke(r,g,b,alpha);
 		  parent.strokeWeight(10/(dia.scale));
@@ -57,12 +56,6 @@ public class Timeline {
 		  parent.stroke(0);
 		  parent.strokeWeight(1);
 			}	  
-	  
-	  
-	  public void setAlpha(int a){
-			this.alpha = a;
-		}
-	  
 }
 
 

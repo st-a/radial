@@ -61,11 +61,11 @@ public class Application extends PApplet {
 					moreThanOne = true;
 				}
 			}
-			
+
 			text("Tag: " + sChain, 280, 2 * 20);
 			moreThanOne = false;
 			sChain = "";
-			
+
 			for (int i = 0; i < 4; i++) {
 				if (moreThanOne && this.personCheckb.getItem(i).getState()) {
 					sChain = sChain + ", ";
@@ -76,7 +76,7 @@ public class Application extends PApplet {
 					moreThanOne = true;
 				}
 			}
-			
+
 			text("Person: " + sChain, 280, 3 * 20);
 
 			if (this.vizBtn.getItem(0).getState()) {
@@ -96,9 +96,12 @@ public class Application extends PApplet {
 						this.legendenText);
 				if (this.styleBtn.getItem(1).getState()) {
 					webViz.drawMatrix(aHuman, sDay);
-				}
-				else
-					 webViz.draw(350, 380, d.getPerson("Hannes"), sDay, 1.2f);
+				} else
+					if(aHuman.length > 1){
+						webViz.draw(350, 380, aHuman, sDay, 1.2f);
+					}
+					else
+					webViz.draw(350, 380, aHuman[0], sDay, 1.2f);
 			}
 		}
 	}
@@ -206,29 +209,38 @@ public class Application extends PApplet {
 
 	public void personCheckBox(float[] a) {
 		int personCount = 0;
-		
-		for(int i = 0; i< 4; i++){
-			if(this.personCheckb.getItem(i).getState()){
+
+		for (int i = 0; i < 4; i++) {
+			if (this.personCheckb.getItem(i).getState()) {
 				personCount++;
 			}
 		}
-		aHuman = new Human[personCount];
-		int z = 0;
-		for(int i = 0; i< 4; i++){
-			if(this.personCheckb.getItem(i).getState()){
-			aHuman[z] =d.getPerson(this.personCheckb.getItem(i).getName());
-			z++;
+
+		if (personCount > 0) {
+			aHuman = new Human[personCount];
+			int z = 0;
+			for (int i = 0; i < 4; i++) {
+				if (this.personCheckb.getItem(i).getState()) {
+					aHuman[z] = d.getPerson(this.personCheckb.getItem(i)
+							.getName());
+					z++;
+				}
 			}
+		} else {
+			aHuman = d.getPersons();
+			this.personCheckb.activateAll();
 		}
-		
+
 		this.redraw = true;
 
 	}
 
 	public void styleRadioButton(int a) {
 		if (a >= 0) {
+			
 			this.redraw = true;
 		}
+		else this.styleBtn.activate(0);
 	}
 
 }
