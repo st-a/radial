@@ -183,7 +183,7 @@ public class Diagramm {
 			p.text(h[i].getName(), 60 + (130 * i), 100);
 			human[0] = h[i];
 
-			this.draw(90 + (130 * i), 100 + (90), h[i], sDay, 5f);
+			this.draw(120 + (130 * i), 100 + (90), h[i], sDay, 5f);
 		}
 
 	}
