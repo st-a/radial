@@ -4,8 +4,10 @@ import controlP5.*;
 public class Application extends PApplet {
 
 	int animationAlpha = 255;
-	String[] sHuman = { "Hannes", "Tom" };
+	String[] sHuman = { "Hannes" };
 	String sDay = "Montag";
+	Human[] aHuman;
+	String[] aDay;
 
 	PFont interfaceHealines = createFont("../src/typo/OpenSans-Regular.ttf", 18);
 	PFont legendenText = createFont("../src/typo/OpenSans-Light.ttf", 12);
@@ -30,7 +32,7 @@ public class Application extends PApplet {
 
 		// Dataset
 		d = new Dataset("../src/data/data.xml");
-
+		aHuman = d.getPersons();
 		// control
 		cp5 = new ControlP5(this);
 
@@ -59,10 +61,11 @@ public class Application extends PApplet {
 					moreThanOne = true;
 				}
 			}
+			
 			text("Tag: " + sChain, 280, 2 * 20);
-
 			moreThanOne = false;
 			sChain = "";
+			
 			for (int i = 0; i < 4; i++) {
 				if (moreThanOne && this.personCheckb.getItem(i).getState()) {
 					sChain = sChain + ", ";
@@ -73,15 +76,17 @@ public class Application extends PApplet {
 					moreThanOne = true;
 				}
 			}
+			
 			text("Person: " + sChain, 280, 3 * 20);
+
 			if (this.vizBtn.getItem(0).getState()) {
-				bundling = new sketchBundlingEdges(this, 650, 650, 50, 100,
-						sHuman, this.styleBtn.getItem(0).getState());
+				bundling = new sketchBundlingEdges(this, 650, 650, 50, 80,
+						sHuman, this.styleBtn.getItem(1).getState());
 			}
 
 			if (this.vizBtn.getItem(1).getState()) {
-				spiral = new sketchSpiralGraph(this, 100, 150, 600, 600, true,
-						false, sHuman);
+				spiral = new sketchSpiralGraph(this, 40, 100, 500, 500,
+						this.styleBtn.getItem(1).getState(), true, sHuman);
 			}
 
 			if (this.vizBtn.getItem(2).getState()) {
@@ -89,9 +94,12 @@ public class Application extends PApplet {
 						25 };
 				this.webViz = new Diagramm(this, 40, 40, distance, d, 1,
 						this.legendenText);
-				webViz.draw(350, 380, d.getPerson("Hannes"), sDay, 1.2f);
+				if (this.styleBtn.getItem(1).getState()) {
+					webViz.drawMatrix(aHuman, sDay);
+				}
+				else
+					 webViz.draw(350, 380, d.getPerson("Hannes"), sDay, 1.2f);
 			}
-
 		}
 	}
 
@@ -190,18 +198,36 @@ public class Application extends PApplet {
 
 	public void dayRadioButton(int a) {
 		if (a >= 0) {
-			this.sDay = this.dayBtn.getItem(a-1).getName();
+			this.sDay = this.dayBtn.getItem(a - 1).getName();
 			this.redraw = true;
-		}
+		} else
+			this.dayBtn.activate(a - 1);
 	}
 
 	public void personCheckBox(float[] a) {
+		int personCount = 0;
+		
+		for(int i = 0; i< 4; i++){
+			if(this.personCheckb.getItem(i).getState()){
+				personCount++;
+			}
+		}
+		aHuman = new Human[personCount];
+		int z = 0;
+		for(int i = 0; i< 4; i++){
+			if(this.personCheckb.getItem(i).getState()){
+			aHuman[z] =d.getPerson(this.personCheckb.getItem(i).getName());
+			z++;
+			}
+		}
+		
 		this.redraw = true;
+
 	}
 
 	public void styleRadioButton(int a) {
 		if (a >= 0) {
-		this.redraw = true;
+			this.redraw = true;
 		}
 	}
 

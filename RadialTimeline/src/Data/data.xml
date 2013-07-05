@@ -689,7 +689,7 @@
 			<begin>Bar</begin>
 			<beginTime hour="23" minutes="50"></beginTime>
 			<end>Freunde</end>
-			<endTime hour ="0" minutes="20"></endTime>
+			<endTime hour ="24" minutes="0"></endTime>
 			<category>Freizeit</category>
 			<transport>Tram</transport>
 			<duration>30</duration>

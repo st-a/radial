@@ -173,7 +173,7 @@ e.printStackTrace();
 		int i = 0;
 		for (Activity a :this.activities){
 			if(a != null){
-			if(a.getDay().equals(day) && a.getHuman().getName().equals(name)){
+			if((a.getDay().equals(day)) && (a.getHuman().getName().equals(name))){
 				++i;
 				}
 			}
@@ -184,7 +184,7 @@ e.printStackTrace();
 		
 		for (Activity a :this.activities){
 			if(a != null){
-				if(a.getDay().equals(day) && a.getHuman().getName().equals(name)){
+				if((a.getDay().equals(day)) && (a.getHuman().getName().equals(name))){
 					aArray[j] = a;
 					++j;
 				}

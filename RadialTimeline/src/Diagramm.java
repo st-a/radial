@@ -163,23 +163,20 @@ public class Diagramm {
 		  this.draw(x, y,dataset.getPersons(),currentDay, scale);
 	  }
 	  
-	  public void drawMatrix(Human[] h){
+	  public void drawMatrix(Human[] h, String sDay){
 		  Human[] human = new Human[1];
 		  
-		  p.background(42);
 		  //fue alle personen
 		  for(int i=0; i < h.length; i++){
-			  p.textFont(f);
+			  p.textFont(f, 18);
 			  p.textAlign(p.LEFT, p.CENTER);
 			  p.fill(255);
-			  p.text(h[i].getName(),60+(130*i), 30);
+			  p.text(h[i].getName(),60+(130*i), 100);
 			  human[0] = h[i];
-			  
-			  for(int j = 0; j < 1 ; j++){	  
-				  
-			  this.draw(90+(130*i), 100+(90*j),human,"Dienstag", 3f);
+			  				  
+			  this.draw(90+(130*i), 100+(90),h[i],sDay, 5f);
 			  }
-		  }
+		  
 	  }
 	
 	  public int[] setLine(Human h, String day){
@@ -202,13 +199,16 @@ public class Diagramm {
 			  for(int j = 0; j < a.length; j++){
 
 				  if(a[j].getEndTime()[0] < i){
+					 System.out.println(a[j].catagory);
 					  	if(a[j].catagory.equals("Home")){ line[i] = 0;}
 					  	if(a[j].catagory.equals("Uni")){ line[i] = 1;}
 					  	if(a[j].catagory.equals("Social")){ line[i] = 2;}
 					  	if(a[j].catagory.equals("Work")){ line[i] = 3;}
 					  	if(a[j].catagory.equals("Freizeit")){ line[i] = 4;}
+					  	
 				  }	  
 			  }
+			  System.out.println(line[i]);
 		  }
 		  return line;
 	  }	  

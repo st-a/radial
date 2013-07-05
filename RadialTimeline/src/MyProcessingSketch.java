@@ -25,9 +25,6 @@ public class MyProcessingSketch extends PApplet {
 
 	  d = new Dataset("../src/Data/data.xml");
 
-	  
-	  
-	  
 	  //noLoop();
 	  f = createFont("Futura-Medium", 16);
 	  textFont(f);
@@ -36,11 +33,6 @@ public class MyProcessingSketch extends PApplet {
 	}
 
 	public void draw(){
-		
-		
-		int[][] lines = new int[4][12];
-		
-
 		
 		int[] distance = {40,45,20,10,58,10,32,25,25,25,25,25};
 		
