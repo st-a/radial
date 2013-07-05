@@ -4,7 +4,7 @@ import controlP5.*;
 public class Application extends PApplet {
 
 	int animationAlpha = 255;
-	String[] sHuman = { "Hannes", "Tom", "Albert" };
+	String[] sHuman = { "Hannes" };
 	String sDay = "Montag";
 	Human[] aHuman;
 	String[] aDay;
@@ -96,11 +96,9 @@ public class Application extends PApplet {
 						this.legendenText);
 				if (this.styleBtn.getItem(1).getState()) {
 					webViz.drawMatrix(aHuman, sDay);
+				} else if (aHuman.length > 1) {
+					webViz.draw(350, 380, aHuman, sDay, 1.2f);
 				} else
-					if(aHuman.length > 1){
-						webViz.draw(350, 380, aHuman, sDay, 1.2f);
-					}
-					else
 					webViz.draw(350, 380, aHuman[0], sDay, 1.2f);
 			}
 		}
@@ -208,7 +206,7 @@ public class Application extends PApplet {
 	}
 
 	public void personCheckBox(float[] a) {
-		int personCount = 0;	
+		int personCount = 0;
 		this.sHuman = new String[4];
 		for (int i = 0; i < 4; i++) {
 			if (this.personCheckb.getItem(i).getState()) {
@@ -231,17 +229,14 @@ public class Application extends PApplet {
 			aHuman = d.getPersons();
 			this.personCheckb.activateAll();
 		}
-
 		this.redraw = true;
-
 	}
 
 	public void styleRadioButton(int a) {
-		if (a >= 0) {
-			
-			this.redraw = true;
+		if (a < 0) {
+			this.styleBtn.activate(0);
 		}
-		else this.styleBtn.activate(0);
+		this.redraw = true;
 	}
 
 }

@@ -214,7 +214,6 @@ public class Diagramm {
 			for (int j = 0; j < a.length; j++) {
 
 				if (a[j].getEndTime()[0] < i) {
-					System.out.println(a[j].catagory);
 					if (a[j].catagory.equals("Home")) {
 						line[i] = 0;
 					}
@@ -233,7 +232,6 @@ public class Diagramm {
 
 				}
 			}
-			System.out.println(line[i]);
 		}
 		return line;
 	}
