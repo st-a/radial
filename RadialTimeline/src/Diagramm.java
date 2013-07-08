@@ -172,7 +172,7 @@ public class Diagramm {
 		this.draw(x, y, dataset.getPersons(), currentDay, scale);
 	}
 
-	public void drawMatrix(Human[] h, String sDay) {
+	public void drawMatrix(Human[] h, String[] aDay) {
 		Human[] human = new Human[1];
 
 		// fue alle personen
@@ -180,10 +180,14 @@ public class Diagramm {
 			p.textFont(f, 18);
 			p.textAlign(p.LEFT, p.CENTER);
 			p.fill(255);
-			p.text(h[i].getName(), 60 + (130 * i), 100);
+			p.text(h[i].getName(), 160 + (120 * i), 100);
+			p.stroke(255);
+			p.line(140 + (120*i), 5*20, 140 + (120*i), 7*20);
 			human[0] = h[i];
-
-			this.draw(120 + (130 * i), 100 + (90), h[i], sDay, 5f);
+			for(int j= 0; j< aDay.length; j++){
+				System.out.println(aDay[j]);
+				this.draw(190 + (120 * i), 160 + (80*j), h[i], aDay[j], 9f);
+			}
 		}
 
 	}
