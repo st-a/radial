@@ -7,7 +7,7 @@ public class Application extends PApplet {
 	String[] sHuman = { "Hannes" };
 	String sDay = "Montag";
 	Human[] aHuman;
-	String[] aDay;
+	String[] aDay = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
 
 	PFont interfaceHealines = createFont("../src/typo/OpenSans-Regular.ttf", 18);
 	PFont legendenText = createFont("../src/typo/OpenSans-Light.ttf", 12);
@@ -95,7 +95,7 @@ public class Application extends PApplet {
 				this.webViz = new Diagramm(this, 40, 40, distance, d, 1,
 						this.legendenText);
 				if (this.styleBtn.getItem(1).getState()) {
-					webViz.drawMatrix(aHuman, sDay);
+					webViz.drawMatrix(aHuman, aDay);
 				} else if (aHuman.length > 1) {
 					webViz.draw(350, 380, aHuman, sDay, 1.2f);
 				} else
