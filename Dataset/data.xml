@@ -282,7 +282,7 @@
 		<activity>
 			<begin>Informatik Fakultät</begin>
 			<beginTime hour="17" minutes="55"></beginTime>
-			<end>>Home</end>
+			<end>Home</end>
 			<endTime hour="18" minutes="6"></endTime>
 			<category>Home</category>
 			<transport>zu Fuß</transport>
