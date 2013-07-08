@@ -3,30 +3,558 @@
 <person name="Albert">	
 	<tag name="Montag">
 		<activity>
+			<begin>Home</begin>
+			<beginTime hour="10" minutes="42"></beginTime>
+			<end>TU Zeunerbau</end>
+			<endTime hour="11" minutes="07"></endTime>
+			<category>Uni</category>
+			<transport>Fahrrad</transport>
+			<duration>25</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>TU Zeunerbau</begin>
+			<beginTime hour="12" minutes="48"></beginTime>
+			<end>TU Informatik</end>
+			<endTime hour="12" minutes="53"></endTime>
+			<category>Uni</category>
+			<transport>Fahrrad</transport>
+			<duration>5</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>TU Informatik</begin>
+			<beginTime hour="13" minutes="56"></beginTime>
+			<end>Mensa Momsenstraße</end>
+			<endTime hour="14" minutes="00"></endTime>
+			<category>Uni</category>
+			<transport>zu Fuß</transport>
+			<duration>4</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Mensa Momsenstraße</begin>
+			<beginTime hour="14" minutes="18"></beginTime>
+			<end>TU Informatik</end>
+			<endTime hour="14" minutes="24"></endTime>
+			<category>Uni</category>
+			<transport>zu Fuß</transport>
+			<duration>6</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>TU Informatik</begin>
+			<beginTime hour="18" minutes="25"></beginTime>
+			<end>Pfennigpfeiffer Pfotenhauerstraße</end>
+			<endTime hour="18" minutes="43"></endTime>
+			<category>Home</category>
+			<transport>Fahrrad</transport>
+			<duration>18</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Pfennigpfeiffer Pfotenhauerstraße</begin>
+			<beginTime hour="19" minutes="04"></beginTime>
+			<end>Home</end>
+			<endTime hour="19" minutes="07"></endTime>
+			<category>Home</category>
+			<transport>Fahrrad</transport>
+			<duration>3</duration>
+			<distance></distance>
 		</activity>
 	</tag>
 	
 	<tag name="Dienstag">
 		<activity>
+			<begin>Home</begin>
+			<beginTime hour="06" minutes="29"></beginTime>
+			<end>Bushaltestelle Neubertstraße</end>
+			<endTime hour="06" minutes="32"></endTime>
+			<category>Uni</category>
+			<transport>zu Fuß</transport>
+			<duration>03</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Bushaltestelle Neubertstraße</begin>
+			<beginTime hour="06" minutes="37"></beginTime>
+			<end>Bushaltestelle Budapester Straße</end>
+			<endTime hour="06" minutes="56"></endTime>
+			<category>Uni</category>
+			<transport>Bus</transport>
+			<duration>19</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Bushaltestelle Budapester Straße</begin>
+			<beginTime hour="06" minutes="56"></beginTime>
+			<end>Bushaltestelle Budapester Straße</end>
+			<endTime hour="06" minutes="57"></endTime>
+			<category>Uni</category>
+			<transport>zu Fuß</transport>
+			<duration>1</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Bushaltestelle Budapester Straße</begin>
+			<beginTime hour="06" minutes="58"></beginTime>
+			<end>Bushaltestelle Fritz-Förster-Platz</end>
+			<endTime hour="07" minutes="03"></endTime>
+			<category>Uni</category>
+			<transport>Bus</transport>
+			<duration>5</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Bushaltestelle Fritz-Förster-Platz</begin>
+			<beginTime hour="07" minutes="03"></beginTime>
+			<end>TU HSZ</end>
+			<endTime hour="07" minutes="08"></endTime>
+			<category>Uni</category>
+			<transport>zu Fuß</transport>
+			<duration>5</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>TU HSZ</begin>
+			<beginTime hour="07" minutes="15"></beginTime>
+			<end>TU Willersbau</end>
+			<endTime hour="07" minutes="21"></endTime>
+			<category>Uni</category>
+			<transport>zu Fuß</transport>
+			<duration>6</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>TU Willersbau</begin>
+			<beginTime hour="09" minutes="16"></beginTime>
+			<end>TU HSZ</end>
+			<endTime hour="09" minutes="20"></endTime>
+			<category>Uni</category>
+			<transport>zu Fuß</transport>
+			<duration>4</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>TU HSZ</begin>
+			<beginTime hour="09" minutes="25"></beginTime>
+			<end>TU Informatik</end>
+			<endTime hour="09" minutes="32"></endTime>
+			<category>Uni</category>
+			<transport>zu Fuß</transport>
+			<duration>7</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>TU Informatik</begin>
+			<beginTime hour="11" minutes="07"></beginTime>
+			<end>Mensa Momsenstraße</end>
+			<endTime hour="11" minutes="11"></endTime>
+			<category>Uni</category>
+			<transport>zu Fuß</transport>
+			<duration>4</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Mensa Momsenstraße</begin>
+			<beginTime hour="12" minutes="44"></beginTime>
+			<end>Bushaltestelle Fritz-Förster-Platz</end>
+			<endTime hour="12" minutes="53"></endTime>
+			<category>Uni</category>
+			<transport>zu Fuß</transport>
+			<duration>9</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Bushaltestelle Fritz-Förster-Platz</begin>
+			<beginTime hour="12" minutes="56"></beginTime>
+			<end>Bushaltestelle Wasaplatz</end>
+			<endTime hour="13" minutes="03"></endTime>
+			<category>Uni</category>
+			<transport>Bus</transport>
+			<duration>7</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Bushaltestelle Wasaplatz</begin>
+			<beginTime hour="13" minutes="03"></beginTime>
+			<end>TU August-Bebel-Straße</end>
+			<endTime hour="13" minutes="12"></endTime>
+			<category>Uni</category>
+			<transport>zu Fuß</transport>
+			<duration>9</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>TU August-Bebel-Straße</begin>
+			<beginTime hour="15" minutes="18"></beginTime>
+			<end>Straßenbahnhaltestelle Julius-Otto-Straße</end>
+			<endTime hour="15" minutes="26"></endTime>
+			<category>Home</category>
+			<transport>zu Fuß</transport>
+			<duration>8</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Straßenbahnhaltestelle Julius-Otto-Straße</begin>
+			<beginTime hour="15" minutes="26"></beginTime>
+			<end>Straßenbahnhaltestelle Sankt-Benno-Gymnasium</end>
+			<endTime hour="15" minutes="34"></endTime>
+			<category>Home</category>
+			<transport>Straßenbahn</transport>
+			<duration>8</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Straßenbahnhaltestelle Sankt-Benno-Gymnasium</begin>
+			<beginTime hour="15" minutes="34"></beginTime>
+			<end>Bushaltestelle Sankt-Benno-Gymnasium</end>
+			<endTime hour="15" minutes="36"></endTime>
+			<category>Home</category>
+			<transport>zu Fuß</transport>
+			<duration>2</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Bushaltestelle Sankt-Benno-Gymnasium</begin>
+			<beginTime hour="15" minutes="44"></beginTime>
+			<end>Bushaltestelle Böhnischplatz</end>
+			<endTime hour="15" minutes="48"></endTime>
+			<category>Home</category>
+			<transport>Bus</transport>
+			<duration>4</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Bushaltestelle Böhnischplatz</begin>
+			<beginTime hour="15" minutes="48"></beginTime>
+			<end>Konsum Pfotenhauerstraße</end>
+			<endTime hour="15" minutes="50"></endTime>
+			<category>Home</category>
+			<transport>zu Fuß</transport>
+			<duration>2</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Konsum Pfotenhauerstraße</begin>
+			<beginTime hour="16" minutes="06"></beginTime>
+			<end>Home</end>
+			<endTime hour="16" minutes="15"></endTime>
+			<category>Home</category>
+			<transport>zu Fuß</transport>
+			<duration>9</duration>
+			<distance></distance>
 		</activity>
 	</tag>
 	
 	<tag name="Mittwoch">
 		<activity>
+			<begin>Home</begin>
+			<beginTime hour="07" minutes="44"></beginTime>
+			<end>Bushaltestelle Neubertstraße</end>
+			<endTime hour="07" minutes="48"></endTime>
+			<category>Work</category>
+			<transport>zu Fuß</transport>
+			<duration>4</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Bushaltestelle Neubertstraße</begin>
+			<beginTime hour="07" minutes="48"></beginTime>
+			<end>Bushaltestelle Chemnitzer Straße</end>
+			<endTime hour="08" minutes="08"></endTime>
+			<category>Work</category>
+			<transport>Bus</transport>
+			<duration>20</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Bushaltestelle Chemnitzer Straße</begin>
+			<beginTime hour="08" minutes="08"></beginTime>
+			<end>Bushaltestelle Chemnitzer Straße</end>
+			<endTime hour="08" minutes="10"></endTime>
+			<category>Work</category>
+			<transport>zu Fuß</transport>
+			<duration>2</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Bushaltestelle Chemnitzer Straße</begin>
+			<beginTime hour="08" minutes="21"></beginTime>
+			<end>Bushaltestelle Kesselsdorf Wüsteberg</end>
+			<endTime hour="08" minutes="43"></endTime>
+			<category>Work</category>
+			<transport>Bus</transport>
+			<duration>22</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Bushaltestelle Kesselsdorf Wüsteberg</begin>
+			<beginTime hour="08" minutes="43"></beginTime>
+			<end>Doble Lemke GmbH</end>
+			<endTime hour="08" minutes="58"></endTime>
+			<category>Work</category>
+			<transport>zu Fuß</transport>
+			<duration>15</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Doble Lemke GmbH</begin>
+			<beginTime hour="15" minutes="34"></beginTime>
+			<end>Bushaltestelle Kesselsdorf Frankenring</end>
+			<endTime hour="15" minutes="39"></endTime>
+			<category>Uni</category>
+			<transport>zu Fuß</transport>
+			<duration>5</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Bushaltestelle Kesselsdorf Frankenring</begin>
+			<beginTime hour="15" minutes="42"></beginTime>
+			<end>Bushaltestelle Hauptbahnhof</end>
+			<endTime hour="16" minutes="13"></endTime>
+			<category>Uni</category>
+			<transport>Bus</transport>
+			<duration>31</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Bushaltestelle Hauptbahnhof</begin>
+			<beginTime hour="16" minutes="13"></beginTime>
+			<end>Robotoron Bürohaus Lingnerstadt</end>
+			<endTime hour="16" minutes="31"></endTime>
+			<category>Uni</category>
+			<transport>zu Fuß</transport>
+			<duration>18</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Robotron Bürohaus Lingnerstadt</begin>
+			<beginTime hour="18" minutes="40"></beginTime>
+			<end>Haltestelle Pirnaischer Platz</end>
+			<endTime hour="18" minutes="44"></endTime>
+			<category>Home</category>
+			<transport>zu Fuß</transport>
+			<duration>4</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Haltestelle Pirnaischer Platz</begin>
+			<beginTime hour="18" minutes="52"></beginTime>
+			<end>Bushaltestelle Gutenbergstraße</end>
+			<endTime hour="19" minutes="00"></endTime>
+			<category>Home</category>
+			<transport>Bus</transport>
+			<duration>8</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Bushaltestelle Gutenbergstraße</begin>
+			<beginTime hour="19" minutes="00"></beginTime>
+			<end>Home</end>
+			<endTime hour="19" minutes="04"></endTime>
+			<category>Home</category>
+			<transport>zu Fuß</transport>
+			<duration>4</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Home</begin>
+			<beginTime hour="19" minutes="49"></beginTime>
+			<end>Motorenhalle</end>
+			<endTime hour="20" minutes="05"></endTime>
+			<category>Freizeit</category>
+			<transport>Fahrrad</transport>
+			<duration>16</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Motorenhalle</begin>
+			<beginTime hour="22" minutes="34"></beginTime>
+			<end>Home</end>
+			<endTime hour="22" minutes="58"></endTime>
+			<category>Home</category>
+			<transport>Fahrrad</transport>
+			<duration>24</duration>
+			<distance></distance>
 		</activity>
 	</tag>
 	<tag name="Donnerstag">
 		<activity>
+			<begin>Home</begin>
+			<beginTime hour="09" minutes="41"></beginTime>
+			<end>TU Informatik</end>
+			<endTime hour="09" minutes="59"></endTime>
+			<category>Uni</category>
+			<transport>Fahrrad</transport>
+			<duration>18</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>TU Informatik</begin>
+			<beginTime hour="12" minutes="50"></beginTime>
+			<end>Mensa Momsenstraße</end>
+			<endTime hour="12" minutes="54"></endTime>
+			<category>Uni</category>
+			<transport>Fahrrad</transport>
+			<duration>4</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Mensa Momsenstraße</begin>
+			<beginTime hour="13" minutes="18"></beginTime>
+			<end>HTW Zentralgebäude</end>
+			<endTime hour="13" minutes="28"></endTime>
+			<category>Uni</category>
+			<transport>Fahrrad</transport>
+			<duration>10</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>HTW Zentralgebäude</begin>
+			<beginTime hour="14" minutes="21"></beginTime>
+			<end>Robotron Bürohaus Lingnerstadt</end>
+			<endTime hour="14" minutes="33"></endTime>
+			<category>Uni</category>
+			<transport>Fahrrad</transport>
+			<duration>12</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Robotron Bürohaus Lingnerstadt</begin>
+			<beginTime hour="16" minutes="30"></beginTime>
+			<end>Home</end>
+			<endTime hour="16" minutes="47"></endTime>
+			<category>Home</category>
+			<transport>Fahrrad</transport>
+			<duration>17</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Home</begin>
+			<beginTime hour="17" minutes="03"></beginTime>
+			<end>USV Rudern Bootshaus</end>
+			<endTime hour="17" minutes="17"></endTime>
+			<category>Freizeit</category>
+			<transport>Fahrrad</transport>
+			<duration>14</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>USV Rudern Bootshaus</begin>
+			<beginTime hour="23" minutes="22"></beginTime>
+			<end>Home</end>
+			<endTime hour="23" minutes="39"></endTime>
+			<category>Home</category>
+			<transport>Fahrrad</transport>
+			<duration>17</duration>
+			<distance></distance>
 		</activity>
 	</tag>
 	
 	<tag name="Freitag">
 		<activity>
+			<begin>Home</begin>
+			<beginTime hour="09" minutes="36"></beginTime>
+			<end>TU Informatik</end>
+			<endTime hour="09" minutes="58"></endTime>
+			<category>Uni</category>
+			<transport>Fahrrad</transport>
+			<duration>22</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>TU Informatik</begin>
+			<beginTime hour="12" minutes="36"></beginTime>
+			<end>Mensa Momsenstraße</end>
+			<endTime hour="12" minutes="41"></endTime>
+			<category>Uni</category>
+			<transport>zu Fuß</transport>
+			<duration>5</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Mensa Momsenstraße</begin>
+			<beginTime hour="13" minutes="34"></beginTime>
+			<end>Stadthistorisches Museum</end>
+			<endTime hour="13" minutes="48"></endTime>
+			<category>Uni</category>
+			<transport>Fahrrad</transport>
+			<duration>14</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Stadthistorisches Museum</begin>
+			<beginTime hour="16" minutes="25"></beginTime>
+			<end>Home</end>
+			<endTime hour="16" minutes="36"></endTime>
+			<category>Home</category>
+			<transport>Fahrrad</transport>
+			<duration>11</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Home</begin>
+			<beginTime hour="16" minutes="49"></beginTime>
+			<end>USV Rudern Bootshaus</end>
+			<endTime hour="17" minutes="01"></endTime>
+			<category>Freizeit</category>
+			<transport>Fahrrad</transport>
+			<duration>12</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>USV Rudern Bootshaus</begin>
+			<beginTime hour="20" minutes="24"></beginTime>
+			<end>Home</end>
+			<endTime hour="20" minutes="46"></endTime>
+			<category>Home</category>
+			<transport>Fahrrad</transport>
+			<duration>22</duration>
+			<distance></distance>
 		</activity>
 	</tag>
 	
 	<tag name="Samstag">
 		<activity>
+			<begin>Home</begin>
+			<beginTime hour="10" minutes="58"></beginTime>
+			<end>Konsum Pfotenhauerstraße</end>
+			<endTime hour="11" minutes="08"></endTime>
+			<category>Freizeit</category>
+			<transport>zu Fuß</transport>
+			<duration>10</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Konsum Pfotenhauerstraße</begin>
+			<beginTime hour="11" minutes="47"></beginTime>
+			<end>Home</end>
+			<endTime hour="11" minutes="58"></endTime>
+			<category>Home</category>
+			<transport>zu Fuß</transport>
+			<duration>11</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Home</begin>
+			<beginTime hour="16" minutes="06"></beginTime>
+			<end>UFA Kino</end>
+			<endTime hour="19" minutes="20"></endTime>
+			<category>Freizeit</category>
+			<transport>Fahrrad</transport>
+			<duration>14</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>UFA Kino</begin>
+			<beginTime hour="22" minutes="12"></beginTime>
+			<end>Home</end>
+			<endTime hour="22" minutes="34"></endTime>
+			<category>Home</category>
+			<transport>Fahrrad</transport>
+			<duration>22</duration>
+			<distance></distance>
 		</activity>
 	</tag>
 	
@@ -39,6 +567,16 @@
 			<category>Freizeit</category>
 			<transport>Fahrrad</transport>
 			<duration>18</duration>
+			<distance></distance>
+		</activity>
+		<activity>
+			<begin>Schauburg</begin>
+			<beginTime hour="21" minutes="12"></beginTime>
+			<end>Home</end>
+			<endTime hour="21" minutes="28"></endTime>
+			<category>Home</category>
+			<transport>Fahrrad</transport>
+			<duration>16</duration>
 			<distance></distance>
 		</activity>
 	</tag>
