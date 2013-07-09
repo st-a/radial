@@ -223,7 +223,6 @@ public class Diagramm {
 
 		for (int i = 1; i < 25; i++) {
 			for (int j = 0; j < a.length; j++) {
-
 				if (a[j].getEndTime()[0] < i) {
 					if (a[j].catagory.equals("Home")) {
 						line[i] = 0;
@@ -243,6 +242,7 @@ public class Diagramm {
 
 				}
 			}
+			
 		}
 		return line;
 	}
