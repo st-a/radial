@@ -12,10 +12,8 @@ public class sketch extends PApplet {
 	public void setup(){
 		background(42);
 		size(1000,700);
-		persons[0] = "Tom";
-		persons[1] = "Hannes";
-		persons[2] = "Tom";
-		persons[3] = "Hannes"; 
+		persons[0] = "Sophia";
+
 		
 		
 		sketchBundlingEdges sBE= 

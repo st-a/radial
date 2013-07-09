@@ -28,9 +28,6 @@ public class sketchBundlingEdges{
 		setup();
 		draw();
 	}
-	
-	
-	// crap global variables
 
 	public float[] computeDiagrammPositions() {
 		float[] rtrn = new float[4 * 3 + 1];
@@ -66,7 +63,7 @@ public class sketchBundlingEdges{
 
 		ammountOfPersons = 0;
 		
-		for (int i = 0; i < persons.length; i++) {
+		for (int i = 0; i < persons.length; i++) {	
 			if (persons[i] != null) {
 				ammountOfPersons = ammountOfPersons + 1;
 			}
@@ -74,8 +71,7 @@ public class sketchBundlingEdges{
 		
 		if(!matrix&&ammountOfPersons==4){
 			for(int i=0;i<persons.length;i++){
-				persons[i]=null;
-				
+				persons[i]=null;			
 			}
 			persons[0]="all";
 			ammountOfPersons=1;
@@ -86,7 +82,7 @@ public class sketchBundlingEdges{
 		}
 		
 		float[] positions = computeDiagrammPositions();
-
+		
 		for (int i = 0; i < ammountOfPersons; i++) {
 			if (persons[i] != null) {
 				allDiagrams.add(new bundlingEdges(persons[i],

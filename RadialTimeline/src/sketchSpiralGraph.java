@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 import processing.core.PApplet;
 
-public class sketchSpiralGraph{ 
+public class sketchSpiralGraph extends PApplet{ 
 //extends PApplet {
 
 	//private static final long serialVersionUID = 1L;
@@ -116,7 +116,23 @@ public class sketchSpiralGraph{
 			if (!viewAsMatrix && ammountOfPersons>1) {
 				alpha=128;
 				s.setAlpha(alpha);
-				s.setColors(viewAsMatrix,colorsPersons[i],true);
+				///color fuck up 
+				int colorOfFuckingPerson=0;
+				System.out.println(s.person);
+				if(s.person.equals("Tom")){
+					colorOfFuckingPerson = 3;
+				}
+				if(s.person.equals("Albert")){
+					colorOfFuckingPerson = 0;
+				}
+				if(s.person.equals("Hannes")){
+					colorOfFuckingPerson = 1;
+				}
+				if(s.person.equals("Sophia")){
+					colorOfFuckingPerson = 2;
+				}
+				
+				s.setColors(viewAsMatrix,colorsPersons[colorOfFuckingPerson],true);
 			}else{
 				alpha=255;
 				s.setAlpha(alpha);
