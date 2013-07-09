@@ -15,8 +15,8 @@ public class bundlingEdges extends PApplet {
 	public float centerX;
 	public float centerY;
 	public float radius;
-	public float scale;
-	String person;
+	public float scale=1f;
+	String[] person;
 
 	public float circumference;
 	public float alpha;
@@ -42,7 +42,7 @@ public class bundlingEdges extends PApplet {
 	PFont percenteges;
 
 	// constructor
-	bundlingEdges(String Person, float cntrX, float cntrY, float radius,
+	bundlingEdges(String[] Person, float cntrX, float cntrY, float radius,
 			PApplet pa) {
 		this.person = Person;
 		this.centerX = cntrX;
@@ -67,8 +67,7 @@ public class bundlingEdges extends PApplet {
 		freeSpace = (0.1f * circumference) / ammountOfPlaces;
 		freeSpaceInDegrees = (0.1f * 360) / ammountOfPlaces;
 
-		drawBeziers = true;
-		
+		drawBeziers = true;		
 		legend = createFont("../src/typo/OpenSans-Light.ttf", 12);
 
 	}
@@ -88,6 +87,7 @@ public class bundlingEdges extends PApplet {
 	public void setRadius(float rad) {
 		this.radius = rad;
 		scale = rad / 200;
+		densityOfLines = scale*10f;
 	}
 
 	// relevant functions
@@ -266,10 +266,29 @@ public class bundlingEdges extends PApplet {
 		Dataset dtst = new Dataset("../src/Data/data.XML");
 
 		Activity[] allActivities = null;
-		if (person.equals("all")) {
-			allActivities = dtst.getActivities();
+		if (person.length==1) {
+			allActivities = dtst.getPersonActivities(person[0]);
 		} else {
-			allActivities = dtst.getPersonActivities(person);
+			int length = 0;
+			for(int i=0;i<person.length;i++){
+				length = length + dtst.getPersonActivities(person[i]).length;
+			}
+			Activity[] helperArray = new Activity[length];
+			
+			int index = 0;
+				for(int j=0;j<person.length;j++){
+					for(int k=0;k<dtst.getPersonActivities(person[j]).length;k++){
+						helperArray[index] = dtst.getPersonActivities(person[j])[k];
+						index = index +1;
+					}
+				}
+			
+			
+			allActivities = helperArray;
+			
+			for(int i=0;i<allActivities.length;i++){
+				System.out.println(i + allActivities[i].getHuman().name);
+			}
 		}
 
 		// my data set

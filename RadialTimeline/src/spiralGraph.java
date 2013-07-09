@@ -124,6 +124,17 @@ public class spiralGraph extends PApplet {
 	public void setMovements(boolean viewMovements) {
 		this.viewMovements = viewMovements;
 	}
+	
+	public void drawLabel(){
+		pa.strokeWeight(1);
+		pa.stroke(255);
+		pa.line(centerX - radius / 2-40, centerY-radius/2-10, centerX - radius / 2-40,
+				centerY-radius/2+20);
+		//pa.line(centerX-radius, centerY-radius, centerX-radius, centerY-radius+100);
+		pa.textFont(legend);
+		pa.textSize(18f);
+		pa.text(person, centerX-radius/2, centerY-radius/2);
+	}
 
 	// relevant functions
 	public void drawContentArround() {

@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import controlP5.Matrix;
+
 import processing.core.PApplet;
 
 public class sketchSpiralGraph extends PApplet{ 
@@ -52,22 +54,22 @@ public class sketchSpiralGraph extends PApplet{
 		} else {
 
 			if (allGraphs.size() == 1) {
-				rtrn[0] = height / 4 + px;
+				rtrn[0] = height / 4 + px-35;
 				rtrn[1] = height / 4 + py;
-				rtrn[2] = 2 * height / 4 - 25;
+				rtrn[2] = 2 * height / 4;
 			} else {
 				for (int i = 0; i < 2; i++) {
 					rtrn[1 + i * 3] = height / 4 + py;
-					rtrn[0] = height / 4+px;
-					rtrn[2 + i * 3] = 2 * height / 4 - 25;
-					rtrn[3] = 3 * height / 4 + py;
+					rtrn[0] = height / 4+py-35;
+					rtrn[2 + i * 3] = 2 * height / 4;//radius
+					rtrn[3] = 3 * height / 4 + px+35;
 				}
 
 				for (int i = 0; i < 2; i++) {
-					rtrn[6 + 1 + i * 3] = 3 * height / 4 + py;
-					rtrn[6 + 0] = height / 4 + px;
-					rtrn[6 + 2 + i * 3] = 2 * height / 4 - 25;
-					rtrn[6 + 3] = 3 * height / 4 + px;
+					rtrn[6 + 1 + i * 3] = 3 * height / 4 + py+35;
+					rtrn[6 + 0] = height / 4 + px-35;
+					rtrn[6 + 2 + i * 3] = 2 * height / 4 ;//radius
+					rtrn[6 + 3] = 3 * height / 4 + px+35;
 				}
 			}
 		}
@@ -75,11 +77,7 @@ public class sketchSpiralGraph extends PApplet{
 	}
 
 	public void setup() {
-		/////////////////////////
-		//size(width, height);
-		//persons[0] = "Tom";
-		//persons[1] = "Hannes";
-		/////////////////////////
+
 		pa.strokeCap(PApplet.SQUARE);
 		
 		ammountOfPersons = 0;
@@ -153,6 +151,9 @@ public class sketchSpiralGraph extends PApplet{
 			s.drawSpiral();
 			s.drawClock();
 			s.addData();
+			if(viewAsMatrix){
+				s.drawLabel();
+			}
 		}
 	}
 }
