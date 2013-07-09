@@ -69,29 +69,45 @@ public class sketchBundlingEdges{
 			}
 		}
 		
-		if(!matrix&&ammountOfPersons==4){
-			for(int i=0;i<persons.length;i++){
-				persons[i]=null;			
-			}
-			persons[0]="all";
-			ammountOfPersons=1;
-		}
-		
-		if(!matrix&&ammountOfPersons>1){
-			ammountOfPersons=1;
-		}
-		
 		float[] positions = computeDiagrammPositions();
 		
-		for (int i = 0; i < ammountOfPersons; i++) {
-			if (persons[i] != null) {
-				allDiagrams.add(new bundlingEdges(persons[i],
-						positions[1 + 3 * i], positions[2 + 3 * i],
-						positions[3 + 3 * i], pa));
-				allDiagrams.get(i).handleDate();
+		if(matrix){
+			String[] helperArray = new String[1];
+			for (int i = 0; i < ammountOfPersons; i++) {
+				
+				helperArray[0] = persons[i];
+				if (persons[i] != null) {
+					allDiagrams.add(new bundlingEdges(helperArray,
+							positions[1 + 3 * i], positions[2 + 3 * i],
+							positions[3 + 3 * i], pa));
+					allDiagrams.get(i).handleDate();
+				}
+
+			}
+		}else{
+			int length = 0;
+			for(int i=0;i<persons.length;i++){
+				if(persons[i]!= null){
+					length = length + 1;
+				}
+			}
+			String[] helperArray = new String[length];
+
+			int index = 0;
+			for(int i=0;i<persons.length;i++){
+				if(persons[i]!= null){
+					helperArray[index] = persons[i];
+					index = index+1;
+				}
 			}
 
+				allDiagrams.add(new bundlingEdges(helperArray,
+						height/2, height/2,
+						(height - 200) / 2, pa));
+				allDiagrams.get(0).handleDate();		
 		}
+		
+		
 	}
 
 	public void draw() {
