@@ -105,18 +105,25 @@ public class Diagramm {
 		timelines = new Timeline[humans.length];
 		for (int i = 0; i < humans.length; i++) {
 
-			
 			if (humans[i].getName().equals("Albert"))
-				this.timelines[i] = new Timeline(p,this.setLine(humans[i], day), colors[0][0],colors[0][1], colors[0][2], this);
-			
+				this.timelines[i] = new Timeline(p,
+						this.setLine(humans[i], day), colors[0][0],
+						colors[0][1], colors[0][2], this);
+
 			if (humans[i].getName().equals("Hannes"))
-				this.timelines[i] = new Timeline(p,this.setLine(humans[i], day), colors[1][0],colors[1][1], colors[1][2], this);
-			
+				this.timelines[i] = new Timeline(p,
+						this.setLine(humans[i], day), colors[1][0],
+						colors[1][1], colors[1][2], this);
+
 			if (humans[i].getName().equals("Sophia"))
-				this.timelines[i] = new Timeline(p,this.setLine(humans[i], day), colors[2][0],colors[2][1], colors[2][2], this);
-			
+				this.timelines[i] = new Timeline(p,
+						this.setLine(humans[i], day), colors[2][0],
+						colors[2][1], colors[2][2], this);
+
 			if (humans[i].getName().equals("Tom"))
-				this.timelines[i] = new Timeline(p,this.setLine(humans[i], day), colors[3][0],colors[3][1], colors[3][2], this);
+				this.timelines[i] = new Timeline(p,
+						this.setLine(humans[i], day), colors[3][0],
+						colors[3][1], colors[3][2], this);
 
 			if (humans.length > 1)
 				timelines[i].drawLine(150);
@@ -177,17 +184,17 @@ public class Diagramm {
 
 		// fue alle personen
 		for (int i = 0; i < h.length; i++) {
+			for (int j = 0; j < aDay.length; j++) {
+				this.draw(210 + (120 * i), 120 + (85 * j), h[i], aDay[j], 8f);
+			}
+		}
+		for (int j = 0; j < aDay.length; j++) {
 			p.textFont(f, 18);
 			p.textAlign(p.LEFT, p.CENTER);
 			p.fill(255);
-			p.text(h[i].getName(), 160 + (120 * i), 100);
+			p.text(aDay[j], 40, 130 + (85 * j));
 			p.stroke(255);
-			p.line(140 + (120*i), 5*20, 140 + (120*i), 7*20);
-			human[0] = h[i];
-			for(int j= 0; j< aDay.length; j++){
-				System.out.println(aDay[j]);
-				this.draw(190 + (120 * i), 160 + (80*j), h[i], aDay[j], 9f);
-			}
+			p.line(40, 160 + (85 * j), 140, 160 + (85 * j));
 		}
 
 	}

@@ -4,9 +4,9 @@ import controlP5.*;
 public class Application extends PApplet {
 
 	int animationAlpha = 255;
-	String[] sHuman = { "Hannes" };
+	String[] sHuman = { "Albert" };
 	String sDay = "Montag";
-	Human[] aHuman;
+	Human[] aHuman = new Human[1];
 	String[] aDay = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"};
 
 	PFont interfaceHealines = createFont("../src/typo/OpenSans-Regular.ttf", 18);
@@ -18,6 +18,7 @@ public class Application extends PApplet {
 	RadioButton vizBtn;
 	RadioButton styleBtn;
 	CheckBox personCheckb;
+	CheckBox dayCheckb;
 	int myColorBackground = color(0, 0, 0);
 	boolean redraw = true;
 	Dataset d;
@@ -32,7 +33,7 @@ public class Application extends PApplet {
 
 		// Dataset
 		d = new Dataset("../src/data/data.xml");
-		aHuman = d.getPersons();
+		aHuman[0] = d.getPerson("Albert");
 		// control
 		cp5 = new ControlP5(this);
 
@@ -42,6 +43,7 @@ public class Application extends PApplet {
 	public void draw() {
 
 		if (redraw) {
+			this.setControl();
 			textAlign(LEFT, BASELINE);
 			this.drawInterface();
 
@@ -85,7 +87,7 @@ public class Application extends PApplet {
 			}
 
 			if (this.vizBtn.getItem(1).getState()) {
-				spiral = new sketchSpiralGraph(this, 40, 100, 500, 500,
+				spiral = new sketchSpiralGraph(this, 100, 100, 500, 500,
 						this.styleBtn.getItem(1).getState(), true, sHuman);
 			}
 
@@ -97,9 +99,9 @@ public class Application extends PApplet {
 				if (this.styleBtn.getItem(1).getState()) {
 					webViz.drawMatrix(aHuman, aDay);
 				} else if (aHuman.length > 1) {
-					webViz.draw(350, 380, aHuman, sDay, 1.2f);
+					webViz.draw(350, 340, aHuman, sDay, 1.2f);
 				} else
-					webViz.draw(350, 380, aHuman[0], sDay, 1.2f);
+					webViz.draw(350, 340, aHuman[0], sDay, 1.2f);
 			}
 		}
 	}
@@ -125,11 +127,33 @@ public class Application extends PApplet {
 		personCheckb = cp5.addCheckBox("personCheckBox")
 				.setPosition(780, 10 * 20).setColorLabel(color(255))
 				.setSpacingRow(20).setSize(20, 20)
-				.setColorForeground(color(100)).setColorActive(color(255))
+				.setColorForeground(color(100))
 				.setItemsPerRow(2).setColorBackground(color(50))
 				.setSpacingColumn(60).addItem("Albert", 0)
 				.addItem("Hannes", 50).addItem("Sophia", 100)
 				.addItem("Tom", 150);
+		this.personCheckb.getItem(0).setColorActive(color(54, 146, 179));
+		this.personCheckb.getItem(1).setColorActive(color(158, 219, 41));
+		this.personCheckb.getItem(2).setColorActive(color(255, 243, 68));
+		this.personCheckb.getItem(3).setColorActive(color(253, 77, 72));
+		
+		
+		dayCheckb = cp5.addCheckBox("dayCheckBox")
+				.setPosition(780, 17 * 20).setColorLabel(color(255))
+				.setSpacingRow(20).setSize(20, 20)
+				.setColorForeground(color(100)).setColorActive(color(255))
+				.setItemsPerRow(2).setColorBackground(color(50))
+				.setSpacingColumn(60).addItem("Mo", 1)
+				.addItem("Di", 2).addItem("Mi", 3)
+				.addItem("Do", 4).addItem("Fr", 5)
+				.addItem("Sa", 6).addItem("So", 7);
+		this.dayCheckb.getItem(0).setLabel("Montag");
+		this.dayCheckb.getItem(1).setLabel("Dienstag");
+		this.dayCheckb.getItem(2).setLabel("Mittwoch");
+		this.dayCheckb.getItem(3).setLabel("Donnerstag");
+		this.dayCheckb.getItem(4).setLabel("Freitag");
+		this.dayCheckb.getItem(5).setLabel("Samstag");
+		this.dayCheckb.getItem(6).setLabel("Sonntag");
 
 		dayBtn = cp5.addRadioButton("dayRadioButton").setPosition(780, 17 * 20)
 				.setSize(20, 20).setSpacingRow(20)
@@ -168,6 +192,8 @@ public class Application extends PApplet {
 		this.personCheckb.activate(0);
 		this.vizBtn.activate(0);
 		this.styleBtn.activate(0);
+		this.dayCheckb.activateAll();
+		this.dayCheckb.setVisible(false);
 	}
 
 	public void drawInterface() {
@@ -191,18 +217,56 @@ public class Application extends PApplet {
 		this.redraw = false;
 	}
 
-	public void vizRadioButton(int a) {
-		if (a >= 0) {
-			this.redraw = true;
+	public void setControl() {
+		//SPpinnensate
+		if(this.vizBtn.getItem(2).getState() && this.styleBtn.getItem(1).getState()){
+			this.dayBtn.setVisible(false);
+			this.dayCheckb.setVisible(true);
 		}
+		
+		if(this.vizBtn.getItem(2).getState() && this.styleBtn.getItem(0).getState()){
+			this.dayBtn.setVisible(true);
+			this.dayCheckb.setVisible(false);
+		}
+		
+		
+		//SpiralStates
+		if(this.vizBtn.getItem(1).getState() && this.styleBtn.getItem(0).getState()){
+			this.dayBtn.setVisible(true);
+			this.dayCheckb.setVisible(false);
+		}
+		
+		if(this.vizBtn.getItem(1).getState() && this.styleBtn.getItem(1).getState()){
+			this.dayBtn.setVisible(true);
+			this.dayCheckb.setVisible(false);
+		}
+		
+		
+		//BUndlingStates
+		if(this.vizBtn.getItem(0).getState() && this.styleBtn.getItem(0).getState()){
+			this.dayBtn.setVisible(true);
+			this.dayCheckb.setVisible(false);
+		}
+		
+		if(this.vizBtn.getItem(0).getState() && this.styleBtn.getItem(1).getState()){
+			this.dayBtn.setVisible(true);
+			this.dayCheckb.setVisible(false);
+		}
+	}
+	
+	public void vizRadioButton(int a) {
+		if (a < 0) {
+			this.vizBtn.activate(0);		
+		}
+		this.redraw = true;
 	}
 
 	public void dayRadioButton(int a) {
-		if (a >= 0) {
-			this.sDay = this.dayBtn.getItem(a - 1).getName();
-			this.redraw = true;
-		} else
-			this.dayBtn.activate(a - 1);
+		if (a < 0) {
+			this.dayBtn.activate(0);	
+			this.sDay = this.dayBtn.getItem(0).getName();
+		}else this.sDay = this.dayBtn.getItem(a-1).getName();
+		this.redraw = true;	
 	}
 
 	public void personCheckBox(float[] a) {
@@ -211,7 +275,6 @@ public class Application extends PApplet {
 		for (int i = 0; i < 4; i++) {
 			if (this.personCheckb.getItem(i).getState()) {
 				personCount++;
-				this.sHuman[i] = this.personCheckb.getItem(i).getName();
 			}
 		}
 
@@ -222,12 +285,16 @@ public class Application extends PApplet {
 				if (this.personCheckb.getItem(i).getState()) {
 					aHuman[z] = d.getPerson(this.personCheckb.getItem(i)
 							.getName());
+					this.sHuman[z] = this.personCheckb.getItem(i).getName();
 					z++;
 				}
 			}
 		} else {
-			aHuman = d.getPersons();
+			this.aHuman = d.getPersons();
 			this.personCheckb.activateAll();
+			for (int i = 0; i < 4; i++) {
+				this.sHuman[i] = this.personCheckb.getItem(i).getName();
+			}
 		}
 		this.redraw = true;
 	}
@@ -239,4 +306,29 @@ public class Application extends PApplet {
 		this.redraw = true;
 	}
 
+	public void dayCheckBox(float[] a){
+		int dayCount = 0;
+		for (int i = 0; i < 7; i++) {
+			if (this.dayCheckb.getItem(i).getState()) {
+				dayCount++;
+			}
+		}
+
+		if (dayCount > 0) {
+			aDay = new String[dayCount];
+			int z = 0;
+			for (int i = 0; i < 7; i++) {
+				if (this.dayCheckb.getItem(i).getState()) {
+					aDay[z] = this.dayCheckb.getItem(i).getLabel();
+					z++;
+				}
+			}
+		} else {
+			this.dayCheckb.activateAll();
+			for (int i = 0; i < 7; i++) {
+				this.aDay[i] = this.dayCheckb.getItem(i).getLabel();
+			}
+		}
+		this.redraw = true;	
+	}
 }
