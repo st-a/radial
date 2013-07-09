@@ -191,18 +191,14 @@ public class Application extends PApplet {
 		cp5 = new ControlP5(this);
 		  range = cp5.addRange("rangeController")
 		             // disable broadcasting since setRange and setRangeValues will trigger an event
-		             .setBroadcast(false) 
-		             .showTickMarks(true)
-		             .snapToTickMarks(true)
-		       .setSliderMode(Slider.FIX)
-		       .setUpdate(true)
+		             .setBroadcast(false)    
 		             .setPosition(50,50)
 		             .setSize(200,20)
 		             .setHandleSize(20)
 		             .setRange(0,7)
 		             .setRangeValues(0,7)
 		             .setNumberOfTickMarks(7)
-		             .setMin(1)
+		             .snapToTickMarks(true)
 		             // after the initialization we turn broadcast back on again
 		             .setBroadcast(true)
 		             .setColorForeground(color(0,40))
@@ -216,7 +212,6 @@ public class Application extends PApplet {
 		this.styleBtn.activate(0);
 		this.dayCheckb.activateAll();
 		this.dayCheckb.setVisible(false);
-		this.range.setVisible(false);
 	}
 
 	public void drawInterface() {
@@ -354,4 +349,12 @@ public class Application extends PApplet {
 		}
 		this.redraw = true;	
 	}
+	
+	/*void controlEvent(ControlEvent theControlEvent) {
+		  if(theControlEvent.isFrom("rangeController")) {
+		    println("range update, done.");
+		  }
+		  
+		}*/
+	
 }
