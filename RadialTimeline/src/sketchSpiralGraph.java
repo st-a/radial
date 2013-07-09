@@ -114,7 +114,7 @@ public class sketchSpiralGraph extends PApplet{
 			spiralGraph s = allGraphs.get(i);
 			
 			if (!viewAsMatrix && ammountOfPersons>1) {
-				alpha=128;
+				alpha=150;
 				s.setAlpha(alpha);
 				///color fuck up 
 				int colorOfFuckingPerson=0;
