@@ -18,6 +18,7 @@ public class Application extends PApplet {
 	RadioButton vizBtn;
 	RadioButton styleBtn;
 	CheckBox personCheckb;
+	Range range;
 	CheckBox dayCheckb;
 	int myColorBackground = color(0, 0, 0);
 	boolean redraw = true;
@@ -187,6 +188,27 @@ public class Application extends PApplet {
 			t.captionLabel().style().backgroundWidth = 0;
 			t.captionLabel().style().backgroundHeight = 0;
 		}
+		cp5 = new ControlP5(this);
+		  range = cp5.addRange("rangeController")
+		             // disable broadcasting since setRange and setRangeValues will trigger an event
+		             .setBroadcast(false) 
+		             .showTickMarks(true)
+		             .snapToTickMarks(true)
+		       .setSliderMode(Slider.FIX)
+		       .setUpdate(true)
+		             .setPosition(50,50)
+		             .setSize(200,20)
+		             .setHandleSize(20)
+		             .setRange(0,7)
+		             .setRangeValues(0,7)
+		             .setNumberOfTickMarks(7)
+		             .setMin(1)
+		             // after the initialization we turn broadcast back on again
+		             .setBroadcast(true)
+		             .setColorForeground(color(0,40))
+		             .setColorBackground(color(255,40))  
+		             ;
+		
 
 		this.dayBtn.activate(0);
 		this.personCheckb.activate(0);
@@ -194,6 +216,7 @@ public class Application extends PApplet {
 		this.styleBtn.activate(0);
 		this.dayCheckb.activateAll();
 		this.dayCheckb.setVisible(false);
+		this.range.setVisible(false);
 	}
 
 	public void drawInterface() {
@@ -256,7 +279,7 @@ public class Application extends PApplet {
 	
 	public void vizRadioButton(int a) {
 		if (a < 0) {
-			this.vizBtn.activate(0);		
+			this.vizBtn.activate(0);
 		}
 		this.redraw = true;
 	}
