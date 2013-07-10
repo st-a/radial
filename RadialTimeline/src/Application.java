@@ -9,8 +9,6 @@ public class Application extends PApplet {
 	Human[] aHuman = new Human[1];
 	String[] aDay = { "Montag", "Dienstag", "Mittwoch", "Donnerstag",
 			"Freitag", "Samstag", "Sonntag" };
-	String[] cutedDay = { "Montag", "Dienstag", "Mittwoch", "Donnerstag",
-			"Freitag", "Samstag", "Sonntag" };
 
 	PFont interfaceHealines = createFont("../src/typo/OpenSans-Regular.ttf", 18);
 	PFont legendenText = createFont("../src/typo/OpenSans-Light.ttf", 12);
