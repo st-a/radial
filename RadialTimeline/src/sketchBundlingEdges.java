@@ -11,7 +11,7 @@ public class sketchBundlingEdges{
 	public int py = 0;
 	public boolean matrix;
 	public int ammountOfPersons = 0;
-	public String[] persons = new String[5];
+	public String[] persons;
 	ArrayList<bundlingEdges> allDiagrams = new ArrayList<bundlingEdges>();
 
 	// constructor
@@ -39,14 +39,14 @@ public class sketchBundlingEdges{
 			
 		} else {
 			for (int j = 0; j < 2; j++) {
-				rtrn[1] = height / 4 + 10;
+				rtrn[1] = height / 4 - 10;
 				rtrn[2] = height / 4;
 				rtrn[3 * (j + 1)] = (height - 200) / 4;
 				rtrn[4] = 3 * height / 4;
 				rtrn[5] = height / 4;
 			}
 			for (int j = 0; j < 2; j++) {
-				rtrn[7] = height / 4 + 10;
+				rtrn[7] = height / 4 - 10;
 				rtrn[8] = 3 * height / 4;
 				rtrn[9 + j * 3] = (height - 200) / 4;
 				rtrn[10] = 3 * height / 4;
@@ -129,6 +129,11 @@ public class sketchBundlingEdges{
 			b.drawArcsnArrows();
 			
 			b.drawContentArround();
+			if(matrix){
+				if(persons[i]!=null){
+					b.drawLabels(persons[i]);
+				}
+			}
 		}
 	}
 }
