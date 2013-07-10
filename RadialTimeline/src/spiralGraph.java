@@ -11,14 +11,16 @@ public class spiralGraph extends PApplet {
 	public float height = 600;
 	public float centerX = height / 2;
 	public float centerY = height / 2;
-	public float radius = (height - 50); // this is obviously crap but i cant refactor it
-	public float scale; 
+	public float radius = (height - 50); // this is obviously crap but i cant
+											// refactor it
+	public float scale;
 
 	public float circumference = 2 * PI * radius;
 
 	public int[] RangeOfdays;
 	public float days = 7 + 1; // the '+1' is added to make sure, ther's
 								// enough white space in the middle
+	public int ammountOfDays = 0;
 	public String person;
 
 	public helperForSpiralGraph helper = null;
@@ -58,6 +60,8 @@ public class spiralGraph extends PApplet {
 		this.height = radius + 50;
 		this.person = person;
 		this.scale = height / 600;
+		this.RangeOfdays = RangeOfdays;
+		this.ammountOfDays = RangeOfdays[1] - RangeOfdays[0];
 
 		helper = new helperForSpiralGraph(scale, radius, centerX, centerY, days);
 		legend = createFont("../src/typo/OpenSans-Light.ttf", 12);
@@ -96,8 +100,9 @@ public class spiralGraph extends PApplet {
 		this.alpha = a;
 	}
 
-	public void setColors(boolean viewAsMatrix, int[] colors,boolean moreThanOne) {
-		if (!viewAsMatrix&&moreThanOne) {
+	public void setColors(boolean viewAsMatrix, int[] colors,
+			boolean moreThanOne) {
+		if (!viewAsMatrix && moreThanOne) {
 			byFeet = color(colors[0], colors[1], colors[2], alpha);
 			byCar = color(colors[0], colors[1], colors[2], alpha);
 			byTram = color(colors[0], colors[1], colors[2], alpha);
@@ -125,16 +130,17 @@ public class spiralGraph extends PApplet {
 	public void setMovements(boolean viewMovements) {
 		this.viewMovements = viewMovements;
 	}
-	
-	public void drawLabel(){
+
+	public void drawLabel() {
 		pa.strokeWeight(1);
 		pa.stroke(255);
-		pa.line(centerX - radius / 2-40, centerY-radius/2-10, centerX - radius / 2-40,
-				centerY-radius/2+20);
-		//pa.line(centerX-radius, centerY-radius, centerX-radius, centerY-radius+100);
+		pa.line(centerX - radius / 2 - 40, centerY - radius / 2 - 10, centerX
+				- radius / 2 - 40, centerY - radius / 2 + 20);
+		// pa.line(centerX-radius, centerY-radius, centerX-radius,
+		// centerY-radius+100);
 		pa.textFont(legend);
 		pa.textSize(18f);
-		pa.text(person, centerX-radius/2, centerY-radius/2);
+		pa.text(person, centerX - radius / 2, centerY - radius / 2);
 	}
 
 	// relevant functions
@@ -242,7 +248,6 @@ public class spiralGraph extends PApplet {
 
 		pa.rectMode(CENTER);
 		pa.textFont(legend);
-		
 
 		for (int i = 0; i < 12; i++) {
 			float[] xy = { centerX, centerY };
@@ -255,8 +260,8 @@ public class spiralGraph extends PApplet {
 			pa.rect(pos[0], pos[1], scale * 1f, scale * 5f);
 			pa.popMatrix();
 		}
-		pa.textAlign(PApplet.CENTER,PApplet.CENTER);
-		pa.textSize(12f*scale);
+		pa.textAlign(PApplet.CENTER, PApplet.CENTER);
+		pa.textSize(12f * scale);
 		pa.fill(255);
 		pa.text("0", centerX, centerY - scale * 35f);
 		pa.text("12", centerX, centerY + scale * 35f);
@@ -568,14 +573,19 @@ public class spiralGraph extends PApplet {
 						percentagesOfTransports[0] += act.duration;
 					}
 
-					addTimeSlot(timeSlotColor, day, start, dur);
+					if (day >= RangeOfdays[0] && day <= RangeOfdays[1]) {
+						addTimeSlot(timeSlotColor, day, start, dur);
+					}
 
 				}
 			}
 		} else {
 			// draws places not movements
-			addTimeSlot(home, 1, 0, allActivities[0].bTime[0] * 60
-					+ allActivities[0].bTime[1]);
+			if (1 >= RangeOfdays[0] && 1 <= RangeOfdays[1]) {
+
+				addTimeSlot(home, 1, 0, allActivities[0].bTime[0] * 60
+						+ allActivities[0].bTime[1]);
+			}
 			boolean dontdraw = false;
 			boolean dirtyhackdrawnonce = false;
 
@@ -593,7 +603,9 @@ public class spiralGraph extends PApplet {
 						// Y U NO WORK ON THURSDAY?
 						// TODO FUK U
 						if (!dirtyhackdrawnonce) {
-							addTimeSlot(home, 4, 0, 1440);
+							if (4 >= RangeOfdays[0] && 4 <= RangeOfdays[1]) {
+								addTimeSlot(home, 4, 0, 1440);
+							}
 							dirtyhackdrawnonce = true;
 						}
 						dontdraw = true;
@@ -665,10 +677,16 @@ public class spiralGraph extends PApplet {
 					}
 
 					if (!dontdraw) {
-						addTimeSlot(timeSlotColor, day, start, dur);
+						if (day >= RangeOfdays[0] && day <= RangeOfdays[1]) {
+							addTimeSlot(timeSlotColor, day, start, dur);
+						}
 
 						if (overLength) {
-							addTimeSlot(timeSlotColor, day + 1, 0, durAdvanced);
+							if (day + 1 >= RangeOfdays[0]
+									&& day + 1 <= RangeOfdays[1]) {
+								addTimeSlot(timeSlotColor, day + 1, 0,
+										durAdvanced);
+							}
 							durAdvanced = 0;
 							overLength = false;
 						}
@@ -689,6 +707,3 @@ public class spiralGraph extends PApplet {
 		}
 	}
 }
-
-
-
