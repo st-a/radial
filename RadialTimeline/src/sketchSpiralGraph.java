@@ -18,12 +18,14 @@ public class sketchSpiralGraph extends PApplet{
 	public boolean viewAsMatrix = false;
 	public boolean viewMovements = false;
 	public String[] persons = new String[5];
+	public int[] rangeOfDays = new int[2];
 	public int ammountOfPersons;
 	public ArrayList<spiralGraph> allGraphs = new ArrayList<spiralGraph>();
 	public int[][] colorsPersons = {{54, 146, 179},{158, 219, 41},{255, 243, 68},{253, 77, 72}};
 
 	sketchSpiralGraph(PApplet pa,int px,int py,int width, int height,
-			boolean viewAsMatrix, boolean viewMovements, String[] persons) {
+			boolean viewAsMatrix, boolean viewMovements, String[] persons,
+			int[] days) {
 		this.pa = pa;
 		this.px = px;
 		this.py = py;
@@ -32,6 +34,7 @@ public class sketchSpiralGraph extends PApplet{
 		this.viewAsMatrix = viewAsMatrix;
 		this.viewMovements = viewMovements;
 		this.persons = persons;
+		this.rangeOfDays = days;
 		setup();
 		draw();
 	}
@@ -94,7 +97,7 @@ public class sketchSpiralGraph extends PApplet{
 				allGraphs.add(
 						new spiralGraph(pa,positions[2 + 3 * i],
 								positions[0 + 3 * i],positions[0 + 3 * i],
-								persons[i]));
+								persons[i],rangeOfDays));
 			}
 
 		}

@@ -16,6 +16,7 @@ public class spiralGraph extends PApplet {
 
 	public float circumference = 2 * PI * radius;
 
+	public int[] RangeOfdays;
 	public float days = 7 + 1; // the '+1' is added to make sure, ther's
 								// enough white space in the middle
 	public String person;
@@ -48,7 +49,7 @@ public class spiralGraph extends PApplet {
 
 	// constructor
 	spiralGraph(PApplet pa, float centerX, float centerY, float radius,
-			String person) {
+			String person, int[] RangeOfdays) {
 		this.pa = pa;
 		this.centerX = centerX;
 		this.centerY = centerY;

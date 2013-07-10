@@ -64,10 +64,14 @@ public class Application extends PApplet {
 			}
 
 			// Spiral
+			int[] rangeOfDays = new int[2];
+			rangeOfDays[0] = 1;
+			rangeOfDays[1] = 7;  
+			
 			if (this.vizBtn.getItem(1).getState()) {
 				spiral = new sketchSpiralGraph(this, 100, 100, 500, 500,
 						this.styleBtn.getItem(1).getState(), this.viewBtn
-								.getItem(0).getState(), sHuman);
+								.getItem(0).getState(), sHuman,rangeOfDays);
 			}
 
 			// Spiderweb
