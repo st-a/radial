@@ -15,8 +15,8 @@ public class bundlingEdges extends PApplet {
 	public float centerX;
 	public float centerY;
 	public float radius;
-	public float scale=1f;
-	String[] person;
+	public float scale = 1f;
+	public String[] person;
 
 	public float circumference;
 	public float alpha;
@@ -67,7 +67,7 @@ public class bundlingEdges extends PApplet {
 		freeSpace = (0.1f * circumference) / ammountOfPlaces;
 		freeSpaceInDegrees = (0.1f * 360) / ammountOfPlaces;
 
-		drawBeziers = true;		
+		drawBeziers = true;
 		legend = createFont("../src/typo/OpenSans-Light.ttf", 12);
 
 	}
@@ -87,7 +87,7 @@ public class bundlingEdges extends PApplet {
 	public void setRadius(float rad) {
 		this.radius = rad;
 		scale = rad / 200;
-		densityOfLines = scale*10f;
+		densityOfLines = scale * 10f;
 	}
 
 	// relevant functions
@@ -105,15 +105,27 @@ public class bundlingEdges extends PApplet {
 			String prcntg = helper.formatPercentage(lclprc);
 
 			// percentages in the graph
-			//percenteges = createFont("Dialog.plain", 12 * scale + 15 * lclprc
-			//		/ 100);
+			// percenteges = createFont("Dialog.plain", 12 * scale + 15 * lclprc
+			// / 100);
 			pa.textFont(legend);
 
-			pa.textSize(12 * scale + 15 * lclprc/ 100);
+			pa.textSize(12 * scale + 15 * lclprc / 100);
 			float[] percPos = helper.degreesToXnY(places.get(i).middle, radius
 					+ scale * 70f - 30f * 1 / lclprc);
 			pa.text(prcntg, percPos[0] - 20, percPos[1]);
 		}
+	}
+
+	public void drawLabels(String pers) {
+		pa.strokeWeight(1);
+		pa.stroke(255);
+		pa.line(centerX - radius - 50, centerY - radius - 20, centerX - radius
+				- 50, centerY - radius);
+		// pa.line(centerX-radius, centerY-radius, centerX-radius,
+		// centerY-radius+100);
+		pa.textFont(legend);
+		pa.textSize(14f);
+		pa.text(pers, centerX - radius-45, centerY - radius-5);
 	}
 
 	public void drawElipse(bundlingEdges be) {
@@ -200,12 +212,12 @@ public class bundlingEdges extends PApplet {
 
 			float minValue = 0f;
 
-			if(radius<=100){
+			if (radius <= 100) {
 				minValue = 4f;
-			}else{
+			} else {
 				minValue = 8f;
 			}
-			
+
 			// (places.get(i).lenght / 2) / 360f * scale
 			// * circumference;
 
@@ -217,7 +229,7 @@ public class bundlingEdges extends PApplet {
 			pa.translate(-arrowPosOut[0], -arrowPosOut[1]);
 			pa.fill(100);
 			triangleArrow arrow1 = new triangleArrow(arrowPosOut, minValue);
-			
+
 			pa.triangle(arrow1.p0[0], arrow1.p0[1], arrow1.p1[0], arrow1.p1[1],
 					arrow1.p2[0], arrow1.p2[1]);
 			pa.popMatrix();
@@ -266,27 +278,26 @@ public class bundlingEdges extends PApplet {
 		Dataset dtst = new Dataset("../src/Data/data.XML");
 
 		Activity[] allActivities = null;
-		if (person.length==1) {
+		if (person.length == 1) {
 			allActivities = dtst.getPersonActivities(person[0]);
 		} else {
 			int length = 0;
-			for(int i=0;i<person.length;i++){
+			for (int i = 0; i < person.length; i++) {
 				length = length + dtst.getPersonActivities(person[i]).length;
 			}
 			Activity[] helperArray = new Activity[length];
-			
+
 			int index = 0;
-				for(int j=0;j<person.length;j++){
-					for(int k=0;k<dtst.getPersonActivities(person[j]).length;k++){
-						helperArray[index] = dtst.getPersonActivities(person[j])[k];
-						index = index +1;
-					}
+			for (int j = 0; j < person.length; j++) {
+				for (int k = 0; k < dtst.getPersonActivities(person[j]).length; k++) {
+					helperArray[index] = dtst.getPersonActivities(person[j])[k];
+					index = index + 1;
 				}
-			
-			
+			}
+
 			allActivities = helperArray;
-			
-			for(int i=0;i<allActivities.length;i++){
+
+			for (int i = 0; i < allActivities.length; i++) {
 				System.out.println(i + allActivities[i].getHuman().name);
 			}
 		}
