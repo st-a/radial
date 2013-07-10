@@ -9,6 +9,13 @@ public class Application extends PApplet {
 	Human[] aHuman = new Human[1];
 	String[] aDay = { "Montag", "Dienstag", "Mittwoch", "Donnerstag",
 			"Freitag", "Samstag", "Sonntag" };
+	int[] rangeOfDays = {1,7};
+	PImage bEdgeIcon = loadImage("../src/Icons/bundling.png");
+	PImage spiderIcon = loadImage("../src/Icons/spider.png");
+	PImage spiralIcon = loadImage("../src/Icons/spiral.png");
+	PImage singleIcon = loadImage("../src/Icons/single.png");
+	PImage matrixIcon = loadImage("../src/Icons/matrix.png");
+
 
 	PFont interfaceHealines = createFont("../src/typo/OpenSans-Regular.ttf", 18);
 	PFont legendenText = createFont("../src/typo/OpenSans-Light.ttf", 12);
@@ -62,9 +69,6 @@ public class Application extends PApplet {
 			}
 
 			// Spiral
-			int[] rangeOfDays = new int[2];
-			rangeOfDays[0] = 1;
-			rangeOfDays[1] = 7;  
 			
 			if (this.vizBtn.getItem(1).getState()) {
 				spiral = new sketchSpiralGraph(this, 100, 100, 500, 500,
@@ -94,12 +98,13 @@ public class Application extends PApplet {
 				.setSize(20, 20).setSpacingRow(20)
 				.setColorForeground(color(100)).setColorActive(color(255))
 				.setItemsPerRow(2).setColorBackground(color(50))
-				.setSpacingColumn(60).addItem("Bundling Edges", 1)
+				.setSpacingColumn(60).setSpacingRow(40).addItem("Bundling Edges", 1)
 				.addItem("Spiralgraph", 2).addItem("Spinnedings", 3);
 
 		for (Toggle t : vizBtn.getItems()) {
 			t.captionLabel().setColorBackground(color(20));
 			t.setColorCaptionLabel(color(255));
+			t.setLabelVisible(false);
 			t.captionLabel().style().moveMargin(0, 0, 0, 0);
 			t.captionLabel().style().movePadding(0, 0, 0, 0);
 			t.captionLabel().style().backgroundWidth = 0;
@@ -155,11 +160,12 @@ public class Application extends PApplet {
 				.setPosition(780, 28 * 20).setSize(20, 20).setSpacingRow(20)
 				.setColorForeground(color(100)).setColorActive(color(255))
 				.setItemsPerRow(2).setColorBackground(color(50))
-				.setSpacingColumn(50).addItem("Single", 1).addItem("Matrix", 2);
+				.setSpacingColumn(60).addItem("Single", 1).addItem("Matrix", 2);
 
 		for (Toggle t : styleBtn.getItems()) {
 			t.captionLabel().setColorBackground(color(20));
 			t.setColorCaptionLabel(color(255));
+			t.setLabelVisible(false);
 			t.captionLabel().style().moveMargin(0, 0, 0, 0);
 			t.captionLabel().style().movePadding(0, 0, 0, 0);
 			t.captionLabel().style().backgroundWidth = 0;
@@ -171,7 +177,7 @@ public class Application extends PApplet {
 				// disable broadcasting since setRange and setRangeValues will
 				// trigger an event
 				.setBroadcast(false).setPosition(780, 17 * 20).setSize(180, 20)
-				.setHandleSize(10).setRange(0, 6).setRangeValues(0, 6)
+				.setHandleSize(10).setRange(1, 7).setRangeValues(1, 7)
 				.setNumberOfTickMarks(7).setColorBackground(color(50))
 				.setColorForeground(color(100)).setColorActive(color(255))
 				.setColorCaptionLabel(255).setDecimalPrecision(0)
@@ -205,11 +211,16 @@ public class Application extends PApplet {
 
 	public void drawInterface() {
 		background(42);
+		imageMode(CORNER);
 		fill(35);
 		noStroke();
 		rect(700, 0, 300, 700);
 		fill(255);
-
+		image(this.bEdgeIcon, 810,50);
+		image(this.spiderIcon, 810,110);
+		image(this.spiralIcon, 890,50);
+		image(this.singleIcon, 810,28 * 20);
+		image(this.matrixIcon, 890,28 * 20);
 		textFont(this.interfaceHealines);
 		text("Visualisierungen", 760, 2 * 20);
 		stroke(255);
@@ -356,18 +367,10 @@ public class Application extends PApplet {
 	
 	public void controlEvent(ControlEvent theControlEvent) {
 		if (theControlEvent.isFrom("rangeController")) {
-
-			/*
-			 * this.range.setBroadcast(false);
-			 * this.range.setArrayValue(Math.round(this.range.getArrayValue(0)),
-			 * Math.round(this.range.getArrayValue(1)));
-			 * this.range.setRangeValues
-			 * (Math.round(this.range.getArrayValue(0)),
-			 * Math.round(this.range.getArrayValue(1)));
-			 * this.range.setBroadcast(true);
-			 */
+			rangeOfDays[0] = Math.round(this.range.getArrayValue(0));
+			rangeOfDays[1] = Math.round(this.range.getArrayValue(1));  
+			this.redraw = true;
 		}
-
 	}
 
 }
