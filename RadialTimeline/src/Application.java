@@ -15,7 +15,13 @@ public class Application extends PApplet {
 	PImage spiralIcon = loadImage("../src/Icons/spiral.png");
 	PImage singleIcon = loadImage("../src/Icons/single.png");
 	PImage matrixIcon = loadImage("../src/Icons/matrix.png");
-
+	
+	PImage iconF = loadImage("../src/Icons/iconFreetime.png");
+	PImage iconW = loadImage("../src/Icons/iconWork.png");
+	PImage iconS = loadImage("../src/Icons/iconSocial.png");
+	PImage iconU = loadImage("../src/Icons/iconUni.png");
+	PImage iconH = loadImage("../src/Icons/iconHome.png");
+	PImage[] aIcons = {iconF,iconW,iconS,iconU,iconH};
 
 	PFont interfaceHealines = createFont("../src/typo/OpenSans-Regular.ttf", 18);
 	PFont legendenText = createFont("../src/typo/OpenSans-Light.ttf", 12);
@@ -79,7 +85,7 @@ public class Application extends PApplet {
 			// Spiderweb
 			if (this.vizBtn.getItem(2).getState()) {
 				this.webViz = new Diagramm(this, 40, 40, d, 1,
-						this.legendenText);
+						this.legendenText, this.aIcons);
 				if (this.styleBtn.getItem(1).getState()) {
 					webViz.drawMatrix(aHuman, aDay,this.viewBtn.getItem(0).getState());
 				} else if (aHuman.length > 1) {

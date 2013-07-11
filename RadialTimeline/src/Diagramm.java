@@ -5,6 +5,7 @@ import processing.core.PImage;
 public class Diagramm {
 
 	PApplet p;
+	PImage[] Icons;
 	float posX, posY;
 	float radius = 300;
 	PFont f;
@@ -17,7 +18,7 @@ public class Diagramm {
 	String currentDay = "Montag";
 	Dataset dataset;
 
-	Diagramm(PApplet parent, float x, float y, Dataset data, float s, PFont font) {
+	Diagramm(PApplet parent, float x, float y, Dataset data, float s, PFont font, PImage[] aI) {
 
 		p = parent;
 		posX = x;
@@ -26,6 +27,7 @@ public class Diagramm {
 		radius = radius / scale;
 		dataset = data;
 		f = font;
+		Icons = aI;
 	}
 
 	public void draw(float x, float y, Human[] humans, String day, float s,
@@ -151,6 +153,15 @@ public class Diagramm {
 					this.sinPy(posY, angle, radius), 3 / scale, 3 / scale);
 			angle -= frequency;
 		}
+		
+		//Icons
+		p.fill(255,255,255,150);
+		p.imageMode(p.CENTER);
+		for(int i=0; i<5; i++){
+			p.ellipse(posX,posY-radius-(i*30)/scale, 25 / scale, 25 / scale);
+			p.image(this.Icons[4-i], posX,posY-radius-(i*30)/scale,25 / scale, 25 / scale);
+		}
+		
 
 	}
 

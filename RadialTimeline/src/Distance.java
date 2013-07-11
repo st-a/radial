@@ -99,17 +99,28 @@ public class Distance {
 	public void draw(float x, float y) {
 		int angle = 15;
 		float lastAngle = 0;
+		int fontStart = 5;
 		p.noStroke();
-		p.fill(70);
 		p.ellipseMode(p.CENTER);
 
 		if (this.highest != 0) {
 			for (int i = 0; i < 24; i++) {
+				p.fill(70);
 				float klaus = (this.distance[i] * 390) / this.highest + 210;
 				float diameter = (float) (p.min(p.height, klaus / dia.scale));
 				p.arc(x, y, diameter, diameter, lastAngle,
 						lastAngle + p.radians(angle));
 				lastAngle += p.radians(angle);
+				
+				if(this.distance[i] != 0){
+				float radius = 320 / dia.scale;	
+				p.textFont(this.dia.f, 12 / dia.scale);
+				p.textAlign(p.CENTER, p.CENTER);
+				p.fill(255);
+				p.text(this.distance[i]+"m", dia.cosPx(dia.posX, fontStart, radius), dia.sinPy(dia.posY, fontStart, radius));
+				}
+				p.noFill();
+				fontStart += angle;
 			}
 		}
 
