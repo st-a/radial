@@ -268,4 +268,23 @@ public class Diagramm {
 		}
 		return line;
 	}
+	
+	
+	public void drawLegend(){
+		p.fill(255);
+		p.imageMode(p.CENTER);
+		for(int i=0; i<5; i++){
+			p.ellipse(60+(120*i),660, 25, 25);
+			p.image(this.Icons[4-i], 60+(120*i),660);
+		}
+		p.textFont(f, 12);
+		p.textAlign(p.LEFT, p.CENTER);
+		p.text("Home", 80, 660);
+		p.text("Uni", 200, 660);
+		p.text("Social", 320, 660);
+		p.text("Work", 440, 660);
+		p.text("Freetime", 560, 660);
+		
+	}
+	
 }

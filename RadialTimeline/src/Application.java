@@ -27,6 +27,7 @@ public class Application extends PApplet {
 	PFont legendenText = createFont("../src/typo/OpenSans-Light.ttf", 12);
 	PFont normalText = createFont("../src/typo/OpenSans-Light.ttf", 18);
 	PFont Headlines = createFont("../src/typo/OpenSans-Regular.ttf", 28);
+	String vizLabel = "Bundling Edges";
 	ControlP5 cp5;
 	RadioButton dayBtn;
 	RadioButton vizBtn;
@@ -65,7 +66,7 @@ public class Application extends PApplet {
 			this.setControl();
 
 			textFont(this.Headlines);
-			text("Bundling Edges", 40, 2 * 20);
+			text(vizLabel, 40, 2 * 20);
 			line(260, 1 * 20, 260, 4 * 20);
 
 			// Bundling
@@ -90,8 +91,11 @@ public class Application extends PApplet {
 					webViz.drawMatrix(aHuman, aDay,this.viewBtn.getItem(0).getState());
 				} else if (aHuman.length > 1) {
 					webViz.draw(350, 340, aHuman, sDay, 1.2f, this.viewBtn.getItem(0).getState());
-				} else
+					webViz.drawLegend();
+				} else{
 					webViz.draw(350, 340, aHuman[0], sDay, 1.2f,this.viewBtn.getItem(0).getState());
+					webViz.drawLegend();
+				}
 			}
 		}
 	}
@@ -103,7 +107,7 @@ public class Application extends PApplet {
 				.setColorForeground(color(100)).setColorActive(color(255))
 				.setItemsPerRow(2).setColorBackground(color(50))
 				.setSpacingColumn(60).setSpacingRow(40).addItem("Bundling Edges", 1)
-				.addItem("Spiralgraph", 2).addItem("Spinnedings", 3);
+				.addItem("Spiralgraph", 2).addItem("Starplot", 3);
 
 		for (Toggle t : vizBtn.getItems()) {
 			t.captionLabel().setColorBackground(color(20));
@@ -267,6 +271,7 @@ public class Application extends PApplet {
 			this.range.setVisible(true);
 			textFont(this.Headlines, 10);
 			text("MO", 780, 19 * 20);
+			text("DO", 860, 19 * 20);
 			text("SO", 950, 19 * 20);
 			this.viewBtn.getItem(0).setLabel("Transport/Aufenthalt");
 			this.viewBtn.setVisible(true);
@@ -290,7 +295,9 @@ public class Application extends PApplet {
 	public void vizRadioButton(int a) {
 		if (a < 0) {
 			this.vizBtn.activate(0);
+			a = 0;
 		}
+		this.vizLabel = this.vizBtn.getItem(a-1).getName();
 		this.redraw = true;
 	}
 
