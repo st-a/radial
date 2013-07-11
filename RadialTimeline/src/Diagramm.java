@@ -17,7 +17,7 @@ public class Diagramm {
 	String currentDay = "Montag";
 	Dataset dataset;
 
-	Diagramm(PApplet parent, float x, float y, int[] distance, Dataset data,
+	Diagramm(PApplet parent, float x, float y, Dataset data,
 			float s, PFont font) {
 
 		p = parent;
@@ -26,8 +26,6 @@ public class Diagramm {
 		scale = s;
 		radius = radius / scale;
 		dataset = data;
-		d = distance;
-		dStatistic = new Distance(p, d, this);
 		f = font;
 	}
 
@@ -41,7 +39,10 @@ public class Diagramm {
 		int frequency = 15;
 
 		// km-Statistic
+		if(humans.length == 1){
+		dStatistic = new Distance(p, this, humans[0], day);
 		dStatistic.draw(x, y);
+		}
 		p.noFill();
 
 		// aeuseren Ringe
@@ -223,7 +224,7 @@ public class Diagramm {
 
 		for (int i = 1; i < 25; i++) {
 			for (int j = 0; j < a.length; j++) {
-				if (a[j].getEndTime()[0] < i) {
+				if (a[j].getEndTime()[0] <= i) {
 					if (a[j].catagory.equals("Home")) {
 						line[i] = 0;
 					}

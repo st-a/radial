@@ -78,9 +78,7 @@ public class Application extends PApplet {
 
 			// Spiderweb
 			if (this.vizBtn.getItem(2).getState()) {
-				int[] distance = { 40, 45, 20, 10, 58, 10, 32, 25, 25, 25, 25,
-						25 };
-				this.webViz = new Diagramm(this, 40, 40, distance, d, 1,
+				this.webViz = new Diagramm(this, 40, 40, d, 1,
 						this.legendenText);
 				if (this.styleBtn.getItem(1).getState()) {
 					webViz.drawMatrix(aHuman, aDay);
