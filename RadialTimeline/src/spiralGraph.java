@@ -131,15 +131,78 @@ public class spiralGraph extends PApplet {
 		this.viewMovements = viewMovements;
 	}
 
+	public void drawKey(boolean drawMovements, boolean matrix, int persons) {
+		if (!matrix && persons < 2) {
+			if (drawMovements) {
+				for (int i = 0; i < meansOfTransportStrings.length; i++) {
+					pa.noStroke();
+					pa.fill(colorsTransport[i]);
+					pa.rectMode(PApplet.CORNER);
+					pa.rect(40 + 120 * i, 640, 10, 40);
+					pa.fill(255);
+					pa.textFont(legend);
+					pa.textSize(12);
+					pa.textAlign(PApplet.LEFT, PApplet.CENTER);
+					pa.text(meansOfTransportStrings[i], 55 + 120 * i, 646);
+				}
+			} else {
+				for (int i = 0; i < places.length; i++) {
+
+					pa.noStroke();
+					pa.fill(colorsPlaces[i]);
+					pa.rectMode(PApplet.CORNER);
+					pa.rect(40 + 120 * i, 640, 10, 40);
+					pa.fill(255);
+					pa.textFont(legend);
+					pa.textSize(12);
+					pa.textAlign(PApplet.LEFT, PApplet.CENTER);
+					pa.text(places[i], 55 + 120 * i, 646);
+				}
+
+			}
+		}
+		if(matrix){
+			if (drawMovements) {
+				for (int i = 0; i < meansOfTransportStrings.length; i++) {
+					pa.noStroke();
+					pa.fill(colorsTransport[i]);
+					pa.rectMode(PApplet.CORNER);
+					pa.rect(40 + 120 * i, 640, 10, 40);
+					pa.fill(255);
+					pa.textFont(legend);
+					pa.textSize(12);
+					pa.textAlign(PApplet.LEFT, PApplet.CENTER);
+					pa.text(meansOfTransportStrings[i], 55 + 120 * i, 646);
+				}
+			} else {
+				for (int i = 0; i < places.length; i++) {
+
+					pa.noStroke();
+					pa.fill(colorsPlaces[i]);
+					pa.rectMode(PApplet.CORNER);
+					pa.rect(40 + 120 * i, 640, 10, 40);
+					pa.fill(255);
+					pa.textFont(legend);
+					pa.textSize(12);
+					pa.textAlign(PApplet.LEFT, PApplet.CENTER);
+					pa.text(places[i], 55 + 120 * i, 646);
+				}
+
+			}
+			
+		}
+
+	}
+
 	public void drawLabel() {
 		pa.strokeWeight(1);
 		pa.stroke(255);
 		pa.line(centerX - radius / 2 - 25, centerY - radius / 2 - 15, centerX
-				- radius / 2 - 25, centerY - radius / 2+5);
-		
+				- radius / 2 - 25, centerY - radius / 2 + 5);
+
 		pa.textFont(legend);
 		pa.textSize(18f);
-		pa.text(person, centerX - radius / 2+10, centerY - radius / 2-10);
+		pa.text(person, centerX - radius / 2 + 10, centerY - radius / 2 - 10);
 	}
 
 	// relevant functions
@@ -577,7 +640,6 @@ public class spiralGraph extends PApplet {
 					}
 					addTimeSlot(timeSlotColor, day, start, dur);
 
-
 				}
 			}
 		} else {
@@ -585,13 +647,12 @@ public class spiralGraph extends PApplet {
 			if (1 < RangeOfdays[0] || 1 > RangeOfdays[1]) {
 
 				timeSlotColor = 35;
-			}
-			else{
+			} else {
 				timeSlotColor = home;
 			}
 			addTimeSlot(timeSlotColor, 1, 0, allActivities[0].bTime[0] * 60
 					+ allActivities[0].bTime[1]);
-			
+
 			boolean dontdraw = false;
 			boolean dirtyhackdrawnonce = false;
 
@@ -603,8 +664,6 @@ public class spiralGraph extends PApplet {
 
 					start = act0.eTime[0] * 60 + act0.eTime[1];
 					endtime = act1.bTime[0] * 60 + act1.bTime[1];
-
-					
 
 					if (endtime > start) {
 						dur = (float) (endtime - start);
@@ -670,7 +729,7 @@ public class spiralGraph extends PApplet {
 						timeSlotColor = freeTime;
 						percentagesPlaces[4] += dur;
 					}
-					
+
 					if (endtime == start) {
 						// DIRTY HACK. FAK U TOM
 						// Y U NO WORK ON THURSDAY?
@@ -678,7 +737,7 @@ public class spiralGraph extends PApplet {
 						if (!dirtyhackdrawnonce) {
 							if (4 < RangeOfdays[0] || 4 > RangeOfdays[1]) {
 								timeSlotColor = 35;
-							}else{
+							} else {
 								timeSlotColor = home;
 							}
 							addTimeSlot(timeSlotColor, 4, 0, 1440);
@@ -694,14 +753,12 @@ public class spiralGraph extends PApplet {
 						}
 						addTimeSlot(timeSlotColor, day, start, dur);
 
-
 						if (overLength) {
 							if (day + 1 < RangeOfdays[0]
 									|| day + 1 > RangeOfdays[1]) {
 								timeSlotColor = 35;
 							}
-							addTimeSlot(timeSlotColor, day + 1, 0,
-									durAdvanced);
+							addTimeSlot(timeSlotColor, day + 1, 0, durAdvanced);
 							durAdvanced = 0;
 							overLength = false;
 						}

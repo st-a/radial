@@ -117,7 +117,14 @@ public class bundlingEdges extends PApplet {
 	}
 	
 	public void drawKey(){
-		
+		for(place pl : places){
+			pa.fill(pl.backgroundcolor);
+			pa.rect(40+120*pl.index,640,10,40);
+			pa.fill(255);
+			pa.textFont(legend);
+			pa.textSize(12);
+			pa.text(pl.name, 55+120*pl.index, 653);
+		}
 	}
 
 	public void drawLabels(String pers,boolean OneOfTheDiagramsOnTheRight) {

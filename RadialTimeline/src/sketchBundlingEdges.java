@@ -34,7 +34,7 @@ public class sketchBundlingEdges {
 
 		if (!matrix) {
 			rtrn[1] = height / 2;
-			rtrn[2] = height / 2;
+			rtrn[2] = height / 2-30;
 			rtrn[3] = (height - 200) / 2;
 
 		} else {
@@ -115,6 +115,7 @@ public class sketchBundlingEdges {
 		float[] positions = computeDiagrammPositions();
 
 		// draw all diagrams
+		boolean keyAllreadyDrawn = false;
 		for (int i = 0; i < allDiagrams.size(); i++) {
 
 			bundlingEdges b = allDiagrams.get(i);
@@ -129,6 +130,12 @@ public class sketchBundlingEdges {
 			b.drawArcsnArrows();
 
 			b.drawContentArround();
+			
+			if(!keyAllreadyDrawn){
+				b.drawKey();
+				keyAllreadyDrawn = true;
+			}
+
 			
 			boolean OneOfTheDiagramsOnTheRight=false;
 			if(positions[1 + 3 * i] + px>width/2){
