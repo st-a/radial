@@ -134,13 +134,12 @@ public class spiralGraph extends PApplet {
 	public void drawLabel() {
 		pa.strokeWeight(1);
 		pa.stroke(255);
-		pa.line(centerX - radius / 2 - 40, centerY - radius / 2 - 10, centerX
-				- radius / 2 - 40, centerY - radius / 2 + 20);
-		// pa.line(centerX-radius, centerY-radius, centerX-radius,
-		// centerY-radius+100);
+		pa.line(centerX - radius / 2 - 25, centerY - radius / 2 - 15, centerX
+				- radius / 2 - 25, centerY - radius / 2+5);
+		
 		pa.textFont(legend);
 		pa.textSize(18f);
-		pa.text(person, centerX - radius / 2, centerY - radius / 2);
+		pa.text(person, centerX - radius / 2+10, centerY - radius / 2-10);
 	}
 
 	// relevant functions
@@ -573,19 +572,26 @@ public class spiralGraph extends PApplet {
 						percentagesOfTransports[0] += act.duration;
 					}
 
-					if (day >= RangeOfdays[0] && day <= RangeOfdays[1]) {
-						addTimeSlot(timeSlotColor, day, start, dur);
+					if (day < RangeOfdays[0] || day > RangeOfdays[1]) {
+						timeSlotColor = 35;
 					}
+					addTimeSlot(timeSlotColor, day, start, dur);
+
 
 				}
 			}
 		} else {
 			// draws places not movements
-			if (1 >= RangeOfdays[0] && 1 <= RangeOfdays[1]) {
+			if (1 < RangeOfdays[0] || 1 > RangeOfdays[1]) {
 
-				addTimeSlot(home, 1, 0, allActivities[0].bTime[0] * 60
-						+ allActivities[0].bTime[1]);
+				timeSlotColor = 35;
 			}
+			else{
+				timeSlotColor = home;
+			}
+			addTimeSlot(timeSlotColor, 1, 0, allActivities[0].bTime[0] * 60
+					+ allActivities[0].bTime[1]);
+			
 			boolean dontdraw = false;
 			boolean dirtyhackdrawnonce = false;
 
@@ -598,18 +604,7 @@ public class spiralGraph extends PApplet {
 					start = act0.eTime[0] * 60 + act0.eTime[1];
 					endtime = act1.bTime[0] * 60 + act1.bTime[1];
 
-					if (endtime == start) {
-						// DIRTY HACK. FAK U TOM
-						// Y U NO WORK ON THURSDAY?
-						// TODO FUK U
-						if (!dirtyhackdrawnonce) {
-							if (4 >= RangeOfdays[0] && 4 <= RangeOfdays[1]) {
-								addTimeSlot(home, 4, 0, 1440);
-							}
-							dirtyhackdrawnonce = true;
-						}
-						dontdraw = true;
-					}
+					
 
 					if (endtime > start) {
 						dur = (float) (endtime - start);
@@ -675,18 +670,38 @@ public class spiralGraph extends PApplet {
 						timeSlotColor = freeTime;
 						percentagesPlaces[4] += dur;
 					}
+					
+					if (endtime == start) {
+						// DIRTY HACK. FAK U TOM
+						// Y U NO WORK ON THURSDAY?
+						// TODO FUK U
+						if (!dirtyhackdrawnonce) {
+							if (4 < RangeOfdays[0] || 4 > RangeOfdays[1]) {
+								timeSlotColor = 35;
+							}else{
+								timeSlotColor = home;
+							}
+							addTimeSlot(timeSlotColor, 4, 0, 1440);
+
+							dirtyhackdrawnonce = true;
+						}
+						dontdraw = true;
+					}
 
 					if (!dontdraw) {
-						if (day >= RangeOfdays[0] && day <= RangeOfdays[1]) {
-							addTimeSlot(timeSlotColor, day, start, dur);
+						if (day < RangeOfdays[0] || day > RangeOfdays[1]) {
+							timeSlotColor = 35;
 						}
+						addTimeSlot(timeSlotColor, day, start, dur);
+
 
 						if (overLength) {
-							if (day + 1 >= RangeOfdays[0]
-									&& day + 1 <= RangeOfdays[1]) {
-								addTimeSlot(timeSlotColor, day + 1, 0,
-										durAdvanced);
+							if (day + 1 < RangeOfdays[0]
+									|| day + 1 > RangeOfdays[1]) {
+								timeSlotColor = 35;
 							}
+							addTimeSlot(timeSlotColor, day + 1, 0,
+									durAdvanced);
 							durAdvanced = 0;
 							overLength = false;
 						}

@@ -38,19 +38,21 @@ public class sketchBundlingEdges {
 			rtrn[3] = (height - 200) / 2;
 
 		} else {
+			//diagrams above
 			for (int j = 0; j < 2; j++) {
 				rtrn[1] = height / 4 - 10;
 				rtrn[2] = height / 4;
 				rtrn[3 * (j + 1)] = (height - 200) / 4;
-				rtrn[4] = 3 * height / 4;
+				rtrn[4] = 3 * height / 4+30;
 				rtrn[5] = height / 4;
 			}
+			//diagrams below
 			for (int j = 0; j < 2; j++) {
 				rtrn[7] = height / 4 - 10;
-				rtrn[8] = 3 * height / 4;
+				rtrn[8] = 3 * height / 4-30;
 				rtrn[9 + j * 3] = (height - 200) / 4;
-				rtrn[10] = 3 * height / 4;
-				rtrn[11] = 3 * height / 4;
+				rtrn[10] = 3 * height / 4+30;
+				rtrn[11] = 3 * height / 4-30;
 			}
 		}
 		return rtrn;
@@ -127,8 +129,13 @@ public class sketchBundlingEdges {
 			b.drawArcsnArrows();
 
 			b.drawContentArround();
+			
+			boolean OneOfTheDiagramsOnTheRight=false;
+			if(positions[1 + 3 * i] + px>width/2){
+				OneOfTheDiagramsOnTheRight = true;
+			}
 			if (matrix) {
-				b.drawLabels(persons[i]);
+				b.drawLabels(persons[i],OneOfTheDiagramsOnTheRight);
 
 			}
 		}

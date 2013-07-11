@@ -115,17 +115,27 @@ public class bundlingEdges extends PApplet {
 			pa.text(prcntg, percPos[0] - 20, percPos[1]);
 		}
 	}
+	
+	public void drawKey(){
+		
+	}
 
-	public void drawLabels(String pers) {
+	public void drawLabels(String pers,boolean OneOfTheDiagramsOnTheRight) {
+		float plusX = 0f;
+		
+		if(OneOfTheDiagramsOnTheRight){
+			plusX = 15f;
+		}
+		pa.fill(255);
 		pa.strokeWeight(1);
 		pa.stroke(255);
-		pa.line(centerX - radius - 50, centerY - radius - 20, centerX - radius
-				- 50, centerY - radius);
+		pa.line(centerX - radius - 50-plusX, centerY - radius - 40, centerX - radius
+				- 50-plusX, centerY - radius-20);
 		// pa.line(centerX-radius, centerY-radius, centerX-radius,
 		// centerY-radius+100);
 		pa.textFont(legend);
-		pa.textSize(14f);
-		pa.text(pers, centerX - radius-45, centerY - radius-5);
+		pa.textSize(18f);
+		pa.text(pers, centerX - radius-45-plusX, centerY - radius-25);
 	}
 
 	public void drawElipse(bundlingEdges be) {

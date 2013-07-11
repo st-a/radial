@@ -39,12 +39,6 @@ public class sketchSpiralGraph extends PApplet{
 		draw();
 	}
 	
-	
-	//crap////////////////////////////////////
-	//int alpha = 100;
-	//public int background = color(42, 42, 42);
-	//////////////////////////////////////////
-
 	public float[] computePositions() {
 		float[] rtrn = new float[4 * 3];
 		
@@ -66,13 +60,16 @@ public class sketchSpiralGraph extends PApplet{
 					rtrn[0] = height / 4+py-35;
 					rtrn[2 + i * 3] = 2 * height / 4;//radius
 					rtrn[3] = 3 * height / 4 + px+35;
+					
 				}
 
 				for (int i = 0; i < 2; i++) {
+					
 					rtrn[6 + 1 + i * 3] = 3 * height / 4 + py+35;
 					rtrn[6 + 0] = height / 4 + px-35;
 					rtrn[6 + 2 + i * 3] = 2 * height / 4 ;//radius
 					rtrn[6 + 3] = 3 * height / 4 + px+35;
+					
 				}
 			}
 		}
