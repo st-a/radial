@@ -195,6 +195,7 @@ public class spiralGraph extends PApplet {
 	}
 
 	public void drawLabel() {
+		pa.textAlign(PApplet.LEFT, PApplet.CENTER);
 		pa.strokeWeight(1);
 		pa.stroke(255);
 		pa.line(centerX - radius / 2 - 25, centerY - radius / 2 - 15, centerX
@@ -202,7 +203,7 @@ public class spiralGraph extends PApplet {
 
 		pa.textFont(legend);
 		pa.textSize(18f);
-		pa.text(person, centerX - radius / 2 + 10, centerY - radius / 2 - 10);
+		pa.text(person, centerX - radius / 2 - 15, centerY - radius / 2 - 10);
 	}
 
 	// relevant functions
