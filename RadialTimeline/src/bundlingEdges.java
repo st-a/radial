@@ -297,9 +297,6 @@ public class bundlingEdges extends PApplet {
 
 			allActivities = helperArray;
 
-			for (int i = 0; i < allActivities.length; i++) {
-				System.out.println(i + allActivities[i].getHuman().name);
-			}
 		}
 
 		// my data set
