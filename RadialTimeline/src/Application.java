@@ -81,11 +81,11 @@ public class Application extends PApplet {
 				this.webViz = new Diagramm(this, 40, 40, d, 1,
 						this.legendenText);
 				if (this.styleBtn.getItem(1).getState()) {
-					webViz.drawMatrix(aHuman, aDay);
+					webViz.drawMatrix(aHuman, aDay,this.viewBtn.getItem(0).getState());
 				} else if (aHuman.length > 1) {
-					webViz.draw(350, 340, aHuman, sDay, 1.2f);
+					webViz.draw(350, 340, aHuman, sDay, 1.2f, this.viewBtn.getItem(0).getState());
 				} else
-					webViz.draw(350, 340, aHuman[0], sDay, 1.2f);
+					webViz.draw(350, 340, aHuman[0], sDay, 1.2f,this.viewBtn.getItem(0).getState());
 			}
 		}
 	}
@@ -241,7 +241,8 @@ public class Application extends PApplet {
 			this.dayBtn.setVisible(false);
 			this.dayCheckb.setVisible(true);
 			this.range.setVisible(false);
-			this.viewBtn.setVisible(false);
+			this.viewBtn.getItem(0).setLabel("Statistik");
+			this.viewBtn.setVisible(true);
 		}
 
 		if (this.vizBtn.getItem(2).getState()
@@ -249,7 +250,8 @@ public class Application extends PApplet {
 			this.dayBtn.setVisible(true);
 			this.dayCheckb.setVisible(false);
 			this.range.setVisible(false);
-			this.viewBtn.setVisible(false);
+			this.viewBtn.getItem(0).setLabel("Statistik");
+			this.viewBtn.setVisible(true);
 		}
 
 		// SpiralStates
@@ -260,6 +262,7 @@ public class Application extends PApplet {
 			textFont(this.Headlines, 10);
 			text("MO", 780, 19 * 20);
 			text("SO", 950, 19 * 20);
+			this.viewBtn.getItem(0).setLabel("Transport/Aufenthalt");
 			this.viewBtn.setVisible(true);
 		}
 

@@ -17,8 +17,7 @@ public class Diagramm {
 	String currentDay = "Montag";
 	Dataset dataset;
 
-	Diagramm(PApplet parent, float x, float y, Dataset data,
-			float s, PFont font) {
+	Diagramm(PApplet parent, float x, float y, Dataset data, float s, PFont font) {
 
 		p = parent;
 		posX = x;
@@ -29,7 +28,8 @@ public class Diagramm {
 		f = font;
 	}
 
-	public void draw(float x, float y, Human[] humans, String day, float s) {
+	public void draw(float x, float y, Human[] humans, String day, float s,
+			boolean stat) {
 
 		radius = 300 / scale;
 		posX = x;
@@ -38,10 +38,15 @@ public class Diagramm {
 		int angle = 90;
 		int frequency = 15;
 
-		// km-Statistic
-		if(humans.length == 1){
-		dStatistic = new Distance(p, this, humans[0], day);
-		dStatistic.draw(x, y);
+		if (stat) {
+			// km-Statistic
+			if (humans.length == 1) {
+				dStatistic = new Distance(p, this, humans[0], day);
+				dStatistic.draw(x, y);
+			} else {
+				dStatistic = new Distance(p, this, humans, day);
+				dStatistic.draw(x, y);
+			}
 		}
 		p.noFill();
 
@@ -167,26 +172,28 @@ public class Diagramm {
 
 	public void scale(float s) {
 
-		this.draw(posX, posY, dataset.getPersons(), currentDay, s);
+		this.draw(posX, posY, dataset.getPersons(), currentDay, s, true);
 	}
 
-	public void draw(float x, float y, Human human, String day, float s) {
+	public void draw(float x, float y, Human human, String day, float s,
+			boolean stat) {
 		Human[] h = new Human[1];
 		h[0] = human;
-		this.draw(x, y, h, day, s);
+		this.draw(x, y, h, day, s, stat);
 	}
 
 	public void transform(float x, float y) {
-		this.draw(x, y, dataset.getPersons(), currentDay, scale);
+		this.draw(x, y, dataset.getPersons(), currentDay, scale, true);
 	}
 
-	public void drawMatrix(Human[] h, String[] aDay) {
+	public void drawMatrix(Human[] h, String[] aDay, boolean stat) {
 		Human[] human = new Human[1];
 
 		// fue alle personen
 		for (int i = 0; i < h.length; i++) {
 			for (int j = 0; j < aDay.length; j++) {
-				this.draw(210 + (120 * i), 120 + (85 * j), h[i], aDay[j], 8f);
+				this.draw(210 + (120 * i), 120 + (85 * j), h[i], aDay[j], 8f,
+						stat);
 			}
 		}
 		for (int j = 0; j < aDay.length; j++) {
@@ -224,7 +231,10 @@ public class Diagramm {
 
 		for (int i = 1; i < 25; i++) {
 			for (int j = 0; j < a.length; j++) {
-				if (a[j].getEndTime()[0] <= i) {
+				int endTime = a[j].getEndTime()[0];
+				if (a[j].getEndTime()[1] > 30)
+					endTime = a[j].getEndTime()[0] + 1;
+				if (endTime <= i) {
 					if (a[j].catagory.equals("Home")) {
 						line[i] = 0;
 					}
@@ -243,7 +253,7 @@ public class Diagramm {
 
 				}
 			}
-			
+
 		}
 		return line;
 	}

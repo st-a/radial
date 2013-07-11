@@ -637,7 +637,7 @@ public class spiralGraph extends PApplet {
 					}
 
 					if (day < RangeOfdays[0] || day > RangeOfdays[1]) {
-						timeSlotColor = 35;
+						timeSlotColor = 70;
 					}
 					addTimeSlot(timeSlotColor, day, start, dur);
 
@@ -647,7 +647,7 @@ public class spiralGraph extends PApplet {
 			// draws places not movements
 			if (1 < RangeOfdays[0] || 1 > RangeOfdays[1]) {
 
-				timeSlotColor = 35;
+				timeSlotColor = 70;
 			} else {
 				timeSlotColor = home;
 			}
@@ -737,7 +737,7 @@ public class spiralGraph extends PApplet {
 						// TODO FUK U
 						if (!dirtyhackdrawnonce) {
 							if (4 < RangeOfdays[0] || 4 > RangeOfdays[1]) {
-								timeSlotColor = 35;
+								timeSlotColor = 70;
 							} else {
 								timeSlotColor = home;
 							}
@@ -750,14 +750,14 @@ public class spiralGraph extends PApplet {
 
 					if (!dontdraw) {
 						if (day < RangeOfdays[0] || day > RangeOfdays[1]) {
-							timeSlotColor = 35;
+							timeSlotColor = 70;
 						}
 						addTimeSlot(timeSlotColor, day, start, dur);
 
 						if (overLength) {
 							if (day + 1 < RangeOfdays[0]
 									|| day + 1 > RangeOfdays[1]) {
-								timeSlotColor = 35;
+								timeSlotColor = 70;
 							}
 							addTimeSlot(timeSlotColor, day + 1, 0, durAdvanced);
 							durAdvanced = 0;
