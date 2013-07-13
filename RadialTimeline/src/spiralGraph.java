@@ -194,16 +194,25 @@ public class spiralGraph extends PApplet {
 
 	}
 
-	public void drawLabel() {
+	public void drawLabel(boolean left,boolean above) {
+		int plusx = 0;
+		int plusy = 0;
+		
+		if(!left){
+			plusx = 5;
+		}
+		if(!above){
+			plusy = -15;
+		}
 		pa.textAlign(PApplet.LEFT, PApplet.CENTER);
 		pa.strokeWeight(1);
 		pa.stroke(255);
-		pa.line(centerX - radius / 2 - 25, centerY - radius / 2 - 15, centerX
-				- radius / 2 - 25, centerY - radius / 2 + 5);
+		pa.line(centerX - radius / 2 - 40+plusx, centerY - radius / 2 - 25+plusy,
+				centerX - radius / 2 - 40+plusx, centerY - radius / 2 - 5+plusy);
 
 		pa.textFont(legend);
 		pa.textSize(18f);
-		pa.text(person, centerX - radius / 2 - 15, centerY - radius / 2 - 10);
+		pa.text(person, centerX - radius / 2 - 25+plusx, centerY - radius / 2 - 20+plusy);
 	}
 
 	// relevant functions

@@ -6,7 +6,7 @@ public class sketchBundlingEdges {
 
 	PApplet pa;
 	public int width = 650;
-	public int height = 650;
+	public int height = 600;
 	public int px = 0;
 	public int py = 0;
 	public boolean matrix;
@@ -19,8 +19,8 @@ public class sketchBundlingEdges {
 	sketchBundlingEdges(PApplet pa, int width, int height, int px, int py,
 			String[] persons, boolean matrix) {
 		this.pa = pa;
-		this.width = 650;
-		this.height = 600;
+		this.width = width;
+		this.height = height-50;
 		this.px = px;
 		this.py = py;
 		this.persons = persons;
@@ -40,19 +40,19 @@ public class sketchBundlingEdges {
 		} else {
 			//diagrams above
 			for (int j = 0; j < 2; j++) {
-				rtrn[1] = height / 4 - 10;
-				rtrn[2] = height / 4;
-				rtrn[3 * (j + 1)] = (height - 200) / 4;
-				rtrn[4] = 3 * height / 4+30;
-				rtrn[5] = height / 4;
+				rtrn[1] = height / 4 - 10;//x
+				rtrn[2] = height / 4;//y
+				rtrn[3 * (j + 1)] = (height - 200) / 4;//rad
+				rtrn[4] = 3 * height / 4+30;//x
+				rtrn[5] = height / 4;//y
 			}
 			//diagrams below
 			for (int j = 0; j < 2; j++) {
-				rtrn[7] = height / 4 - 10;
-				rtrn[8] = 3 * height / 4-30;
-				rtrn[9 + j * 3] = (height - 200) / 4;
-				rtrn[10] = 3 * height / 4+30;
-				rtrn[11] = 3 * height / 4-30;
+				rtrn[7] = height / 4 - 10;//x
+				rtrn[8] = 3 * height / 4-30;//y
+				rtrn[9 + j * 3] = (height - 200) / 4;//rad
+				rtrn[10] = 3 * height / 4+30;//x
+				rtrn[11] = 3 * height / 4-30;//y
 			}
 		}
 		return rtrn;

@@ -55,20 +55,21 @@ public class sketchSpiralGraph extends PApplet{
 				rtrn[1] = height / 4 + py;
 				rtrn[2] = 2 * height / 4-30;
 			} else {
+				//graphs above
 				for (int i = 0; i < 2; i++) {
-					rtrn[1 + i * 3] = height / 4 + py;
-					rtrn[0] = height / 4+py-35;
+					rtrn[1 + i * 3] = height / 4 + py;//y
+					rtrn[0] = height / 4+py-35;//x
 					rtrn[2 + i * 3] = 2 * height / 4-30;//radius
-					rtrn[3] = 3 * height / 4 + px+35;
+					rtrn[3] = 3 * height / 4 + px+35;//x
 					
 				}
 
 				for (int i = 0; i < 2; i++) {
 					
-					rtrn[6 + 1 + i * 3] = 3 * height / 4 + py+35;
-					rtrn[6 + 0] = height / 4 + px-35;
+					rtrn[6 + 1 + i * 3] = 3 * height / 4 + py+35;//y
+					rtrn[6 + 0] = height / 4 + px-35;//x
 					rtrn[6 + 2 + i * 3] = 2 * height / 4 -30;//radius
-					rtrn[6 + 3] = 3 * height / 4 + px+35;
+					rtrn[6 + 3] = 3 * height / 4 + px+35;//x
 					
 				}
 			}
@@ -151,8 +152,17 @@ public class sketchSpiralGraph extends PApplet{
 			s.drawSpiral();
 			s.drawClock();
 			s.addData();
+			
+			boolean left=true;
+			boolean above=true;
+			if(positions[0 + 3 * i]>width/2){
+				left=false;
+			}
+			if(positions[1 + 3 * i]>width/2){
+				above = false;
+			}
 			if(viewAsMatrix){
-				s.drawLabel();
+				s.drawLabel(left,above);
 			}
 		}
 		if(allGraphs.get(0) != null){

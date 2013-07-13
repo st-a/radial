@@ -142,7 +142,7 @@ public class bundlingEdges extends PApplet {
 		// centerY-radius+100);
 		pa.textFont(legend);
 		pa.textSize(18f);
-		pa.text(pers, centerX - radius-45-plusX, centerY - radius-25);
+		pa.text(pers, centerX - radius-35-plusX, centerY - radius-25);
 	}
 
 	public void drawElipse(bundlingEdges be) {
