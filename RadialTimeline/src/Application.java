@@ -67,7 +67,7 @@ public class Application extends PApplet {
 
 			textFont(this.Headlines);
 			text(vizLabel, 40, 2 * 20);
-			line(260, 1 * 20, 260, 4 * 20);
+			//line(260, 1 * 20, 260, 4 * 20);
 
 			// Bundling
 			if (this.vizBtn.getItem(0).getState()) {
