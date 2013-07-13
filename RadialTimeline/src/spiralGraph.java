@@ -234,7 +234,7 @@ public class spiralGraph extends PApplet {
 		textFont(legend);
 
 		// text(prcntg, 130 + xPos, 42 + 0 * 30 + yPos);
-		// text("zu Fuß", 25 + xPos, 42 + 0 * 30 + yPos);
+		// text("zu Fuï¿½", 25 + xPos, 42 + 0 * 30 + yPos);
 
 		// by Tram
 		fill(byTram);
@@ -535,7 +535,7 @@ public class spiralGraph extends PApplet {
 
 	public void addData() {
 
-		meansOfTransportStrings[0] = "by Feet";
+		meansOfTransportStrings[0] = "zu FuÃŸ";
 		percentagesOfTransports[0] = 0;
 		colorsTransport[0] = byFeet;
 
@@ -551,23 +551,23 @@ public class spiralGraph extends PApplet {
 		percentagesOfTransports[3] = 0;
 		colorsTransport[3] = byCar;
 
-		places[0] = "home";
+		places[0] = "Home";
 		percentagesPlaces[0] = 0;
 		colorsPlaces[0] = home;
 
-		places[1] = "uni";
+		places[1] = "Uni";
 		percentagesPlaces[1] = 0;
 		colorsPlaces[1] = uni;
 
-		places[2] = "work";
+		places[2] = "Work";
 		percentagesPlaces[2] = 0;
 		colorsPlaces[2] = work;
 
-		places[3] = "social";
+		places[3] = "Social";
 		percentagesPlaces[3] = 0;
 		colorsPlaces[3] = social;
 
-		places[4] = "free Time";
+		places[4] = "Freetime";
 		percentagesPlaces[4] = 0;
 		colorsPlaces[4] = freeTime;
 
