@@ -571,7 +571,7 @@ public class spiralGraph extends PApplet {
 		percentagesPlaces[4] = 0;
 		colorsPlaces[4] = freeTime;
 
-		Dataset dtst = new Dataset("../src/Data/data.XML");
+		Dataset dtst = new Dataset("../src/Data/data.xml");
 
 		Activity[] allActivities = null;
 		if (person.equals("all")) {

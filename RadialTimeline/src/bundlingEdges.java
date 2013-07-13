@@ -292,7 +292,7 @@ public class bundlingEdges extends PApplet {
 		float[] outOfWork = { 0f, 0f, 0f, 0f, 0f };
 		float[] outOfFreeTime = { 0f, 0f, 0f, 0f, 0f };
 
-		Dataset dtst = new Dataset("../src/Data/data.XML");
+		Dataset dtst = new Dataset("../src/Data/data.xml");
 
 		Activity[] allActivities = null;
 		if (person.length == 1) {

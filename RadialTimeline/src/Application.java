@@ -49,7 +49,7 @@ public class Application extends PApplet {
 		background(42);
 
 		// Dataset
-		d = new Dataset("../src/data/data.xml");
+		d = new Dataset("../src/Data/data.xml");
 		aHuman[0] = d.getPerson("Albert");
 		// control
 		cp5 = new ControlP5(this);
