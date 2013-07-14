@@ -592,7 +592,7 @@
 			<category>Uni</category>
 			<transport>Fahrrad</transport>
 			<duration>26</duration>
-			<distance>100</distance>
+			<distance>5500</distance>
 		</activity>
 		<activity>
 			<begin>TU Informatik</begin>
@@ -602,7 +602,7 @@
 			<category>Home</category>
 			<transport>Fahrrad</transport>
 			<duration>18</duration>
-			<distance>100</distance>
+			<distance>5500</distance>
 		</activity>
 		<activity>
 			<begin>zu Hause</begin>
@@ -612,7 +612,7 @@
 			<category>Freizeit</category>
 			<transport>by Feet</transport>
 			<duration>3</duration>
-			<distance>100</distance>
+			<distance>300</distance>
 		</activity>
 		<activity>
 			<begin>Edeka</begin>
@@ -622,7 +622,7 @@
 			<category>Freizeit</category>
 			<transport>by Feet</transport>
 			<duration>2</duration>
-			<distance>100</distance>
+			<distance>300</distance>
 		</activity>
 		<activity>
 			<begin>Home</begin>
@@ -632,7 +632,7 @@
 			<category>Uni</category>
 			<transport>Fahrrad</transport>
 			<duration>22</duration>
-			<distance>100</distance>
+			<distance>5500</distance>
 		</activity>
 		<activity>
 			<begin>TU Informatik</begin>
@@ -642,7 +642,7 @@
 			<category>Freizeit</category>
 			<transport>Fahrrad</transport>
 			<duration>15</duration>
-			<distance>100</distance>
+			<distance>3200</distance>
 		</activity>
 		<activity>
 			<begin>Stadion</begin>
@@ -652,7 +652,7 @@
 			<category>Home</category>
 			<transport>Fahrrad</transport>
 			<duration>7</duration>
-			<distance>100</distance>
+			<distance>2200</distance>
 		</activity>
 		<activity>
 			<begin>Home</begin>
@@ -662,7 +662,7 @@
 			<category>Social</category>
 			<transport>by Feet</transport>
 			<duration>8</duration>
-			<distance>100</distance>
+			<distance>1000</distance>
 		</activity>
 		<activity>
 			<begin>Großer Garten</begin>
@@ -672,7 +672,7 @@
 			<category>Home</category>
 			<transport>by Feet</transport>
 			<duration>9</duration>
-			<distance>100</distance>
+			<distance>1000</distance>
 		</activity>
 	</tag>
 	
@@ -685,7 +685,7 @@
 			<category>Uni</category>
 			<transport>Fahrrad</transport>
 			<duration>18</duration>
-			<distance>100</distance>
+			<distance>3900</distance>
 		</activity>
 		<activity>
 			<begin>Sprachkurs</begin>
@@ -695,7 +695,7 @@
 			<category>Home</category>
 			<transport>Fahrrad</transport>
 			<duration>22</duration>
-			<distance>100</distance>
+			<distance>3900</distance>
 		</activity>
 		<activity>
 			<begin>Home</begin>
@@ -705,7 +705,7 @@
 			<category>Social</category>
 			<transport>Fahrrad</transport>
 			<duration>25</duration>
-			<distance>100</distance>
+			<distance>4100</distance>
 		</activity>
 		<activity>
 			<begin>Citybeach</begin>
@@ -715,7 +715,7 @@
 			<category>Home</category>
 			<transport>Fahrrad</transport>
 			<duration>27</duration>
-			<distance>100</distance>
+			<distance>4100</distance>
 		</activity>
 		<activity>
 			<begin>Home</begin>
@@ -725,7 +725,7 @@
 			<category>Social</category>
 			<transport>Tram</transport>
 			<duration>7</duration>
-			<distance>100</distance>
+			<distance>2100</distance>
 		</activity>
 		<activity>
 			<begin>Pirnaischer Platz</begin>
@@ -735,7 +735,7 @@
 			<category>Social</category>
 			<transport>by Feet</transport>
 			<duration>8</duration>
-			<distance>100</distance>
+			<distance>450</distance>
 		</activity>
 		<activity>
 			<begin>Bärenzwinger</begin>
@@ -745,7 +745,7 @@
 			<category>Home</category>
 			<transport>by Feet</transport>
 			<duration>40</duration>
-			<distance>100</distance>
+			<distance>2200</distance>
 		</activity>
 	</tag>
 	
@@ -758,7 +758,7 @@
 			<category>Uni</category>
 			<transport>Fahrrad</transport>
 			<duration>27</duration>
-			<distance>100</distance>
+			<distance>5500</distance>
 		</activity>
 		<activity>
 			<begin>TU Informatik</begin>
@@ -768,7 +768,7 @@
 			<category>Uni</category>
 			<transport>by Feet</transport>
 			<duration>6</duration>
-			<distance>100</distance>
+			<distance>400</distance>
 		</activity>
 		<activity>
 			<begin>Alte Mensa</begin>
@@ -778,7 +778,7 @@
 			<category>Uni</category>
 			<transport>by Feet</transport>
 			<duration>6</duration>
-			<distance>100</distance>
+			<distance>400</distance>
 		</activity>
 		<activity>
 			<begin>TU Informatik</begin>
@@ -788,7 +788,7 @@
 			<category>Home</category>
 			<transport>Fahrrad</transport>
 			<duration>22</duration>
-			<distance>100</distance>
+			<distance>5500</distance>
 		</activity>
 		<activity>
 			<begin>Home</begin>
@@ -798,7 +798,7 @@
 			<category>Social</category>
 			<transport>by Feet</transport>
 			<duration>7</duration>
-			<distance>100</distance>
+			<distance>1000</distance>
 		</activity>
 		<activity>
 			<begin>Großer Garten</begin>
@@ -808,7 +808,7 @@
 			<category>Home</category>
 			<transport>by Feet</transport>
 			<duration>13</duration>
-			<distance>100</distance>
+			<distance>1000</distance>
 		</activity>
 		<activity>
 			<begin>Home</begin>
@@ -818,7 +818,7 @@
 			<category>Social</category>
 			<transport>Fahrrad</transport>
 			<duration>13</duration>
-			<distance>100</distance>
+			<distance>3400</distance>
 		</activity>
 		<activity>
 			<begin>Shamrock</begin>
@@ -828,7 +828,7 @@
 			<category>Home</category>
 			<transport>Fahrrad</transport>
 			<duration>12</duration>
-			<distance>100</distance>
+			<distance>3400</distance>
 		</activity>
 	</tag>
 
@@ -841,7 +841,7 @@
 			<category>Uni</category>
 			<transport>Fahrrad</transport>
 			<duration>15</duration>
-			<distance>100</distance>
+			<distance>3900</distance>
 		</activity>
 		<activity>
 			<begin>Sprachkurs</begin>
@@ -851,7 +851,7 @@
 			<category>Home</category>
 			<transport>Fahrrad</transport>
 			<duration>15</duration>
-			<distance>100</distance>
+			<distance>3900</distance>
 		</activity>
 		<activity>
 			<begin>Home</begin>
@@ -861,7 +861,7 @@
 			<category>Freizeit</category>
 			<transport>Fahrrad</transport>
 			<duration>15</duration>
-			<distance>100</distance>
+			<distance>2800</distance>
 		</activity>
 		<activity>
 			<begin>Bikeland</begin>
@@ -871,7 +871,7 @@
 			<category>Home</category>
 			<transport>Tram</transport>
 			<duration>20</duration>
-			<distance>100</distance>
+			<distance>2800</distance>
 		</activity>
 		<activity>
 			<begin>Home</begin>
@@ -881,7 +881,7 @@
 			<category>Freizeit</category>
 			<transport>Tram</transport>
 			<duration>25</duration>
-			<distance>100</distance>
+			<distance>3600</distance>
 		</activity>
 		<activity>
 			<begin>Hauptbahnhof Dresden</begin>
@@ -891,7 +891,7 @@
 			<category>Freizeit</category>
 			<transport>Tram</transport>
 			<duration>420</duration>
-			<distance>100</distance>
+			<distance>58700</distance>
 		</activity>
 		<activity>
 			<begin>Hauptbahnhof Duisburg</begin>
@@ -901,7 +901,7 @@
 			<category>Social</category>
 			<transport>Auto</transport>
 			<duration>14</duration>
-			<distance>100</distance>
+			<distance>2000</distance>
 		</activity>
 	</tag>
 	
@@ -1004,7 +1004,7 @@
 			<category>Freizeit</category>
 			<transport>Tram</transport>
 			<duration>12</duration>
-			<distance>100</distance>
+			<distance>3000</distance>
 		</activity>
 		<activity>
 			<begin>Altmarkt</begin>
@@ -1014,7 +1014,7 @@
 			<category>Freizeit</category>
 			<transport>by Feet</transport>
 			<duration>6</duration>
-			<distance>100</distance>
+			<distance>200</distance>
 		</activity>
 		<activity>
 			<begin>Sportscheck</begin>
@@ -1024,7 +1024,7 @@
 			<category>Freizeit</category>
 			<transport>by Feet</transport>
 			<duration>6</duration>
-			<distance>100</distance>
+			<distance>200</distance>
 		</activity>
 		<activity>
 			<begin>Altmarkt</begin>
@@ -1034,7 +1034,7 @@
 			<category>Home</category>
 			<transport>Tram</transport>
 			<duration>12</duration>
-			<distance>100</distance>
+			<distance>3000</distance>
 		</activity>
 		<activity>
 			<begin>Fetscherplatz</begin>
@@ -1044,7 +1044,7 @@
 			<category>Home</category>
 			<transport>by Feet</transport>
 			<duration>1</duration>
-			<distance>100</distance>
+			<distance>200</distance>
 		</activity>
 		<activity>
 			<begin>Home</begin>
@@ -1054,7 +1054,7 @@
 			<category>Social</category>
 			<transport>by Feet</transport>
 			<duration>10</duration>
-			<distance>100</distance>
+			<distance>1000</distance>
 		</activity>
 		<activity>
 			<begin>Großer Garten</begin>
@@ -1064,7 +1064,7 @@
 			<category>Home</category>
 			<transport>by Feet</transport>
 			<duration>5</duration>
-			<distance>100</distance>
+			<distance>1000</distance>
 		</activity>
 		<activity>
 			<begin>Home</begin>
@@ -1074,7 +1074,7 @@
 			<category>Freizeit</category>
 			<transport>by Feet</transport>
 			<duration>2</duration>
-			<distance>100</distance>
+			<distance>300</distance>
 		</activity>
 		<activity>
 			<begin>Edeka</begin>
@@ -1084,7 +1084,7 @@
 			<category>Home</category>
 			<transport>by Feet</transport>
 			<duration>2</duration>
-			<distance>100</distance>
+			<distance>300</distance>
 		</activity>
 		<activity>
 			<begin>Home</begin>
@@ -1094,7 +1094,7 @@
 			<category>Social</category>
 			<transport>Tram</transport>
 			<duration>20</duration>
-			<distance>100</distance>
+			<distance>4200</distance>
 		</activity>
 		<activity>
 			<begin>Freundin</begin>
@@ -1104,7 +1104,7 @@
 			<category>Social</category>
 			<transport>Tram</transport>
 			<duration>9</duration>
-			<distance>100</distance>
+			<distance>3000</distance>
 		</activity>
 		<activity>
 			<begin>Albertplatz</begin>
@@ -1114,7 +1114,7 @@
 			<category>Social</category>
 			<transport>by Feet</transport>
 			<duration>12</duration>
-			<distance>100</distance>
+			<distance>500</distance>
 		</activity>
 	</tag>
 	
@@ -1127,7 +1127,7 @@
 			<category>Home</category>
 			<transport>by Feet</transport>
 			<duration>111</duration>
-			<distance>100</distance>
+			<distance>3000</distance>
 		</activity>
 		<activity>
 			<begin>Home</begin>
@@ -1137,7 +1137,7 @@
 			<category>Freizeit</category>
 			<transport>Tram</transport>
 			<duration>15</duration>
-			<distance>100</distance>
+			<distance>1400</distance>
 		</activity>
 		<activity>
 			<begin>Stadion</begin>
@@ -1147,7 +1147,7 @@
 			<category>Social</category>
 			<transport>by Feet</transport>
 			<duration>5</duration>
-			<distance>100</distance>
+			<distance>180</distance>
 		</activity>
 		<activity>
 			<begin>Torwirtschaft</begin>
@@ -1157,7 +1157,7 @@
 			<category>Home</category>
 			<transport>by Feet</transport>
 			<duration>25</duration>
-			<distance>100</distance>
+			<distance>1400</distance>
 		</activity>
 	</tag>		
 </person>
