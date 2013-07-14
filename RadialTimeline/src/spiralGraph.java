@@ -750,8 +750,10 @@ public class spiralGraph extends PApplet {
 							} else {
 								timeSlotColor = home;
 							}
-							addTimeSlot(timeSlotColor, 4, 0, 1440);
-
+							println("dirtyhack");
+							if(act0.getHuman().getName().equals("Tom")){
+								addTimeSlot(timeSlotColor, 4, 0, 1440);
+							}
 							dirtyhackdrawnonce = true;
 						}
 						dontdraw = true;
