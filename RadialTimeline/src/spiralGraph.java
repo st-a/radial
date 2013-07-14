@@ -535,7 +535,7 @@ public class spiralGraph extends PApplet {
 
 	public void addData() {
 
-		meansOfTransportStrings[0] = "zu Fuß";
+		meansOfTransportStrings[0] = "zu Fuss";
 		percentagesOfTransports[0] = 0;
 		colorsTransport[0] = byFeet;
 
