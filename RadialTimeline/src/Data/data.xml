@@ -610,7 +610,7 @@
 			<end>Edeka</end>
 			<endTime hour="12" minutes="35"></endTime>
 			<category>Freizeit</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>3</duration>
 			<distance>300</distance>
 		</activity>
@@ -620,7 +620,7 @@
 			<end>Home</end>
 			<endTime hour="12" minutes="52"></endTime>
 			<category>Freizeit</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>2</duration>
 			<distance>300</distance>
 		</activity>
@@ -660,7 +660,7 @@
 			<end>Großer Garten</end>
 			<endTime hour="19" minutes="14"></endTime>
 			<category>Social</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>8</duration>
 			<distance>1000</distance>
 		</activity>
@@ -670,7 +670,7 @@
 			<end>Home</end>
 			<endTime hour="20" minutes="14"></endTime>
 			<category>Home</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>9</duration>
 			<distance>1000</distance>
 		</activity>
@@ -733,7 +733,7 @@
 			<end>Bärenzwinger</end>
 			<endTime hour="19" minutes="3"></endTime>
 			<category>Social</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>8</duration>
 			<distance>450</distance>
 		</activity>
@@ -743,7 +743,7 @@
 			<end>Home</end>
 			<endTime hour="23" minutes="20"></endTime>
 			<category>Home</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>40</duration>
 			<distance>2200</distance>
 		</activity>
@@ -766,7 +766,7 @@
 			<end>Alte Mensa</end>
 			<endTime hour="12" minutes="3"></endTime>
 			<category>Uni</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>6</duration>
 			<distance>400</distance>
 		</activity>
@@ -775,8 +775,8 @@
 			<beginTime hour="12" minutes="25"></beginTime>
 			<end>TU Informatik</end>
 			<endTime hour="12" minutes="31"></endTime>
-			<category>Uni</category>
-			<transport>by Feet</transport>
+			<category>Work</category>
+			<transport>by feet</transport>
 			<duration>6</duration>
 			<distance>400</distance>
 		</activity>
@@ -796,7 +796,7 @@
 			<end>Großer Garten</end>
 			<endTime hour="15" minutes="47"></endTime>
 			<category>Social</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>7</duration>
 			<distance>1000</distance>
 		</activity>
@@ -806,7 +806,7 @@
 			<end>Home</end>
 			<endTime hour="17" minutes="30"></endTime>
 			<category>Home</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>13</duration>
 			<distance>1000</distance>
 		</activity>
@@ -1012,7 +1012,7 @@
 			<end>Sportscheck</end>
 			<endTime hour="10" minutes="13"></endTime>
 			<category>Freizeit</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>6</duration>
 			<distance>200</distance>
 		</activity>
@@ -1022,7 +1022,7 @@
 			<end>Altmarkt</end>
 			<endTime hour="11" minutes="14"></endTime>
 			<category>Freizeit</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>6</duration>
 			<distance>200</distance>
 		</activity>
@@ -1042,7 +1042,7 @@
 			<end>Home</end>
 			<endTime hour="11" minutes="33"></endTime>
 			<category>Home</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>1</duration>
 			<distance>200</distance>
 		</activity>
@@ -1052,7 +1052,7 @@
 			<end>Großer Garten</end>
 			<endTime hour="14" minutes="0"></endTime>
 			<category>Social</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>10</duration>
 			<distance>1000</distance>
 		</activity>
@@ -1062,7 +1062,7 @@
 			<end>Home</end>
 			<endTime hour="16" minutes="20"></endTime>
 			<category>Home</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>5</duration>
 			<distance>1000</distance>
 		</activity>
@@ -1072,7 +1072,7 @@
 			<end>Edeka</end>
 			<endTime hour="17" minutes="42"></endTime>
 			<category>Freizeit</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>2</duration>
 			<distance>300</distance>
 		</activity>
@@ -1082,7 +1082,7 @@
 			<end>Home</end>
 			<endTime hour="18" minutes="3"></endTime>
 			<category>Home</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>2</duration>
 			<distance>300</distance>
 		</activity>
@@ -1112,7 +1112,7 @@
 			<end>Downtown</end>
 			<endTime hour="23" minutes="10"></endTime>
 			<category>Social</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>12</duration>
 			<distance>500</distance>
 		</activity>
@@ -1125,7 +1125,7 @@
 			<end>Home</end>
 			<endTime hour="3" minutes="6"></endTime>
 			<category>Home</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>111</duration>
 			<distance>3000</distance>
 		</activity>
@@ -1145,7 +1145,7 @@
 			<end>Torwirtschaft</end>
 			<endTime hour="15" minutes="35"></endTime>
 			<category>Social</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>5</duration>
 			<distance>180</distance>
 		</activity>
@@ -1155,7 +1155,7 @@
 			<end>Home</end>
 			<endTime hour="17" minutes="25"></endTime>
 			<category>Home</category>
-			<transport>by Feet</transport>
+			<transport>by feet</transport>
 			<duration>25</duration>
 			<distance>1400</distance>
 		</activity>
