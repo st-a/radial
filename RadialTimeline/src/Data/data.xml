@@ -435,7 +435,7 @@
 			<beginTime hour="17" minutes="3"></beginTime>
 			<end>USV Rudern Bootshaus</end>
 			<endTime hour="17" minutes="17"></endTime>
-			<category>Freizeit</category>
+			<category>Social</category>
 			<transport>Fahrrad</transport>
 			<duration>14</duration>
 			<distance>3900</distance>
@@ -498,7 +498,7 @@
 			<beginTime hour="16" minutes="49"></beginTime>
 			<end>USV Rudern Bootshaus</end>
 			<endTime hour="17" minutes="1"></endTime>
-			<category>Freizeit</category>
+			<category>Social</category>
 			<transport>Fahrrad</transport>
 			<duration>12</duration>
 			<distance>3900</distance>
@@ -585,20 +585,323 @@
 <person name="Sophia">
 	<tag name="Montag">
 		<activity>
+			<begin>Home</begin>
+			<beginTime hour="8" minutes="45"></beginTime>
+			<end>TU Informatik</end>
+			<endTime hour="9" minutes="11"></endTime>
+			<category>Uni</category>
+			<transport>Fahrrad</transport>
+			<duration>26</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>TU Informatik</begin>
+			<beginTime hour="10" minutes="52"></beginTime>
+			<end>zu Hause</end>
+			<endTime hour="11" minutes="10"></endTime>
+			<category>Home</category>
+			<transport>Fahrrad</transport>
+			<duration>18</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>zu Hause</begin>
+			<beginTime hour="12" minutes="32"></beginTime>
+			<end>Edeka</end>
+			<endTime hour="12" minutes="35"></endTime>
+			<category>Freizeit</category>
+			<transport>by Feet</transport>
+			<duration>3</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Edeka</begin>
+			<beginTime hour="12" minutes="50"></beginTime>
+			<end>Home</end>
+			<endTime hour="12" minutes="52"></endTime>
+			<category>Freizeit</category>
+			<transport>by Feet</transport>
+			<duration>2</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Home</begin>
+			<beginTime hour="16" minutes="10"></beginTime>
+			<end>TU Informatik</end>
+			<endTime hour="16" minutes="32"></endTime>
+			<category>Uni</category>
+			<transport>Fahrrad</transport>
+			<duration>22</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>TU Informatik</begin>
+			<beginTime hour="18" minutes="20"></beginTime>
+			<end>Stadion</end>
+			<endTime hour="18" minutes="35"></endTime>
+			<category>Freizeit</category>
+			<transport>Fahrrad</transport>
+			<duration>15</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Stadion</begin>
+			<beginTime hour="18" minutes="45"></beginTime>
+			<end>Home</end>
+			<endTime hour="18" minutes="52"></endTime>
+			<category>Home</category>
+			<transport>Fahrrad</transport>
+			<duration>7</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Home</begin>
+			<beginTime hour="19" minutes="6"></beginTime>
+			<end>Großer Garten</end>
+			<endTime hour="19" minutes="14"></endTime>
+			<category>Social</category>
+			<transport>by Feet</transport>
+			<duration>8</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Großer Garten</begin>
+			<beginTime hour="20" minutes="5"></beginTime>
+			<end>Home</end>
+			<endTime hour="20" minutes="14"></endTime>
+			<category>Home</category>
+			<transport>by Feet</transport>
+			<duration>9</duration>
+			<distance>100</distance>
 		</activity>
 	</tag>
 	
 	<tag name="Dienstag">
 		<activity>
+			<begin>Home</begin>
+			<beginTime hour="8" minutes="57"></beginTime>
+			<end>Sprachkurs</end>
+			<endTime hour="9" minutes="15"></endTime>
+			<category>Uni</category>
+			<transport>Fahrrad</transport>
+			<duration>18</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Sprachkurs</begin>
+			<beginTime hour="10" minutes="55"></beginTime>
+			<end>Home</end>
+			<endTime hour="11" minutes="17"></endTime>
+			<category>Home</category>
+			<transport>Fahrrad</transport>
+			<duration>22</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Home</begin>
+			<beginTime hour="14" minutes="35"></beginTime>
+			<end>Citybeach</end>
+			<endTime hour="15" minutes="0"></endTime>
+			<category>Social</category>
+			<transport>Fahrrad</transport>
+			<duration>25</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Citybeach</begin>
+			<beginTime hour="17" minutes="15"></beginTime>
+			<end>Home</end>
+			<endTime hour="17" minutes="42"></endTime>
+			<category>Home</category>
+			<transport>Fahrrad</transport>
+			<duration>27</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Home</begin>
+			<beginTime hour="18" minutes="47"></beginTime>
+			<end>Pirnaischer Platz</end>
+			<endTime hour="18" minutes="54"></endTime>
+			<category>Social</category>
+			<transport>Tram</transport>
+			<duration>7</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Pirnaischer Platz</begin>
+			<beginTime hour="18" minutes="55"></beginTime>
+			<end>Bärenzwinger</end>
+			<endTime hour="19" minutes="3"></endTime>
+			<category>Social</category>
+			<transport>by Feet</transport>
+			<duration>8</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Bärenzwinger</begin>
+			<beginTime hour="22" minutes="40"></beginTime>
+			<end>Home</end>
+			<endTime hour="23" minutes="20"></endTime>
+			<category>Home</category>
+			<transport>by Feet</transport>
+			<duration>40</duration>
+			<distance>100</distance>
 		</activity>
 	</tag>
 	
 	<tag name="Mittwoch">
 		<activity>
+			<begin>Home</begin>
+			<beginTime hour="11" minutes="30"></beginTime>
+			<end>TU Informatik</end>
+			<endTime hour="11" minutes="57"></endTime>
+			<category>Uni</category>
+			<transport>Fahrrad</transport>
+			<duration>27</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>TU Informatik</begin>
+			<beginTime hour="11" minutes="57"></beginTime>
+			<end>Alte Mensa</end>
+			<endTime hour="12" minutes="3"></endTime>
+			<category>Uni</category>
+			<transport>by Feet</transport>
+			<duration>6</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Alte Mensa</begin>
+			<beginTime hour="12" minutes="25"></beginTime>
+			<end>TU Informatik</end>
+			<endTime hour="12" minutes="31"></endTime>
+			<category>Uni</category>
+			<transport>by Feet</transport>
+			<duration>6</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>TU Informatik</begin>
+			<beginTime hour="14" minutes="50"></beginTime>
+			<end>Home</end>
+			<endTime hour="15" minutes="12"></endTime>
+			<category>Home</category>
+			<transport>Fahrrad</transport>
+			<duration>22</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Home</begin>
+			<beginTime hour="15" minutes="40"></beginTime>
+			<end>Großer Garten</end>
+			<endTime hour="15" minutes="47"></endTime>
+			<category>Social</category>
+			<transport>by Feet</transport>
+			<duration>7</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Großer Garten</begin>
+			<beginTime hour="17" minutes="17"></beginTime>
+			<end>Home</end>
+			<endTime hour="17" minutes="30"></endTime>
+			<category>Home</category>
+			<transport>by Feet</transport>
+			<duration>13</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Home</begin>
+			<beginTime hour="18" minutes="47"></beginTime>
+			<end>Shamrock</end>
+			<endTime hour="19" minutes="0"></endTime>
+			<category>Social</category>
+			<transport>Fahrrad</transport>
+			<duration>13</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Shamrock</begin>
+			<beginTime hour="23" minutes="13"></beginTime>
+			<end>Home</end>
+			<endTime hour="23" minutes="25"></endTime>
+			<category>Home</category>
+			<transport>Fahrrad</transport>
+			<duration>12</duration>
+			<distance>100</distance>
 		</activity>
 	</tag>
+
 	<tag name="Donnerstag">
 		<activity>
+			<begin>Home</begin>
+			<beginTime hour="7" minutes="12"></beginTime>
+			<end>Sprachkurs</end>
+			<endTime hour="7" minutes="27"></endTime>
+			<category>Uni</category>
+			<transport>Fahrrad</transport>
+			<duration>15</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Sprachkurs</begin>
+			<beginTime hour="9" minutes="5"></beginTime>
+			<end>Home</end>
+			<endTime hour="9" minutes="20"></endTime>
+			<category>Home</category>
+			<transport>Fahrrad</transport>
+			<duration>15</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Home</begin>
+			<beginTime hour="10" minutes="50"></beginTime>
+			<end>Bikeland</end>
+			<endTime hour="11" minutes="5"></endTime>
+			<category>Freizeit</category>
+			<transport>Fahrrad</transport>
+			<duration>15</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Bikeland</begin>
+			<beginTime hour="11" minutes="15"></beginTime>
+			<end>Home</end>
+			<endTime hour="11" minutes="35"></endTime>
+			<category>Home</category>
+			<transport>Tram</transport>
+			<duration>20</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Home</begin>
+			<beginTime hour="11" minutes="55"></beginTime>
+			<end>Hauptbahnhof Dresden</end>
+			<endTime hour="12" minutes="20"></endTime>
+			<category>Freizeit</category>
+			<transport>Tram</transport>
+			<duration>25</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Hauptbahnhof Dresden</begin>
+			<beginTime hour="12" minutes="51"></beginTime>
+			<end>Hauptbahnhof Duisburg</end>
+			<endTime hour="19" minutes="51"></endTime>
+			<category>Freizeit</category>
+			<transport>Tram</transport>
+			<duration>420</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Hauptbahnhof Duisburg</begin>
+			<beginTime hour="20" minutes="24"></beginTime>
+			<end>Neukirchen-Vluyn</end>
+			<endTime hour="20" minutes="38"></endTime>
+			<category>Social</category>
+			<transport>Auto</transport>
+			<duration>14</duration>
+			<distance>100</distance>
 		</activity>
 	</tag>
 	
@@ -694,12 +997,168 @@
 	
 	<tag name="Samstag">
 		<activity>
+			<begin>Home</begin>
+			<beginTime hour="9" minutes="55"></beginTime>
+			<end>Altmarkt</end>
+			<endTime hour="10" minutes="7"></endTime>
+			<category>Freizeit</category>
+			<transport>Tram</transport>
+			<duration>12</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Altmarkt</begin>
+			<beginTime hour="10" minutes="7"></beginTime>
+			<end>Sportscheck</end>
+			<endTime hour="10" minutes="13"></endTime>
+			<category>Freizeit</category>
+			<transport>by Feet</transport>
+			<duration>6</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Sportscheck</begin>
+			<beginTime hour="11" minutes="5"></beginTime>
+			<end>Altmarkt</end>
+			<endTime hour="11" minutes="14"></endTime>
+			<category>Freizeit</category>
+			<transport>by Feet</transport>
+			<duration>6</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Altmarkt</begin>
+			<beginTime hour="11" minutes="20"></beginTime>
+			<end>Fetscherplatz</end>
+			<endTime hour="11" minutes="32"></endTime>
+			<category>Home</category>
+			<transport>Tram</transport>
+			<duration>12</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Fetscherplatz</begin>
+			<beginTime hour="11" minutes="32"></beginTime>
+			<end>Home</end>
+			<endTime hour="11" minutes="33"></endTime>
+			<category>Home</category>
+			<transport>by Feet</transport>
+			<duration>1</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Home</begin>
+			<beginTime hour="13" minutes="50"></beginTime>
+			<end>Großer Garten</end>
+			<endTime hour="14" minutes="0"></endTime>
+			<category>Social</category>
+			<transport>by Feet</transport>
+			<duration>10</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Großer Garten</begin>
+			<beginTime hour="16" minutes="15"></beginTime>
+			<end>Home</end>
+			<endTime hour="16" minutes="20"></endTime>
+			<category>Home</category>
+			<transport>by Feet</transport>
+			<duration>5</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Home</begin>
+			<beginTime hour="17" minutes="40"></beginTime>
+			<end>Edeka</end>
+			<endTime hour="17" minutes="42"></endTime>
+			<category>Freizeit</category>
+			<transport>by Feet</transport>
+			<duration>2</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Edeka</begin>
+			<beginTime hour="18" minutes="1"></beginTime>
+			<end>Home</end>
+			<endTime hour="18" minutes="3"></endTime>
+			<category>Home</category>
+			<transport>by Feet</transport>
+			<duration>2</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Home</begin>
+			<beginTime hour="20" minutes="45"></beginTime>
+			<end>Freundin</end>
+			<endTime hour="21" minutes="05"></endTime>
+			<category>Social</category>
+			<transport>Tram</transport>
+			<duration>20</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Freundin</begin>
+			<beginTime hour="22" minutes="47"></beginTime>
+			<end>Albertplatz</end>
+			<endTime hour="22" minutes="56"></endTime>
+			<category>Social</category>
+			<transport>Tram</transport>
+			<duration>9</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Albertplatz</begin>
+			<beginTime hour="22" minutes="58"></beginTime>
+			<end>Downtown</end>
+			<endTime hour="23" minutes="10"></endTime>
+			<category>Social</category>
+			<transport>by Feet</transport>
+			<duration>12</duration>
+			<distance>100</distance>
 		</activity>
 	</tag>
 	
 	<tag name="Sonntag">
 		<activity>
-		</activity>				
+			<begin>Downtown</begin>
+			<beginTime hour="1" minutes="15"></beginTime>
+			<end>Home</end>
+			<endTime hour="3" minutes="6"></endTime>
+			<category>Home</category>
+			<transport>by Feet</transport>
+			<duration>111</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Home</begin>
+			<beginTime hour="12" minutes="15"></beginTime>
+			<end>Stadion</end>
+			<endTime hour="12" minutes="30"></endTime>
+			<category>Freizeit</category>
+			<transport>Tram</transport>
+			<duration>15</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Stadion</begin>
+			<beginTime hour="15" minutes="30"></beginTime>
+			<end>Torwirtschaft</end>
+			<endTime hour="15" minutes="35"></endTime>
+			<category>Social</category>
+			<transport>by Feet</transport>
+			<duration>5</duration>
+			<distance>100</distance>
+		</activity>
+		<activity>
+			<begin>Torwirtschaft</begin>
+			<beginTime hour="17" minutes="0"></beginTime>
+			<end>Home</end>
+			<endTime hour="17" minutes="25"></endTime>
+			<category>Home</category>
+			<transport>by Feet</transport>
+			<duration>25</duration>
+			<distance>100</distance>
+		</activity>
 	</tag>		
 </person>
 
