@@ -68,7 +68,7 @@ public class bundlingEdges extends PApplet {
 		freeSpaceInDegrees = (0.1f * 360) / ammountOfPlaces;
 
 		drawBeziers = true;
-		legend = createFont("../src/typo/OpenSans-Light.ttf", 12);
+		legend = createFont("typo/OpenSans-Light.ttf", 12);
 
 	}
 
@@ -292,7 +292,7 @@ public class bundlingEdges extends PApplet {
 		float[] outOfWork = { 0f, 0f, 0f, 0f, 0f };
 		float[] outOfFreeTime = { 0f, 0f, 0f, 0f, 0f };
 
-		Dataset dtst = new Dataset("../src/Data/data.xml");
+		Dataset dtst = new Dataset("src/data/data.xml");
 
 		Activity[] allActivities = null;
 		if (person.length == 1) {
@@ -366,35 +366,35 @@ public class bundlingEdges extends PApplet {
 		float[] percenteges = helper.calculatePercenteges(placesAndPercentages);
 
 		place home = new place(0, "Home", percenteges[0],
-				"../src/Icons/iconHome.png");
+				"Icons/iconHome.png");
 		home.setColor(color(255, 123, 106));
 		home.setIndex(0);
 		home.setOutgoings(outOfHome);
 		this.places.add(home);
 
 		place uni = new place(1, "Uni", percenteges[1],
-				"../src/Icons/iconUni.png");
+				"Icons/iconUni.png");
 		uni.setColor(color(255, 242, 190));
 		uni.setIndex(1);
 		uni.setOutgoings(outOfUni);
 		this.places.add(uni);
 
 		place social = new place(2, "Social", percenteges[2],
-				"../src/Icons/iconSocial.png");
+				"Icons/iconSocial.png");
 		social.setColor(color(170, 235, 140));
 		social.setIndex(2);
 		social.setOutgoings(outOfSocial);
 		this.places.add(social);
 
 		place work = new place(3, "Work", percenteges[3],
-				"../src/Icons/iconWork.png");
+				"Icons/iconWork.png");
 		work.setColor(color(53, 189, 144));
 		work.setIndex(3);
 		work.setOutgoings(outOfWork);
 		this.places.add(work);
 
 		place freeTime = new place(4, "Freetime", percenteges[4],
-				"../src/Icons/iconFreetime.png");
+				"Icons/iconFreetime.png");
 		freeTime.setColor(color(0, 150, 163));
 		freeTime.setIndex(4);
 		freeTime.setOutgoings(outOfFreeTime);

@@ -64,7 +64,7 @@ public class spiralGraph extends PApplet {
 		this.ammountOfDays = RangeOfdays[1] - RangeOfdays[0];
 
 		helper = new helperForSpiralGraph(scale, radius, centerX, centerY, days);
-		legend = createFont("../src/typo/OpenSans-Light.ttf", 12);
+		legend = createFont("typo/OpenSans-Light.ttf", 12);
 
 	}
 
@@ -571,7 +571,7 @@ public class spiralGraph extends PApplet {
 		percentagesPlaces[4] = 0;
 		colorsPlaces[4] = freeTime;
 
-		Dataset dtst = new Dataset("../src/Data/data.xml");
+		Dataset dtst = new Dataset("src/data/data.xml");
 
 		Activity[] allActivities = null;
 		if (person.equals("all")) {

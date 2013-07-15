@@ -10,23 +10,23 @@ public class Application extends PApplet {
 	String[] aDay = { "Montag", "Dienstag", "Mittwoch", "Donnerstag",
 			"Freitag", "Samstag", "Sonntag" };
 	int[] rangeOfDays = {1,7};
-	PImage bEdgeIcon = loadImage("../src/Icons/bundling.png");
-	PImage spiderIcon = loadImage("../src/Icons/spider.png");
-	PImage spiralIcon = loadImage("../src/Icons/spiral.png");
-	PImage singleIcon = loadImage("../src/Icons/single.png");
-	PImage matrixIcon = loadImage("../src/Icons/matrix.png");
+	PImage bEdgeIcon = loadImage("Icons/bundling.png");
+	PImage spiderIcon = loadImage("Icons/spider.png");
+	PImage spiralIcon = loadImage("Icons/spiral.png");
+	PImage singleIcon = loadImage("Icons/single.png");
+	PImage matrixIcon = loadImage("Icons/matrix.png");
 	
-	PImage iconF = loadImage("../src/Icons/iconFreetime.png");
-	PImage iconW = loadImage("../src/Icons/iconWork.png");
-	PImage iconS = loadImage("../src/Icons/iconSocial.png");
-	PImage iconU = loadImage("../src/Icons/iconUni.png");
-	PImage iconH = loadImage("../src/Icons/iconHome.png");
+	PImage iconF = loadImage("Icons/iconFreetime.png");
+	PImage iconW = loadImage("Icons/iconWork.png");
+	PImage iconS = loadImage("Icons/iconSocial.png");
+	PImage iconU = loadImage("Icons/iconUni.png");
+	PImage iconH = loadImage("Icons/iconHome.png");
 	PImage[] aIcons = {iconF,iconW,iconS,iconU,iconH};
 
-	PFont interfaceHealines = createFont("../src/typo/OpenSans-Regular.ttf", 18);
-	PFont legendenText = createFont("../src/typo/OpenSans-Light.ttf", 12);
-	PFont normalText = createFont("../src/typo/OpenSans-Light.ttf", 18);
-	PFont Headlines = createFont("../src/typo/OpenSans-Regular.ttf", 28);
+	PFont interfaceHealines = createFont("typo/OpenSans-Regular.ttf", 18);
+	PFont legendenText = createFont("typo/OpenSans-Light.ttf", 12);
+	PFont normalText = createFont("typo/OpenSans-Light.ttf", 18);
+	PFont Headlines = createFont("typo/OpenSans-Regular.ttf", 28);
 	String vizLabel = "Bundling Edges";
 	ControlP5 cp5;
 	RadioButton dayBtn;
@@ -49,7 +49,7 @@ public class Application extends PApplet {
 		background(42);
 
 		// Dataset
-		d = new Dataset("../src/Data/data.xml");
+		d = new Dataset("src/data/data.xml");
 		aHuman[0] = d.getPerson("Albert");
 		// control
 		cp5 = new ControlP5(this);
@@ -386,5 +386,10 @@ public class Application extends PApplet {
 			this.redraw = true;
 		}
 	}
+	
+	
+	public static void main(String args[]) {
+	    PApplet.main(new String[] { "--present", "Application" });
+	  }
 
 }
