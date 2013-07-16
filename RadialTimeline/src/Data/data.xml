@@ -889,7 +889,7 @@
 			<end>Hauptbahnhof Duisburg</end>
 			<endTime hour="19" minutes="51"></endTime>
 			<category>Freizeit</category>
-			<transport>Tram</transport>
+			<transport>Auto</transport>
 			<duration>420</duration>
 			<distance>58700</distance>
 		</activity>
